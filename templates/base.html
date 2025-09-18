@@ -15,14 +15,19 @@
     <meta name="twitter:card" content="{{ config.extra.twitter_card }}" />
     <meta name="twitter:site" content="{{ config.extra.twitter_site }}" />
     <meta name="twitter:creator" content="{{ config.extra.twitter_creator }}" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)" />
+    <meta name="color-scheme" content="light dark" />
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml') }}" />
-    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="preload" href="/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="/css/main.css" /></noscript>
   </head>
   <body class="min-h-screen flex flex-col">
-    <header class="border-b">
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-black focus:px-3 focus:py-2 focus:rounded">Skip to main content</a>
+    <header class="border-b" role="banner">
       <div class="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
         <a href="/" class="font-semibold">{{ config.extra.site_name }}</a>
-        <nav class="text-sm">
+        <nav class="text-sm" aria-label="Primary">
           <ul class="flex gap-4">
             {% for item in config.extra.nav.items %}
               <li><a class="hover:underline" href="{{ item.url }}">{{ item.name }}</a></li>
@@ -31,15 +36,25 @@
         </nav>
       </div>
     </header>
-    <main class="flex-1">
+    <main id="main" class="flex-1" tabindex="-1">
       {% block content %}{% endblock content %}
     </main>
-    <footer class="border-t">
+    <footer class="border-t" role="contentinfo">
       <div class="mx-auto max-w-7xl px-4 py-8 text-sm text-gray-600">
         <p>&copy; {{ now() | date(format="%Y") }} {{ config.extra.company_name }}. All rights reserved.</p>
         <p>Contact: <a class="hover:underline" href="mailto:{{ config.extra.contact_email }}">{{ config.extra.contact_email }}</a></p>
       </div>
     </footer>
+    <script>
+      (function(){
+        try {
+          if ('loading' in HTMLImageElement.prototype) {
+            document.querySelectorAll('img:not([loading])').forEach(function(img){ img.loading = 'lazy'; });
+          }
+          document.querySelectorAll('img:not([decoding])').forEach(function(img){ img.decoding = 'async'; });
+        } catch (e) {}
+      })();
+    </script>
   </body>
   </html>
 

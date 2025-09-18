@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <article class="mx-auto max-w-4xl px-4 py-12">
+    <header class="mb-8">
+      <h1 class="text-4xl font-semibold mb-4">{{ page.title }}</h1>
+      <div class="flex items-center gap-4 text-sm text-gray-600 mb-6">
+        <time datetime="{{ page.date | date(format='%Y-%m-%d') }}">
+          {{ page.date | date(format='%B %d, %Y') }}
+        </time>
+        {% if page.taxonomies.tags %}
+          <span>•</span>
+          <div class="flex gap-2">
+            {% for tag in page.taxonomies.tags %}
+              <span class="bg-gray-100 px-2 py-1 rounded text-xs">{{ tag }}</span>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      {% if page.description %}
+        <p class="text-lg text-gray-700">{{ page.description }}</p>
+      {% endif %}
+    </header>
+
+    <div class="prose max-w-none">
+      {{ page.content | safe }}
+    </div>
+
+    <footer class="mt-12 pt-8 border-t">
+      <div class="flex justify-between items-center">
+        <div>
+          <p class="text-sm text-gray-600">
+            Published on {{ page.date | date(format='%B %d, %Y') }}
+            {% if page.updated %}
+              • Updated on {{ page.updated | date(format='%B %d, %Y') }}
+            {% endif %}
+          </p>
+        </div>
+        <div class="flex gap-4">
+          <a href="/blog/" class="text-sm text-blue-600 hover:underline">← Back to Blog</a>
+          <a href="/rss.xml" class="text-sm text-blue-600 hover:underline">RSS Feed</a>
+        </div>
+      </div>
+    </footer>
+  </article>
+{% endblock content %}
