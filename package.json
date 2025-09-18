@@ -1,0 +1,15 @@
+{
+  "name": "ccc-website",
+  "private": true,
+  "scripts": {
+    "dev": "tailwindcss -i ./assets/css/main.css -o ./static/css/main.css --watch",
+    "build:css": "tailwindcss -i ./assets/css/main.css -o ./static/css/main.css --minify",
+    "build": "npm run build:css && zola build",
+    "serve": "zola serve"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.0.0",
+    "tailwindcss": "^4.0.0"
+  }
+}
+

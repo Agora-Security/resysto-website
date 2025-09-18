@@ -1,0 +1,37 @@
+base_url = "https://ccc.com/" # TODO: update to custom domain when decided
+title = "Cyber Control Center (CCC)"
+description = "Central Cyber Resilience and Data Protection platform to govern and manage cybersecurity and privacy."
+default_language = "en"
+compile_sass = false
+minify_html = true
+generate_feed = true
+generate_sitemap = true
+taxonomies = [
+  { name = "tags", rss = true },
+]
+
+[markdown]
+highlight_code = true
+highlight_theme = "ayu-dark"
+
+[extra]
+site_name = "Cyber Control Center"
+og_type = "website"
+twitter_card = "summary_large_image"
+twitter_site = "@agorasecurity"
+twitter_creator = "@agorasecurity"
+default_image = "/images/og-default.svg"
+canonical_base = "https://ccc.com" # TODO: update when domain is set
+company_name = "Agora Security"
+contact_email = "info@agorasecurity.it"
+
+[extra.nav]
+items = [
+  { name = "Features", url = "/features/" },
+  { name = "Roadmap", url = "/roadmap/" },
+  { name = "Partners", url = "/partners/" },
+  { name = "Blog", url = "/blog/" },
+  { name = "About", url = "/about/" },
+  { name = "Access", url = "/access/" },
+]
+
