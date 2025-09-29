@@ -1,0 +1,860 @@
+openapi: 3.0.0
+info:
+  title: Content API Contract
+  description: API contract for content management and layout operations
+  version: 1.0.0
+  contact:
+    name: Resysto Website Team
+
+servers:
+  - url: https://api.resysto.com/v1
+    description: Production server
+  - url: https://staging-api.resysto.com/v1
+    description: Staging server
+
+paths:
+  /pages:
+    get:
+      summary: List all pages
+      description: Retrieve a list of all website pages with metadata
+      operationId: listPages
+      tags:
+        - Pages
+      parameters:
+        - name: content_type
+          in: query
+          description: Filter by content type
+          schema:
+            type: string
+            enum: [about, access, blog, features, partners, roadmap]
+        - name: audience_target
+          in: query
+          description: Filter by target audience
+          schema:
+            type: string
+            enum: [technical, business, both]
+        - name: content_length
+          in: query
+          description: Filter by content length
+          schema:
+            type: string
+            enum: [short, medium, long]
+        - name: sort
+          in: query
+          description: Sort field
+          schema:
+            type: string
+            enum: [navigation_order, title, last_updated]
+            default: navigation_order
+        - name: order
+          in: query
+          description: Sort order
+          schema:
+            type: string
+            enum: [asc, desc]
+            default: asc
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  pages:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PageSummary'
+                  total:
+                    type: integer
+                    description: Total number of pages
+                  filters:
+                    type: object
+                    description: Applied filters
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+    post:
+      summary: Create a new page
+      description: Create a new page with content and metadata
+      operationId: createPage
+      tags:
+        - Pages
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PageCreate'
+      responses:
+        '201':
+          description: Page created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+
+  /pages/{page_id}:
+    get:
+      summary: Get page details
+      description: Retrieve detailed information about a specific page
+      operationId: getPage
+      tags:
+        - Pages
+      parameters:
+        - name: page_id
+          in: path
+          required: true
+          description: Page identifier
+          schema:
+            type: string
+        - name: include_sections
+          in: query
+          description: Include page sections
+          schema:
+            type: boolean
+            default: true
+        - name: include_media
+          in: query
+          description: Include media assets
+          schema:
+            type: boolean
+            default: true
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+    put:
+      summary: Update page
+      description: Update an existing page with new content or metadata
+      operationId: updatePage
+      tags:
+        - Pages
+      parameters:
+        - name: page_id
+          in: path
+          required: true
+          description: Page identifier
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PageUpdate'
+      responses:
+        '200':
+          description: Page updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Page'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+
+    delete:
+      summary: Delete page
+      description: Delete a page and all its associated content
+      operationId: deletePage
+      tags:
+        - Pages
+      parameters:
+        - name: page_id
+          in: path
+          required: true
+          description: Page identifier
+          schema:
+            type: string
+      responses:
+        '204':
+          description: Page deleted successfully
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /pages/{page_id}/sections:
+    get:
+      summary: Get page sections
+      description: Retrieve all sections for a specific page
+      operationId: getPageSections
+      tags:
+        - Sections
+      parameters:
+        - name: page_id
+          in: path
+          required: true
+          description: Page identifier
+          schema:
+            type: string
+        - name: audience_level
+          in: query
+          description: Filter by audience level
+          schema:
+            type: string
+            enum: [technical, business, both]
+        - name: complexity_level
+          in: query
+          description: Filter by complexity level
+          schema:
+            type: string
+            enum: [basic, intermediate, advanced]
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sections:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Section'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+    post:
+      summary: Create section
+      description: Create a new section within a page
+      operationId: createSection
+      tags:
+        - Sections
+      parameters:
+        - name: page_id
+          in: path
+          required: true
+          description: Page identifier
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SectionCreate'
+      responses:
+        '201':
+          description: Section created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Section'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '422':
+          $ref: '#/components/responses/ValidationError'
+
+  /layout-templates:
+    get:
+      summary: List layout templates
+      description: Retrieve all available layout templates
+      operationId: listLayoutTemplates
+      tags:
+        - Layout Templates
+      parameters:
+        - name: content_type
+          in: query
+          description: Filter by supported content type
+          schema:
+            type: string
+            enum: [about, access, blog, features, partners, roadmap]
+        - name: audience_target
+          in: query
+          description: Filter by target audience
+          schema:
+            type: string
+            enum: [technical, business, both]
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  templates:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/LayoutTemplate'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /layout-templates/{template_id}:
+    get:
+      summary: Get layout template
+      description: Retrieve detailed information about a layout template
+      operationId: getLayoutTemplate
+      tags:
+        - Layout Templates
+      parameters:
+        - name: template_id
+          in: path
+          required: true
+          description: Template identifier
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LayoutTemplate'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalError'
+
+  /media-assets:
+    post:
+      summary: Upload media asset
+      description: Upload and optimize a media asset
+      operationId: uploadMediaAsset
+      tags:
+        - Media Assets
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: Media file to upload
+                alt_text:
+                  type: string
+                  description: Alt text for accessibility
+                caption:
+                  type: string
+                  description: Asset caption
+                usage_context:
+                  type: string
+                  enum: [hero, content, background]
+                  description: Where asset will be used
+      responses:
+        '201':
+          description: Asset uploaded successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MediaAsset'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '413':
+          description: Payload too large
+        '422':
+          $ref: '#/components/responses/ValidationError'
+
+components:
+  schemas:
+    PageSummary:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Page identifier
+        title:
+          type: string
+          description: Page title
+        description:
+          type: string
+          description: Page description
+        content_type:
+          type: string
+          enum: [about, access, blog, features, partners, roadmap]
+        audience_target:
+          type: string
+          enum: [technical, business, both]
+        content_length:
+          type: string
+          enum: [short, medium, long]
+        navigation_order:
+          type: integer
+          description: Order in navigation
+        last_updated:
+          type: string
+          format: date-time
+          description: Last update timestamp
+        url:
+          type: string
+          format: uri
+          description: Page URL
+
+    Page:
+      allOf:
+        - $ref: '#/components/schemas/PageSummary'
+        - type: object
+          properties:
+            word_count:
+              type: integer
+              description: Total word count
+            screen_height_estimate:
+              type: number
+              description: Estimated screen height
+            key_concepts:
+              type: array
+              items:
+                type: string
+              description: Key concepts to highlight
+            sections:
+              type: array
+              items:
+                $ref: '#/components/schemas/Section'
+              description: Page sections
+            media_assets:
+              type: array
+              items:
+                $ref: '#/components/schemas/MediaAsset'
+              description: Media assets
+            published_date:
+              type: string
+              format: date
+              description: Publication date
+
+    PageCreate:
+      type: object
+      required:
+        - title
+        - description
+        - content_type
+        - audience_target
+        - key_concepts
+      properties:
+        title:
+          type: string
+          minLength: 10
+          maxLength: 100
+          description: Page title
+        description:
+          type: string
+          minLength: 50
+          maxLength: 300
+          description: Page description
+        content_type:
+          type: string
+          enum: [about, access, blog, features, partners, roadmap]
+        audience_target:
+          type: string
+          enum: [technical, business, both]
+        navigation_order:
+          type: integer
+          minimum: 1
+          description: Order in navigation
+        key_concepts:
+          type: array
+          items:
+            type: string
+          minItems: 3
+          maxItems: 7
+          description: Key concepts to highlight
+        sections:
+          type: array
+          items:
+            $ref: '#/components/schemas/SectionCreate'
+          description: Page sections
+
+    PageUpdate:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 10
+          maxLength: 100
+          description: Page title
+        description:
+          type: string
+          minLength: 50
+          maxLength: 300
+          description: Page description
+        audience_target:
+          type: string
+          enum: [technical, business, both]
+        navigation_order:
+          type: integer
+          minimum: 1
+          description: Order in navigation
+        key_concepts:
+          type: array
+          items:
+            type: string
+          minItems: 3
+          maxItems: 7
+          description: Key concepts to highlight
+        last_updated:
+          type: string
+          format: date-time
+          description: Last update timestamp
+
+    Section:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Section identifier
+        title:
+          type: string
+          description: Section title
+        content:
+          type: string
+          description: Section content in Markdown
+        audience_level:
+          type: string
+          enum: [technical, business, both]
+        complexity_level:
+          type: string
+          enum: [basic, intermediate, advanced]
+        display_mode:
+          type: string
+          enum: [full, expandable, tabbed]
+        order:
+          type: integer
+          description: Order within page
+        parent_section:
+          type: string
+          description: Parent section ID
+        subsections:
+          type: array
+          items:
+            $ref: '#/components/schemas/Section'
+          description: Child sections
+        media_assets:
+          type: array
+          items:
+            $ref: '#/components/schemas/MediaAsset'
+          description: Section media assets
+
+    SectionCreate:
+      type: object
+      required:
+        - title
+        - content
+        - audience_level
+        - complexity_level
+        - display_mode
+        - order
+      properties:
+        title:
+          type: string
+          minLength: 5
+          maxLength: 80
+          description: Section title
+        content:
+          type: string
+          minLength: 1
+          description: Section content in Markdown
+        audience_level:
+          type: string
+          enum: [technical, business, both]
+        complexity_level:
+          type: string
+          enum: [basic, intermediate, advanced]
+        display_mode:
+          type: string
+          enum: [full, expandable, tabbed]
+        order:
+          type: integer
+          minimum: 1
+          description: Order within page
+        parent_section:
+          type: string
+          description: Parent section ID
+
+    LayoutTemplate:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Template identifier
+        name:
+          type: string
+          description: Template name
+        description:
+          type: string
+          description: Template description
+        content_type:
+          type: string
+          enum: [about, access, blog, features, partners, roadmap]
+        audience_target:
+          type: string
+          enum: [technical, business, both]
+        content_length_support:
+          type: array
+          items:
+            type: string
+            enum: [short, medium, long]
+          description: Supported content lengths
+        components:
+          type: array
+          items:
+            $ref: '#/components/schemas/LayoutComponent'
+          description: Template components
+        responsive_breakpoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/Breakpoint'
+          description: Responsive breakpoints
+        performance_budget:
+          $ref: '#/components/schemas/PerformanceBudget'
+        accessibility_features:
+          type: array
+          items:
+            type: string
+          description: Accessibility features
+
+    LayoutComponent:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Component identifier
+        type:
+          type: string
+          enum: [header, hero, content, sidebar, footer, navigation]
+        name:
+          type: string
+          description: Component name
+        description:
+          type: string
+          description: Component description
+        required:
+          type: boolean
+          description: Whether component is required
+        configurable:
+          type: boolean
+          description: Whether component can be customized
+        content_sources:
+          type: array
+          items:
+            type: string
+          description: Content sources
+        styling:
+          $ref: '#/components/schemas/ComponentStyling'
+        responsive_behavior:
+          type: array
+          items:
+            $ref: '#/components/schemas/ResponsiveBehavior'
+          description: Responsive behavior
+
+    ComponentStyling:
+      type: object
+      properties:
+        color_scheme:
+          type: string
+          enum: [light, dark, auto]
+        typography_scale:
+          type: string
+          enum: [small, medium, large]
+        spacing_unit:
+          type: string
+          enum: [compact, normal, spacious]
+        border_radius:
+          type: string
+          enum: [none, small, medium, large]
+        shadow_level:
+          type: string
+          enum: [none, subtle, medium, strong]
+        animation_level:
+          type: string
+          enum: [none, subtle, moderate]
+
+    Breakpoint:
+      type: object
+      properties:
+        name:
+          type: string
+          enum: [mobile, tablet, desktop]
+        min_width:
+          type: integer
+          minimum: 1
+          description: Minimum width in pixels
+        max_width:
+          type: integer
+          minimum: 1
+          description: Maximum width in pixels
+        component_adjustments:
+          type: array
+          items:
+            $ref: '#/components/schemas/ComponentAdjustment'
+          description: Component adjustments
+
+    ResponsiveBehavior:
+      type: object
+      properties:
+        breakpoint:
+          type: string
+          enum: [mobile, tablet, desktop]
+        adjustment:
+          type: string
+          description: Adjustment description
+
+    ComponentAdjustment:
+      type: object
+      properties:
+        component_id:
+          type: string
+          description: Component identifier
+        adjustment:
+          type: string
+          description: Adjustment description
+
+    PerformanceBudget:
+      type: object
+      properties:
+        total_page_weight_kb:
+          type: integer
+          minimum: 1
+          description: Maximum total page weight in KB
+        css_size_kb:
+          type: integer
+          minimum: 1
+          description: Maximum CSS size in KB
+        js_size_kb:
+          type: integer
+          minimum: 1
+          description: Maximum JavaScript size in KB
+        image_count:
+          type: integer
+          minimum: 0
+          description: Maximum number of images
+        font_count:
+          type: integer
+          minimum: 0
+          description: Maximum number of fonts
+        load_time_seconds:
+          type: integer
+          minimum: 1
+          description: Maximum load time in seconds
+
+    MediaAsset:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Asset identifier
+        type:
+          type: string
+          enum: [image, video, document]
+        filename:
+          type: string
+          description: Original filename
+        alt_text:
+          type: string
+          description: Alt text for accessibility
+        caption:
+          type: string
+          description: Asset caption
+        width:
+          type: integer
+          minimum: 1
+          description: Asset width in pixels
+        height:
+          type: integer
+          minimum: 1
+          description: Asset height in pixels
+        file_size:
+          type: integer
+          minimum: 1
+          description: File size in bytes
+        mime_type:
+          type: string
+          description: MIME type
+        optimization_level:
+          type: string
+          enum: [none, basic, aggressive]
+        usage_context:
+          type: string
+          enum: [hero, content, background]
+        url:
+          type: string
+          format: uri
+          description: Asset URL
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+          description: Error code
+        message:
+          type: string
+          description: Error message
+        details:
+          type: object
+          description: Additional error details
+
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+    ValidationError:
+      description: Validation error
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/Error'
+              - type: object
+                properties:
+                  validation_errors:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        field:
+                          type: string
+                        message:
+                          type: string
+
+    InternalError:
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+
+tags:
+  - name: Pages
+    description: Page management operations
+  - name: Sections
+    description: Section management operations
+  - name: Layout Templates
+    description: Layout template operations
+  - name: Media Assets
+    description: Media asset operations

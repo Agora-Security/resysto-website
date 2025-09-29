@@ -1,58 +1,230 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light" class="no-js">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{% if page.title %}{{ page.title }} | {% endif %}{{ config.extra.site_name }}</title>
     <meta name="description" content="{{ page.description | default(value=config.description) }}" />
     <link rel="canonical" href="{{ config.extra.canonical_base ~ current_url | safe }}" />
+    
+    <!-- Enhanced SEO Meta Tags -->
     <meta property="og:type" content="{{ config.extra.og_type }}" />
     <meta property="og:site_name" content="{{ config.extra.site_name }}" />
     <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ config.extra.site_name }}" />
     <meta property="og:description" content="{{ page.description | default(value=config.description) }}" />
     <meta property="og:url" content="{{ config.extra.canonical_base ~ current_url | safe }}" />
     <meta property="og:image" content="{{ page.extra.og_image | default(value=config.extra.default_image) }}" />
+    
+    <!-- Twitter Cards -->
     <meta name="twitter:card" content="{{ config.extra.twitter_card }}" />
     <meta name="twitter:site" content="{{ config.extra.twitter_site }}" />
     <meta name="twitter:creator" content="{{ config.extra.twitter_creator }}" />
+    
+    <!-- Theme and Accessibility -->
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)" />
     <meta name="color-scheme" content="light dark" />
+    
+    <!-- Audience Targeting Meta -->
+    {% if page.extra.audience %}
+      <meta name="target-audience" content="{{ page.extra.audience | join(sep=', ') }}" />
+    {% endif %}
+    
+    <!-- Performance and Layout Meta -->
+    {% if page.extra.performance_budget %}
+      <meta name="performance-budget" content="{{ page.extra.performance_budget }}" />
+    {% endif %}
+    {% if page.extra.accessibility_compliance %}
+      <meta name="accessibility-compliance" content="{{ page.extra.accessibility_compliance }}" />
+    {% endif %}
+    
+    <!-- Structured Data -->
+    {% if config.extra.enable_structured_data %}
+      <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "{{ config.extra.site_name }}",
+        "description": "{{ config.description }}",
+        "url": "{{ config.extra.canonical_base }}",
+        "publisher": {
+          "@type": "Organization",
+          "name": "{{ config.extra.company_name }}",
+          "email": "{{ config.extra.contact_email }}"
+        }
+      }
+      </script>
+    {% endif %}
+    
+    <!-- Feeds -->
     <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml') }}" />
+    
+    <!-- Theme Toggle Script -->
+    <script>
+      (function() {
+        try {
+          var stored = localStorage.getItem('theme');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = stored || (prefersDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+          document.documentElement.classList.remove('no-js');
+        } catch (e) {}
+      })();
+    </script>
+    
+    <!-- CSS Preload -->
     <link rel="preload" href="/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="/css/main.css" /></noscript>
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="min-h-screen flex flex-col {% if page.extra.layout_type %}layout-{{ page.extra.layout_type }}{% else %}layout-{{ config.extra.default_layout_type }}{% endif %} {% if page.extra.content_density %}density-{{ page.extra.content_density }}{% else %}density-{{ config.extra.default_content_density }}{% endif %}">
+    <div class="site-bg" aria-hidden="true"></div>
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-black focus:px-3 focus:py-2 focus:rounded">Skip to main content</a>
-    <header class="border-b" role="banner">
+    
+    <!-- Enhanced Header with Audience Targeting -->
+    <header class="border-b glass" role="banner" data-audience-targeting="{% if config.extra.enable_audience_targeting %}enabled{% else %}disabled{% endif %}">
       <div class="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
-        <a href="/" class="font-semibold">{{ config.extra.site_name }}</a>
-        <nav class="text-sm" aria-label="Primary">
+        <a href="/" class="font-semibold" aria-label="{{ config.extra.site_name }} home">{{ config.extra.site_name }}</a>
+        
+        <!-- Enhanced Navigation -->
+        <nav class="text-sm" aria-label="Primary navigation">
           <ul class="flex gap-4">
             {% for item in config.extra.nav.items %}
-              <li><a class="hover:underline" href="{{ item.url }}">{{ item.name }}</a></li>
+              <li><a class="hover:underline" href="{{ item.url }}" {% if item.url == current_url %}aria-current="page"{% endif %}>{{ item.name }}</a></li>
             {% endfor %}
           </ul>
         </nav>
+        
+        <!-- Theme Toggle and Accessibility -->
+        <div class="flex items-center gap-2">
+          <button id="theme-toggle" class="px-2 py-1 text-sm border rounded" aria-label="Toggle dark mode" title="Toggle dark mode">
+            <span class="sr-only">Toggle dark mode</span>
+            <span aria-hidden="true">⟲</span>
+          </button>
+          {% if config.extra.enable_audience_targeting %}
+            <button id="audience-toggle" class="px-2 py-1 text-sm border rounded" aria-label="Toggle audience view" title="Switch audience view">
+              <span class="sr-only">Toggle audience view</span>
+              <span aria-hidden="true">👥</span>
+            </button>
+          {% endif %}
+        </div>
       </div>
     </header>
-    <main id="main" class="flex-1" tabindex="-1">
+    
+    <!-- Enhanced Main Content Area -->
+    <main id="main" class="flex-1" tabindex="-1" 
+          {% if page.extra.audience %}data-audience="{{ page.extra.audience | join(sep=' ') }}"{% endif %}
+          {% if page.extra.content_priority %}data-priority="{{ page.extra.content_priority }}"{% endif %}
+          {% if page.extra.show_key_concepts %}data-show-concepts="{{ page.extra.show_key_concepts }}"{% endif %}>
       {% block content %}{% endblock content %}
     </main>
-    <footer class="border-t" role="contentinfo">
+    
+    <!-- Enhanced Footer -->
+    <footer class="border-t glass" role="contentinfo">
       <div class="mx-auto max-w-7xl px-4 py-8 text-sm text-gray-600">
-        <p>&copy; {{ now() | date(format="%Y") }} {{ config.extra.company_name }}. All rights reserved.</p>
-        <p>Contact: <a class="hover:underline" href="mailto:{{ config.extra.contact_email }}">{{ config.extra.contact_email }}</a></p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <p>&copy; {{ now() | date(format="%Y") }} {{ config.extra.company_name }}. All rights reserved.</p>
+            <p>Contact: <a class="hover:underline" href="mailto:{{ config.extra.contact_email }}">{{ config.extra.contact_email }}</a></p>
+          </div>
+          <div class="text-right">
+            {% if config.extra.accessibility_compliance %}
+              <p>Accessibility: {{ config.extra.accessibility_compliance | upper }}</p>
+            {% endif %}
+            {% if config.extra.performance_budget %}
+              <p>Performance Budget: {{ config.extra.performance_budget }}KB</p>
+            {% endif %}
+          </div>
+        </div>
       </div>
     </footer>
     <script>
       (function(){
+        // Performance optimization: lazy loading and async decoding
         try {
           if ('loading' in HTMLImageElement.prototype) {
             document.querySelectorAll('img:not([loading])').forEach(function(img){ img.loading = 'lazy'; });
           }
           document.querySelectorAll('img:not([decoding])').forEach(function(img){ img.decoding = 'async'; });
         } catch (e) {}
+        
+        // Theme toggle functionality
+        var themeBtn = document.getElementById('theme-toggle');
+        if (themeBtn) {
+          themeBtn.addEventListener('click', function(){
+            var root = document.documentElement;
+            var current = root.getAttribute('data-theme') || 'light';
+            var next = current === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', next);
+            try { localStorage.setItem('theme', next); } catch (e) {}
+          });
+        }
+        
+        // Audience targeting functionality
+        var audienceBtn = document.getElementById('audience-toggle');
+        if (audienceBtn) {
+          audienceBtn.addEventListener('click', function(){
+            var body = document.body;
+            var currentAudience = body.getAttribute('data-current-audience') || 'all';
+            var audiences = ['ciso', 'business', 'all'];
+            var currentIndex = audiences.indexOf(currentAudience);
+            var nextIndex = (currentIndex + 1) % audiences.length;
+            var nextAudience = audiences[nextIndex];
+            
+            body.setAttribute('data-current-audience', nextAudience);
+            
+            // Update audience-specific content visibility
+            var audienceContent = document.querySelectorAll('[data-audience-content]');
+            audienceContent.forEach(function(element) {
+              var targetAudience = element.getAttribute('data-audience-content');
+              if (nextAudience === 'all' || targetAudience === nextAudience) {
+                element.style.display = '';
+              } else {
+                element.style.display = 'none';
+              }
+            });
+            
+            // Update button text
+            var audienceLabels = { 'ciso': 'CISO', 'business': 'Business', 'all': 'All' };
+            audienceBtn.setAttribute('title', 'Current view: ' + audienceLabels[nextAudience]);
+          });
+        }
+        
+        // Adaptive layout based on content length
+        function adaptLayoutBasedOnContent() {
+          var main = document.getElementById('main');
+          if (!main) return;
+          
+          var contentLength = main.textContent.length;
+          var thresholds = {{ config.extra.content_thresholds | default(value="{ short = 500, medium = 1500, long = 3000 }") | safe }};
+          
+          var densityClass = 'density-balanced';
+          if (contentLength < thresholds.short) {
+            densityClass = 'density-compact';
+          } else if (contentLength > thresholds.long) {
+            densityClass = 'density-detailed';
+          }
+          
+          document.body.className = document.body.className.replace(/density-\w+/, densityClass);
+        }
+        
+        // Run adaptive layout on load and resize
+        if (window.addEventListener) {
+          window.addEventListener('load', adaptLayoutBasedOnContent);
+          window.addEventListener('resize', adaptLayoutBasedOnContent);
+        }
+        
+        // Performance budget monitoring
+        if (window.performance && window.performance.timing) {
+          window.addEventListener('load', function() {
+            var timing = window.performance.timing;
+            var loadTime = timing.loadEventEnd - timing.navigationStart;
+            var budget = {{ config.extra.performance_budget | default(value=500) }};
+            
+            if (loadTime > budget) {
+              console.warn('Performance budget exceeded: ' + loadTime + 'ms > ' + budget + 'ms');
+            }
+          });
+        }
       })();
     </script>
   </body>

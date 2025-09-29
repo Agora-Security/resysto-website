@@ -1,15 +1,42 @@
 +++
-title = "Welcome to Cyber Control Center"
-description = "An introduction to CCC and how it's transforming cybersecurity management for organizations of all sizes."
+title = "Welcome to resysto"
+description = "An introduction to resysto and how it's transforming cybersecurity management for organizations of all sizes."
 date = 2024-01-15
 template = "blog-page.html"
 [taxonomies]
 tags = ["announcement", "platform", "introduction"]
+audience = ["ciso", "cio", "ceo"]
+content_priority = ["medium"]
+layout_type = ["article"]
+
+[extra]
+# Audience targeting
+audience = ["ciso", "cio", "ceo"]
+content_priority = "medium"
+
+# Layout configuration
+layout_type = "article"
+content_density = "readable"
+show_key_concepts = true
+key_concepts_heading = "Key Takeaways"
+
+# Content length thresholds
+short_content_threshold = 500
+medium_content_threshold = 1500
+long_content_threshold = 3000
+
+# Performance and accessibility
+performance_budget = 500
+accessibility_compliance = "wcag_2_1_aa"
+
+# Content sections for dual audiences
+technical_focus = ["platform_features", "architecture", "integration"]
+business_focus = ["value_proposition", "roi", "scalability"]
 +++
 
 # Welcome to the Future of Cybersecurity Management
 
-We're excited to officially launch **Cyber Control Center (CCC)**, a comprehensive platform designed to transform how organizations manage their cybersecurity programs.
+We're excited to officially launch **resysto**, a comprehensive platform designed to transform how organizations manage their cybersecurity programs.
 
 ## The Problem We're Solving
 
@@ -21,9 +48,9 @@ After years of working with organizations across different industries, we've ide
 - **Lack of Leadership**: SMBs often lack dedicated security expertise
 - **Fragmented Operations**: Teams work in silos without unified visibility
 
-## How CCC Addresses These Challenges
+## How resysto Addresses These Challenges
 
-CCC provides a unified platform that brings together all aspects of cybersecurity management:
+resysto provides a unified platform that brings together all aspects of cybersecurity management:
 
 ### 🏗️ Structured Approach
 - **vCISO Framework**: Complete virtual CISO capabilities for organizations without dedicated security leadership
@@ -54,4 +81,6 @@ Ready to transform your cybersecurity program? [Access the platform](/access/) a
 
 ---
 
-*Have questions about CCC? [Contact our team](mailto:info@agorasecurity.it) - we're here to help you succeed.*
+*Have questions about resysto? [Contact our team](mailto:info@agorasecurity.it) - we're here to help you succeed.*
+
+

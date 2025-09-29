@@ -31,20 +31,44 @@
       </header>
     {% endif %}
 
-    <div class="prose max-w-none">
-      {{ section.content | safe }}
-    </div>
-
-    {% if paginator or section.pages | length > 0 %}
-      <div class="mt-10 grid md:grid-cols-2 gap-6">
-        {% for page in section.pages %}
+    {% if paginator %}
+      <div class="grid md:grid-cols-2 gap-6">
+        {% for page in paginator.pages %}
           <article class="card">
-            <h2 class="text-xl font-semibold"><a class="link-accent" href="{{ page.permalink }}">{{ page.title }}</a></h2>
+            <header class="mb-2">
+              <h2 class="text-xl font-semibold"><a class="link-accent" href="{{ page.permalink }}">{{ page.title }}</a></h2>
+              <div class="text-sm text-gray-600">
+                <time datetime="{{ page.date | date(format='%Y-%m-%d') }}">{{ page.date | date(format='%B %d, %Y') }}</time>
+              </div>
+            </header>
             {% if page.description %}<p class="text-gray-600">{{ page.description }}</p>{% endif %}
+            <div class="mt-4">
+              <a class="btn btn-secondary" href="{{ page.permalink }}">Read more</a>
+            </div>
           </article>
         {% endfor %}
       </div>
+
+      {% if paginator.number_pagers > 1 %}
+        <nav class="mt-12 flex items-center justify-between text-sm" aria-label="Pagination">
+          {% if paginator.previous %}
+            <a class="link-accent" href="{{ paginator.previous }}">← Newer</a>
+          {% else %}
+            <span></span>
+          {% endif %}
+          <span>Page {{ paginator.current_index + 1 }} of {{ paginator.number_pagers }}</span>
+          {% if paginator.next %}
+            <a class="link-accent" href="{{ paginator.next }}">Older →</a>
+          {% else %}
+            <span></span>
+          {% endif %}
+        </nav>
+      {% endif %}
+    {% else %}
+      <p class="text-gray-600">No posts yet.</p>
     {% endif %}
   </section>
 {% endblock content %}
+
+
 

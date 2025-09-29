@@ -2,13 +2,14 @@
 
 {% block content %}
   <!-- Hero -->
-  <section class="mx-auto max-w-7xl px-4 py-16">
+  <section class="mx-auto max-w-7xl px-4 hero">
     <div class="max-w-3xl">
-      <h1 class="text-4xl font-semibold mb-4">Central Cyber Resilience and Data Protection platform</h1>
-      <p class="text-lg text-gray-700 mb-6">Govern and manage cybersecurity and privacy processes and tools in one place.</p>
-      <div class="flex gap-3">
-        <a class="inline-flex items-center px-4 py-2 bg-black text-white rounded" href="/features/">Explore features</a>
-        <a class="inline-flex items-center px-4 py-2 border rounded" href="/access/">Access platform</a>
+      <p class="text-sm hero-kicker mb-2">Future-ready security operations</p>
+      <h1 class="text-4xl font-semibold mb-4 heading-gradient">Central Cyber Resilience and Data Protection platform</h1>
+      <p class="text-lg mb-6">Govern and manage cybersecurity and privacy processes and tools in one place.</p>
+      <div class="flex gap-3 hero-cta">
+        <a class="btn btn-primary" href="/features/">Explore features</a>
+        <a class="btn btn-secondary" href="/access/">Access platform</a>
       </div>
     </div>
   </section>
@@ -16,18 +17,18 @@
   <!-- Problems We Solve -->
   <section class="mx-auto max-w-7xl px-4 py-10">
     <h2 class="text-2xl font-semibold mb-4">Problems we solve</h2>
-    <div class="grid md:grid-cols-3 gap-6 text-gray-800">
-      <div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card">
         <h3 class="font-semibold mb-2">Fragmented operations</h3>
-        <p>Too many tools and spreadsheets cause lost context and overhead.</p>
+        <p class="text-gray-600">Too many tools and spreadsheets cause lost context and overhead.</p>
       </div>
-      <div>
+      <div class="card">
         <h3 class="font-semibold mb-2">Evidence burden</h3>
-        <p>Collecting audit-ready evidence is slow and manual.</p>
+        <p class="text-gray-600">Collecting audit-ready evidence is slow and manual.</p>
       </div>
-      <div>
+      <div class="card">
         <h3 class="font-semibold mb-2">Lack of security leadership</h3>
-        <p>SMBs run ad‑hoc risk management without a dedicated CISO.</p>
+        <p class="text-gray-600">SMBs run ad‑hoc risk management without a dedicated CISO.</p>
       </div>
     </div>
   </section>
@@ -35,27 +36,27 @@
   <!-- Target Users -->
   <section class="mx-auto max-w-7xl px-4 py-10">
     <h2 class="text-2xl font-semibold mb-4">Built for</h2>
-    <ul class="grid md:grid-cols-3 gap-6 text-gray-800 list-disc pl-6">
-      <li>SMB IT teams needing vCISO structure</li>
-      <li>Enterprise CISOs and security teams</li>
-      <li>Cybersecurity advisors and MSSPs</li>
-    </ul>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="card"><p>SMB IT teams needing vCISO structure</p></div>
+      <div class="card"><p>Enterprise CISOs and security teams</p></div>
+      <div class="card"><p>Cybersecurity advisors and MSSPs</p></div>
+    </div>
   </section>
 
   <!-- Capabilities -->
   <section class="mx-auto max-w-7xl px-4 py-10">
     <h2 class="text-2xl font-semibold mb-4">Capabilities</h2>
     <div class="grid md:grid-cols-2 gap-8">
-      <div>
+      <div class="card">
         <h3 class="font-semibold mb-2">Applications</h3>
-        <ul class="list-disc pl-6 text-gray-800">
+        <ul class="list-disc pl-6 text-gray-600">
           <li>vCISO (implemented): people, documents, tools, assets, posture, roadmap, SCRM</li>
           <li>Incident Management (roadmap)</li>
         </ul>
       </div>
-      <div>
+      <div class="card">
         <h3 class="font-semibold mb-2">Platform services</h3>
-        <ul class="list-disc pl-6 text-gray-800">
+        <ul class="list-disc pl-6 text-gray-600">
           <li>Documents Manager (implementing)</li>
           <li>RAG knowledge (planned)</li>
           <li>AI assistant (planned)</li>
