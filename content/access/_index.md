@@ -1,17 +1,49 @@
 +++
 title = "Access"
-description = "External console links: CCC platform and MSSP console."
+description = "External console links: resysto platform and MSSP console."
+
+[extra]
+hero_kicker = "Access"
+hero_title = "Sign in to your console"
+hero_subtitle = "Choose between the main platform and the MSSP multi-tenant console."
+primary_text = "Main Console"
+primary_url = "https://app.resysto.io"
+secondary_text = "MSSP Console"
+secondary_url = "https://mssp.resysto.io"
+
+# Audience targeting
+audience = ["ciso", "cio", "ceo"]
+content_priority = "medium"
+
+# Layout configuration
+layout_type = "action_oriented"
+content_density = "focused"
+show_key_concepts = true
+key_concepts_heading = "Platform Access"
+
+# Content length thresholds
+short_content_threshold = 500
+medium_content_threshold = 1500
+long_content_threshold = 3000
+
+# Performance and accessibility
+performance_budget = 500
+accessibility_compliance = "wcag_2_1_aa"
+
+# Content sections for dual audiences
+technical_focus = ["authentication", "api_access", "integration"]
+business_focus = ["user_experience", "support", "mobile_access"]
 +++
 
-# Access Your CCC Consoles
+# Access Your resysto Consoles
 
-Welcome to the CCC access portal. Choose the console that best fits your role and needs.
+Welcome to the resysto access portal. Choose the console that best fits your role and needs.
 
-## 🏢 Main CCC Platform Console
+## 🏢 Main resysto Platform Console
 
 **For**: Individual organizations, security teams, and direct users
 
-Access the full CCC platform with all vCISO modules and features:
+Access the full resysto platform with all vCISO modules and features:
 
 - **People Management**: Team organization and role management
 - **Documents Manager**: Policy and procedure management
@@ -21,7 +53,7 @@ Access the full CCC platform with all vCISO modules and features:
 - **Roadmap Planning**: Security initiative planning and tracking
 - **Supply Chain Risk Management**: Vendor risk assessment
 
-[**Access Main Console**](https://app.ccc.com){: .btn .btn-primary target="_blank" rel="noopener noreferrer"}
+[**Access Main Console**](https://app.resysto.io){: .btn .btn-primary target="_blank" rel="noopener noreferrer"}
 
 ---
 
@@ -37,7 +69,7 @@ Dedicated console for service providers managing multiple client environments:
 - **White-label Options**: Customize branding and client materials
 - **Reporting Suite**: Comprehensive client reporting and analytics
 
-[**Access MSSP Console**](https://mssp.ccc.com){: .btn .btn-secondary target="_blank" rel="noopener noreferrer"}
+[**Access MSSP Console**](https://mssp.resysto.io){: .btn .btn-secondary target="_blank" rel="noopener noreferrer"}
 
 ---
 
@@ -50,12 +82,12 @@ Both consoles use secure authentication with support for:
 - **Role-based Access Control**: Granular permissions and access management
 
 ### Getting Help
-- **Documentation**: [docs.ccc.com](https://docs.ccc.com){: target="_blank" rel="noopener noreferrer"}
+- **Documentation**: [docs.resysto.io](https://docs.resysto.io){: target="_blank" rel="noopener noreferrer"}
 - **Support**: [support@agorasecurity.it](mailto:support@agorasecurity.it)
 - **Training**: [training@agorasecurity.it](mailto:training@agorasecurity.it)
 
 ### System Status
-- **Platform Status**: [status.ccc.com](https://status.ccc.com){: target="_blank" rel="noopener noreferrer"}
+- **Platform Status**: [status.resysto.io](https://status.resysto.io){: target="_blank" rel="noopener noreferrer"}
 - **Maintenance Windows**: Scheduled maintenance notifications
 - **Incident Updates**: Real-time status updates during incidents
 

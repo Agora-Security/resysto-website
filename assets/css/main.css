@@ -2,6 +2,27 @@
 
 @theme {
   --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  
+  /* Layout system variables */
+  --layout-max-width: 1280px;
+  --layout-padding: 2rem;
+  --line-height: 1.6;
+  --spacing: 1rem;
+  --font-size: 1rem;
+  
+  /* Audience targeting variables */
+  --primary-color: #3b82f6;
+  --accent-color: #1d4ed8;
+  --focus: balanced;
+  
+  /* Content threshold variables */
+  --short-content-threshold: 500;
+  --medium-content-threshold: 1500;
+  --long-content-threshold: 3000;
+  
+  /* Performance and accessibility variables */
+  --performance-budget: 500;
+  --accessibility-compliance: wcag_2_1_aa;
 }
 
 /* Accessibility: visible focus only when using keyboard */
@@ -52,7 +73,161 @@
   text-underline-offset: 2px;
 }
 
-/* Button styles for access page */
+/* === Layout System Utilities === */
+
+/* Layout type classes */
+.layout-hero_with_sections {
+  --layout-max-width: 1280px;
+  --layout-padding: 2rem;
+}
+
+.layout-content_heavy {
+  --layout-max-width: 1024px;
+  --layout-padding: 1.5rem;
+}
+
+.layout-feature_grid {
+  --layout-max-width: 1400px;
+  --layout-padding: 2rem;
+}
+
+.layout-action_oriented {
+  --layout-max-width: 900px;
+  --layout-padding: 1.5rem;
+}
+
+.layout-business_focused {
+  --layout-max-width: 1200px;
+  --layout-padding: 2rem;
+}
+
+.layout-timeline {
+  --layout-max-width: 1000px;
+  --layout-padding: 1.5rem;
+}
+
+.layout-content_list {
+  --layout-max-width: 800px;
+  --layout-padding: 1.5rem;
+}
+
+.layout-article {
+  --layout-max-width: 700px;
+  --layout-padding: 1rem;
+}
+
+/* Content density classes */
+.density-compact {
+  --line-height: 1.4;
+  --spacing: 0.5rem;
+  --font-size: 0.95rem;
+}
+
+.density-balanced {
+  --line-height: 1.6;
+  --spacing: 1rem;
+  --font-size: 1rem;
+}
+
+.density-detailed {
+  --line-height: 1.8;
+  --spacing: 1.5rem;
+  --font-size: 1.05rem;
+}
+
+.density-readable {
+  --line-height: 1.7;
+  --spacing: 1.25rem;
+  --font-size: 1.1rem;
+}
+
+.density-structured {
+  --line-height: 1.5;
+  --spacing: 1rem;
+  --font-size: 1rem;
+}
+
+.density-modular {
+  --line-height: 1.6;
+  --spacing: 1.25rem;
+  --font-size: 1rem;
+}
+
+.density-focused {
+  --line-height: 1.5;
+  --spacing: 0.75rem;
+  --font-size: 1rem;
+}
+
+/* Audience targeting classes */
+.audience-ciso {
+  --primary-color: #3b82f6;
+  --accent-color: #1d4ed8;
+  --focus: technical;
+}
+
+.audience-business {
+  --primary-color: #10b981;
+  --accent-color: #059669;
+  --focus: business;
+}
+
+.audience-all {
+  --primary-color: #6366f1;
+  --accent-color: #4f46e5;
+  --focus: balanced;
+}
+
+/* === Key Concepts Highlighting === */
+.key-concepts {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(16, 185, 129, 0.1) 100%);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.key-concepts h3 {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.key-concepts ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.key-concepts li {
+  padding: 0.25rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.key-concepts li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+/* === Audience-Specific Content === */
+[data-audience-content="ciso"] {
+  display: none;
+}
+
+[data-audience-content="business"] {
+  display: none;
+}
+
+[data-current-audience="ciso"] [data-audience-content="ciso"],
+[data-current-audience="business"] [data-audience-content="business"],
+[data-current-audience="all"] [data-audience-content] {
+  display: block;
+}
+
+/* === Enhanced Button Styles === */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -65,32 +240,129 @@
 }
 
 .btn-primary {
-  background-color: #1f2937;
+  background-color: var(--primary-color);
   color: white;
-  border-color: #1f2937;
+  border-color: var(--primary-color);
 }
 
 .btn-primary:hover {
-  background-color: #111827;
-  border-color: #111827;
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
   color: white;
 }
 
 .btn-secondary {
   background-color: white;
-  color: #1f2937;
+  color: var(--primary-color);
   border-color: #d1d5db;
 }
 
 .btn-secondary:hover {
   background-color: #f9fafb;
-  border-color: #9ca3af;
-  color: #111827;
+  border-color: var(--primary-color);
+  color: var(--accent-color);
 }
 
 /* Focus styles for buttons */
 .btn:focus-visible {
   outline: 2px solid var(--focus-color);
   outline-offset: 2px;
+}
+
+/* === Adaptive Layout Classes === */
+.adaptive-layout {
+  max-width: var(--layout-max-width);
+  margin: 0 auto;
+  padding: 0 var(--layout-padding);
+  line-height: var(--line-height);
+  font-size: var(--font-size);
+}
+
+.adaptive-layout > * {
+  margin-bottom: var(--spacing);
+}
+
+.adaptive-layout > *:last-child {
+  margin-bottom: 0;
+}
+
+/* === Content Length Adaptation === */
+.content-short {
+  --content-density: compact;
+}
+
+.content-medium {
+  --content-density: balanced;
+}
+
+.content-long {
+  --content-density: detailed;
+}
+
+/* === Performance Optimization Classes === */
+.performance-optimized {
+  contain: layout style paint;
+  content-visibility: auto;
+}
+
+.performance-critical {
+  contain: layout;
+  will-change: transform;
+}
+
+/* === Accessibility Enhancements === */
+.high-contrast {
+  --text-color: #000;
+  --background-color: #fff;
+  --border-color: #000;
+}
+
+.reduced-motion * {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* === Responsive Layout Helpers === */
+@media (max-width: 768px) {
+  .layout-hero_with_sections,
+  .layout-content_heavy,
+  .layout-feature_grid,
+  .layout-business_focused,
+  .layout-timeline,
+  .layout-content_list,
+  .layout-article {
+    --layout-padding: 1rem;
+  }
+  
+  .density-detailed,
+  .density-readable {
+    --spacing: 1rem;
+    --font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .layout-hero_with_sections,
+  .layout-content_heavy,
+  .layout-feature_grid,
+  .layout-business_focused,
+  .layout-timeline,
+  .layout-content_list,
+  .layout-article {
+    --layout-padding: 0.75rem;
+  }
+  
+  .density-compact,
+  .density-balanced,
+  .density-detailed,
+  .density-readable,
+  .density-structured,
+  .density-modular,
+  .density-focused {
+    --spacing: 0.75rem;
+    --font-size: 0.95rem;
+  }
 }
 

@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ccc.com/sitemap.xml
+Sitemap: https://resysto.io/sitemap.xml
 

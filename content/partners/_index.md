@@ -1,14 +1,46 @@
 +++
 title = "Partners"
 description = "Partner program for MSP/MSSP and technical partners."
+
+[extra]
+hero_kicker = "Ecosystem"
+hero_title = "Partner with resysto"
+hero_subtitle = "Join MSP/MSSP and technology partners building resilient security operations."
+primary_text = "Contact partner team"
+primary_url = "mailto:partners@agorasecurity.it"
+secondary_text = "See benefits"
+secondary_url = "/partners/#-msp-mssp-partners"
+
+# Audience targeting
+audience = ["ciso", "cio", "ceo"]
+content_priority = "medium"
+
+# Layout configuration
+layout_type = "business_focused"
+content_density = "detailed"
+show_key_concepts = true
+key_concepts_heading = "Partnership Benefits"
+
+# Content length thresholds
+short_content_threshold = 500
+medium_content_threshold = 1500
+long_content_threshold = 3000
+
+# Performance and accessibility
+performance_budget = 500
+accessibility_compliance = "wcag_2_1_aa"
+
+# Content sections for dual audiences
+technical_focus = ["integration", "api", "technical_support"]
+business_focus = ["revenue_sharing", "market_expansion", "co_marketing"]
 +++
 
-Join our growing ecosystem of partners who are transforming cybersecurity management with CCC.
+Join our growing ecosystem of partners who are transforming cybersecurity management with resysto.
 
 ## 🤝 MSP/MSSP Partners
 
-### Why Partner with CCC?
-Use CCC to deliver managed cybersecurity services to your clients with standardized workflows, comprehensive reporting, and scalable operations.
+### Why Partner with resysto?
+Use resysto to deliver managed cybersecurity services to your clients with standardized workflows, comprehensive reporting, and scalable operations.
 
 ### Partner Benefits
 - **Dedicated MSSP Console**: Multi-tenant access for managing multiple client environments
@@ -28,11 +60,11 @@ Use CCC to deliver managed cybersecurity services to your clients with standardi
 ## 🔧 Technical Partners
 
 ### Integration Opportunities
-Integrate your IT/Cybersecurity tools with CCC to send or retrieve data and enrich program evidence.
+Integrate your IT/Cybersecurity tools with resysto to send or retrieve data and enrich program evidence.
 
 ### Integration Types
-- **Data Ingestion**: Send security data, logs, and metrics to CCC
-- **Data Export**: Retrieve processed data and reports from CCC
+- **Data Ingestion**: Send security data, logs, and metrics to resysto
+- **Data Export**: Retrieve processed data and reports from resysto
 - **Bidirectional Sync**: Real-time data exchange between systems
 - **API Integration**: Custom integrations using our REST API
 
@@ -61,7 +93,7 @@ Contact our partner team to discuss your specific needs and requirements.
 ### For Technical Partners
 Start with our developer documentation and integration guidelines.
 
-**Developer Portal**: [docs.ccc.com/api](https://docs.ccc.com/api)  
+**Developer Portal**: [docs.resysto.com/api](https://docs.resysto.com/api)  
 **Integration Support**: [integrations@agorasecurity.it](mailto:integrations@agorasecurity.it)
 
 ---
@@ -72,5 +104,5 @@ Start with our developer documentation and integration guidelines.
 
 ---
 
-*Ready to join our partner ecosystem? [Contact us today](mailto:partners@agorasecurity.it) to discuss how CCC can enhance your cybersecurity services.*
+*Ready to join our partner ecosystem? [Contact us today](mailto:partners@agorasecurity.it) to discuss how resysto can enhance your cybersecurity services.*
 

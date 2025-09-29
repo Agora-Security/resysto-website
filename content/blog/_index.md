@@ -1,16 +1,49 @@
 +++
 title = "Blog"
-description = "Articles on CCC platform characteristics, features, and usage."
+description = "Articles on resysto platform characteristics, features, and usage."
 paginate_by = 10
+template = "blog_list.html"
+
+[extra]
+hero_kicker = "Insights"
+hero_title = "resysto Blog"
+hero_subtitle = "Product updates, how‑tos, security insights, and case studies."
+primary_text = "Subscribe RSS"
+primary_url = "/rss.xml"
+secondary_text = "Back to Home"
+secondary_url = "/"
+
+# Audience targeting
+audience = ["ciso", "cio", "ceo"]
+content_priority = "low"
+
+# Layout configuration
+layout_type = "content_list"
+content_density = "readable"
+show_key_concepts = true
+key_concepts_heading = "Latest Insights"
+
+# Content length thresholds
+short_content_threshold = 500
+medium_content_threshold = 1500
+long_content_threshold = 3000
+
+# Performance and accessibility
+performance_budget = 500
+accessibility_compliance = "wcag_2_1_aa"
+
+# Content sections for dual audiences
+technical_focus = ["technical_updates", "how_tos", "api"]
+business_focus = ["business_insights", "case_studies", "roi"]
 +++
 
-# CCC Blog
+# resysto Blog
 
-Welcome to the Cyber Control Center blog, where we share insights, updates, and best practices for cybersecurity management.
+Welcome to the resysto blog, where we share insights, updates, and best practices for cybersecurity management.
 
 ## 📚 What You'll Find Here
 
-Our blog covers a wide range of topics to help you get the most out of CCC and build effective security programs:
+Our blog covers a wide range of topics to help you get the most out of resysto and build effective security programs:
 
 ### 🚀 Platform Updates
 - New features and capabilities
@@ -19,7 +52,7 @@ Our blog covers a wide range of topics to help you get the most out of CCC and b
 - Performance improvements
 
 ### 📖 How-To Guides
-- Getting started with CCC
+- Getting started with resysto
 - Advanced configuration tips
 - Integration tutorials
 - Best practice workflows

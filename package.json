@@ -1,5 +1,5 @@
 {
-  "name": "ccc-website",
+  "name": "resysto-website",
   "private": true,
   "scripts": {
     "dev": "tailwindcss -i ./assets/css/main.css -o ./static/css/main.css --watch",

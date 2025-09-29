@@ -5,6 +5,33 @@ date = 2024-01-15
 template = "blog-page.html"
 [taxonomies]
 tags = ["announcement", "platform", "introduction"]
+audience = ["ciso", "cio", "ceo"]
+content_priority = ["medium"]
+layout_type = ["article"]
+
+[extra]
+# Audience targeting
+audience = ["ciso", "cio", "ceo"]
+content_priority = "medium"
+
+# Layout configuration
+layout_type = "article"
+content_density = "readable"
+show_key_concepts = true
+key_concepts_heading = "Key Takeaways"
+
+# Content length thresholds
+short_content_threshold = 500
+medium_content_threshold = 1500
+long_content_threshold = 3000
+
+# Performance and accessibility
+performance_budget = 500
+accessibility_compliance = "wcag_2_1_aa"
+
+# Content sections for dual audiences
+technical_focus = ["platform_features", "architecture", "integration"]
+business_focus = ["value_proposition", "roi", "scalability"]
 +++
 
 # Welcome to the Future of Cybersecurity Management

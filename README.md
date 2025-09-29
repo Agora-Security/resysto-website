@@ -1,6 +1,6 @@
-# CCC Website
+# resysto Website
 
-Static marketing site for Cyber Control Center (CCC).
+Static marketing site for resysto.
 
 ## Prerequisites
 - Zola (Rust SSG) available in PATH, or use `zola` from CI steps
