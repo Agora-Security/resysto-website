@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap - Resysto | Product Development Plan</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            bg: '#0A0A0A',
+                            surface: '#151515',
+                            border: '#252525',
+                        },
+                        light: {
+                            bg: '#FFFFFF',
+                            surface: '#F9FAFB',
+                            border: '#E5E7EB',
+                        },
+                        accent: {
+                            blue: '#00D4FF',
+                            green: '#39FF14',
+                            purple: '#B026FF',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'neon-blue': '0 0 20px rgba(0, 212, 255, 0.5)',
+                        'neon-green': '0 0 20px rgba(57, 255, 20, 0.5)',
+                        'neon-purple': '0 0 20px rgba(176, 38, 255, 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        /* Smooth transitions */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        
+        /* Neon glow effects */
+        .glow-blue {
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+        }
+        
+        .glow-blue:hover {
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+        }
+        
+        .glow-green {
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+        }
+        
+        .glow-purple {
+            box-shadow: 0 0 15px rgba(176, 38, 255, 0.4);
+        }
+        
+        /* Micro-interactions */
+        .interactive-element {
+            transform: scale(1);
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+        
+        .interactive-element:hover {
+            transform: scale(1.02);
+        }
+        
+        .interactive-element:active {
+            transform: scale(0.98);
+        }
+        
+        /* Timeline styles */
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #00D4FF, #B026FF, #39FF14);
+            transform: translateX(-50%);
+        }
+        
+        @media (max-width: 768px) {
+            .timeline-line {
+                left: 30px;
+            }
+        }
+        
+        .timeline-dot {
+            position: relative;
+            z-index: 10;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-dot {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+        
+        .timeline-card {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        .timeline-card:nth-child(1) { animation-delay: 0.2s; }
+        .timeline-card:nth-child(2) { animation-delay: 0.4s; }
+        .timeline-card:nth-child(3) { animation-delay: 0.6s; }
+        .timeline-card:nth-child(4) { animation-delay: 0.8s; }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .phase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+    </style>
+</head>
+
+<body class="bg-dark-bg dark:bg-dark-bg light:bg-light-bg text-gray-100 dark:text-gray-100 light:text-gray-900 font-body">
+    
+    <!-- Header (Sticky Navigation) -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-dark-bg/80 dark:bg-dark-bg/80 light:bg-light-bg/80 border-b border-dark-border dark:border-dark-border light:border-light-border">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-heading font-bold text-accent-blue glow-blue">
+                        Resysto
+                    </a>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <ul class="hidden md:flex items-center space-x-8 font-medium">
+                    <li><a href="index.html" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Home</a></li>
+                    <li><a href="features.html" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Features</a></li>
+                    <li><a href="roadmap.html" class="text-accent-blue font-semibold border-b-2 border-accent-blue">Roadmap</a></li>
+                    <li><a href="#partners" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Partners</a></li>
+                    <li><a href="#blog" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Blog</a></li>
+                    <li><a href="#about" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">About</a></li>
+                    <li><a href="#access" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Access</a></li>
+                </ul>
+                
+                <!-- Theme Toggle -->
+                <div class="flex items-center">
+                    <button id="theme-toggle" class="p-2 rounded-lg border border-dark-border dark:border-dark-border light:border-light-border hover:border-accent-blue transition-all interactive-element" aria-label="Toggle theme">
+                        <!-- Sun Icon (Light Mode) -->
+                        <svg id="theme-toggle-light-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                        <!-- Moon Icon (Dark Mode) -->
+                        <svg id="theme-toggle-dark-icon" class="w-6 h-6 text-accent-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="container mx-auto px-6 py-24 md:py-32">
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="text-accent-green text-sm font-semibold uppercase tracking-widest mb-6">
+                    SHIPPING PLAN
+                </p>
+                
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight">
+                    Our Product <span class="text-accent-blue glow-blue">Roadmap</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-gray-400 dark:text-gray-400 light:text-gray-600 mb-12 leading-relaxed">
+                    See what's built, what's next, and where resysto is going.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+                    <a href="#phase-2" class="interactive-element px-8 py-4 bg-accent-blue text-dark-bg font-semibold rounded-lg glow-blue hover:bg-accent-green transition-all">
+                        Current phase
+                    </a>
+                    <a href="#updates" class="interactive-element px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple">
+                        Follow updates
+                    </a>
+                </div>
+                
+                <p class="text-lg text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed max-w-3xl mx-auto">
+                    Our development roadmap is organized into three phases, focusing on core functionality, integrations, and intelligent automation.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Timeline Section -->
+        <section id="timeline" class="container mx-auto px-6 py-20">
+            <div class="max-w-6xl mx-auto">
+                <div class="relative">
+                    <!-- Vertical Line -->
+                    <div class="timeline-line hidden md:block"></div>
+                    
+                    <!-- Phase 1 -->
+                    <div class="timeline-card relative mb-24">
+                        <div class="md:flex md:items-start md:gap-12">
+                            <!-- Left Side (Icon & Title) - Hidden on mobile -->
+                            <div class="hidden md:flex md:w-1/2 md:justify-end md:pr-12">
+                                <div class="text-right">
+                                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent-green/20 border-4 border-dark-bg timeline-dot mb-4">
+                                        <span class="text-4xl">🚀</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Right Side (Content) -->
+                            <div class="md:w-1/2 md:pl-12">
+                                <!-- Mobile Icon -->
+                                <div class="md:hidden flex items-center gap-4 mb-6">
+                                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-accent-green/20 border-4 border-dark-bg timeline-dot">
+                                        <span class="text-3xl">🚀</span>
+                                    </div>
+                                    <div class="h-px flex-1 bg-gradient-to-r from-accent-green to-transparent"></div>
+                                </div>
+                                
+                                <div class="phase-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-8 transition-all duration-300">
+                                    <h2 class="text-3xl font-heading font-bold mb-3 text-white dark:text-white light:text-gray-900">
+                                        Phase 1 · MVP Website and vCISO App Foundation
+                                    </h2>
+                                    <p class="text-accent-green font-semibold mb-4">Q1–Q2 2024</p>
+                                    <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 mb-6 leading-relaxed">
+                                        Core launch scope for the website and foundational app modules.
+                                    </p>
+                                    
+                                    <!-- Completed Items -->
+                                    <div class="mb-6">
+                                        <h3 class="text-lg font-semibold text-accent-green mb-3 flex items-center">
+                                            <span class="mr-2">✅</span> Completed
+                                        </h3>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-green">•</span>
+                                                <span>Marketing website with core pages</span>
+                                            </li>
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-green">•</span>
+                                                <span>vCISO application with seven core modules</span>
+                                            </li>
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-green">•</span>
+                                                <span>Basic Documents Manager service</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <!-- In Progress Items -->
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-accent-blue mb-3 flex items-center">
+                                            <span class="mr-2">🔄</span> In Progress
+                                        </h3>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-blue">•</span>
+                                                <span>Documents Manager advanced features</span>
+                                            </li>
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-blue">•</span>
+                                                <span>User onboarding and documentation</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 2 -->
+                    <div id="phase-2" class="timeline-card relative mb-24">
+                        <div class="md:flex md:items-start md:gap-12 md:flex-row-reverse">
+                            <!-- Right Side (Icon & Title) - Hidden on mobile -->
+                            <div class="hidden md:flex md:w-1/2 md:justify-start md:pl-12">
+                                <div class="text-left">
+                                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent-blue/20 border-4 border-dark-bg timeline-dot mb-4">
+                                        <span class="text-4xl">🔗</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Left Side (Content) -->
+                            <div class="md:w-1/2 md:pr-12">
+                                <!-- Mobile Icon -->
+                                <div class="md:hidden flex items-center gap-4 mb-6">
+                                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-accent-blue/20 border-4 border-dark-bg timeline-dot">
+                                        <span class="text-3xl">🔗</span>
+                                    </div>
+                                    <div class="h-px flex-1 bg-gradient-to-r from-accent-blue to-transparent"></div>
+                                </div>
+                                
+                                <div class="phase-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-accent-blue dark:border-accent-blue light:border-accent-blue rounded-xl p-8 transition-all duration-300 shadow-neon-blue">
+                                    <h2 class="text-3xl font-heading font-bold mb-3 text-white dark:text-white light:text-gray-900">
+                                        Phase 2 · Differentiators and Integrations
+                                    </h2>
+                                    <p class="text-accent-blue font-semibold mb-4">Q3–Q4 2024</p>
+                                    <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 mb-6 leading-relaxed">
+                                        Focus on integrations, MSSP enablement, and reporting.
+                                    </p>
+                                    
+                                    <!-- Key Deliverables -->
+                                    <div class="mb-6">
+                                        <h3 class="text-lg font-semibold text-accent-blue mb-3 flex items-center">
+                                            <span class="mr-2">🎯</span> Key Deliverables
+                                        </h3>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-blue">•</span>
+                                                <span><strong>MSSP Multi-tenant Access:</strong> Dedicated console for managed service providers</span>
+                                            </li>
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-blue">•</span>
+                                                <span><strong>External Tool Integration:</strong> First‑party integrations with popular security tools</span>
+                                            </li>
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-blue">•</span>
+                                                <span><strong>RAG Knowledge System:</strong> Design and prototype for contextual security assistance</span>
+                                            </li>
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-blue">•</span>
+                                                <span><strong>Enhanced Reporting:</strong> Advanced analytics and compliance reporting</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <!-- Technical Focus -->
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-accent-purple mb-3 flex items-center">
+                                            <span class="mr-2">🔧</span> Technical Focus
+                                        </h3>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-purple">•</span>
+                                                <span>API development for third‑party integrations</span>
+                                            </li>
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-purple">•</span>
+                                                <span>Multi‑tenant architecture implementation</span>
+                                            </li>
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-purple">•</span>
+                                                <span>Knowledge base and search capabilities</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Phase 3 -->
+                    <div class="timeline-card relative mb-24">
+                        <div class="md:flex md:items-start md:gap-12">
+                            <!-- Left Side (Icon & Title) - Hidden on mobile -->
+                            <div class="hidden md:flex md:w-1/2 md:justify-end md:pr-12">
+                                <div class="text-right">
+                                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent-purple/20 border-4 border-dark-bg timeline-dot mb-4">
+                                        <span class="text-4xl">🤖</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Right Side (Content) -->
+                            <div class="md:w-1/2 md:pl-12">
+                                <!-- Mobile Icon -->
+                                <div class="md:hidden flex items-center gap-4 mb-6">
+                                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-accent-purple/20 border-4 border-dark-bg timeline-dot">
+                                        <span class="text-3xl">🤖</span>
+                                    </div>
+                                    <div class="h-px flex-1 bg-gradient-to-r from-accent-purple to-transparent"></div>
+                                </div>
+                                
+                                <div class="phase-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-8 transition-all duration-300">
+                                    <h2 class="text-3xl font-heading font-bold mb-3 text-white dark:text-white light:text-gray-900">
+                                        Phase 3 · Scale and Intelligence
+                                    </h2>
+                                    <p class="text-accent-purple font-semibold mb-4">Q1–Q2 2025</p>
+                                    <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 mb-6 leading-relaxed">
+                                        Automation, AI-assisted workflows, and enterprise controls.
+                                    </p>
+                                    
+                                    <!-- Key Deliverables -->
+                                    <div class="mb-6">
+                                        <h3 class="text-lg font-semibold text-accent-purple mb-3 flex items-center">
+                                            <span class="mr-2">🎯</span> Key Deliverables
+                                        </h3>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-purple">•</span>
+                                                <span><strong>Incident Management:</strong> Complete incident response workflows and automation</span>
+                                            </li>
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-purple">•</span>
+                                                <span><strong>AI Assistant:</strong> Intelligent recommendations powered by RAG context</span>
+                                            </li>
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-purple">•</span>
+                                                <span><strong>Advanced Analytics:</strong> Predictive security posture and risk assessment</span>
+                                            </li>
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-purple">•</span>
+                                                <span><strong>Enterprise Features:</strong> Advanced role management and audit capabilities</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <!-- Technical Focus -->
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-accent-blue mb-3 flex items-center">
+                                            <span class="mr-2">🔧</span> Technical Focus
+                                        </h3>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-blue">•</span>
+                                                <span>Machine learning integration</span>
+                                            </li>
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-blue">•</span>
+                                                <span>Advanced workflow automation</span>
+                                            </li>
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-blue">•</span>
+                                                <span>Enterprise‑grade security and compliance</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Future Considerations -->
+                    <div class="timeline-card relative mb-12">
+                        <div class="md:flex md:items-start md:gap-12 md:flex-row-reverse">
+                            <!-- Right Side (Icon & Title) - Hidden on mobile -->
+                            <div class="hidden md:flex md:w-1/2 md:justify-start md:pl-12">
+                                <div class="text-left">
+                                    <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-accent-blue via-accent-purple to-accent-green border-4 border-dark-bg timeline-dot mb-4">
+                                        <span class="text-4xl">🗓️</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Left Side (Content) -->
+                            <div class="md:w-1/2 md:pr-12">
+                                <!-- Mobile Icon -->
+                                <div class="md:hidden flex items-center gap-4 mb-6">
+                                    <div class="flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-accent-blue via-accent-purple to-accent-green border-4 border-dark-bg timeline-dot">
+                                        <span class="text-3xl">🗓️</span>
+                                    </div>
+                                    <div class="h-px flex-1 bg-gradient-to-r from-accent-green to-transparent"></div>
+                                </div>
+                                
+                                <div class="phase-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-8 transition-all duration-300">
+                                    <h2 class="text-3xl font-heading font-bold mb-3 text-white dark:text-white light:text-gray-900">
+                                        Future Considerations · Phase 4+
+                                    </h2>
+                                    <p class="text-accent-green font-semibold mb-4">2025+</p>
+                                    <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 mb-6 leading-relaxed">
+                                        Ideas we intend to explore and validate with users.
+                                    </p>
+                                    
+                                    <!-- Looking Ahead -->
+                                    <div>
+                                        <h3 class="text-lg font-semibold text-accent-green mb-3 flex items-center">
+                                            <span class="mr-2">👀</span> Looking Ahead
+                                        </h3>
+                                        <ul class="space-y-2">
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-green">•</span>
+                                                <span>Mobile applications</span>
+                                            </li>
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-green">•</span>
+                                                <span>Advanced threat intelligence integration</span>
+                                            </li>
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-green">•</span>
+                                                <span>Industry‑specific compliance modules</span>
+                                            </li>
+                                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                                <span class="mr-3 text-accent-green">•</span>
+                                                <span>Marketplace for third‑party extensions</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- Footer Note -->
+                <div id="updates" class="mt-16 pt-8 border-t border-dark-border dark:border-dark-border light:border-light-border">
+                    <p class="text-sm text-gray-500 dark:text-gray-500 light:text-gray-600 text-center opacity-70 leading-relaxed">
+                        Timeline is subject to change based on user feedback and market demands. For the latest updates, follow our blog or contact us at <a href="mailto:info@agorasecurity.it" class="text-accent-blue hover:text-accent-green transition-colors">info@agorasecurity.it</a>.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="border-t border-dark-border dark:border-dark-border light:border-light-border mt-20">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 dark:text-gray-500 light:text-gray-600 text-sm">
+                    © 2025 Agora Security. All rights reserved.
+                </p>
+                <p class="text-gray-500 dark:text-gray-500 light:text-gray-600 text-sm">
+                    Contact: <a href="mailto:info@agorasecurity.it" class="text-accent-blue hover:text-accent-green transition-colors">info@agorasecurity.it</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Theme Toggle Script -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const htmlElement = document.documentElement;
+        
+        // Check for saved theme preference or default to 'dark'
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        
+        // Set initial theme
+        if (currentTheme === 'light') {
+            htmlElement.classList.remove('dark');
+            htmlElement.classList.add('light');
+            themeToggleDarkIcon.classList.add('hidden');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            htmlElement.classList.add('dark');
+            htmlElement.classList.remove('light');
+            themeToggleLightIcon.classList.add('hidden');
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+        
+        // Toggle theme
+        themeToggleBtn.addEventListener('click', function() {
+            // Toggle icons
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            
+            // Toggle theme
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                htmlElement.classList.add('light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                htmlElement.classList.remove('light');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

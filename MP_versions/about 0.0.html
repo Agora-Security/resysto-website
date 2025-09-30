@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Resysto | Our Mission & Story</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            bg: '#0D1117',
+                            surface: '#161B22',
+                            border: '#30363D',
+                        },
+                        light: {
+                            bg: '#FFFFFF',
+                            surface: '#F6F8FA',
+                            border: '#D0D7DE',
+                        },
+                        accent: {
+                            blue: '#00D4FF',
+                            green: '#39FF14',
+                            purple: '#B026FF',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'neon-blue': '0 0 20px rgba(0, 212, 255, 0.5)',
+                        'neon-green': '0 0 20px rgba(57, 255, 20, 0.5)',
+                        'neon-purple': '0 0 20px rgba(176, 38, 255, 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        /* Smooth transitions */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        
+        /* Neon glow effects */
+        .glow-blue {
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+        }
+        
+        .glow-blue:hover {
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+        }
+        
+        .glow-green {
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+        }
+        
+        .glow-green:hover {
+            box-shadow: 0 0 25px rgba(57, 255, 20, 0.6);
+        }
+        
+        .glow-purple {
+            box-shadow: 0 0 15px rgba(176, 38, 255, 0.4);
+        }
+        
+        .glow-purple:hover {
+            box-shadow: 0 0 25px rgba(176, 38, 255, 0.6);
+        }
+        
+        /* Micro-interactions */
+        .interactive-element {
+            transform: scale(1);
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+        
+        .interactive-element:hover {
+            transform: scale(1.02);
+        }
+        
+        .interactive-element:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+
+<body class="bg-dark-bg dark:bg-dark-bg light:bg-light-bg text-gray-100 dark:text-gray-100 light:text-gray-900 font-body">
+    
+    <!-- Header (Sticky Navigation) -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-dark-bg/80 dark:bg-dark-bg/80 light:bg-light-bg/80 border-b border-dark-border dark:border-dark-border light:border-light-border">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-heading font-bold text-accent-blue glow-blue">
+                        Resysto
+                    </a>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <ul class="hidden md:flex items-center space-x-8 font-medium">
+                    <li><a href="index.html" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Home</a></li>
+                    <li><a href="features.html" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Features</a></li>
+                    <li><a href="roadmap.html" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Roadmap</a></li>
+                    <li><a href="partners.html" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Partners</a></li>
+                    <li><a href="blog.html" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Blog</a></li>
+                    <li><a href="about.html" class="text-accent-blue font-semibold border-b-2 border-accent-blue">About</a></li>
+                    <li><a href="#access" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Access</a></li>
+                </ul>
+                
+                <!-- Theme Toggle -->
+                <div class="flex items-center">
+                    <button id="theme-toggle" class="p-2 rounded-lg border border-dark-border dark:border-dark-border light:border-light-border hover:border-accent-blue transition-all interactive-element" aria-label="Toggle theme">
+                        <!-- Sun Icon (Light Mode) -->
+                        <svg id="theme-toggle-light-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                        <!-- Moon Icon (Dark Mode) -->
+                        <svg id="theme-toggle-dark-icon" class="w-6 h-6 text-accent-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="container mx-auto px-6 py-24 md:py-32">
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="text-accent-green text-sm font-semibold uppercase tracking-widest mb-6">
+                    OUR STORY
+                </p>
+                
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight">
+                    Why we built <span class="text-accent-blue glow-blue">resysto</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-gray-400 dark:text-gray-400 light:text-gray-600 mb-12 leading-relaxed">
+                    Programmatic security for real-world teams, from SMB to enterprise.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#agora-security" class="interactive-element px-8 py-4 bg-accent-blue text-dark-bg font-semibold rounded-lg glow-blue hover:bg-accent-green transition-all">
+                        Meet Agora Security
+                    </a>
+                    <a href="#contact" class="interactive-element px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple">
+                        Get in touch
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Our Mission Section -->
+        <section id="about" class="container mx-auto px-6 py-20">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-heading font-bold mb-8 text-white dark:text-white light:text-gray-900">
+                    About resysto
+                </h2>
+                
+                <p class="text-xl text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed mb-12">
+                    resysto was created to help organizations move from ad-hoc security work to a programmatic approach. Too many businesses—especially small and medium-sized enterprises—struggle with cybersecurity because they lack the structure, resources, or dedicated expertise to build comprehensive security programs. At the same time, even large enterprises face challenges in coordinating security activities across fragmented tools and teams.
+                </p>
+                
+                <!-- Mission Box -->
+                <div class="bg-gradient-to-br from-accent-blue/10 via-accent-purple/10 to-accent-green/10 border border-accent-blue dark:border-accent-blue light:border-accent-blue rounded-xl p-8 md:p-12">
+                    <h3 class="text-3xl font-heading font-bold mb-6 flex items-center text-white dark:text-white light:text-gray-900">
+                        <span class="mr-4 text-4xl">🎯</span>
+                        Our Mission
+                    </h3>
+                    <p class="text-xl text-gray-300 dark:text-gray-300 light:text-gray-700 leading-relaxed">
+                        To democratize enterprise-grade cybersecurity management by providing organizations of all sizes with the tools, frameworks, and intelligence they need to build resilient security programs—without requiring a full-time CISO or massive budgets.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Real-World Scenarios Section -->
+        <section id="scenarios" class="container mx-auto px-6 py-20">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-heading font-bold mb-12 flex items-center justify-center md:justify-start">
+                    <span class="mr-4 text-5xl">🌍</span>
+                    <span class="text-white dark:text-white light:text-gray-900">Real-World Scenarios</span>
+                </h2>
+                
+                <!-- Two Column Grid: The Challenge -->
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- SMB Challenge -->
+                    <div class="bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-8">
+                        <h3 class="text-2xl font-heading font-bold mb-6 text-accent-blue">
+                            The SMB Challenge
+                        </h3>
+                        <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed mb-6">
+                            Small and medium businesses face unique cybersecurity challenges:
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-red-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                                <div>
+                                    <span class="font-semibold text-white dark:text-white light:text-gray-900">Limited Security Expertise:</span>
+                                    <span class="text-gray-400 dark:text-gray-400 light:text-gray-600"> No dedicated security team or CISO</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-red-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                                <div>
+                                    <span class="font-semibold text-white dark:text-white light:text-gray-900">Resource Constraints:</span>
+                                    <span class="text-gray-400 dark:text-gray-400 light:text-gray-600"> Limited budget and time for security initiatives</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-red-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                                <div>
+                                    <span class="font-semibold text-white dark:text-white light:text-gray-900">Compliance Pressure:</span>
+                                    <span class="text-gray-400 dark:text-gray-400 light:text-gray-600"> Customers and partners demand security certifications</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-red-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                                <div>
+                                    <span class="font-semibold text-white dark:text-white light:text-gray-900">Ad-Hoc Approach:</span>
+                                    <span class="text-gray-400 dark:text-gray-400 light:text-gray-600"> Reactive security with no formal program or documentation</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Enterprise Reality -->
+                    <div class="bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-8">
+                        <h3 class="text-2xl font-heading font-bold mb-6 text-accent-purple">
+                            The Enterprise Reality
+                        </h3>
+                        <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed mb-6">
+                            Even large organizations struggle with:
+                        </p>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-red-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                                <div>
+                                    <span class="font-semibold text-white dark:text-white light:text-gray-900">Fragmented Operations:</span>
+                                    <span class="text-gray-400 dark:text-gray-400 light:text-gray-600"> Multiple tools with no central visibility</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-red-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                                <div>
+                                    <span class="font-semibold text-white dark:text-white light:text-gray-900">Evidence Collection:</span>
+                                    <span class="text-gray-400 dark:text-gray-400 light:text-gray-600"> Manual audit preparation consuming weeks of effort</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-red-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                                <div>
+                                    <span class="font-semibold text-white dark:text-white light:text-gray-900">Inconsistent Processes:</span>
+                                    <span class="text-gray-400 dark:text-gray-400 light:text-gray-600"> Different teams follow different procedures</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-red-500 mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                                <div>
+                                    <span class="font-semibold text-white dark:text-white light:text-gray-900">Reporting Overhead:</span>
+                                    <span class="text-gray-400 dark:text-gray-400 light:text-gray-600"> Board and executive reporting requires manual aggregation</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- How resysto Solves These Problems Section -->
+        <section id="solutions" class="container mx-auto px-6 py-20">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-heading font-bold mb-12 flex items-center justify-center md:justify-start">
+                    <span class="mr-4 text-5xl">🚀</span>
+                    <span class="text-white dark:text-white light:text-gray-900">How resysto Solves These Problems</span>
+                </h2>
+                
+                <!-- Two Column Grid: The Solution -->
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- For SMBs -->
+                    <div class="bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-accent-green dark:border-accent-green light:border-accent-green rounded-xl p-8">
+                        <h3 class="text-2xl font-heading font-bold mb-6 text-accent-green">
+                            For SMBs
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-accent-green mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <div>
+                                    <span class="font-semibold text-white dark:text-white light:text-gray-900">Virtual CISO:</span>
+                                    <span class="text-gray-400 dark:text-gray-400 light:text-gray-600"> Pre-built frameworks and best practices without hiring a full-time CISO</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-accent-green mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <div>
+                                    <span class="font-semibold text-white dark:text-white light:text-gray-900">Guided Implementation:</span>
+                                    <span class="text-gray-400 dark:text-gray-400 light:text-gray-600"> Step-by-step workflows for building your security program</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-accent-green mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <div>
+                                    <span class="font-semibold text-white dark:text-white light:text-gray-900">Compliance Automation:</span>
+                                    <span class="text-gray-400 dark:text-gray-400 light:text-gray-600"> Automated mapping to ISO 27001, NIST, SOC 2, and other frameworks</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-accent-green mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <div>
+                                    <span class="font-semibold text-white dark:text-white light:text-gray-900">Cost-Effective:</span>
+                                    <span class="text-gray-400 dark:text-gray-400 light:text-gray-600"> Enterprise capabilities at a fraction of traditional consulting costs</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- For Enterprises -->
+                    <div class="bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-accent-blue dark:border-accent-blue light:border-accent-blue rounded-xl p-8">
+                        <h3 class="text-2xl font-heading font-bold mb-6 text-accent-blue">
+                            For Enterprises
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-accent-blue mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <div>
+                                    <span class="font-semibold text-white dark:text-white light:text-gray-900">Unified Platform:</span>
+                                    <span class="text-gray-400 dark:text-gray-400 light:text-gray-600"> Central hub for all security operations, tools, and documentation</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-accent-blue mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <div>
+                                    <span class="font-semibold text-white dark:text-white light:text-gray-900">Process Standardization:</span>
+                                    <span class="text-gray-400 dark:text-gray-400 light:text-gray-600"> Consistent workflows across all teams and departments</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-accent-blue mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <div>
+                                    <span class="font-semibold text-white dark:text-white light:text-gray-900">Automated Evidence:</span>
+                                    <span class="text-gray-400 dark:text-gray-400 light:text-gray-600"> Continuous evidence collection and audit-ready documentation</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-accent-blue mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <div>
+                                    <span class="font-semibold text-white dark:text-white light:text-gray-900">Executive Dashboards:</span>
+                                    <span class="text-gray-400 dark:text-gray-400 light:text-gray-600"> Real-time visibility into security posture for board reporting</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- About Agora Security Section -->
+        <section id="agora-security" class="container mx-auto px-6 py-20 border-t border-dark-border dark:border-dark-border light:border-light-border">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-heading font-bold mb-8 flex items-center justify-center md:justify-start">
+                    <span class="mr-4 text-5xl">🏢</span>
+                    <span class="text-white dark:text-white light:text-gray-900">About Agora Security</span>
+                </h2>
+                
+                <p class="text-xl text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed mb-12">
+                    resysto is developed by Agora Security, an Italian cybersecurity company founded by experienced security professionals who understand the challenges organizations face in building and maintaining effective security programs. Our team has worked with companies ranging from startups to Fortune 500 enterprises, and we've seen firsthand the gaps that resysto aims to fill.
+                </p>
+                
+                <!-- Two Column: Approach and Learn More -->
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Our Approach -->
+                    <div class="bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-8">
+                        <h3 class="text-2xl font-heading font-bold mb-6 text-accent-purple">
+                            Our Approach
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="text-accent-purple mr-3 flex-shrink-0 mt-0.5 font-bold">•</span>
+                                <div>
+                                    <span class="font-semibold text-white dark:text-white light:text-gray-900">People:</span>
+                                    <span class="text-gray-400 dark:text-gray-400 light:text-gray-600"> Security starts with organizational structure and awareness</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent-purple mr-3 flex-shrink-0 mt-0.5 font-bold">•</span>
+                                <div>
+                                    <span class="font-semibold text-white dark:text-white light:text-gray-900">Process:</span>
+                                    <span class="text-gray-400 dark:text-gray-400 light:text-gray-600"> Standardized workflows create consistency and auditability</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent-purple mr-3 flex-shrink-0 mt-0.5 font-bold">•</span>
+                                <div>
+                                    <span class="font-semibold text-white dark:text-white light:text-gray-900">Technology:</span>
+                                    <span class="text-gray-400 dark:text-gray-400 light:text-gray-600"> Tools should support people and processes, not replace them</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-accent-purple mr-3 flex-shrink-0 mt-0.5 font-bold">•</span>
+                                <div>
+                                    <span class="font-semibold text-white dark:text-white light:text-gray-900">Continuous Improvement:</span>
+                                    <span class="text-gray-400 dark:text-gray-400 light:text-gray-600"> Security is a journey, not a destination</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Learn More -->
+                    <div class="bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-accent-blue dark:border-accent-blue light:border-accent-blue rounded-xl p-8 flex flex-col justify-center">
+                        <h3 class="text-2xl font-heading font-bold mb-6 text-accent-blue">
+                            Learn More
+                        </h3>
+                        <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed mb-6">
+                            Visit Agora Security to learn more about our company, our team, and our broader cybersecurity consulting services.
+                        </p>
+                        <a href="https://www.agorasecurity.it" target="_blank" rel="noopener noreferrer" class="interactive-element inline-flex items-center text-accent-blue hover:text-accent-green transition-colors font-semibold text-lg">
+                            Visit Agora Security
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Contact Us Section -->
+        <section id="contact" class="container mx-auto px-6 py-20">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-heading font-bold mb-12 flex items-center justify-center md:justify-start">
+                    <span class="mr-4 text-5xl">📞</span>
+                    <span class="text-white dark:text-white light:text-gray-900">Contact Us</span>
+                </h2>
+                
+                <!-- Contact Grid -->
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <!-- Contact Info Cards -->
+                    <div class="bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6">
+                        <h3 class="text-lg font-semibold text-accent-blue mb-2">General Inquiries</h3>
+                        <a href="mailto:info@agorasecurity.it" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">
+                            info@agorasecurity.it
+                        </a>
+                    </div>
+                    
+                    <div class="bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6">
+                        <h3 class="text-lg font-semibold text-accent-green mb-2">Partnership Opportunities</h3>
+                        <a href="mailto:partners@agorasecurity.it" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-green transition-colors">
+                            partners@agorasecurity.it
+                        </a>
+                    </div>
+                    
+                    <div class="bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6">
+                        <h3 class="text-lg font-semibold text-accent-purple mb-2">Technical Support</h3>
+                        <a href="mailto:support@agorasecurity.it" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-purple transition-colors">
+                            support@agorasecurity.it
+                        </a>
+                    </div>
+                    
+                    <div class="bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6">
+                        <h3 class="text-lg font-semibold text-accent-blue mb-2">Phone</h3>
+                        <a href="tel:+390123456789" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">
+                            +39 012 345 6789
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6">
+                    <h3 class="text-lg font-semibold text-accent-green mb-2">Address</h3>
+                    <p class="text-gray-300 dark:text-gray-300 light:text-gray-700">
+                        Agora Security S.r.l.<br>
+                        Via Example, 123<br>
+                        00100 Roma, Italy
+                    </p>
+                </div>
+                
+                <!-- CTA Final -->
+                <div class="mt-12 text-center bg-gradient-to-br from-accent-blue/10 via-accent-purple/10 to-accent-green/10 border border-accent-blue dark:border-accent-blue light:border-accent-blue rounded-xl p-12">
+                    <p class="text-xl text-gray-300 dark:text-gray-300 light:text-gray-700 mb-6 leading-relaxed">
+                        Ready to transform your cybersecurity program? Get started with resysto today.
+                    </p>
+                    <a href="index.html" class="interactive-element inline-block px-8 py-4 bg-accent-blue text-dark-bg font-semibold rounded-lg glow-blue hover:bg-accent-green transition-all">
+                        Explore resysto
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="border-t border-dark-border dark:border-dark-border light:border-light-border mt-20">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 dark:text-gray-500 light:text-gray-600 text-sm">
+                    © 2025 Agora Security. All rights reserved.
+                </p>
+                <p class="text-gray-500 dark:text-gray-500 light:text-gray-600 text-sm">
+                    Contact: <a href="mailto:info@agorasecurity.it" class="text-accent-blue hover:text-accent-green transition-colors">info@agorasecurity.it</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Theme Toggle Script -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const htmlElement = document.documentElement;
+        
+        // Check for saved theme preference or default to 'dark'
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        
+        // Set initial theme
+        if (currentTheme === 'light') {
+            htmlElement.classList.remove('dark');
+            htmlElement.classList.add('light');
+            themeToggleDarkIcon.classList.add('hidden');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            htmlElement.classList.add('dark');
+            htmlElement.classList.remove('light');
+            themeToggleLightIcon.classList.add('hidden');
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+        
+        // Toggle theme
+        themeToggleBtn.addEventListener('click', function() {
+            // Toggle icons
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            
+            // Toggle theme
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                htmlElement.classList.add('light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                htmlElement.classList.remove('light');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

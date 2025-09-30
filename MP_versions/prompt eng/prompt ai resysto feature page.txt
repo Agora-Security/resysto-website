@@ -1,0 +1,94 @@
+
+
+**Obiettivo Primario:**
+Genera il codice completo (HTML, CSS e JS) per la pagina "Features" del sito web di "Resysto", una web-app di cybersecurity. Il risultato deve essere un singolo file HTML con CSS Tailwind e JS integrati, pronto per la visualizzazione.
+
+***
+
+**1. Contesto e Identità del Brand**
+*   **Nome Prodotto:** Resysto
+*   **Target Audience:** Decision maker (CISO, CIO) e utenti tecnici (team IT, MSSP).
+*   **Tone of Voice:** Professionale, tecnologico, chiaro e affidabile.
+*   **Ispirazione Visiva:** Il design deve riflettere l'estetica moderna e pulita di siti come `surrealdb.com` e `stellaraio.com`, con un tocco cyber-tech.
+
+**2. Linee Guida di Stile e Design (Design System)**
+*   **Layout Generale:** Responsive, basato su griglie e sezioni modulari.
+*   **Tema di Default:** Dark mode.
+*   **Palette Colori (Dark Mode):**
+    *   **Sfondi:** Grigio molto scuro (es. `#0D1117`).
+    *   **Testo:** Bianco o grigio chiaro per una leggibilità ottimale.
+    *   **Colori d'Accento:** Usa un mix di blu elettrico, verde acido e viola per titoli, bottoni e dettagli interattivi. Applica un sottile effetto `neon glow` su questi elementi tramite le classi di Tailwind.
+*   **Tipografia:**
+    *   **Intestazioni (Headings):** `Space Grotesk`.
+    *   **Paragrafi (Body):** `Inter`.
+*   **Interattività:**
+    *   Animazioni fluide e transizioni morbide (`transition-all`, `duration-300`) su tutti gli stati (hover, focus, active).
+    *   Micro-interazioni per fornire feedback visivo, come un leggero ingrandimento (`hover:scale-105`) sulle card.
+*   **Iconografia:** Utilizza icone SVG minimaliste e dal tratto sottile.
+
+**3. Struttura e Contenuti della Pagina "Features"**
+
+Crea la pagina seguendo questa esatta struttura, sezione per sezione, utilizzando i contenuti forniti.
+
+*   **`<header>` (Fisso e sticky):**
+    *   **Layout:** Flexbox con `justify-between` e `items-center`.
+    *   **Sinistra:** Logo testuale "Resysto".
+    *   **Centro:** Menu di navigazione: `Home`, `Features`, `Roadmap`, `Partners`, `Blog`, `About`, `Access`. La voce "Features" deve avere uno stile "attivo" (es. testo con colore d'accento o un sottolineato sottile).
+    *   **Destra:** Interruttore (toggle) per il tema Light/Dark.
+
+*   **`<main>`:**
+    *   **Sezione 1: Hero Section**
+        *   Layout a colonna singola, centrato.
+        *   **Kicker:** `WHAT YOU CAN DO`.
+        *   **Titolo (H1):** `Explore resysto Features`.
+        *   **Sottotitolo:** `Applications and services designed for resilient, auditable security operations.`.
+        *   **Bottoni CTA:**
+            *   **Primario:** `See capabilities`.
+            *   **Secondario (stile outline):** `Access platform`.
+
+    *   **Sezione 2: Elenco Features**
+        *   **Layout Generale:** Un layout a colonna singola che elenca le principali categorie di funzionalità (`vCISO`, `Incident Management`, `Platform Services`). Ogni categoria deve essere visivamente distinta.
+        *   **Status Badges:** Utilizza dei "badge" (pillole di testo con sfondo colorato) per indicare lo stato di ogni feature. Crea le seguenti classi di stile:
+            *   **Verde (`Implemented`, `Complete`):** Sfondo verde, testo scuro.
+            *   **Giallo (`Beta`):** Sfondo giallo, testo scuro.
+            *   **Viola (`In development`, `Implementing`):** Sfondo viola, testo bianco.
+            *   **Blu (`Planned`, `In planning`):** Sfondo blu, testo bianco.
+            *   **Arancione (`Experimental`):** Sfondo arancione, testo scuro.
+        *   **Contenuto Dettagliato:** Organizza le features come segue, usando card o sezioni con bordi sottili per separare visivamente i vari livelli.
+
+            *   **Titolo Categoria: `vCISO`**
+                *   Badge: **Verde** (`Implemented`)
+                *   Descrizione: `A complete virtual Chief Information Security Officer platform...`
+                *   **Sotto-lista di moduli (Layout a griglia):**
+                    *   `Overview`: [Badge Verde] `Complete`. Descrizione: `Seven integrated modules...`
+                    *   `People`: [Badge Verde] `Complete`. Descrizione: `Manage org charts...`
+                    *   `Documents`: [Badge Verde] `Complete`. Descrizione: `Central repository...`
+                    *   ...e così via per tutti i sotto-elementi di `vCISO` (`Tools`, `Assets`, `Cyber Posture`, `Roadmap`, `Supply Chain Risk`), ognuno con il proprio badge e descrizione.
+
+            *   **Titolo Categoria: `Incident Management`**
+                *   Badge: **Blu** (`In planning`)
+                *   Descrizione: `Planned for Phase 3. Focused on coordinated response...`
+                *   **Sotto-lista di moduli:**
+                    *   `Response`: [Badge Blu] `Planned`.
+                    *   `Communications`: [Badge Blu] `Planned`.
+                    *   `Post-Incident`: [Badge Blu] `Planned`.
+                    *   ...e così via per i sotto-elementi, ognuno con il proprio badge.
+
+            *   **Titolo Categoria: `Platform Services`**
+                *   Descrizione: `Advanced services that power the Resysto platform.`
+                *   **Sotto-lista di servizi:**
+                    *   `Documents Manager`: [Badge Viola] `Implementing`. Descrizione: `Advanced document processing...`
+                    *   `RAG Knowledge`: [Badge Blu] `Planned`. Descrizione: `Retrieval-augmented generation...`
+                    *   `AI Assistant`: [Badge Blu] `Planned`. Descrizione: `Intelligent recommendations...`
+
+*   **`<footer>`:**
+    *   Layout semplice e pulito.
+    *   **Sinistra:** `© 2025 Agora Security. All rights reserved.`.
+    *   **Destra:** `Contact: info@agorasecurity.it` (link `mailto`).
+
+**4. Requisiti Tecnici e di Output**
+*   **File di Output:** Genera un singolo file `index.html`.
+*   **HTML:** Usa tag semantici (`<header>`, `<main>`, `<section>`). Inserisci commenti HTML per delimitare chiaramente ogni categoria di feature (`<!-- vCISO -->`, `<!-- Incident Management -->`, etc.).
+*   **CSS:** Usa **Tailwind CSS** tramite il suo CDN ufficiale. Applica le classi direttamente nell'HTML. Configura i colori d'accento (blu, verde, viola, giallo, arancione) nel blocco di configurazione di Tailwind per poterli riutilizzare facilmente.
+*   **JavaScript:** Includi il codice JS per la gestione del tema Light/Dark in un tag `<script>` prima della chiusura del `</body>`.
+*   **Accessibilità:** Garantisci contrasti di colore conformi a WCAG 2.1 AA e assicurati che tutti gli elementi interattivi siano pienamente accessibili da tastiera.

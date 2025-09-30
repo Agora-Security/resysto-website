@@ -1,0 +1,111 @@
+
+
+**Obiettivo Primario:**
+Genera il codice completo (HTML, CSS e JS) per la pagina "Roadmap" del sito web di "Resysto". Il risultato deve essere un singolo file HTML con CSS Tailwind e JS integrati, pronto per la visualizzazione.
+
+***
+
+**1. Contesto e Identità del Brand**
+*   **Nome Prodotto:** Resysto
+*   **Target Audience:** Utenti attuali e potenziali, investitori, decision maker (CISO, CIO).
+*   **Tone of Voice:** Trasparente, professionale, orientato al futuro.
+*   **Ispirazione Visiva:** Design moderno e tech, in linea con `surrealdb.com` e `stellaraio.com`.
+
+**2. Linee Guida di Stile e Design (Design System)**
+*   **Layout Generale:** Responsive, basato su griglie e sezioni modulari.
+*   **Tema di Default:** Dark mode.
+*   **Palette Colori (Dark Mode):**
+    *   **Sfondo:** Grigio molto scuro (es. `#0A0A0A`).
+    *   **Testo:** Bianco o grigio chiaro.
+    *   **Colori d'Accento:** Un mix di blu, verde e viola per titoli, bottoni ed elementi interattivi, con un sottile effetto `neon glow`.
+*   **Tipografia:**
+    *   **Intestazioni (Headings):** `Space Grotesk`.
+    *   **Paragrafi (Body):** `Inter`.
+*   **Interattività:** Animazioni e transizioni fluide su tutti gli elementi interattivi.
+*   **Iconografia:** Utilizza le emoji fornite (🚀, ✅, 🔄, ecc.) come icone per dare un tocco di personalità.
+
+**3. Struttura e Contenuti della Pagina "Roadmap"**
+
+Crea la pagina seguendo questa esatta struttura, sezione per sezione.
+
+*   **`<header>` (Fisso e sticky):**
+    *   **Layout:** Flexbox con `justify-between` e `items-center`.
+    *   **Sinistra:** Logo testuale "Resysto".
+    *   **Centro:** Menu di navigazione: `Home`, `Features`, `Roadmap`, `Partners`, `Blog`, `About`, `Access`. La voce "Roadmap" deve avere uno stile "attivo" (es. testo con colore d'accento).
+    *   **Destra:** Interruttore (toggle) per il tema Light/Dark.
+
+*   **`<main>`:**
+    *   **Sezione 1: Hero Section**
+        *   Layout a colonna singola, centrato.
+        *   **Kicker:** `SHIPPING PLAN`.
+        *   **Titolo (H1):** `Our Product Roadmap`.
+        *   **Sottotitolo:** `See what's built, what's next, and where resysto is going.`.
+        *   **Bottoni CTA:**
+            *   **Primario:** `Current phase`.
+            *   **Secondario (stile outline):** `Follow updates`.
+        *   **Paragrafo introduttivo:** `Our development roadmap is organized into three phases, focusing on core functionality, integrations, and intelligent automation.`.
+
+    *   **Sezione 2: Timeline Verticale**
+        *   **Design della Timeline:** Crea una timeline verticale, moderna ed esteticamente piacevole. Ogni fase della roadmap deve essere una "card" o un "blocco" collegato da una linea verticale continua che attraversa la sezione. A sinistra della linea, posiziona l'icona e il titolo della fase; a destra, il contenuto dettagliato.
+        *   **Contenuto Dettagliato (organizzato per fasi):**
+
+            *   **Blocco 1: Phase 1**
+                *   **Titolo:** `🚀 Phase 1 · MVP Website and vCISO App Foundation Q1–Q2 2024`.
+                *   **Descrizione:** `Core launch scope for the website and foundational app modules.`.
+                *   **Lista `✅ Completed`:**
+                    *   `Marketing website with core pages`
+                    *   `vCISO application with seven core modules`
+                    *   `Basic Documents Manager service`
+                *   **Lista `🔄 In Progress`:**
+                    *   `Documents Manager advanced features`
+                    *   `User onboarding and documentation`
+
+            *   **Blocco 2: Phase 2**
+                *   **Titolo:** `🔗 Phase 2 · Differentiators and Integrations Q3–Q4 2024`.
+                *   **Descrizione:** `Focus on integrations, MSSP enablement, and reporting.`.
+                *   **Lista `🎯 Key Deliverables`:**
+                    *   `MSSP Multi-tenant Access: Dedicated console for managed service providers`
+                    *   `External Tool Integration: First‑party integrations with popular security tools`
+                    *   `RAG Knowledge System: Design and prototype for contextual security assistance`
+                    *   `Enhanced Reporting: Advanced analytics and compliance reporting`
+                *   **Lista `🔧 Technical Focus`:**
+                    *   `API development for third‑party integrations`
+                    *   `Multi‑tenant architecture implementation`
+                    *   `Knowledge base and search capabilities`
+
+            *   **Blocco 3: Phase 3**
+                *   **Titolo:** `🤖 Phase 3 · Scale and Intelligence Q1–Q2 2025`.
+                *   **Descrizione:** `Automation, AI-assisted workflows, and enterprise controls.`.
+                *   **Lista `🎯 Key Deliverables`:**
+                    *   `Incident Management: Complete incident response workflows and automation`
+                    *   `AI Assistant: Intelligent recommendations powered by RAG context`
+                    *   `Advanced Analytics: Predictive security posture and risk assessment`
+                    *   `Enterprise Features: Advanced role management and audit capabilities`
+                *   **Lista `🔧 Technical Focus`:**
+                    *   `Machine learning integration`
+                    *   `Advanced workflow automation`
+                    *   `Enterprise‑grade security and compliance`
+
+            *   **Blocco 4: Future Considerations**
+                *   **Titolo:** `🗓️ Future Considerations · Phase 4+ 2025+`.
+                *   **Descrizione:** `Ideas we intend to explore and validate with users.`.
+                *   **Lista `Looking Ahead`:**
+                    *   `Mobile applications`
+                    *   `Advanced threat intelligence integration`
+                    *   `Industry‑specific compliance modules`
+                    *   `Marketplace for third‑party extensions`
+
+        *   **Nota Finale:** Inserisci il seguente testo alla fine della sezione della timeline, con uno stile che lo renda una nota a piè di pagina (testo più piccolo, opacità ridotta):
+            `Timeline is subject to change based on user feedback and market demands. For the latest updates, follow our blog or contact us at info@agorasecurity.it.`
+
+*   **`<footer>`:**
+    *   Layout pulito e minimale.
+    *   **Sinistra:** `© 2025 Agora Security. All rights reserved.`.
+    *   **Destra:** `Contact: info@agorasecurity.it` (link `mailto`).
+
+**4. Requisiti Tecnici e di Output**
+*   **File di Output:** Genera un singolo file `index.html`.
+*   **HTML:** Usa tag semantici (`<header>`, `<main>`, `<section>`). Inserisci commenti HTML per delimitare chiaramente ogni fase della timeline (`<!-- Phase 1 -->`, `<!-- Phase 2 -->`, etc.).
+*   **CSS:** Usa **Tailwind CSS** tramite il suo CDN ufficiale. Applica le classi direttamente nell'HTML.
+*   **JavaScript:** Includi il codice JS per il toggle del tema Light/Dark in un tag `<script>` prima della chiusura del `</body>`.
+*   **Accessibilità:** Assicurati che i contrasti di colore siano conformi a WCAG 2.1 AA.

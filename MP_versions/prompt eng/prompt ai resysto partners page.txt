@@ -1,0 +1,101 @@
+
+
+**Obiettivo Primario:**
+Genera il codice completo (HTML, CSS e JS) per la pagina "Partners" del sito web di "Resysto". Il risultato deve essere un singolo file HTML con CSS Tailwind e JS integrati, pronto per la visualizzazione.
+
+***
+
+**1. Contesto e Identità del Brand**
+*   **Nome Prodotto:** Resysto
+*   **Target Audience:** Potenziali partner, inclusi MSP/MSSP, consulenti di cybersecurity e aziende tecnologiche.
+*   **Tone of Voice:** Collaborativo, professionale, orientato alla crescita e all'ecosistema.
+*   **Ispirazione Visiva:** Design moderno e tech, in linea con `surrealdb.com` e `stellaraio.com`, ma focalizzato sulla collaborazione.
+
+**2. Linee Guida di Stile e Design (Design System)**
+*   **Layout Generale:** Responsive, con un mix di sezioni a colonna intera e layout a due colonne per confrontare e presentare le informazioni.
+*   **Tema di Default:** Dark mode.
+*   **Palette Colori (Dark Mode):**
+    *   **Sfondo:** Grigio molto scuro (es. `#0D1117`).
+    *   **Testo:** Bianco o grigio chiaro.
+    *   **Colori d'Accento:** Un mix di blu, verde e viola per titoli, bottoni ed elementi interattivi, con un sottile effetto `neon glow`.
+*   **Tipografia:**
+    *   **Intestazioni (Headings):** `Space Grotesk`.
+    *   **Paragrafi (Body):** `Inter`.
+*   **Interattività:** Animazioni e transizioni fluide (`transition-all`, `duration-300`) sugli elementi interattivi.
+*   **Iconografia:** Usa le emoji fornite (🤝, 🔧, 📞, 🏆) come icone per i titoli delle sezioni per dare un tocco distintivo e visivo.
+
+**3. Struttura e Contenuti della Pagina "Partners"**
+
+Crea la pagina seguendo questa esatta struttura, sezione per sezione.
+
+*   **`<header>` (Fisso e sticky):**
+    *   **Layout:** Flexbox con `justify-between` e `items-center`.
+    *   **Sinistra:** Logo testuale "Resysto".
+    *   **Centro:** Menu di navigazione: `Home`, `Features`, `Roadmap`, `Partners`, `Blog`, `About`, `Access`. La voce "Partners" deve avere uno stile "attivo".
+    *   **Destra:** Interruttore (toggle) per il tema Light/Dark.
+
+*   **`<main>`:**
+    *   **Sezione 1: Hero Section**
+        *   Layout a colonna singola, centrato.
+        *   **Kicker:** `ECOSYSTEM`.
+        *   **Titolo (H1):** `Partner with resysto`.
+        *   **Sottotitolo:** `Join MSP/MSSP and technology partners building resilient security operations.`.
+        *   **Bottoni CTA:**
+            *   **Primario:** `Contact partner team`.
+            *   **Secondario (stile outline):** `See benefits`.
+        *   **Paragrafo introduttivo:** `Join our growing ecosystem of partners who are transforming cybersecurity management with resysto.`.
+
+    *   **Sezione 2: MSP/MSSP Partners**
+        *   **Titolo della sezione (H2):** `🤝 MSP/MSSP Partners`.
+        *   **Layout:** Usa un layout a due colonne.
+        *   **Colonna Sinistra:** Contiene il "Perché":
+            *   **Titolo:** `Why Partner with resysto?`
+            *   **Paragrafo:** `Use resysto to deliver managed cybersecurity services...`
+        *   **Colonna Destra:** Contiene i "Benefici":
+            *   **Titolo:** `Partner Benefits`
+            *   **Lista:** `Dedicated MSSP Console`, `Standardized Workflows`, ecc.
+        *   **Sotto-sezione (a colonna intera):**
+            *   **Titolo:** `Ideal Partners`
+            *   **Lista:** `Managed Service Providers (MSPs)`, `Managed Security Service Providers (MSSPs)`, ecc.
+
+    *   **Sezione 3: Technical Partners**
+        *   **Titolo della sezione (H2):** `🔧 Technical Partners`.
+        *   **Layout:** Usa una struttura simile alla sezione precedente per coerenza.
+        *   **Layout a due colonne:**
+            *   **Colonna Sinistra:**
+                *   **Titolo:** `Integration Opportunities`
+                *   **Paragrafo:** `Integrate your IT/Cybersecurity tools with resysto...`
+                *   **Titolo lista:** `Integration Types` e la relativa lista.
+            *   **Colonna Destra:**
+                *   **Titolo:** `Partner Benefits` e la relativa lista.
+                *   **Titolo lista:** `Integration Categories` e la relativa lista.
+
+    *   **Sezione 4: Get Started**
+        *   **Titolo della sezione (H2):** `📞 Get Started`.
+        *   **Layout:** Una griglia a due colonne, dove ogni colonna è una "card" con informazioni di contatto chiare.
+        *   **Card 1 (Sinistra):**
+            *   **Titolo:** `For MSP/MSSP Partners`
+            *   **Testo:** `Contact our partner team to discuss...`
+            *   **Contatti:** Email e Telefono.
+        *   **Card 2 (Destra):**
+            *   **Titolo:** `For Technical Partners`
+            *   **Testo:** `Start with our developer documentation...`
+            *   **Contatti:** Link al Developer Portal e Email di supporto.
+
+    *   **Sezione 5: Partner Success Stories**
+        *   Crea una sezione visivamente distinta (es. con un bordo o sfondo leggermente diverso).
+        *   **Titolo:** `🏆 Partner Success Stories`.
+        *   **Testo placeholder:** `Coming soon: Case studies and success stories from our growing partner community.`.
+        *   **CTA finale:** `Ready to join our partner ecosystem? Contact us today to discuss how resysto can enhance your cybersecurity services.`.
+
+*   **`<footer>`:**
+    *   Layout pulito e minimale.
+    *   **Sinistra:** `© 2025 Agora Security. All rights reserved.`.
+    *   **Destra:** `Contact: info@agorasecurity.it` (link `mailto`).
+
+**4. Requisiti Tecnici e di Output**
+*   **File di Output:** Genera un singolo file `index.html`.
+*   **HTML:** Usa tag semantici (`<header>`, `<main>`, `<section>`). Inserisci commenti HTML per delimitare chiaramente ogni sezione (`<!-- MSP/MSSP Partners -->`, `<!-- Get Started -->`, etc.).
+*   **CSS:** Usa **Tailwind CSS** tramite il suo CDN ufficiale.
+*   **JavaScript:** Includi il codice JS per il toggle del tema Light/Dark in un tag `<script>` prima della chiusura del `</body>`.
+*   **Accessibilità:** Garantisci contrasti di colore conformi a WCAG 2.1 AA e assicurati che tutti gli elementi interattivi siano accessibili da tastiera.
