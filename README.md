@@ -31,7 +31,41 @@ npm run build
 Outputs to `public/`.
 
 ## Deploy
-GitHub Actions deploys on pushes to `main`. Branch `develop` builds artifacts only.
+
+### Automatic Deployment
+GitHub Actions automatically deploys the site to GitHub Pages when you push to the `main` branch.
+
+**Workflow:**
+- Push to `main` → builds site with Zola + Tailwind → deploys to GitHub Pages
+- Push to `develop` → builds and uploads artifacts (no deployment)
+
+### GitHub Pages Setup
+To enable automatic deployment, verify these settings in your GitHub repository:
+
+1. **Pages Configuration**
+   - Go to **Settings** → **Pages**
+   - Under **Source**, select:
+     - **Deploy from a branch**
+     - Branch: `gh-pages` (root)
+
+2. **Workflow Permissions**
+   - Go to **Settings** → **Actions** → **General**
+   - Under **Workflow permissions**, ensure:
+     - ✅ **Read and write permissions** is selected
+     - ✅ **Allow GitHub Actions to create and approve pull requests** is checked
+
+3. **Custom Domain**
+   - The `CNAME` file in `static/` points to `resysto.io`
+   - Configure your DNS provider to point to GitHub Pages
+   - GitHub will automatically configure SSL/TLS
+
+### Manual Build
+To build locally without deploying:
+```bash
+npm run build
+zola build
+```
+The built site will be in the `public/` directory.
 
 ## Content
 - Pages under `content/`
