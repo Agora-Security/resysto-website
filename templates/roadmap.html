@@ -1,0 +1,245 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="container mx-auto px-6 py-20 text-center">
+    <p class="text-accent-blue text-sm font-semibold tracking-wider uppercase mb-4">
+        {{ page.extra.kicker | default(value="ROADMAP") }}
+    </p>
+    
+    <h1 class="text-5xl md:text-6xl font-heading font-bold mb-6 text-white dark:text-white light:text-gray-900">
+        {{ page.extra.hero_title | default(value="Our Product Roadmap") }}
+    </h1>
+    
+    <p class="text-xl text-gray-400 dark:text-gray-400 light:text-gray-600 max-w-3xl mx-auto mb-8">
+        {{ page.extra.hero_subtitle | default(value="See what's built, what's next, and where we're going.") }}
+    </p>
+    
+    {% if page.extra.intro_text %}
+    <p class="text-lg text-gray-400 dark:text-gray-400 light:text-gray-600 max-w-2xl mx-auto">
+        {{ page.extra.intro_text }}
+    </p>
+    {% endif %}
+</section>
+
+<!-- Timeline Section -->
+<section class="container mx-auto px-6 py-12 mb-20">
+    <div class="max-w-6xl mx-auto relative">
+        <!-- Central vertical line -->
+        <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-accent-green via-accent-blue to-accent-purple hidden md:block"></div>
+        
+        <!-- Mobile left line -->
+        <div class="absolute left-8 top-0 h-full w-1 bg-gradient-to-b from-accent-green via-accent-blue to-accent-purple md:hidden"></div>
+        
+        <div class="space-y-24">
+            {% for phase in page.extra.phases %}
+            <!-- Phase {{ loop.index }} - {% if loop.index is odd %}Left{% else %}Right{% endif %} -->
+            <div class="relative">
+                <!-- Timeline dot (center) - Simple aesthetic circle -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden md:block w-5 h-5 rounded-full z-10
+                    {% if phase.status == 'completed' %}bg-accent-green shadow-[0_0_20px_rgba(57,255,20,0.6)]{% endif %}
+                    {% if phase.status == 'in-progress' %}bg-accent-blue shadow-[0_0_20px_rgba(0,212,255,0.6)]{% endif %}
+                    {% if phase.status == 'planned' %}bg-accent-purple shadow-[0_0_20px_rgba(176,38,255,0.6)]{% endif %}
+                    {% if phase.status == 'future' %}bg-gray-400 shadow-[0_0_20px_rgba(156,163,175,0.6)]{% endif %}
+                    ring-4 ring-dark-bg">
+                </div>
+                
+                <!-- Mobile dot (left) - Simple aesthetic circle -->
+                <div class="absolute left-8 transform -translate-x-1/2 -translate-y-1/2 flex md:hidden w-4 h-4 rounded-full z-10
+                    {% if phase.status == 'completed' %}bg-accent-green{% endif %}
+                    {% if phase.status == 'in-progress' %}bg-accent-blue{% endif %}
+                    {% if phase.status == 'planned' %}bg-accent-purple{% endif %}
+                    {% if phase.status == 'future' %}bg-gray-400{% endif %}
+                    ring-4 ring-dark-bg">
+                </div>
+                
+                <!-- Phase card -->
+                <div class="grid md:grid-cols-2 gap-8 md:gap-16">
+                    <!-- Spacer for alternating layout -->
+                    {% if loop.index is even %}
+                    <div class="hidden md:block"></div>
+                    {% endif %}
+                    
+                    <!-- Card content -->
+                    <div class="feature-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-8 card-hover ml-16 md:ml-0">
+                        
+                        <!-- Status badge -->
+                        <div class="mb-4">
+                            <span class="status-badge 
+                                {% if phase.status == 'completed' %}status-implemented{% endif %}
+                                {% if phase.status == 'in-progress' %}status-beta{% endif %}
+                                {% if phase.status == 'planned' %}status-progress{% endif %}
+                                {% if phase.status == 'future' %}status-planned{% endif %}
+                                text-xs px-3 py-1">
+                                {{ phase.status_label }}
+                            </span>
+                        </div>
+                        
+                        <!-- Timeline -->
+                        <p class="text-sm font-mono text-gray-500 dark:text-gray-500 light:text-gray-600 mb-2">
+                            {{ phase.timeline }}
+                        </p>
+                        
+                        <!-- Title -->
+                        <h3 class="text-2xl md:text-3xl font-heading font-bold mb-4 text-white dark:text-white light:text-gray-900">
+                            {{ phase.name }}
+                        </h3>
+                        
+                        <!-- Description -->
+                        <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 mb-6">
+                            {{ phase.description }}
+                        </p>
+                        
+                        <!-- Completed items -->
+                        {% if phase.completed %}
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-accent-green uppercase tracking-wider mb-3">
+                                {{ page.extra.completed_label | default(value="Completed") }}
+                            </h4>
+                            <ul class="space-y-2">
+                                {% for item in phase.completed %}
+                                <li class="flex items-start gap-2 text-sm text-gray-400">
+                                    <svg class="w-5 h-5 text-accent-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span>{{ item }}</span>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                        
+                        <!-- In progress items -->
+                        {% if phase.in_progress %}
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-accent-blue uppercase tracking-wider mb-3">
+                                {{ page.extra.in_progress_label | default(value="In Progress") }}
+                            </h4>
+                            <ul class="space-y-2">
+                                {% for item in phase.in_progress %}
+                                <li class="flex items-start gap-2 text-sm text-gray-400">
+                                    <svg class="w-5 h-5 text-accent-blue flex-shrink-0 mt-0.5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                                    </svg>
+                                    <span>{{ item }}</span>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                        
+                        <!-- Deliverables -->
+                        {% if phase.deliverables %}
+                        <div class="mb-6">
+                            <h4 class="text-sm font-semibold text-accent-purple uppercase tracking-wider mb-3">
+                                {{ page.extra.deliverables_label | default(value="Key Deliverables") }}
+                            </h4>
+                            <div class="space-y-3">
+                                {% for item in phase.deliverables %}
+                                <div class="flex items-start gap-3">
+                                    <div class="p-2 bg-accent-purple/10 rounded-lg flex-shrink-0">
+                                        <svg class="w-5 h-5 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p class="text-sm font-medium text-white">{{ item.title }}</p>
+                                        <p class="text-xs text-gray-500">{{ item.description }}</p>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+                        <!-- Technical focus -->
+                        {% if phase.technical_focus %}
+                        <div>
+                            <h4 class="text-sm font-semibold text-gray-400 uppercase tracking-wider mb-3">
+                                {{ page.extra.technical_focus_label | default(value="Technical Focus") }}
+                            </h4>
+                            <ul class="space-y-2">
+                                {% for item in phase.technical_focus %}
+                                <li class="flex items-start gap-2 text-sm text-gray-400">
+                                    <svg class="w-5 h-5 text-accent-purple flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                                    </svg>
+                                    <span>{{ item }}</span>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                        
+                        <!-- Looking ahead items -->
+                        {% if phase.looking_ahead %}
+                        <div class="mt-6">
+                            <h4 class="text-sm font-semibold text-accent-blue uppercase tracking-wider mb-3">
+                                {{ page.extra.looking_ahead_label | default(value="Looking Ahead") }}
+                            </h4>
+                            <ul class="space-y-2">
+                                {% for item in phase.looking_ahead %}
+                                <li class="flex items-start gap-2 text-sm text-gray-400">
+                                    <svg class="w-5 h-5 text-accent-blue flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                                    </svg>
+                                    <span>{{ item }}</span>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                    
+                    <!-- Spacer for alternating layout -->
+                    {% if loop.index is odd %}
+                    <div class="hidden md:block"></div>
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Disclaimer Section -->
+{% if page.extra.disclaimer_text %}
+<section class="container mx-auto px-6 py-12 mb-12">
+    <div class="max-w-3xl mx-auto text-center">
+        <p class="text-sm text-gray-500 dark:text-gray-500 light:text-gray-600">
+            {{ page.extra.disclaimer_text }}
+            {% if page.extra.disclaimer_updates_text %}
+            {{ page.extra.disclaimer_updates_text }}
+            <a href="{{ page.extra.disclaimer_blog_url }}" class="text-accent-blue hover:text-accent-green transition-colors">{{ page.extra.disclaimer_blog_link }}</a>
+            {{ page.extra.disclaimer_contact_text }}
+            <a href="mailto:{{ page.extra.disclaimer_email }}" class="text-accent-blue hover:text-accent-green transition-colors">{{ page.extra.disclaimer_email }}</a>.
+            {% endif %}
+        </p>
+    </div>
+</section>
+{% endif %}
+
+<!-- CTA Section -->
+{% if page.extra.cta_title %}
+<section class="container mx-auto px-6 py-20 mb-20">
+    <div class="max-w-4xl mx-auto bg-gradient-to-br from-accent-blue/10 via-accent-purple/10 to-accent-green/10 border border-accent-blue/30 rounded-2xl p-12 text-center">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4 text-white dark:text-white light:text-gray-900">
+            {{ page.extra.cta_title }}
+        </h2>
+        <p class="text-lg text-gray-400 dark:text-gray-400 light:text-gray-600 mb-8 max-w-2xl mx-auto">
+            {{ page.extra.cta_description }}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="{{ page.extra.cta_primary_url }}" class="px-8 py-3 bg-accent-blue text-white font-semibold rounded-lg hover:bg-accent-blue/90 transition-all interactive-element glow-blue">
+                {{ page.extra.cta_primary_text }}
+            </a>
+            <a href="{{ page.extra.cta_secondary_url }}" class="px-8 py-3 border-2 border-accent-blue text-accent-blue font-semibold rounded-lg hover:bg-accent-blue/10 transition-all interactive-element">
+                {{ page.extra.cta_secondary_text }}
+            </a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{% endblock content %}

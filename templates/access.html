@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="container mx-auto px-6 py-20 text-center">
+    <p class="text-accent-blue text-sm font-semibold tracking-wider uppercase mb-4">
+        {{ page.extra.kicker | default(value="ACCESS") }}
+    </p>
+    
+    <h1 class="text-5xl md:text-6xl font-heading font-bold mb-6 text-white">
+        {{ page.extra.hero_title }}
+    </h1>
+    
+    <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
+        {{ page.extra.hero_subtitle }}
+    </p>
+    
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="{{ page.extra.hero_cta_primary_url }}" class="px-8 py-3 bg-accent-blue text-white font-semibold rounded-lg hover:bg-accent-blue/90 transition-all interactive-element glow-blue">
+            {{ page.extra.hero_cta_primary_text }}
+        </a>
+        <a href="{{ page.extra.hero_cta_secondary_url }}" class="px-8 py-3 border-2 border-accent-blue text-accent-blue font-semibold rounded-lg hover:bg-accent-blue/10 transition-all interactive-element">
+            {{ page.extra.hero_cta_secondary_text }}
+        </a>
+    </div>
+</section>
+
+<!-- Console Selection Section -->
+<section class="container mx-auto px-6 py-20">
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl font-heading font-bold text-center mb-4 text-white">
+            {{ page.extra.console_title }}
+        </h2>
+        <p class="text-lg text-gray-400 text-center mb-12 max-w-3xl mx-auto">
+            {{ page.extra.console_intro }}
+        </p>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            {% for console in page.extra.consoles %}
+            <div id="{{ console.id }}" class="feature-card bg-dark-surface border border-dark-border rounded-xl p-8 card-hover">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="p-3 bg-accent-blue/10 rounded-lg">
+                        {{ console.icon | safe }}
+                    </div>
+                    <h3 class="text-2xl font-heading font-semibold text-white">
+                        {{ console.title }}
+                    </h3>
+                </div>
+                
+                <p class="text-sm text-accent-blue font-medium mb-4">
+                    {{ console.target }}
+                </p>
+                
+                <p class="text-gray-400 mb-6">
+                    {{ console.description }}
+                </p>
+                
+                <ul class="space-y-2 mb-8">
+                    {% for feature in console.features %}
+                    <li class="flex items-start gap-2 text-sm text-gray-400">
+                        <svg class="w-5 h-5 text-accent-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span>{{ feature }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+                
+                <a href="{{ console.cta_url }}" target="_blank" class="w-full inline-block text-center px-6 py-3 {% if console.cta_type == 'primary' %}bg-accent-blue text-white hover:bg-accent-blue/90{% else %}border-2 border-accent-green text-accent-green hover:bg-accent-green/10{% endif %} font-semibold rounded-lg transition-all interactive-element">
+                    {{ console.cta_text }}
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Security & Support Section -->
+<section class="container mx-auto px-6 py-20 bg-dark-surface/30">
+    <div class="max-w-6xl mx-auto">
+        <div class="flex items-center gap-3 mb-12 justify-center">
+            <svg class="w-10 h-10 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+            </svg>
+            <h2 class="text-4xl font-heading font-bold text-white">
+                {{ page.extra.security_title }}
+            </h2>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            {% for column in page.extra.security_columns %}
+            <div class="space-y-4">
+                <div class="flex items-center gap-3 mb-4">
+                    {{ column.icon | safe }}
+                    <h3 class="text-xl font-semibold text-white">
+                        {{ column.title }}
+                    </h3>
+                </div>
+                <ul class="space-y-2">
+                    {% for item in column.items %}
+                    <li class="text-gray-400">
+                        {% if item.link %}
+                        <a href="{{ item.link }}" class="hover:text-accent-blue transition-colors">{{ item.text }}</a>
+                        {% elif item.text %}
+                        {{ item.text }}
+                        {% else %}
+                        {{ item }}
+                        {% endif %}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Mobile Access Section -->
+<section class="container mx-auto px-6 py-20">
+    <div class="max-w-4xl mx-auto text-center">
+        <div class="flex items-center gap-3 mb-6 justify-center">
+            <svg class="w-10 h-10 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+            </svg>
+            <h2 class="text-3xl font-heading font-bold text-white">
+                {{ page.extra.mobile_title }}
+            </h2>
+        </div>
+        <p class="text-lg text-gray-400 leading-relaxed">
+            {{ page.extra.mobile_text }}
+        </p>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="container mx-auto px-6 py-12 mb-20">
+    <div class="max-w-3xl mx-auto text-center">
+        <p class="text-xl text-white font-semibold">
+            {{ page.extra.final_cta_text }}
+            <a href="{{ page.extra.final_cta_link_url }}" class="text-accent-blue hover:text-accent-green transition-colors ml-2">
+                {{ page.extra.final_cta_link_text }}
+            </a>
+        </p>
+    </div>
+</section>
+
+{% endblock content %}
