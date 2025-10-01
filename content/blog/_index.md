@@ -41,7 +41,7 @@ business_focus = ["business_insights", "case_studies", "roi"]
 
 Welcome to the resysto blog, where we share insights, updates, and best practices for cybersecurity management.
 
-## 📚 What You'll Find Here
+## What You'll Find Here
 
 Our blog covers a wide range of topics to help you get the most out of resysto and build effective security programs:
 
@@ -71,13 +71,13 @@ Our blog covers a wide range of topics to help you get the most out of resysto a
 
 ---
 
-## 🔍 Browse by Category
+## Browse by Category
 
 *Coming soon: Category filtering and tag-based navigation*
 
 ---
 
-## 📧 Stay Updated
+## Stay Updated
 
 Subscribe to our RSS feed to get the latest posts delivered to your feed reader:
 

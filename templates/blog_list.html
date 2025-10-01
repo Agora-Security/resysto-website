@@ -1,74 +1,128 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <section class="mx-auto max-w-7xl px-4 py-12">
-    {% if section.extra.hero_title or section.extra.hero_subtitle %}
-      <div class="mb-10">
-        {% if section.extra.hero_kicker %}
-          <p class="text-sm hero-kicker mb-2">{{ section.extra.hero_kicker }}</p>
-        {% endif %}
-        <h1 class="text-3xl font-semibold mb-2 heading-gradient">{{ section.extra.hero_title | default(value=section.title) }}</h1>
-        {% if section.extra.hero_subtitle %}
-          <p class="text-lg text-gray-600 mb-4">{{ section.extra.hero_subtitle }}</p>
-        {% endif %}
-        {% if section.extra.primary_text and section.extra.primary_url or section.extra.secondary_text and section.extra.secondary_url %}
-          <div class="flex gap-3 hero-cta">
-            {% if section.extra.primary_text and section.extra.primary_url %}
-              <a class="btn btn-primary" href="{{ section.extra.primary_url }}">{{ section.extra.primary_text }}</a>
-            {% endif %}
-            {% if section.extra.secondary_text and section.extra.secondary_url %}
-              <a class="btn btn-secondary" href="{{ section.extra.secondary_url }}">{{ section.extra.secondary_text }}</a>
-            {% endif %}
-          </div>
-        {% endif %}
-      </div>
-    {% else %}
-      <header class="mb-8">
-        <h1 class="text-3xl font-semibold mb-2 heading-gradient">{{ section.title }}</h1>
-        {% if section.description %}
-          <p class="text-gray-600">{{ section.description }}</p>
-        {% endif %}
-      </header>
-    {% endif %}
+  <!-- Animated Background -->
+  <div class="cyber-background"></div>
+  <div class="floating-particles"></div>
 
-    {% if paginator %}
-      <div class="grid md:grid-cols-2 gap-6">
-        {% for page in paginator.pages %}
-          <article class="card">
-            <header class="mb-2">
-              <h2 class="text-xl font-semibold"><a class="link-accent" href="{{ page.permalink }}">{{ page.title }}</a></h2>
-              <div class="text-sm text-gray-600">
-                <time datetime="{{ page.date | date(format='%Y-%m-%d') }}">{{ page.date | date(format='%B %d, %Y') }}</time>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-kicker">{{ section.extra.hero_kicker | default(value="Insights") }}</div>
+        <h1 class="hero-title">{{ section.title | default(value="resysto Blog") }}</h1>
+        <p class="hero-subtitle">{{ section.description | default(value="Product updates, how‑tos, security insights, and case studies.") }}</p>
+        <div class="hero-cta">
+          <a href="{{ get_url(path='rss.xml') }}" class="btn btn-primary">
+            <span>Subscribe RSS</span>
+            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <path d="M4 11a9 9 0 0 1 9 9"></path>
+              <path d="M4 4a16 16 0 0 1 16 16"></path>
+              <circle cx="5" cy="19" r="1"></circle>
+            </svg>
+          </a>
+          <a href="/" class="btn btn-secondary">Back to Home</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Articles List -->
+  <section class="articles-section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Latest Articles</h2>
+        <p class="section-subtitle">Recent insights from our cybersecurity experts and product team.</p>
+      </div>
+
+      {% set pages_to_list = paginator.pages | default(value=section.pages) %}
+      {% if pages_to_list and pages_to_list | length > 0 %}
+        <div class="articles-grid">
+          {% for post in pages_to_list %}
+            <article class="article-card{% if loop.first %} featured{% endif %}">
+              <div class="article-header">
+                <div class="article-meta">
+                  {% if post.date %}
+                    <span class="article-date">{{ post.date | date(format="%B %d, %Y") }}</span>
+                  {% endif %}
+                  {% if post.taxonomies.tags and post.taxonomies.tags | length > 0 %}
+                    <span class="article-category">{{ post.taxonomies.tags | first }}</span>
+                  {% endif %}
+                </div>
               </div>
-            </header>
-            {% if page.description %}<p class="text-gray-600">{{ page.description }}</p>{% endif %}
-            <div class="mt-4">
-              <a class="btn btn-secondary" href="{{ page.permalink }}">Read more</a>
-            </div>
-          </article>
-        {% endfor %}
-      </div>
 
-      {% if paginator.number_pagers > 1 %}
-        <nav class="mt-12 flex items-center justify-between text-sm" aria-label="Pagination">
-          {% if paginator.previous %}
-            <a class="link-accent" href="{{ paginator.previous }}">← Newer</a>
-          {% else %}
-            <span></span>
-          {% endif %}
-          <span>Page {{ paginator.current_index + 1 }} of {{ paginator.number_pagers }}</span>
-          {% if paginator.next %}
-            <a class="link-accent" href="{{ paginator.next }}">Older →</a>
-          {% else %}
-            <span></span>
-          {% endif %}
-        </nav>
+              <div class="article-content">
+                <h3 class="article-title">
+                  <a href="{{ post.permalink }}">{{ post.title }}</a>
+                </h3>
+                {% if post.description %}
+                  <p class="article-excerpt">{{ post.description }}</p>
+                {% endif %}
+              </div>
+
+              <div class="article-footer">
+                <a href="{{ post.permalink }}" class="article-link">
+                  Read Article
+                  <svg class="link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                    <path d="M7 17L17 7"></path>
+                    <path d="M7 7h10v10"></path>
+                  </svg>
+                </a>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+
+        {% if paginator and paginator.number_pagers > 1 %}
+          <nav class="mt-12 flex items-center justify-between text-sm" aria-label="Pagination">
+            {% if paginator.previous %}
+              <a class="link-accent" href="{{ paginator.previous }}">← Newer</a>
+            {% else %}
+              <span></span>
+            {% endif %}
+            <span>Page {{ paginator.current_index + 1 }} of {{ paginator.number_pagers }}</span>
+            {% if paginator.next %}
+              <a class="link-accent" href="{{ paginator.next }}">Older →</a>
+            {% else %}
+              <span></span>
+            {% endif %}
+          </nav>
+        {% endif %}
+      {% else %}
+        <p class="text-gray-600">No posts yet.</p>
       {% endif %}
-    {% else %}
-      <p class="text-gray-600">No posts yet.</p>
-    {% endif %}
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Ready to Transform Your Security Operations?</h2>
+        <p class="cta-description">Start your journey with resysto today and discover how our platform can streamline your cybersecurity management.</p>
+        <div class="cta-buttons">
+          <a href="/access/" class="btn btn-primary">Get Started</a>
+          <a href="/features/" class="btn btn-secondary">Explore Features</a>
+        </div>
+      </div>
+    </div>
   </section>
 {% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

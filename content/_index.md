@@ -36,31 +36,46 @@ accessibility_compliance = "wcag_2_1_aa"
 
 Govern and manage cybersecurity and privacy processes and tools in one place.
 
-## Problems we solve
+## Why resysto
 
-### Fragmented operations
+### Problems we solve
+
+#### Fragmented operations
 Too many tools and spreadsheets cause lost context and overhead.
 
-### Evidence burden
+#### Evidence burden
 Collecting audit-ready evidence is slow and manual.
 
-### Lack of security leadership
+#### Lack of security leadership
 SMBs run ad‑hoc risk management without a dedicated CISO.
 
 ## Built for
 
-- SMB IT teams needing vCISO structure
-- Enterprise CISOs and security teams
-- Cybersecurity advisors and MSSPs
+### SMB IT Teams
+needing vCISO structure
+
+### Enterprise CISOs
+and security teams
+
+### Cybersecurity Advisors
+and MSSPs
 
 ## Capabilities
 
 ### Applications
-- **vCISO (implemented)**: people, documents, tools, assets, posture, roadmap, SCRM
-- **Incident Management (roadmap)**
 
-### Platform services
-- Documents Manager (implementing)
-- RAG knowledge (planned)
-- AI assistant (planned)
+- **vCISO (Implemented)**: people, documents, tools, assets, posture, roadmap, SCRM
+- **Incident Management (Roadmap)**
+
+### Platform Services
+
+- **Documents Manager (Implementing)**
+- **RAG knowledge (Planned)**
+- **AI assistant (Planned)**
+
+## Ready to strengthen your cyber resilience?
+
+Join forward-thinking organizations securing their digital future
+
+[Get Started Today](/access/) | [Learn More](/features/)
 

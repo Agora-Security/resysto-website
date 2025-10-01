@@ -37,7 +37,7 @@ business_focus = ["revenue_sharing", "market_expansion", "co_marketing"]
 
 Join our growing ecosystem of partners who are transforming cybersecurity management with resysto.
 
-## 🤝 MSP/MSSP Partners
+## MSP/MSSP Partners
 
 ### Why Partner with resysto?
 Use resysto to deliver managed cybersecurity services to your clients with standardized workflows, comprehensive reporting, and scalable operations.
@@ -57,7 +57,7 @@ Use resysto to deliver managed cybersecurity services to your clients with stand
 
 ---
 
-## 🔧 Technical Partners
+## Technical Partners
 
 ### Integration Opportunities
 Integrate your IT/Cybersecurity tools with resysto to send or retrieve data and enrich program evidence.
@@ -82,7 +82,7 @@ Integrate your IT/Cybersecurity tools with resysto to send or retrieve data and 
 
 ---
 
-## 📞 Get Started
+## Get Started
 
 ### For MSP/MSSP Partners
 Contact our partner team to discuss your specific needs and requirements.
@@ -98,7 +98,7 @@ Start with our developer documentation and integration guidelines.
 
 ---
 
-## 🏆 Partner Success Stories
+## Partner Success Stories
 
 *Coming soon: Case studies and success stories from our growing partner community.*
 
