@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ lang }}" class="dark">
+<html lang="{{ lang }}" class="">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -290,10 +290,10 @@
         }
     </style>
 </head>
-<body class="bg-dark-bg dark:bg-dark-bg light:bg-light-bg text-gray-100 dark:text-gray-100 light:text-gray-900 font-body">
+<body class="bg-white dark:bg-dark-bg text-gray-900 dark:text-gray-100 font-body">
     
     <!-- Header (Sticky Navigation) -->
-    <header class="sticky top-0 z-50 backdrop-blur-md bg-dark-bg/80 dark:bg-dark-bg/80 light:bg-light-bg/80 border-b border-dark-border dark:border-dark-border light:border-light-border">
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-dark-bg/80 border-b border-gray-200 dark:border-dark-border">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
@@ -305,37 +305,37 @@
                 
                 <!-- Navigation Menu -->
                 <ul class="hidden md:flex items-center space-x-8 font-medium">
-                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">{{ trans(key="home", lang=lang) }}</a></li>
-                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/features/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">{{ trans(key="features", lang=lang) }}</a></li>
-                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/roadmap/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">{{ trans(key="roadmap", lang=lang) }}</a></li>
-                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/partners/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">{{ trans(key="partners", lang=lang) }}</a></li>
-                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/blog/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">{{ trans(key="blog", lang=lang) }}</a></li>
-                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/about/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">{{ trans(key="about", lang=lang) }}</a></li>
-                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/access/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">{{ trans(key="access", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="home", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/features/" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="features", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/roadmap/" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="roadmap", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/partners/" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="partners", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/blog/" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="blog", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/about/" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="about", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/access/" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="access", lang=lang) }}</a></li>
                 </ul>
                 
                 <!-- Language Switcher and Theme Toggle -->
                 <div class="flex items-center gap-3">
                     <!-- Language Switcher -->
                     <div class="relative">
-                        <button id="language-toggle" class="flex items-center gap-2 px-3 py-2 rounded-lg border border-dark-border dark:border-dark-border light:border-light-border hover:border-accent-blue transition-all interactive-element" aria-label="Change language">
+                        <button id="language-toggle" class="flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-200 dark:border-dark-border hover:border-accent-blue transition-all interactive-element" aria-label="Change language">
                             <span class="text-sm font-medium">{{ lang | upper }}</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div id="language-menu" class="hidden absolute right-0 mt-2 w-32 rounded-lg bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border shadow-lg">
-                            <a href="#" id="lang-en" class="block px-4 py-2 text-sm hover:bg-dark-border dark:hover:bg-dark-border light:hover:bg-light-border transition-colors {% if lang == 'en' %}text-accent-blue{% endif %}" data-lang="en">
+                        <div id="language-menu" class="hidden absolute right-0 mt-2 w-32 rounded-lg bg-gray-50 dark:bg-dark-surface border border-gray-200 dark:border-dark-border shadow-lg">
+                            <a href="#" id="lang-en" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-dark-border transition-colors {% if lang == 'en' %}text-accent-blue{% endif %}" data-lang="en">
                                 English
                             </a>
-                            <a href="#" id="lang-it" class="block px-4 py-2 text-sm hover:bg-dark-border dark:hover:bg-dark-border light:hover:bg-light-border transition-colors {% if lang == 'it' %}text-accent-blue{% endif %}" data-lang="it">
+                            <a href="#" id="lang-it" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-dark-border transition-colors {% if lang == 'it' %}text-accent-blue{% endif %}" data-lang="it">
                                 Italiano
                             </a>
                         </div>
                     </div>
                     
                     <!-- Theme Toggle -->
-                    <button id="theme-toggle" class="p-2 rounded-lg border border-dark-border dark:border-dark-border light:border-light-border hover:border-accent-blue transition-all interactive-element" aria-label="Toggle theme">
+                    <button id="theme-toggle" class="p-2 rounded-lg border border-gray-200 dark:border-dark-border hover:border-accent-blue transition-all interactive-element" aria-label="Toggle theme">
                         <!-- Sun Icon (Light Mode) -->
                         <svg id="theme-toggle-light-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                             <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
@@ -357,13 +357,13 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-dark-border dark:border-dark-border light:border-light-border mt-20">
+    <footer class="border-t border-gray-200 dark:border-dark-border mt-20">
         <div class="container mx-auto px-6 py-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-500 dark:text-gray-500 light:text-gray-600 text-sm">
+                <p class="text-gray-600 dark:text-gray-500 text-sm">
                     © 2025 Agora Security. All rights reserved.
                 </p>
-                <p class="text-gray-500 dark:text-gray-500 light:text-gray-600 text-sm">
+                <p class="text-gray-600 dark:text-gray-500 text-sm">
                     Contact: <a href="mailto:info@agorasecurity.it" class="text-accent-blue hover:text-accent-green transition-colors">info@agorasecurity.it</a>
                 </p>
             </div>
@@ -457,20 +457,18 @@
         const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
         const htmlElement = document.documentElement;
         
-        // Check for saved theme preference or default to 'dark'
-        const currentTheme = localStorage.getItem('theme') || 'dark';
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
         
         // Set initial theme
         if (currentTheme === 'light') {
             htmlElement.classList.remove('dark');
-            htmlElement.classList.add('light');
-            themeToggleDarkIcon.classList.add('hidden');
-            themeToggleLightIcon.classList.remove('hidden');
+            themeToggleDarkIcon.classList.remove('hidden');  // Show moon icon in light mode
+            themeToggleLightIcon.classList.add('hidden');     // Hide sun icon in light mode
         } else {
             htmlElement.classList.add('dark');
-            htmlElement.classList.remove('light');
-            themeToggleLightIcon.classList.add('hidden');
-            themeToggleDarkIcon.classList.remove('hidden');
+            themeToggleLightIcon.classList.remove('hidden');  // Show sun icon in dark mode
+            themeToggleDarkIcon.classList.add('hidden');      // Hide moon icon in dark mode
         }
         
         // Toggle theme
@@ -482,11 +480,9 @@
             // Toggle theme
             if (htmlElement.classList.contains('dark')) {
                 htmlElement.classList.remove('dark');
-                htmlElement.classList.add('light');
                 localStorage.setItem('theme', 'light');
             } else {
                 htmlElement.classList.add('dark');
-                htmlElement.classList.remove('light');
                 localStorage.setItem('theme', 'dark');
             }
         });
