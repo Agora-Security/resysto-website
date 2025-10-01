@@ -35,7 +35,7 @@ technical_focus = ["applications", "modules", "integrations", "api"]
 business_focus = ["benefits", "roi", "scalability", "time_to_value"]
 +++
 
-resysto organizes capabilities into applications and platform services. Layout and visual badges are inspired by the SurrealDB features page [reference](https://surrealdb.com/features).
+resysto organizes capabilities into applications and platform services. Layout and visual badges are inspired by SurrealDB features page [reference](https://surrealdb.com/features).
 
 <style>
 .feature-section { margin: 2rem 0; }
@@ -190,7 +190,7 @@ resysto organizes capabilities into applications and platform services. Layout a
   </div>
   <div class="feature-card">
     <h5>Supply chain monitoring <span class="status-badge status-beta">Beta</span></h5>
-    <p>Track incidents and third‑party alerts.</p>
+    <p>Track incidents and third-party alerts.</p>
   </div>
   <div class="feature-card">
     <h5>Compliance tracking <span class="status-badge status-complete">Complete</span></h5>
@@ -252,68 +252,72 @@ resysto organizes capabilities into applications and platform services. Layout a
 
 ## Platform Services
 
-### Documents Manager
-
-<div class="kicker">Platform service</div>
-<div class="app-title">
-  <h3>Documents Manager</h3>
-  <span class="pill">Implementing</span>
+<section class="platform-services">
+<div class="container">
+<h2 class="section-title">Platform Services</h2>
+<div class="services-grid">
+<div class="service-card">
+<div class="service-header">
+<div class="service-kicker">Platform Service</div>
+<h3 class="service-title">Documents <span>Manager</span></h3>
+<div class="status-pill implementing">Implementing</div>
 </div>
-<p class="section-intro">Advanced document processing with OCR, metadata, and full‑text search.</p>
-
-<div class="feature-grid">
-  <div class="feature-card">
-    <h5>OCR & extraction <span class="status-badge status-in-dev">In development</span></h5>
-    <p>Parse PDFs and images into searchable content.</p>
-  </div>
-  <div class="feature-card">
-    <h5>Metadata & tags <span class="status-badge status-beta">Beta</span></h5>
-    <p>Auto‑tagging and custom metadata schemas.</p>
-  </div>
-  <div class="feature-card">
-    <h5>Search <span class="status-badge status-in-dev">In development</span></h5>
-    <p>Keyword and semantic search across the repository.</p>
-  </div>
+<p class="service-description">Advanced document processing with OCR, metadata, and full‑text search.</p>
+<div class="features-grid">
+<div class="feature-card">
+<h5>OCR & extraction <span class="status-badge in-dev">In development</span></h5>
+<p>Parse PDFs and images into searchable content.</p>
 </div>
-
-### RAG Knowledge
-
-<div class="kicker">Platform service</div>
-<div class="app-title">
-  <h3>RAG Knowledge</h3>
-  <span class="pill">Planned</span>
+<div class="feature-card">
+<h5>Metadata & tags <span class="status-badge beta">Beta</span></h5>
+<p>Auto‑tagging and custom metadata schemas.</p>
 </div>
-<p class="section-intro">Retrieval‑augmented generation for security knowledge and contextual assistance.</p>
-
-<div class="feature-grid">
-  <div class="feature-card">
-    <h5>Context builder <span class="status-badge status-planned">Planned</span></h5>
-    <p>Assemble relevant documents, data, and events per query.</p>
-  </div>
-  <div class="feature-card">
-    <h5>Grounded answers <span class="status-badge status-planned">Planned</span></h5>
-    <p>Answer with citations and provenance links.</p>
-  </div>
+<div class="feature-card">
+<h5>Search <span class="status-badge in-dev">In development</span></h5>
+<p>Keyword and semantic search across the repository.</p>
+</div>
+</div>
 </div>
 
-### AI Assistant
-
-<div class="kicker">Platform service</div>
-<div class="app-title">
-  <h3>AI Assistant</h3>
-  <span class="pill">Planned</span>
+<div class="service-card">
+<div class="service-header">
+<div class="service-kicker">Platform Service</div>
+<h3 class="service-title">RAG <span>Knowledge</span></h3>
+<div class="status-pill planned">Planned</div>
 </div>
-<p class="section-intro">Intelligent recommendations, automated analysis, and natural‑language workflows.</p>
-
-<div class="feature-grid">
-  <div class="feature-card">
-    <h5>NLQ for security <span class="status-badge status-planned">Planned</span></h5>
-    <p>Query posture, risks, and incidents in natural language.</p>
-  </div>
-  <div class="feature-card">
-    <h5>Automations <span class="status-badge status-experimental">Experimental</span></h5>
-    <p>Draft policies, generate tasks, and propose remediations.</p>
-  </div>
+<p class="service-description">Retrieval‑augmented generation for security knowledge and contextual assistance.</p>
+<div class="features-grid">
+<div class="feature-card">
+<h5>Context builder <span class="status-badge planned">Planned</span></h5>
+<p>Assemble relevant documents, data, and events per query.</p>
 </div>
+<div class="feature-card">
+<h5>Grounded answers <span class="status-badge planned">Planned</span></h5>
+<p>Answer with citations and provenance links.</p>
+</div>
+</div>
+</div>
+
+<div class="service-card">
+<div class="service-header">
+<div class="service-kicker">Platform Service</div>
+<h3 class="service-title">AI <span>Assistant</span></h3>
+<div class="status-pill planned">Planned</div>
+</div>
+<p class="service-description">Intelligent recommendations, automated analysis, and natural‑language workflows.</p>
+<div class="features-grid">
+<div class="feature-card">
+<h5>NLQ for security <span class="status-badge planned">Planned</span></h5>
+<p>Query posture, risks, and incidents in natural language.</p>
+</div>
+<div class="feature-card">
+<h5>Automations <span class="status-badge experimental">Experimental</span></h5>
+<p>Draft policies, generate tasks, and propose remediations.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
 <small>Design inspiration: SurrealDB Features page — see `https://surrealdb.com/features`.</small>

@@ -80,32 +80,20 @@
     <div class="site-bg" aria-hidden="true"></div>
     <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-black focus:px-3 focus:py-2 focus:rounded">Skip to main content</a>
     
-    <!-- Enhanced Header with Audience Targeting -->
-    <header class="border-b glass" role="banner" data-audience-targeting="{% if config.extra.enable_audience_targeting %}enabled{% else %}disabled{% endif %}">
-      <div class="mx-auto max-w-7xl px-4 py-4 flex items-center justify-between">
-        <a href="/" class="font-semibold" aria-label="{{ config.extra.site_name }} home">{{ config.extra.site_name }}</a>
-        
-        <!-- Enhanced Navigation -->
-        <nav class="text-sm" aria-label="Primary navigation">
-          <ul class="flex gap-4">
-            {% for item in config.extra.nav.items %}
-              <li><a class="hover:underline" href="{{ item.url }}" {% if item.url == current_url %}aria-current="page"{% endif %}>{{ item.name }}</a></li>
-            {% endfor %}
-          </ul>
-        </nav>
-        
-        <!-- Theme Toggle and Accessibility -->
-        <div class="flex items-center gap-2">
-          <button id="theme-toggle" class="px-2 py-1 text-sm border rounded" aria-label="Toggle dark mode" title="Toggle dark mode">
-            <span class="sr-only">Toggle dark mode</span>
-            <span aria-hidden="true">⟲</span>
-          </button>
-          {% if config.extra.enable_audience_targeting %}
-            <button id="audience-toggle" class="px-2 py-1 text-sm border rounded" aria-label="Toggle audience view" title="Switch audience view">
-              <span class="sr-only">Toggle audience view</span>
-              <span aria-hidden="true">👥</span>
-            </button>
-          {% endif %}
+    <!-- Improved Header matching enhanced templates -->
+    <header class="navbar" role="banner" data-audience-targeting="{% if config.extra.enable_audience_targeting %}enabled{% else %}disabled{% endif %}">
+      <div class="nav-container">
+        <a href="/" class="brand-link" aria-label="{{ config.extra.site_name }} home">
+          <span class="brand-text">{{ config.extra.site_name }}</span>
+        </a>
+        <div class="nav-links" aria-label="Primary navigation">
+          {% for item in config.extra.nav.items %}
+            {% if item.name | lower == "access" %}
+              <a href="{{ item.url }}" class="btn btn-cta">{{ item.name }}</a>
+            {% else %}
+              <a href="{{ item.url }}" class="nav-link" {% if item.url == current_url %}aria-current="page"{% endif %}>{{ item.name }}</a>
+            {% endif %}
+          {% endfor %}
         </div>
       </div>
     </header>
@@ -118,22 +106,38 @@
       {% block content %}{% endblock content %}
     </main>
     
-    <!-- Enhanced Footer -->
-    <footer class="border-t glass" role="contentinfo">
-      <div class="mx-auto max-w-7xl px-4 py-8 text-sm text-gray-600">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div>
-            <p>&copy; {{ now() | date(format="%Y") }} {{ config.extra.company_name }}. All rights reserved.</p>
-            <p>Contact: <a class="hover:underline" href="mailto:{{ config.extra.contact_email }}">{{ config.extra.contact_email }}</a></p>
+    <!-- Improved Footer to match enhanced templates -->
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <a href="/" class="brand-link"><span class="brand-text">{{ config.extra.site_name }}</span></a>
+            <p class="footer-description">{{ config.description }}</p>
           </div>
-          <div class="text-right">
-            {% if config.extra.accessibility_compliance %}
-              <p>Accessibility: {{ config.extra.accessibility_compliance | upper }}</p>
-            {% endif %}
-            {% if config.extra.performance_budget %}
-              <p>Performance Budget: {{ config.extra.performance_budget }}KB</p>
-            {% endif %}
+
+          <div class="footer-links">
+            <div class="footer-column">
+              <h4 class="footer-title">Product</h4>
+              <a href="/features/" class="footer-link">Features</a>
+              <a href="/roadmap/" class="footer-link">Roadmap</a>
+            </div>
+            <div class="footer-column">
+              <h4 class="footer-title">Company</h4>
+              <a href="/about/" class="footer-link">About</a>
+              <a href="/blog/" class="footer-link">Blog</a>
+              <a href="/partners/" class="footer-link">Partners</a>
+            </div>
+            <div class="footer-column">
+              <h4 class="footer-title">Support</h4>
+              <a href="/access/" class="footer-link">Get Access</a>
+              <a href="mailto:{{ config.extra.contact_email }}" class="footer-link">Contact</a>
+              <a href="/" class="footer-link">Documentation</a>
+            </div>
           </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="text-sm">© {{ now() | date(format="%Y") }} {{ config.extra.site_name }}. All rights reserved.</p>
         </div>
       </div>
     </footer>
