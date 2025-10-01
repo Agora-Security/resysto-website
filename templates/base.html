@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it" class="dark">
+<html lang="{{ lang }}" class="dark">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -298,24 +298,43 @@
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <a href="/" class="flex items-center space-x-3 group">
+                    <a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/" class="flex items-center space-x-3 group">
                         <img src="/images/resysto-logo.png" alt="Resysto Logo" class="h-10 w-auto transition-transform duration-300 group-hover:scale-105">
                     </a>
                 </div>
                 
                 <!-- Navigation Menu -->
                 <ul class="hidden md:flex items-center space-x-8 font-medium">
-                    <li><a href="/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Home</a></li>
-                    <li><a href="/features/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Features</a></li>
-                    <li><a href="/roadmap/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Roadmap</a></li>
-                    <li><a href="/partners/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Partners</a></li>
-                    <li><a href="/blog/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Blog</a></li>
-                    <li><a href="/about/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">About</a></li>
-                    <li><a href="/access/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Access</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">{{ trans(key="home", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/features/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">{{ trans(key="features", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/roadmap/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">{{ trans(key="roadmap", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/partners/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">{{ trans(key="partners", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/blog/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">{{ trans(key="blog", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/about/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">{{ trans(key="about", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/access/" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">{{ trans(key="access", lang=lang) }}</a></li>
                 </ul>
                 
-                <!-- Theme Toggle -->
-                <div class="flex items-center">
+                <!-- Language Switcher and Theme Toggle -->
+                <div class="flex items-center gap-3">
+                    <!-- Language Switcher -->
+                    <div class="relative">
+                        <button id="language-toggle" class="flex items-center gap-2 px-3 py-2 rounded-lg border border-dark-border dark:border-dark-border light:border-light-border hover:border-accent-blue transition-all interactive-element" aria-label="Change language">
+                            <span class="text-sm font-medium">{{ lang | upper }}</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="language-menu" class="hidden absolute right-0 mt-2 w-32 rounded-lg bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border shadow-lg">
+                            <a href="#" id="lang-en" class="block px-4 py-2 text-sm hover:bg-dark-border dark:hover:bg-dark-border light:hover:bg-light-border transition-colors {% if lang == 'en' %}text-accent-blue{% endif %}" data-lang="en">
+                                English
+                            </a>
+                            <a href="#" id="lang-it" class="block px-4 py-2 text-sm hover:bg-dark-border dark:hover:bg-dark-border light:hover:bg-light-border transition-colors {% if lang == 'it' %}text-accent-blue{% endif %}" data-lang="it">
+                                Italiano
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Theme Toggle -->
                     <button id="theme-toggle" class="p-2 rounded-lg border border-dark-border dark:border-dark-border light:border-light-border hover:border-accent-blue transition-all interactive-element" aria-label="Toggle theme">
                         <!-- Sun Icon (Light Mode) -->
                         <svg id="theme-toggle-light-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
@@ -352,6 +371,86 @@
     </footer>
 
     <script>
+        // Browser Language Detection and Redirect
+        (function() {
+            // Only run on the root/home page to avoid constant redirects
+            const currentLang = '{{ lang }}';
+            const currentPath = window.location.pathname;
+            
+            // Check if user has manually selected a language (stored in localStorage)
+            const userSelectedLang = localStorage.getItem('userSelectedLanguage');
+            
+            if (!userSelectedLang) {
+                // Get browser language
+                const browserLang = navigator.language || navigator.userLanguage;
+                const primaryLang = browserLang.split('-')[0].toLowerCase();
+                
+                // If browser is Italian and we're not already on Italian version
+                if (primaryLang === 'it' && currentLang !== 'it') {
+                    // Check if we're on a page that has an Italian version
+                    if (currentPath === '/' || currentPath === '') {
+                        window.location.href = '/it/';
+                    } else if (!currentPath.startsWith('/it/')) {
+                        // Convert current path to Italian version
+                        window.location.href = '/it' + currentPath;
+                    }
+                }
+                // For all other languages, stay on English (default)
+            }
+        })();
+        
+        // Language Switcher Script
+        const languageToggle = document.getElementById('language-toggle');
+        const languageMenu = document.getElementById('language-menu');
+        const currentLang = '{{ lang }}';
+        
+        if (languageToggle && languageMenu) {
+            // Set up correct language URLs based on current page
+            const currentPath = window.location.pathname;
+            const langEnLink = document.getElementById('lang-en');
+            const langItLink = document.getElementById('lang-it');
+            
+            if (langEnLink && langItLink) {
+                // Calculate the correct URLs for language switching
+                if (currentLang === 'it') {
+                    // Remove /it from the path for English
+                    const enPath = currentPath.replace(/^\/it(\/|$)/, '/');
+                    langEnLink.href = enPath || '/';
+                    langItLink.href = currentPath;
+                } else {
+                    // Add /it to the path for Italian
+                    langEnLink.href = currentPath;
+                    langItLink.href = '/it' + currentPath;
+                }
+            }
+            
+            languageToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                languageMenu.classList.toggle('hidden');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function() {
+                languageMenu.classList.add('hidden');
+            });
+            
+            languageMenu.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+            
+            // Track manual language selection
+            const languageLinks = languageMenu.querySelectorAll('a');
+            languageLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Store user's manual language selection
+                    const selectedLang = this.getAttribute('data-lang');
+                    if (selectedLang) {
+                        localStorage.setItem('userSelectedLanguage', selectedLang);
+                    }
+                });
+            });
+        }
+        
         // Theme Toggle Script
         const themeToggleBtn = document.getElementById('theme-toggle');
         const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
