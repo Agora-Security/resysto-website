@@ -1,1 +1,30 @@
 node_modules/
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# Secrets & credentials
+*.key
+*.pem
+*.p12
+*.pfx
+credentials.json
+secrets.yaml
+secrets.yml
+
+# Build outputs
+public/
+*.log
+
+# IDE & OS
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Zola
+.zola-cache/
