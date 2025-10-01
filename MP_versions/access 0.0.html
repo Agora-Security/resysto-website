@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access - Resysto | Sign In to Your Console</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            bg: '#0A0A0A',
+                            surface: '#151515',
+                            border: '#252525',
+                        },
+                        light: {
+                            bg: '#FFFFFF',
+                            surface: '#F9FAFB',
+                            border: '#E5E7EB',
+                        },
+                        accent: {
+                            blue: '#00D4FF',
+                            green: '#39FF14',
+                            purple: '#B026FF',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'neon-blue': '0 0 20px rgba(0, 212, 255, 0.5)',
+                        'neon-green': '0 0 20px rgba(57, 255, 20, 0.5)',
+                        'neon-purple': '0 0 20px rgba(176, 38, 255, 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        /* Smooth transitions */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        
+        /* Neon glow effects */
+        .glow-blue {
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+        }
+        
+        .glow-blue:hover {
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+        }
+        
+        .glow-green {
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+        }
+        
+        .glow-purple {
+            box-shadow: 0 0 15px rgba(176, 38, 255, 0.4);
+        }
+        
+        .glow-purple:hover {
+            box-shadow: 0 0 25px rgba(176, 38, 255, 0.6);
+        }
+        
+        /* Micro-interactions */
+        .interactive-element {
+            transform: scale(1);
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+        
+        .interactive-element:hover {
+            transform: scale(1.02);
+        }
+        
+        .interactive-element:active {
+            transform: scale(0.98);
+        }
+        
+        /* Console card hover effects */
+        .console-card {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .console-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
+        }
+        
+        .console-card:focus-within {
+            transform: scale(1.05);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
+        }
+        
+        .console-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 12px;
+            padding: 2px;
+            background: linear-gradient(135deg, #00D4FF, #B026FF, #39FF14);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .console-card:hover::before {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body class="bg-dark-bg dark:bg-dark-bg light:bg-light-bg text-gray-100 dark:text-gray-100 light:text-gray-900 font-body">
+    
+    <!-- Header (Sticky Navigation) -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-dark-bg/80 dark:bg-dark-bg/80 light:bg-light-bg/80 border-b border-dark-border dark:border-dark-border light:border-light-border">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-heading font-bold text-accent-blue glow-blue">
+                        Resysto
+                    </a>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <ul class="hidden md:flex items-center space-x-8 font-medium">
+                    <li><a href="index.html" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Home</a></li>
+                    <li><a href="features.html" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Features</a></li>
+                    <li><a href="roadmap.html" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Roadmap</a></li>
+                    <li><a href="partners.html" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Partners</a></li>
+                    <li><a href="blog.html" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Blog</a></li>
+                    <li><a href="about.html" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">About</a></li>
+                    <li><a href="access.html" class="text-accent-blue font-semibold border-b-2 border-accent-blue">Access</a></li>
+                </ul>
+                
+                <!-- Theme Toggle -->
+                <div class="flex items-center">
+                    <button id="theme-toggle" class="p-2 rounded-lg border border-dark-border dark:border-dark-border light:border-light-border hover:border-accent-blue transition-all interactive-element" aria-label="Toggle theme">
+                        <!-- Sun Icon (Light Mode) -->
+                        <svg id="theme-toggle-light-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                        <!-- Moon Icon (Dark Mode) -->
+                        <svg id="theme-toggle-dark-icon" class="w-6 h-6 text-accent-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="container mx-auto px-6 py-24 md:py-32">
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="text-accent-green text-sm font-semibold uppercase tracking-widest mb-6">
+                    ACCESS
+                </p>
+                
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight">
+                    Sign in to your <span class="text-accent-blue glow-blue">console</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-gray-400 dark:text-gray-400 light:text-gray-600 mb-12 leading-relaxed">
+                    Choose between the main platform and the MSSP multi-tenant console.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#console-selection" class="interactive-element px-8 py-4 bg-accent-blue text-dark-bg font-semibold rounded-lg glow-blue hover:bg-accent-green transition-all">
+                        Main Console
+                    </a>
+                    <a href="#console-selection" class="interactive-element px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple">
+                        MSSP Console
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Console Selection Section -->
+        <section id="console-selection" class="container mx-auto px-6 py-20">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6 text-center text-white dark:text-white light:text-gray-900">
+                    Access Your resysto Consoles
+                </h2>
+                
+                <p class="text-xl text-gray-400 dark:text-gray-400 light:text-gray-600 text-center mb-12 leading-relaxed max-w-3xl mx-auto">
+                    Welcome to the resysto access portal. Choose the console that best fits your role and needs.
+                </p>
+                
+                <!-- Two Column Grid: Console Cards -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    
+                    <!-- Main Console Card -->
+                    <div class="console-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-8" tabindex="0">
+                        <div class="mb-6">
+                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-lg bg-accent-blue/20 mb-4">
+                                <span class="text-4xl">🏢</span>
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-3xl font-heading font-bold mb-4 text-white dark:text-white light:text-gray-900">
+                            Main resysto Platform Console
+                        </h3>
+                        
+                        <p class="text-accent-blue font-semibold mb-4">
+                            For: Individual organizations, security teams, and direct users
+                        </p>
+                        
+                        <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed mb-6">
+                            Access the full resysto platform with all vCISO modules and features:
+                        </p>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                <svg class="w-6 h-6 text-accent-blue mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>People Management</span>
+                            </li>
+                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                <svg class="w-6 h-6 text-accent-blue mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Documents Manager</span>
+                            </li>
+                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                <svg class="w-6 h-6 text-accent-blue mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Tools Integration</span>
+                            </li>
+                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                <svg class="w-6 h-6 text-accent-blue mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Assets Inventory</span>
+                            </li>
+                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                <svg class="w-6 h-6 text-accent-blue mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Cyber Posture Assessment</span>
+                            </li>
+                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                <svg class="w-6 h-6 text-accent-blue mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Roadmap Planning</span>
+                            </li>
+                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                <svg class="w-6 h-6 text-accent-blue mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Supply Chain Risk Management</span>
+                            </li>
+                        </ul>
+                        
+                        <a href="https://app.resysto.com" class="interactive-element block text-center px-8 py-4 bg-accent-blue text-dark-bg font-semibold rounded-lg glow-blue hover:bg-accent-green transition-all">
+                            Access Main Console
+                        </a>
+                    </div>
+                    
+                    <!-- MSSP Console Card -->
+                    <div class="console-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-8" tabindex="0">
+                        <div class="mb-6">
+                            <div class="inline-flex items-center justify-center w-16 h-16 rounded-lg bg-accent-purple/20 mb-4">
+                                <span class="text-4xl">🤝</span>
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-3xl font-heading font-bold mb-4 text-white dark:text-white light:text-gray-900">
+                            MSSP Console
+                        </h3>
+                        
+                        <p class="text-accent-purple font-semibold mb-4">
+                            For: Managed Service Providers, MSSPs, and multi-tenant environments
+                        </p>
+                        
+                        <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed mb-6">
+                            Dedicated console for service providers managing multiple client environments:
+                        </p>
+                        
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                <svg class="w-6 h-6 text-accent-purple mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Multi-tenant Management</span>
+                            </li>
+                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                <svg class="w-6 h-6 text-accent-purple mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Client Dashboards</span>
+                            </li>
+                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                <svg class="w-6 h-6 text-accent-purple mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Standardized Workflows</span>
+                            </li>
+                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                <svg class="w-6 h-6 text-accent-purple mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Centralized Reporting</span>
+                            </li>
+                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                <svg class="w-6 h-6 text-accent-purple mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>White-label Options</span>
+                            </li>
+                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                <svg class="w-6 h-6 text-accent-purple mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Bulk Operations</span>
+                            </li>
+                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                <svg class="w-6 h-6 text-accent-purple mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span>Partner Analytics</span>
+                            </li>
+                        </ul>
+                        
+                        <a href="https://mssp.resysto.com" class="interactive-element block text-center px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple">
+                            Access MSSP Console
+                        </a>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+        <!-- Security & Support Section -->
+        <section id="security-support" class="container mx-auto px-6 py-20 border-t border-dark-border dark:border-dark-border light:border-light-border">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-4xl md:text-5xl font-heading font-bold mb-12 flex items-center justify-center md:justify-start">
+                    <span class="mr-4 text-5xl">🔐</span>
+                    <span class="text-white dark:text-white light:text-gray-900">Security & Support</span>
+                </h2>
+                
+                <!-- Three Column Grid -->
+                <div class="grid md:grid-cols-3 gap-8">
+                    
+                    <!-- Authentication -->
+                    <div class="bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-8">
+                        <h3 class="text-2xl font-heading font-bold mb-6 text-accent-blue">
+                            Authentication
+                        </h3>
+                        <ul class="space-y-4">
+                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                <svg class="w-5 h-5 text-accent-blue mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                </svg>
+                                <span>Single Sign-On (SSO)</span>
+                            </li>
+                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                <svg class="w-5 h-5 text-accent-blue mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                </svg>
+                                <span>Multi-Factor Authentication (MFA)</span>
+                            </li>
+                            <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                                <svg class="w-5 h-5 text-accent-blue mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                </svg>
+                                <span>Role-based Access Control</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Getting Help -->
+                    <div class="bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-8">
+                        <h3 class="text-2xl font-heading font-bold mb-6 text-accent-green">
+                            Getting Help
+                        </h3>
+                        <ul class="space-y-4">
+                            <li>
+                                <a href="#docs" class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-green transition-colors">
+                                    <svg class="w-5 h-5 text-accent-green mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                    </svg>
+                                    <span>Documentation</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:support@agorasecurity.it" class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-green transition-colors">
+                                    <svg class="w-5 h-5 text-accent-green mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                                    </svg>
+                                    <span>Support</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#training" class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-green transition-colors">
+                                    <svg class="w-5 h-5 text-accent-green mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                    </svg>
+                                    <span>Training</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- System Status -->
+                    <div class="bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-8">
+                        <h3 class="text-2xl font-heading font-bold mb-6 text-accent-purple">
+                            System Status
+                        </h3>
+                        <ul class="space-y-4">
+                            <li>
+                                <a href="#status" class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-purple transition-colors">
+                                    <svg class="w-5 h-5 text-accent-purple mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span>Platform Status</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#maintenance" class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-purple transition-colors">
+                                    <svg class="w-5 h-5 text-accent-purple mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span>Maintenance Windows</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#incidents" class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-purple transition-colors">
+                                    <svg class="w-5 h-5 text-accent-purple mr-3 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    <span>Incident Updates</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+        
+        <!-- Mobile Access Section -->
+        <section id="mobile-access" class="container mx-auto px-6 py-20">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6 flex items-center justify-center">
+                    <span class="mr-4 text-5xl">📱</span>
+                    <span class="text-white dark:text-white light:text-gray-900">Mobile Access</span>
+                </h2>
+                
+                <p class="text-xl text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed">
+                    Both consoles are fully responsive and optimized for mobile devices. Access your security program from anywhere with our mobile-friendly interface.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Final CTA Section -->
+        <section id="final-cta" class="container mx-auto px-6 py-20">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gradient-to-br from-accent-blue/10 via-accent-purple/10 to-accent-green/10 border border-accent-blue dark:border-accent-blue light:border-accent-blue rounded-xl p-12 text-center">
+                    <p class="text-xl text-gray-300 dark:text-gray-300 light:text-gray-700 mb-6 leading-relaxed">
+                        Need help choosing the right console? Contact our team for personalized guidance.
+                    </p>
+                    <a href="mailto:info@agorasecurity.it" class="interactive-element inline-block px-8 py-4 bg-accent-green text-dark-bg font-semibold rounded-lg glow-green hover:bg-accent-blue transition-all">
+                        Contact Support Team
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="border-t border-dark-border dark:border-dark-border light:border-light-border mt-20">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 dark:text-gray-500 light:text-gray-600 text-sm">
+                    © 2025 Agora Security. All rights reserved.
+                </p>
+                <p class="text-gray-500 dark:text-gray-500 light:text-gray-600 text-sm">
+                    Contact: <a href="mailto:info@agorasecurity.it" class="text-accent-blue hover:text-accent-green transition-colors">info@agorasecurity.it</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Theme Toggle Script -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const htmlElement = document.documentElement;
+        
+        // Check for saved theme preference or default to 'dark'
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        
+        // Set initial theme
+        if (currentTheme === 'light') {
+            htmlElement.classList.remove('dark');
+            htmlElement.classList.add('light');
+            themeToggleDarkIcon.classList.add('hidden');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            htmlElement.classList.add('dark');
+            htmlElement.classList.remove('light');
+            themeToggleLightIcon.classList.add('hidden');
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+        
+        // Toggle theme
+        themeToggleBtn.addEventListener('click', function() {
+            // Toggle icons
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            
+            // Toggle theme
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                htmlElement.classList.add('light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                htmlElement.classList.remove('light');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Keyboard accessibility for console cards
+        document.querySelectorAll('.console-card').forEach(card => {
+            card.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    const link = this.querySelector('a');
+                    if (link) {
+                        link.click();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

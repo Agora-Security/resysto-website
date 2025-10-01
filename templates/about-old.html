@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Hero Section -->
+<section class="relative min-h-[50vh] flex items-center justify-center overflow-hidden pattern-dots">
+    <div class="absolute inset-0 bg-gradient-to-br from-dark-bg via-dark-surface to-dark-bg opacity-90"></div>
+    
+    <div class="relative z-10 max-w-4xl mx-auto px-6 py-20 text-center">
+        <p class="text-accent-blue text-sm font-semibold tracking-wider uppercase mb-4">{{ page.extra.kicker }}</p>
+        <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">{{ page.extra.hero_title }}</h1>
+        <p class="text-xl text-gray-300 max-w-2xl mx-auto">{{ page.extra.hero_subtitle }}</p>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="bg-dark-bg py-20">
+    <div class="max-w-4xl mx-auto px-6">
+        
+        <!-- About Section -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-white mb-6">{{ page.extra.about_title }}</h2>
+            <p class="text-gray-300 text-lg leading-relaxed mb-6">{{ page.extra.about_description }}</p>
+            
+            <div class="bg-dark-surface border border-dark-border rounded-lg p-8 glow-blue">
+                <h3 class="text-xl font-semibold text-accent-green mb-3">{{ page.extra.mission_icon }} {{ page.extra.mission_title }}</h3>
+                <p class="text-gray-300 leading-relaxed">{{ page.extra.mission_description }}</p>
+            </div>
+        </div>
+
+        <!-- Real-World Scenarios -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-white mb-10">{{ page.extra.scenarios_icon }} {{ page.extra.scenarios_title }}</h2>
+            
+            <!-- SMB Challenge -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-white mb-6">{{ page.extra.smb_title }}</h3>
+                <p class="text-gray-300 mb-6">{{ page.extra.smb_intro }}</p>
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                    {% for challenge in page.extra.smb_challenges %}
+                    <div class="bg-dark-surface border border-dark-border rounded-lg p-6 card-hover">
+                        <p class="text-gray-300"><span class="text-accent-blue font-semibold">{{ challenge.title }}:</span> {{ challenge.description }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Enterprise Reality -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-white mb-6">{{ page.extra.enterprise_title }}</h3>
+                <p class="text-gray-300 mb-6">{{ page.extra.enterprise_intro }}</p>
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                    {% for challenge in page.extra.enterprise_challenges %}
+                    <div class="bg-dark-surface border border-dark-border rounded-lg p-6 card-hover">
+                        <p class="text-gray-300"><span class="text-accent-purple font-semibold">{{ challenge.title }}:</span> {{ challenge.description }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Solutions Section -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-white mb-10">{{ page.extra.solutions_icon }} {{ page.extra.solutions_title }}</h2>
+            
+            <!-- For SMBs -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-white mb-6">{{ page.extra.smb_solutions_title }}</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                    {% for solution in page.extra.smb_solutions %}
+                    <div class="bg-dark-surface border border-accent-blue/30 rounded-lg p-6 glow-blue card-hover">
+                        <p class="text-gray-300"><span class="text-accent-green font-semibold">{{ solution.title }}:</span> {{ solution.description }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- For Enterprises -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-semibold text-white mb-6">{{ page.extra.enterprise_solutions_title }}</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                    {% for solution in page.extra.enterprise_solutions %}
+                    <div class="bg-dark-surface border border-accent-purple/30 rounded-lg p-6 glow-purple card-hover">
+                        <p class="text-gray-300"><span class="text-accent-blue font-semibold">{{ solution.title }}:</span> {{ solution.description }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <!-- About Agora Security -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-white mb-6">{{ page.extra.company_icon }} {{ page.extra.company_title }}</h2>
+            <p class="text-gray-300 text-lg leading-relaxed mb-8">{{ page.extra.company_description }}</p>
+            
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold text-white mb-6">{{ page.extra.approach_title }}</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                    {% for item in page.extra.approach_items %}
+                    <div class="bg-dark-surface border border-dark-border rounded-lg p-6">
+                        <p class="text-gray-300"><span class="text-accent-green font-semibold">{{ item.title }}:</span> {{ item.description }}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-accent-blue/20 to-accent-purple/20 border border-accent-blue/30 rounded-lg p-8 text-center">
+                <h3 class="text-xl font-semibold text-white mb-4">{{ page.extra.learn_more_title }}</h3>
+                <p class="text-gray-300 mb-6">{{ page.extra.learn_more_description }}</p>
+                <a href="{{ page.extra.company_url }}" class="inline-block bg-accent-blue text-dark-bg font-semibold px-8 py-3 rounded-lg glow-blue hover:bg-opacity-90">
+                    {{ page.extra.company_cta }}
+                </a>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-white mb-10">{{ page.extra.contact_icon }} {{ page.extra.contact_title }}</h2>
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+                {% for contact in page.extra.contact_methods %}
+                <div class="bg-dark-surface border border-dark-border rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-accent-blue mb-2">{{ contact.type }}</h3>
+                    <a href="{{ contact.link }}" class="text-gray-300 hover:text-accent-green">{{ contact.value }}</a>
+                </div>
+                {% endfor %}
+            </div>
+
+            <!-- Address -->
+            <div class="bg-dark-surface border border-dark-border rounded-lg p-6">
+                <h3 class="text-lg font-semibold text-accent-blue mb-3">{{ page.extra.address_title }}</h3>
+                <p class="text-gray-300">{{ page.extra.company_name }}</p>
+                <p class="text-gray-300">{{ page.extra.address_street }}</p>
+                <p class="text-gray-300">{{ page.extra.address_city }}</p>
+            </div>
+        </div>
+
+        <!-- Final CTA -->
+        <div class="bg-gradient-to-r from-accent-blue/20 via-accent-green/20 to-accent-purple/20 border border-accent-blue/30 rounded-lg p-12 text-center glow-blue">
+            <p class="text-xl text-gray-300 mb-6">{{ page.extra.final_cta_text }}</p>
+            <a href="{{ page.extra.final_cta_url }}" class="inline-block bg-gradient-to-r from-accent-blue to-accent-green text-dark-bg font-bold px-10 py-4 rounded-lg hover:shadow-neon-blue">
+                {{ page.extra.final_cta_button }}
+            </a>
+        </div>
+
+    </div>
+</section>
+
+{% endblock content %}

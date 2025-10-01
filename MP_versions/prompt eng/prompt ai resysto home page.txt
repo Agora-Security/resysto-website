@@ -1,0 +1,91 @@
+
+
+**Obiettivo Primario:**
+Genera il codice completo (HTML, CSS e JS) per la homepage di "Resysto", una web-app di cybersecurity. Il risultato deve essere un singolo file HTML con CSS Tailwind e JS integrati, pronto per essere visualizzato e testato.
+
+***
+
+**1. Contesto e Identità del Brand**
+*   **Nome Prodotto:** Resysto
+*   **Target Audience:** Decision maker (CISO, CIO, CEO) e utenti tecnici (team di sicurezza, MSSP).
+*   **Tone of Voice:** Professionale, tecnologico, affidabile.
+*   **Ispirazione Visiva:** Il design deve ispirarsi all'estetica moderna e tech di siti come `surrealdb.com` e `stellaraio.com`.
+
+**2. Linee Guida di Stile e Design (Design System)**
+*   **Layout Generale:** Responsive, basato su griglie e sezioni modulari.
+*   **Tema di Default:** Dark mode.
+*   **Palette Colori (Dark Mode):**
+    *   **Sfondo Principale:** Un nero o grigio molto scuro (es. `#0A0A0A`).
+    *   **Testo:** Bianco o grigio chiaro per la massima leggibilità.
+    *   **Colori d'Accento:** Utilizza un mix di blu elettrico, verde acido e viola per titoli, bottoni e dettagli interattivi. Applica un sottile effetto `neon glow` su questi elementi.
+*   **Tipografia:**
+    *   **Intestazioni (Headings):** `Space Grotesk`.
+    *   **Paragrafi (Body):** `Inter`.
+    *   **Dettagli Tecnici/Codice:** `JetBrains Mono`.
+*   **Interattività:**
+    *   Animazioni fluide e transizioni morbide su tutti gli stati (hover, focus, active).
+    *   Micro-interazioni per fornire feedback visivo all'utente (es. cambio icona, leggero scale-up).
+*   **Iconografia:** Utilizza icone SVG minimaliste e dal tratto sottile.
+
+**3. Struttura e Contenuti della Homepage**
+
+Crea la pagina seguendo questa esatta struttura, sezione per sezione.
+
+*   **`<header>` (Fisso e sticky durante lo scroll):**
+    *   **Layout:** Flexbox o Grid con `justify-between`.
+    *   **Sinistra:** Logo testuale "Resysto".
+    *   **Centro:** Menu di navigazione con link: `Home`, `Features`, `Roadmap`, `Partners`, `Blog`, `About`, `Access`. La voce "Home" deve avere uno stile "attivo".
+    *   **Destra:** Un interruttore (toggle) per attivare/disattivare il tema Light/Dark.
+
+*   **`<main>`:**
+    *   **Sezione 1: Hero Section**
+        *   Layout a colonna singola, centrato.
+        *   **Kicker:** Testo piccolo e in maiuscolo: `Future-ready security operations`.
+        *   **Titolo (H1):** `Central Cyber Resilience and Data Protection platform`.
+        *   **Sottotitolo:** `Govern and manage cybersecurity and privacy processes and tools in one place.`.
+        *   **Bottoni CTA (Call to Action):**
+            *   **Primario (con sfondo accentato):** `Explore features`.
+            *   **Secondario (stile outline/ghost):** `Access platform`.
+
+    *   **Sezione 2: Problems We Solve**
+        *   **Titolo della sezione (H2):** `Problems we solve`.
+        *   **Layout:** Una griglia a 3 colonne. Ogni colonna è una "card" con bordo sottile o sfondo leggermente diverso.
+        *   **Card 1:** Titolo `Fragmented operations` e testo `Too many tools and spreadsheets cause lost context and overhead.`.
+        *   **Card 2:** Titolo `Evidence burden` e testo `Collecting audit-ready evidence is slow and manual.`.
+        *   **Card 3:** Titolo `Lack of security leadership` e testo `SMBs run ad‑hoc risk management without a dedicated CISO.`.
+
+    *   **Sezione 3: Built For**
+        *   **Titolo della sezione (H2):** `Built for`.
+        *   **Layout:** Una griglia a 3 colonne, dove ogni elemento è composto da un'icona SVG e un testo descrittivo.
+        *   **Elemento 1:** `SMB IT teams needing vCISO structure`.
+        *   **Elemento 2:** `Enterprise CISOs and security teams`.
+        *   **Elemento 3:** `Cybersecurity advisors and MSSPs`.
+
+    *   **Sezione 4: Capabilities**
+        *   **Titolo della sezione (H2):** `Capabilities`.
+        *   **Layout:** Un elenco di funzionalità. Per ogni funzionalità, mostra il nome e uno **status badge** colorato.
+        *   **Definizione Status Badges:**
+            *   `implemented`: Badge **verde**.
+            *   `implementing`: Badge **viola**.
+            *   `roadmap`: Badge **blu**.
+            *   `planned`: Badge **blu**.
+        *   **Contenuto:**
+            *   **Applications**
+                *   `vCISO` [Badge Verde]: `people, documents, tools, assets, posture, roadmap, SCRM`.
+                *   `Incident Management` [Badge Blu].
+            *   **Platform services**
+                *   `Documents Manager` [Badge Viola].
+                *   `RAG knowledge` [Badge Blu].
+                *   `AI assistant` [Badge Blu].
+
+*   **`<footer>`:**
+    *   **Layout:** Semplice, con elementi ai lati opposti.
+    *   **Sinistra:** `© 2025 Agora Security. All rights reserved.`.
+    *   **Destra:** Link `mailto:info@agorasecurity.it` con il testo `Contact: info@agorasecurity.it`.
+
+**4. Requisiti Tecnici e di Output**
+*   **File di Output:** Genera un singolo file `index.html`.
+*   **HTML:** Usa tag semantici (`<header>`, `<main>`, `<section>`, `<footer>`, `<nav>`). Inserisci commenti HTML per delimitare chiaramente ogni sezione (`<!-- Hero Section -->`, `<!-- Problems We Solve -->`, etc.).
+*   **CSS:** Usa **Tailwind CSS** tramite il suo CDN ufficiale. Applica le classi direttamente nell'HTML.
+*   **JavaScript:** Includi il codice JS necessario per il toggle del tema Light/Dark all'interno di un tag `<script>` prima della chiusura del `</body>`.
+*   **Accessibilità:** Assicurati che i contrasti di colore rispettino lo standard WCAG 2.1 AA e che gli elementi interattivi siano accessibili da tastiera.

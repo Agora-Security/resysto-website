@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="it" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Features - Resysto | Cyber Resilience Platform</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            bg: '#0D1117',
+                            surface: '#161B22',
+                            border: '#30363D',
+                        },
+                        light: {
+                            bg: '#FFFFFF',
+                            surface: '#F6F8FA',
+                            border: '#D0D7DE',
+                        },
+                        accent: {
+                            blue: '#00D4FF',
+                            green: '#39FF14',
+                            purple: '#B026FF',
+                            yellow: '#FFD700',
+                            orange: '#FF8C00',
+                        },
+                        status: {
+                            complete: {
+                                bg: '#39FF14',
+                                text: '#0A0A0A',
+                            },
+                            beta: {
+                                bg: '#FFD700',
+                                text: '#0A0A0A',
+                            },
+                            implementing: {
+                                bg: '#B026FF',
+                                text: '#FFFFFF',
+                            },
+                            planned: {
+                                bg: '#00D4FF',
+                                text: '#FFFFFF',
+                            },
+                            experimental: {
+                                bg: '#FF8C00',
+                                text: '#0A0A0A',
+                            }
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'neon-blue': '0 0 20px rgba(0, 212, 255, 0.5)',
+                        'neon-green': '0 0 20px rgba(57, 255, 20, 0.5)',
+                        'neon-purple': '0 0 20px rgba(176, 38, 255, 0.5)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        /* Smooth transitions */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        
+        /* Neon glow effects */
+        .glow-blue {
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+        }
+        
+        .glow-blue:hover {
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+        }
+        
+        .glow-green {
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+        }
+        
+        .glow-purple {
+            box-shadow: 0 0 15px rgba(176, 38, 255, 0.4);
+        }
+        
+        /* Micro-interactions */
+        .interactive-element {
+            transform: scale(1);
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+        
+        .interactive-element:hover {
+            transform: scale(1.02);
+        }
+        
+        .interactive-element:active {
+            transform: scale(0.98);
+        }
+        
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Status badge subtle pulse */
+        .status-badge {
+            animation: pulse-subtle 3s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-subtle {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.85;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-dark-bg dark:bg-dark-bg light:bg-light-bg text-gray-100 dark:text-gray-100 light:text-gray-900 font-body">
+    
+    <!-- Header (Sticky Navigation) -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-dark-bg/80 dark:bg-dark-bg/80 light:bg-light-bg/80 border-b border-dark-border dark:border-dark-border light:border-light-border">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-heading font-bold text-accent-blue glow-blue">
+                        Resysto
+                    </a>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <ul class="hidden md:flex items-center space-x-8 font-medium">
+                    <li><a href="index.html" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Home</a></li>
+                    <li><a href="features.html" class="text-accent-blue font-semibold border-b-2 border-accent-blue">Features</a></li>
+                    <li><a href="#roadmap" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Roadmap</a></li>
+                    <li><a href="#partners" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Partners</a></li>
+                    <li><a href="#blog" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Blog</a></li>
+                    <li><a href="#about" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">About</a></li>
+                    <li><a href="#access" class="text-gray-300 dark:text-gray-300 light:text-gray-700 hover:text-accent-blue transition-colors">Access</a></li>
+                </ul>
+                
+                <!-- Theme Toggle -->
+                <div class="flex items-center">
+                    <button id="theme-toggle" class="p-2 rounded-lg border border-dark-border dark:border-dark-border light:border-light-border hover:border-accent-blue transition-all interactive-element" aria-label="Toggle theme">
+                        <!-- Sun Icon (Light Mode) -->
+                        <svg id="theme-toggle-light-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                        <!-- Moon Icon (Dark Mode) -->
+                        <svg id="theme-toggle-dark-icon" class="w-6 h-6 text-accent-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="container mx-auto px-6 py-24 md:py-32">
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="text-accent-green text-sm font-semibold uppercase tracking-widest mb-6">
+                    WHAT YOU CAN DO
+                </p>
+                
+                <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight">
+                    Explore resysto <span class="text-accent-blue glow-blue">Features</span>
+                </h1>
+                
+                <p class="text-xl md:text-2xl text-gray-400 dark:text-gray-400 light:text-gray-600 mb-12 leading-relaxed">
+                    Applications and services designed for resilient, auditable security operations.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#capabilities" class="interactive-element px-8 py-4 bg-accent-blue text-dark-bg font-semibold rounded-lg glow-blue hover:bg-accent-green transition-all">
+                        See capabilities
+                    </a>
+                    <a href="#access" class="interactive-element px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple">
+                        Access platform
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features List Section -->
+        <section id="capabilities" class="container mx-auto px-6 py-20">
+            
+            <!-- vCISO -->
+            <div class="mb-20">
+                <div class="max-w-5xl mx-auto">
+                    <!-- Category Header -->
+                    <div class="mb-8 pb-6 border-b border-dark-border dark:border-dark-border light:border-light-border">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                            <h2 class="text-4xl md:text-5xl font-heading font-bold text-white dark:text-white light:text-gray-900">
+                                vCISO
+                            </h2>
+                            <span class="status-badge inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold bg-accent-green text-dark-bg w-fit">
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                Implemented
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed">
+                            A complete virtual Chief Information Security Officer platform providing governance, risk management, and compliance capabilities without the need for a full-time CISO.
+                        </p>
+                    </div>
+                    
+                    <!-- Sub-modules Grid -->
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        
+                        <!-- Overview -->
+                        <div class="feature-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6 hover:border-accent-green transition-all">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-accent-green/10 rounded-lg">
+                                    <svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                                    </svg>
+                                </div>
+                                <span class="status-badge px-3 py-1 rounded-full text-xs font-semibold bg-accent-green text-dark-bg">
+                                    Complete
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-heading font-semibold mb-3 text-white dark:text-white light:text-gray-900">
+                                Overview
+                            </h3>
+                            <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed">
+                                Seven integrated modules providing comprehensive security governance: manage people, documents, tools, assets, posture, roadmap, and supply chain risks from a unified dashboard.
+                            </p>
+                        </div>
+                        
+                        <!-- People -->
+                        <div class="feature-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6 hover:border-accent-green transition-all">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-accent-green/10 rounded-lg">
+                                    <svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                    </svg>
+                                </div>
+                                <span class="status-badge px-3 py-1 rounded-full text-xs font-semibold bg-accent-green text-dark-bg">
+                                    Complete
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-heading font-semibold mb-3 text-white dark:text-white light:text-gray-900">
+                                People
+                            </h3>
+                            <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed">
+                                Manage org charts, roles, responsibilities, and security awareness training. Track team members' security competencies and certifications in one centralized location.
+                            </p>
+                        </div>
+                        
+                        <!-- Documents -->
+                        <div class="feature-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6 hover:border-accent-green transition-all">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-accent-green/10 rounded-lg">
+                                    <svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                                    </svg>
+                                </div>
+                                <span class="status-badge px-3 py-1 rounded-full text-xs font-semibold bg-accent-green text-dark-bg">
+                                    Complete
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-heading font-semibold mb-3 text-white dark:text-white light:text-gray-900">
+                                Documents
+                            </h3>
+                            <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed">
+                                Central repository for security policies, procedures, and compliance documentation. Version control, approval workflows, and automated compliance mapping included.
+                            </p>
+                        </div>
+                        
+                        <!-- Tools -->
+                        <div class="feature-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6 hover:border-accent-green transition-all">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-accent-green/10 rounded-lg">
+                                    <svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                    </svg>
+                                </div>
+                                <span class="status-badge px-3 py-1 rounded-full text-xs font-semibold bg-accent-green text-dark-bg">
+                                    Complete
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-heading font-semibold mb-3 text-white dark:text-white light:text-gray-900">
+                                Tools
+                            </h3>
+                            <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed">
+                                Inventory and manage all security tools, track licenses, integrations, and effectiveness metrics. Eliminate redundancies and optimize your security stack investment.
+                            </p>
+                        </div>
+                        
+                        <!-- Assets -->
+                        <div class="feature-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6 hover:border-accent-green transition-all">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-accent-green/10 rounded-lg">
+                                    <svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
+                                    </svg>
+                                </div>
+                                <span class="status-badge px-3 py-1 rounded-full text-xs font-semibold bg-accent-green text-dark-bg">
+                                    Complete
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-heading font-semibold mb-3 text-white dark:text-white light:text-gray-900">
+                                Assets
+                            </h3>
+                            <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed">
+                                Comprehensive asset inventory including hardware, software, cloud resources, and data classification. Track ownership, criticality, and security controls for each asset.
+                            </p>
+                        </div>
+                        
+                        <!-- Cyber Posture -->
+                        <div class="feature-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6 hover:border-accent-green transition-all">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-accent-green/10 rounded-lg">
+                                    <svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                    </svg>
+                                </div>
+                                <span class="status-badge px-3 py-1 rounded-full text-xs font-semibold bg-accent-green text-dark-bg">
+                                    Complete
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-heading font-semibold mb-3 text-white dark:text-white light:text-gray-900">
+                                Cyber Posture
+                            </h3>
+                            <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed">
+                                Real-time security posture assessment with automated scoring, control effectiveness monitoring, and gap analysis against industry frameworks like NIST, ISO 27001.
+                            </p>
+                        </div>
+                        
+                        <!-- Roadmap -->
+                        <div class="feature-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6 hover:border-accent-green transition-all">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-accent-green/10 rounded-lg">
+                                    <svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path>
+                                    </svg>
+                                </div>
+                                <span class="status-badge px-3 py-1 rounded-full text-xs font-semibold bg-accent-green text-dark-bg">
+                                    Complete
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-heading font-semibold mb-3 text-white dark:text-white light:text-gray-900">
+                                Roadmap
+                            </h3>
+                            <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed">
+                                Strategic security planning and program management. Prioritize initiatives, track progress, and demonstrate ROI on security investments to stakeholders and board.
+                            </p>
+                        </div>
+                        
+                        <!-- Supply Chain Risk -->
+                        <div class="feature-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6 hover:border-accent-green transition-all">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-accent-green/10 rounded-lg">
+                                    <svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                    </svg>
+                                </div>
+                                <span class="status-badge px-3 py-1 rounded-full text-xs font-semibold bg-accent-green text-dark-bg">
+                                    Complete
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-heading font-semibold mb-3 text-white dark:text-white light:text-gray-900">
+                                Supply Chain Risk
+                            </h3>
+                            <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed">
+                                Third-party risk management (TPRM) and vendor security assessment. Automated questionnaires, continuous monitoring, and compliance validation for suppliers.
+                            </p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Incident Management -->
+            <div class="mb-20">
+                <div class="max-w-5xl mx-auto">
+                    <!-- Category Header -->
+                    <div class="mb-8 pb-6 border-b border-dark-border dark:border-dark-border light:border-light-border">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                            <h2 class="text-4xl md:text-5xl font-heading font-bold text-white dark:text-white light:text-gray-900">
+                                Incident Management
+                            </h2>
+                            <span class="status-badge inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold bg-accent-blue text-white w-fit">
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                                </svg>
+                                In planning
+                            </span>
+                        </div>
+                        <p class="text-lg text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed">
+                            Planned for Phase 3. Focused on coordinated response, crisis communication, and forensic evidence preservation during security incidents.
+                        </p>
+                    </div>
+                    
+                    <!-- Sub-modules Grid -->
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        
+                        <!-- Response -->
+                        <div class="feature-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6 hover:border-accent-blue transition-all opacity-75">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-accent-blue/10 rounded-lg">
+                                    <svg class="w-6 h-6 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path>
+                                    </svg>
+                                </div>
+                                <span class="status-badge px-3 py-1 rounded-full text-xs font-semibold bg-accent-blue text-white">
+                                    Planned
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-heading font-semibold mb-3 text-white dark:text-white light:text-gray-900">
+                                Response
+                            </h3>
+                            <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed">
+                                Coordinated incident response workflows with automated escalation, role assignment, and real-time collaboration for security teams.
+                            </p>
+                        </div>
+                        
+                        <!-- Communications -->
+                        <div class="feature-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6 hover:border-accent-blue transition-all opacity-75">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-accent-blue/10 rounded-lg">
+                                    <svg class="w-6 h-6 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"></path>
+                                    </svg>
+                                </div>
+                                <span class="status-badge px-3 py-1 rounded-full text-xs font-semibold bg-accent-blue text-white">
+                                    Planned
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-heading font-semibold mb-3 text-white dark:text-white light:text-gray-900">
+                                Communications
+                            </h3>
+                            <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed">
+                                Crisis communication templates and channels for stakeholder notifications, media relations, and regulatory reporting during incidents.
+                            </p>
+                        </div>
+                        
+                        <!-- Post-Incident -->
+                        <div class="feature-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6 hover:border-accent-blue transition-all opacity-75">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-accent-blue/10 rounded-lg">
+                                    <svg class="w-6 h-6 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"></path>
+                                    </svg>
+                                </div>
+                                <span class="status-badge px-3 py-1 rounded-full text-xs font-semibold bg-accent-blue text-white">
+                                    Planned
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-heading font-semibold mb-3 text-white dark:text-white light:text-gray-900">
+                                Post-Incident
+                            </h3>
+                            <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed">
+                                Structured post-mortem analysis, lessons learned documentation, and remediation tracking to improve future incident response.
+                            </p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Platform Services -->
+            <div class="mb-20">
+                <div class="max-w-5xl mx-auto">
+                    <!-- Category Header -->
+                    <div class="mb-8 pb-6 border-b border-dark-border dark:border-dark-border light:border-light-border">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+                            <h2 class="text-4xl md:text-5xl font-heading font-bold text-white dark:text-white light:text-gray-900">
+                                Platform Services
+                            </h2>
+                        </div>
+                        <p class="text-lg text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed">
+                            Advanced services that power the Resysto platform, providing intelligence, automation, and enhanced capabilities across all applications.
+                        </p>
+                    </div>
+                    
+                    <!-- Sub-modules Grid -->
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        
+                        <!-- Documents Manager -->
+                        <div class="feature-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6 hover:border-accent-purple transition-all">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-accent-purple/10 rounded-lg">
+                                    <svg class="w-6 h-6 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <span class="status-badge px-3 py-1 rounded-full text-xs font-semibold bg-accent-purple text-white">
+                                    Implementing
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-heading font-semibold mb-3 text-white dark:text-white light:text-gray-900">
+                                Documents Manager
+                            </h3>
+                            <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed">
+                                Advanced document processing with OCR, metadata extraction, automatic classification, and semantic search for security documentation and compliance artifacts.
+                            </p>
+                        </div>
+                        
+                        <!-- RAG Knowledge -->
+                        <div class="feature-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6 hover:border-accent-blue transition-all opacity-75">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-accent-blue/10 rounded-lg">
+                                    <svg class="w-6 h-6 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                                    </svg>
+                                </div>
+                                <span class="status-badge px-3 py-1 rounded-full text-xs font-semibold bg-accent-blue text-white">
+                                    Planned
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-heading font-semibold mb-3 text-white dark:text-white light:text-gray-900">
+                                RAG Knowledge
+                            </h3>
+                            <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed">
+                                Retrieval-augmented generation system that combines your organization's security knowledge base with AI to provide contextually relevant answers and recommendations.
+                            </p>
+                        </div>
+                        
+                        <!-- AI Assistant -->
+                        <div class="feature-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6 hover:border-accent-blue transition-all opacity-75">
+                            <div class="flex items-start justify-between mb-4">
+                                <div class="p-3 bg-accent-blue/10 rounded-lg">
+                                    <svg class="w-6 h-6 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                    </svg>
+                                </div>
+                                <span class="status-badge px-3 py-1 rounded-full text-xs font-semibold bg-accent-blue text-white">
+                                    Planned
+                                </span>
+                            </div>
+                            <h3 class="text-xl font-heading font-semibold mb-3 text-white dark:text-white light:text-gray-900">
+                                AI Assistant
+                            </h3>
+                            <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed">
+                                Intelligent recommendations for security improvements, automated risk analysis, policy drafting assistance, and proactive alerts based on your security posture.
+                            </p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="border-t border-dark-border dark:border-dark-border light:border-light-border mt-20">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 dark:text-gray-500 light:text-gray-600 text-sm">
+                    © 2025 Agora Security. All rights reserved.
+                </p>
+                <p class="text-gray-500 dark:text-gray-500 light:text-gray-600 text-sm">
+                    Contact: <a href="mailto:info@agorasecurity.it" class="text-accent-blue hover:text-accent-green transition-colors">info@agorasecurity.it</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Theme Toggle Script -->
+    <script>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const htmlElement = document.documentElement;
+        
+        // Check for saved theme preference or default to 'dark'
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        
+        // Set initial theme
+        if (currentTheme === 'light') {
+            htmlElement.classList.remove('dark');
+            htmlElement.classList.add('light');
+            themeToggleDarkIcon.classList.add('hidden');
+            themeToggleLightIcon.classList.remove('hidden');
+        } else {
+            htmlElement.classList.add('dark');
+            htmlElement.classList.remove('light');
+            themeToggleLightIcon.classList.add('hidden');
+            themeToggleDarkIcon.classList.remove('hidden');
+        }
+        
+        // Toggle theme
+        themeToggleBtn.addEventListener('click', function() {
+            // Toggle icons
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            
+            // Toggle theme
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                htmlElement.classList.add('light');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                htmlElement.classList.remove('light');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

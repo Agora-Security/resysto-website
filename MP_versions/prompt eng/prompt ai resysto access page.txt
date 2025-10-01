@@ -1,0 +1,91 @@
+
+
+**Obiettivo Primario:**
+Genera il codice completo (HTML, CSS e JS) per la pagina "Access" del sito web di "Resysto". Questa pagina funge da portale per indirizzare gli utenti alla console corretta. Il risultato deve essere un singolo file HTML con CSS Tailwind e JS integrati.
+
+***
+
+**1. Contesto e Identità del Brand**
+*   **Nome Prodotto:** Resysto
+*   **Target Audience:** Utenti esistenti, inclusi team di sicurezza aziendali e partner MSSP.
+*   **Tone of Voice:** Diretto, chiaro, funzionale e sicuro.
+*   **Ispirazione Visiva:** Design moderno e tech, in linea con `surrealdb.com` e `stellaraio.com`. La priorità è la chiarezza e la facilità di navigazione.
+
+**2. Linee Guida di Stile e Design (Design System)**
+*   **Layout Generale:** Responsive, basato su sezioni e card ben definite per guidare la scelta dell'utente.
+*   **Tema di Default:** Dark mode.
+*   **Palette Colori (Dark Mode):**
+    *   **Sfondo:** Grigio molto scuro (es. `#0A0A0A`).
+    *   **Testo:** Bianco o grigio chiaro.
+    *   **Colori d'Accento:** Un mix di blu, verde e viola per titoli, bottoni e link.
+*   **Tipografia:**
+    *   **Intestazioni (Headings):** `Space Grotesk`.
+    *   **Paragrafi (Body):** `Inter`.
+*   **Interattività:** Le card di accesso devono avere un effetto `hover` evidente (es. un bordo luminoso o un leggero ingrandimento) per indicare che sono la scelta principale.
+*   **Iconografia:** Utilizza le emoji fornite (🏢, 🤝, 🔐, 📱) come icone per i titoli delle sezioni.
+
+**3. Struttura e Contenuti della Pagina "Access"**
+
+Crea la pagina seguendo questa esatta struttura, sezione per sezione.
+
+*   **`<header>` (Fisso e sticky):**
+    *   **Layout:** Flexbox con `justify-between` e `items-center`.
+    *   **Sinistra:** Logo testuale "Resysto".
+    *   **Centro:** Menu di navigazione: `Home`, `Features`, `Roadmap`, `Partners`, `Blog`, `About`, `Access`. La voce "Access" deve avere uno stile "attivo".
+    *   **Destra:** Interruttore (toggle) per il tema Light/Dark.
+
+*   **`<main>`:**
+    *   **Sezione 1: Hero Section**
+        *   Layout a colonna singola, centrato.
+        *   **Kicker:** `ACCESS`.
+        *   **Titolo (H1):** `Sign in to your console`.
+        *   **Sottotitolo:** `Choose between the main platform and the MSSP multi-tenant console.`.
+        *   **Bottoni CTA (che funzionano come ancore alla sezione successiva):**
+            *   **Primario:** `Main Console`.
+            *   **Secondario (stile outline):** `MSSP Console`.
+
+    *   **Sezione 2: Selezione Console**
+        *   **Titolo della sezione:** `Access Your resysto Consoles`.
+        *   **Paragrafo introduttivo:** `Welcome to the resysto access portal. Choose the console that best fits your role and needs.`.
+        *   **Layout:** Una griglia a due colonne. Ogni colonna è una "card" dedicata a una console.
+        *   **Card 1 (Sinistra): Main Console**
+            *   **Titolo H3:** `🏢 Main resysto Platform Console`.
+            *   **Target:** `For: Individual organizations, security teams, and direct users`.
+            *   **Descrizione:** `Access the full resysto platform with all vCISO modules and features:`.
+            *   **Lista Funzionalità:** `People Management`, `Documents Manager`, `Tools Integration`, ecc.
+            *   **Bottone CTA:** Un bottone in stile primario con il testo `Access Main Console`.
+        *   **Card 2 (Destra): MSSP Console**
+            *   **Titolo H3:** `🤝 MSSP Console`.
+            *   **Target:** `For: Managed Service Providers, MSSPs, and multi-tenant environments`.
+            *   **Descrizione:** `Dedicated console for service providers managing multiple client environments:`.
+            *   **Lista Funzionalità:** `Multi-tenant Management`, `Client Dashboards`, `Standardized Workflows`, ecc.
+            *   **Bottone CTA:** Un bottone in stile secondario con il testo `Access MSSP Console`.
+
+    *   **Sezione 3: Sicurezza e Supporto**
+        *   **Titolo della sezione (H2):** `🔐 Security & Support`.
+        *   **Layout:** Una griglia a tre colonne per presentare le informazioni in modo scansionabile.
+        *   **Colonna 1: Authentication**
+            *   **Lista:** `Single Sign-On (SSO)`, `Multi-Factor Authentication (MFA)`, `Role-based Access Control`.
+        *   **Colonna 2: Getting Help**
+            *   **Lista di link:** `Documentation`, `Support`, `Training`.
+        *   **Colonna 3: System Status**
+            *   **Lista di link:** `Platform Status`, `Maintenance Windows`, `Incident Updates`.
+
+    *   **Sezione 4: Accesso Mobile**
+        *   **Titolo H2:** `📱 Mobile Access`.
+        *   **Paragrafo:** `Both consoles are fully responsive and optimized for mobile devices. Access your security program from anywhere with our mobile-friendly interface.`.
+
+    *   **Sezione 5: CTA Finale**
+        *   **Testo centrato:** `Need help choosing the right console? Contact our team for personalized guidance.`.
+
+*   **`<footer>`:**
+    *   Layout pulito e minimale.
+    *   **Sinistra:** `© 2025 Agora Security. All rights reserved.`.
+    *   **Destra:** `Contact: info@agorasecurity.it` (link `mailto`).
+
+**4. Requisiti Tecnici e di Output**
+*   **File di Output:** Genera un singolo file `index.html`.
+*   **HTML:** Usa tag semantici (`<header>`, `<main>`, `<section>`). Inserisci commenti HTML per delimitare chiaramente ogni sezione (`<!-- Console Selection -->`, `<!-- Security & Support -->`).
+*   **CSS:** Usa **Tailwind CSS** tramite il suo CDN ufficiale.
+*   **JavaScript:** Includi il codice JS per il toggle del tema Light/Dark in un tag `<script>` prima della chiusura del `</body>`.
+*   **Accessibilità:** Garantisci contrasti di colore conformi a WCAG 2.1 AA e che tutti gli elementi interattivi siano pienamente accessibili da tastiera.

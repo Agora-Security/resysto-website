@@ -1,0 +1,101 @@
+
+
+**Obiettivo Primario:**
+Genera il codice completo (HTML, CSS e JS) per la pagina "About" del sito web di "Resysto". Il risultato deve essere un singolo file HTML con CSS Tailwind e JS integrati, pronto per la visualizzazione.
+
+***
+
+**1. Contesto e Identità del Brand**
+*   **Nome Prodotto:** Resysto
+*   **Target Audience:** Clienti, potenziali clienti, partner e investitori.
+*   **Tone of Voice:** Affidabile, competente, mission-driven e trasparente.
+*   **Ispirazione Visiva:** Design moderno e tech, in linea con `surrealdb.com` e `stellaraio.com`, con un focus sulla narrazione della storia e della missione aziendale.
+
+**2. Linee Guida di Stile e Design (Design System)**
+*   **Layout Generale:** Responsive, con un mix di sezioni a colonna intera per la narrazione e layout a due colonne per confrontare problemi e soluzioni.
+*   **Tema di Default:** Dark mode.
+*   **Palette Colori (Dark Mode):**
+    *   **Sfondo:** Grigio molto scuro (es. `#0D1117`).
+    *   **Testo:** Bianco o grigio chiaro.
+    *   **Colori d'Accento:** Un mix di blu, verde e viola per titoli e dettagli interattivi, con un sottile effetto `neon glow`.
+*   **Tipografia:**
+    *   **Intestazioni (Headings):** `Space Grotesk`.
+    *   **Paragrafi (Body):** `Inter`.
+*   **Interattività:** Animazioni e transizioni fluide su tutti gli elementi interattivi.
+*   **Iconografia:** Utilizza le emoji fornite (🎯, 🌍, 🚀, 🏢, 📞) come icone per i titoli delle sezioni per dare un tocco visivo e tematico.
+
+**3. Struttura e Contenuti della Pagina "About"**
+
+Crea la pagina seguendo questa esatta struttura, sezione per sezione.
+
+*   **`<header>` (Fisso e sticky):**
+    *   **Layout:** Flexbox con `justify-between` e `items-center`.
+    *   **Sinistra:** Logo testuale "Resysto".
+    *   **Centro:** Menu di navigazione: `Home`, `Features`, `Roadmap`, `Partners`, `Blog`, `About`, `Access`. La voce "About" deve avere uno stile "attivo".
+    *   **Destra:** Interruttore (toggle) per il tema Light/Dark.
+
+*   **`<main>`:**
+    *   **Sezione 1: Hero Section**
+        *   Layout a colonna singola, centrato.
+        *   **Kicker:** `OUR STORY`.
+        *   **Titolo (H1):** `Why we built resysto`.
+        *   **Sottotitolo:** `Programmatic security for real-world teams, from SMB to enterprise.`.
+        *   **Bottoni CTA:**
+            *   **Primario:** `Meet Agora Security`.
+            *   **Secondario (stile outline):** `Get in touch`.
+
+    *   **Sezione 2: La Nostra Missione**
+        *   **Layout:** Una sezione introduttiva a colonna singola.
+        *   **Titolo H2:** `About resysto`.
+        *   **Paragrafo:** `resysto was created to help organizations move from ad-hoc security work to a programmatic approach...`.
+        *   **Sotto-sezione (visivamente distinta):**
+            *   **Titolo H3:** `🎯 Our Mission`.
+            *   **Testo:** `To democratize enterprise-grade cybersecurity management...`.
+
+    *   **Sezione 3: Il Problema che Risolviamo**
+        *   **Titolo della sezione (H2):** `🌍 Real-World Scenarios`.
+        *   **Layout:** Usa un **layout a due colonne (grid)** per presentare le sfide.
+        *   **Colonna Sinistra:**
+            *   **Titolo H3:** `The SMB Challenge`.
+            *   **Paragrafo:** `Small and medium businesses face unique cybersecurity challenges:`.
+            *   **Lista:** `Limited Security Expertise`, `Resource Constraints`, ecc.
+        *   **Colonna Destra:**
+            *   **Titolo H3:** `The Enterprise Reality`.
+            *   **Paragrafo:** `Even large organizations struggle with:`.
+            *   **Lista:** `Fragmented Operations`, `Evidence Collection`, ecc.
+
+    *   **Sezione 4: La Nostra Soluzione**
+        *   **Titolo della sezione (H2):** `🚀 How resysto Solves These Problems`.
+        *   **Layout:** Usa un **layout a due colonne (grid)** per presentare le soluzioni.
+        *   **Colonna Sinistra:**
+            *   **Titolo H3:** `For SMBs`.
+            *   **Lista:** `Virtual CISO`, `Guided Implementation`, ecc.
+        *   **Colonna Destra:**
+            *   **Titolo H3:** `For Enterprises`.
+            *   **Lista:** `Unified Platform`, `Process Standardization`, ecc.
+
+    *   **Sezione 5: La Società Madre**
+        *   **Layout:** Una sezione a colonna intera, visivamente distinta (es. con un bordo superiore).
+        *   **Titolo H2:** `🏢 About Agora Security`.
+        *   **Paragrafo:** `resysto is developed by Agora Security, an Italian cybersecurity company...`.
+        *   **Sotto-sezione (layout a due colonne):**
+            *   **Colonna Sinistra:** Titolo `Our Approach` e la lista `People`, `Process`, ecc.
+            *   **Colonna Destra:** Titolo `Learn More` e il link `Visit Agora Security to learn more...`.
+
+    *   **Sezione 6: Contatti**
+        *   **Titolo della sezione (H2):** `📞 Contact Us`.
+        *   **Layout:** Una griglia o un elenco ben strutturato per i contatti.
+        *   **Contenuti:** `General Inquiries`, `Partnership Opportunities`, `Technical Support`, `Address`, `Phone`.
+        *   **CTA Finale:** `Ready to transform your cybersecurity program? Get started with resysto today.`.
+
+*   **`<footer>`:**
+    *   Layout pulito e minimale.
+    *   **Sinistra:** `© 2025 Agora Security. All rights reserved.`.
+    *   **Destra:** `Contact: info@agorasecurity.it` (link `mailto`).
+
+**4. Requisiti Tecnici e di Output**
+*   **File di Output:** Genera un singolo file `index.html`.
+*   **HTML:** Usa tag semantici (`<header>`, `<main>`, `<section>`). Inserisci commenti HTML per delimitare chiaramente ogni sezione (`<!-- Our Mission -->`, `<!-- The Problem -->`, etc.).
+*   **CSS:** Usa **Tailwind CSS** tramite il suo CDN ufficiale.
+*   **JavaScript:** Includi il codice JS per il toggle del tema Light/Dark in un tag `<script>` prima della chiusura del `</body>`.
+*   **Accessibilità:** Garantisci contrasti di colore conformi a WCAG 2.1 AA e che tutti gli elementi interattivi siano accessibili da tastiera.

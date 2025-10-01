@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section id="home" class="container mx-auto px-6 py-24 md:py-32">
+    <div class="max-w-4xl mx-auto text-center">
+        <p class="text-accent-green text-sm font-mono font-medium uppercase tracking-wider mb-6">
+            {{ section.extra.hero_kicker }}
+        </p>
+        
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight">
+            Central Cyber Resilience and <span class="text-accent-blue glow-blue">Data Protection</span> platform
+        </h1>
+        
+        <p class="text-xl md:text-2xl text-gray-400 dark:text-gray-400 light:text-gray-600 mb-12 leading-relaxed">
+            {{ section.extra.hero_subtitle }}
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="{{ section.extra.cta_secondary_url }}" class="interactive-element px-8 py-4 bg-accent-blue text-dark-bg font-semibold rounded-lg glow-blue hover:bg-accent-green transition-all">
+                {{ section.extra.cta_secondary_text }}
+            </a>
+            <a href="{{ section.extra.cta_primary_url }}" class="interactive-element px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple">
+                {{ section.extra.cta_primary_text }}
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Problems We Solve Section -->
+<section id="problems" class="container mx-auto px-6 py-20">
+    <h2 class="text-4xl md:text-5xl font-heading font-bold mb-12 text-center">
+        {{ section.extra.problems_title }}
+    </h2>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+        {% for problem in section.extra.problems %}
+        <div class="bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-8 hover:border-accent-{{ problem.color }} transition-all interactive-element">
+            <div class="mb-4">
+                <svg class="w-12 h-12 text-accent-{{ problem.color }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {{ problem.svg_path | safe }}
+                </svg>
+            </div>
+            <h3 class="text-2xl font-heading font-semibold mb-4 text-white dark:text-white light:text-gray-900">
+                {{ problem.title }}
+            </h3>
+            <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed">
+                {{ problem.description }}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Built For Section -->
+<section id="built-for" class="container mx-auto px-6 py-20">
+    <h2 class="text-4xl md:text-5xl font-heading font-bold mb-12 text-center">
+        {{ section.extra.built_for_title }}
+    </h2>
+    
+    <div class="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+        {% for audience in section.extra.built_for_audiences %}
+        <div class="text-center">
+            <div class="mb-6 flex justify-center">
+                <div class="p-6 bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-accent-blue rounded-full glow-blue icon-hover">
+                    {{ audience.icon | safe }}
+                </div>
+            </div>
+            <p class="text-lg text-gray-300 dark:text-gray-300 light:text-gray-700">
+                {{ audience.text }}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Capabilities Section -->
+<section id="features" class="container mx-auto px-6 py-20">
+    <h2 class="text-4xl md:text-5xl font-heading font-bold mb-12 text-center">
+        {{ section.extra.capabilities_title }}
+    </h2>
+    
+    <div class="max-w-4xl mx-auto space-y-8">
+        <!-- Applications Group -->
+        <div class="bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-8">
+            <h3 class="text-2xl font-heading font-semibold mb-6 text-accent-blue">
+                {{ section.extra.applications_label }}
+            </h3>
+            
+            <div class="space-y-4">
+                {% for app in section.extra.applications %}
+                <div class="flex items-start justify-between gap-4 {% if not loop.last %}border-b border-dark-border dark:border-dark-border light:border-light-border pb-4{% endif %}">
+                    <div class="flex items-start gap-4 flex-1">
+                        <div class="p-2 bg-accent-green/10 rounded-lg icon-hover flex-shrink-0">
+                            {{ app.icon | safe }}
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-medium mb-1 text-white dark:text-white light:text-gray-900">
+                                {{ app.name }}
+                            </h4>
+                            <p class="text-sm text-gray-400 dark:text-gray-400 light:text-gray-600 mb-2">
+                                {{ app.description }}
+                            </p>
+                            {% if app.modules %}
+                            <p class="text-xs font-mono text-gray-500 dark:text-gray-500 light:text-gray-600">
+                                {{ app.modules | join(sep=", ") }}
+                            </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <span class="status-badge status-implemented text-xs px-2 py-0.5 rounded-full flex-shrink-0">
+                        Active
+                    </span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <!-- Platform Services Group -->
+        <div class="bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-8">
+            <h3 class="text-2xl font-heading font-semibold mb-6 text-accent-purple">
+                {{ section.extra.services_label }}
+            </h3>
+            
+            <div class="space-y-4">
+                {% for service in section.extra.platform_services %}
+                <div class="flex items-start justify-between gap-4 {% if not loop.last %}border-b border-dark-border dark:border-dark-border light:border-light-border pb-4{% endif %}">
+                    <div class="flex items-start gap-4 flex-1">
+                        <div class="p-2 bg-accent-purple/10 rounded-lg icon-hover flex-shrink-0">
+                            {{ service.icon | safe }}
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-medium mb-1 text-white dark:text-white light:text-gray-900">
+                                {{ service.name }}
+                            </h4>
+                            <p class="text-sm text-gray-400 dark:text-gray-400 light:text-gray-600">
+                                {{ service.description }}
+                            </p>
+                        </div>
+                    </div>
+                    <span class="status-badge status-progress text-xs px-2 py-0.5 rounded-full flex-shrink-0">
+                        In Progress
+                    </span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,86 @@
+
+
+**Obiettivo Primario:**
+Genera il codice completo (HTML, CSS e JS) per la pagina principale del "Blog" del sito web di "Resysto". La pagina deve elencare gli articoli recenti. Il risultato deve essere un singolo file HTML con CSS Tailwind e JS integrati, pronto per la visualizzazione.
+
+***
+
+**1. Contesto e Identità del Brand**
+*   **Nome Prodotto:** Resysto
+*   **Target Audience:** Clienti, partner, e chiunque sia interessato alla cybersecurity (decision maker e utenti tecnici).
+*   **Tone of Voice:** Informativo, educativo, professionale e autorevole.
+*   **Ispirazione Visiva:** Design moderno, pulito e tech, in linea con `surrealdb.com` e `stellaraio.com`.
+
+**2. Linee Guida di Stile e Design (Design System)**
+*   **Layout Generale:** Responsive, con una griglia di card per gli articoli.
+*   **Tema di Default:** Dark mode.
+*   **Palette Colori (Dark Mode):**
+    *   **Sfondo:** Grigio molto scuro (es. `#0A0A0A` o `#0D1117`).
+    *   **Testo:** Bianco o grigio chiaro.
+    *   **Colori d'Accento:** Un mix di blu, verde e viola per titoli, link e dettagli interattivi, con un sottile effetto `neon glow`.
+*   **Tipografia:**
+    *   **Intestazioni (Headings):** `Space Grotesk`.
+    *   **Paragrafi (Body):** `Inter`.
+*   **Interattività:**
+    *   Le card degli articoli devono avere un effetto `hover` (es. un leggero ingrandimento `hover:scale-105` o un bordo luminoso).
+    *   Tutti i link devono avere una transizione fluida del colore.
+
+**3. Struttura e Contenuti della Pagina "Blog"**
+
+Crea la pagina seguendo questa esatta struttura, sezione per sezione.
+
+*   **`<header>` (Fisso e sticky):**
+    *   **Layout:** Flexbox con `justify-between` e `items-center`.
+    *   **Sinistra:** Logo testuale "Resysto".
+    *   **Centro:** Menu di navigazione: `Home`, `Features`, `Roadmap`, `Partners`, `Blog`, `About`, `Access`. La voce "Blog" deve avere uno stile "attivo" (es. testo con colore d'accento).
+    *   **Destra:** Interruttore (toggle) per il tema Light/Dark.
+
+*   **`<main>`:**
+    *   **Sezione 1: Hero Section**
+        *   Layout a colonna singola, centrato.
+        *   **Kicker:** `INSIGHTS`.
+        *   **Titolo (H1):** `resysto Blog`.
+        *   **Sottotitolo:** `Product updates, how‑tos, security insights, and case studies.`.
+        *   **Bottoni CTA:**
+            *   **Primario (stile outline):** `Subscribe RSS`.
+            *   **Secondario (link semplice con freccia):** `Back to Home`.
+
+    *   **Sezione 2: Griglia degli Articoli**
+        *   **Layout:** Crea una griglia responsive di card per gli articoli (es. `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8`). Ogni card deve essere un contenitore cliccabile che porta all'articolo completo.
+        *   **Struttura della Card (da ripetere per ogni articolo):**
+            *   **Titolo dell'articolo (H3).**
+            *   **Data di pubblicazione:** Testo piccolo e con opacità ridotta.
+            *   **Breve descrizione/estratto** dell'articolo.
+            *   **Link "Read more":** Un link testuale con una freccia (→) che diventa più visibile all'hover.
+
+        *   **Contenuto delle Card:**
+
+            *   **Card 1:**
+                *   **Titolo:** `Welcome to resysto`
+                *   **Data:** `January 15, 2024`
+                *   **Descrizione:** `An introduction to resysto and how it's transforming cybersecurity management for organizations of all sizes.`
+                *   **Link:** `Read more`
+
+            *   **Card 2:**
+                *   **Titolo:** `Security ROI for CEOs`
+                *   **Data:** `February 15, 2024`
+                *   **Descrizione:** `Business-focused analysis of cybersecurity investments and their impact on organizational success.`
+                *   **Link:** `Read more`
+
+            *   **Card 3:**
+                *   **Titolo:** `vCISO Implementation Guide`
+                *   **Data:** `February 01, 2024`
+                *   **Descrizione:** `Step-by-step guide to implementing a virtual CISO program using resysto's comprehensive framework.`
+                *   **Link:** `Read more`
+
+*   **`<footer>`:**
+    *   Layout pulito e minimale.
+    *   **Sinistra:** `© 2025 Agora Security. All rights reserved.`.
+    *   **Destra:** `Contact: info@agorasecurity.it` (link `mailto`).
+
+**4. Requisiti Tecnici e di Output**
+*   **File di Output:** Genera un singolo file `index.html`.
+*   **HTML:** Usa tag semantici (`<header>`, `<main>`, `<section>`, `<article>`). Inserisci commenti HTML per delimitare chiaramente le sezioni (`<!-- Hero Section -->`, `<!-- Blog Grid -->`).
+*   **CSS:** Usa **Tailwind CSS** tramite il suo CDN ufficiale.
+*   **JavaScript:** Includi il codice JS per il toggle del tema Light/Dark in un tag `<script>` prima della chiusura del `</body>`.
+*   **Accessibilità:** Garantisci contrasti di colore conformi a WCAG 2.1 AA e assicurati che tutti gli elementi interattivi, in particolare le card degli articoli, siano accessibili da tastiera.

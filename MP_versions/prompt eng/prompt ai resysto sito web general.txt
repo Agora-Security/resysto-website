@@ -1,0 +1,87 @@
+migliora il seguente prompt da dare all'ai per generare un sito web.
+
+Crea il codice HTML/CSS/JS per una pagina di un sito web moderno dedicato a una webapp di cybersecurity (nome: "resysto"). 
+Il design deve essere accattivante, tech, cyber, chiaro e professionale, adatto a un sito di una software company. 
+
+Linee guida di stile:
+- Layout responsive con griglie e sezioni modulari.
+- Dark mode di default con palette elegante: sfondi scuri, accenti blu/verde/viola in stile cyber-tech.
+- Font moderni e geometrici (es. Inter, Space Grotesk, JetBrains Mono per dettagli tecnici).
+- Animazioni fluide e micro-interazioni (hover glow, transizioni morbide, effetti neon discreti).
+- Iconografia minimal (emoji o icone SVG).
+- Struttura leggibile e chiara, pensata sia per decision maker (CISO, CIO, CEO) che per utenti tecnici.
+
+Elementi riutilizzabili in qualsiasi pagina:
+- **Hero section** con kicker, titolo, sottotitolo e bottoni CTA (primario e secondario).
+- **Content grid / card layout** per mostrare moduli, features, servizi o pricing plans.
+- **Status badges** con codice colore coerente (verde=complete, giallo=beta, viola=in dev, blu=planned, arancio=experimental).
+- **Two-column layout** per alternare testo descrittivo e visual/card.
+- **Key concepts / highlights section** con icone + testo breve.
+- **Footer minimale** con brand, link utili e note sul design.
+
+Requisiti extra:
+- Accessibilità: contrasti alti, font leggibili, conforme WCAG 2.1 AA.
+- Struttura modulare e facilmente adattabile a più pagine (Features, About, Docs, Pricing).
+- Look cyberpunk elegante: dettagli neon glow molto sottili, senza eccessi.
+
+Output richiesto:
+- Codice HTML semanticamente corretto con sezioni chiare.
+- CSS integrato (Tailwind o custom con variabili).
+- Struttura pronta da adattare in framework statici (Hugo, Astro, Next.js).
+
+
+in questo caso specifico, voglio creare quella che sarà l'home page del sito. 
+ti dico in modo grezzo quello che vorrei ci fosse.
+
+header con a sinistra logo-nome app, menu in linea al centro con Home, Features, Roadmap, Partners, Blog, About e Access. sempre in header, a destra dark-light mode.
+in prima riga un banner catchy che salta all'occhio con un contenuto del genere: Future-ready security operations
+
+Central Cyber Resilience and Data Protection platform
+Govern and manage cybersecurity and privacy processes and tools in one place.
+
+Explore features
+Access platform
+
+seconda riga 
+Problems we solve
+
+Fragmented operations
+Too many tools and spreadsheets cause lost context and overhead.
+
+Evidence burden
+Collecting audit-ready evidence is slow and manual.
+
+Lack of security leadership
+SMBs run ad‑hoc risk management without a dedicated CISO.
+
+
+terza riga
+Built for
+
+SMB IT teams needing vCISO structure
+
+Enterprise CISOs and security teams
+
+Cybersecurity advisors and MSSPs
+
+
+quarta riga
+Capabilities
+
+Applications
+vCISO (implemented): people, documents, tools, assets, posture, roadmap, SCRM
+Incident Management (roadmap)
+Platform services
+Documents Manager (implementing)
+RAG knowledge (planned)
+AI assistant (planned)
+
+
+
+footer: © 2025 Agora Security. All rights reserved.
+
+Contact: info@agorasecurity.it
+
+mi piacciono siti comee https://surrealdb.com/ e https://stellaraio.com/ per farti capire.
+
+

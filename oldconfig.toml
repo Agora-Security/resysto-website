@@ -1,62 +1,18 @@
-base_url = "https://resysto.io/"
+base_url = "https://resysto.io/" # updated to new domain
 title = "resysto"
 description = "Central Cyber Resilience and Data Protection platform to govern and manage cybersecurity and privacy."
 default_language = "en"
 compile_sass = false
 minify_html = true
+generate_feeds = true
 generate_sitemap = true
-build_search_index = true
-generate_feeds = true
-
-# Taxonomies for the default language (English)
+generate_robots_txt = true
 taxonomies = [
   { name = "tags", rss = true },
   { name = "audience", rss = false },
   { name = "content_priority", rss = false },
   { name = "layout_type", rss = false },
 ]
-
-# Language configurations
-# English is the default language, so its config goes at the base level
-# Italian is the secondary language
-[languages.it]
-generate_feeds = true
-build_search_index = true
-taxonomies = [
-  { name = "tags", rss = true },
-  { name = "audience", rss = false },
-  { name = "content_priority", rss = false },
-  { name = "layout_type", rss = false },
-]
-
-# Translations for UI elements
-[translations]
-# English translations (default language)
-home = "Home"
-features = "Features"
-roadmap = "Roadmap"
-partners = "Partners"
-blog = "Blog"
-about = "About"
-access = "Access"
-contact = "Contact"
-privacy = "Privacy"
-terms = "Terms"
-language = "Language"
-
-[languages.it.translations]
-# Italian translations
-home = "Home"
-features = "Caratteristiche"
-roadmap = "Roadmap"
-partners = "Partner"
-blog = "Blog"
-about = "Chi Siamo"
-access = "Accesso"
-contact = "Contatto"
-privacy = "Privacy"
-terms = "Termini"
-language = "Lingua"
 
 [markdown]
 highlight_code = true
@@ -102,3 +58,4 @@ items = [
   { name = "About", url = "/about/" },
   { name = "Access", url = "/access/" },
 ]
+
