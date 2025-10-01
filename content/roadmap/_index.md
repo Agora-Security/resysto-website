@@ -40,7 +40,7 @@ Our development roadmap is organized into three phases, focusing on core functio
 <section class="timeline">
   <div class="timeline-group">
     <div class="timeline-label">🚀 Phase 1 · MVP Website and vCISO App Foundation <span class="timeline-meta">Q1–Q2 2024</span></div>
-    <p class="section-intro">Core launch scope for the website and foundational app modules.</p>
+    <p class="section-intro">Core launch scope for website and foundational app modules.</p>
     <div class="timeline-row">
       <div class="feature-card">
         <h5>✅ Completed</h5>

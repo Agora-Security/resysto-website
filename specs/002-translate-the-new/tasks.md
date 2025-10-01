@@ -43,50 +43,50 @@
 - Paths shown below assume static website - adjust based on plan.md structure
 
 ## Phase 3.1: Setup
-- [ ] T001 Create backup directory for existing templates and CSS
-- [ ] T002 Verify Zola installation and configuration
-- [ ] T003 [P] Check improved_templates directory contains all required files
+- [x] T001 Create backup directory for existing templates and CSS
+- [x] T002 Verify Zola installation and configuration
+- [x] T003 [P] Check improved_templates directory contains all required files
 
 ## Phase 3.2: Content First ⚠️ MUST COMPLETE BEFORE 3.3
 **CRITICAL: Content MUST be created and structured BEFORE any templates**
-- [ ] T004 [P] Extract content from improved_templates/resysto-landing.html to content/_index.md
-- [ ] T005 [P] Extract content from improved_templates/resysto-features.html to content/features/_index.md
-- [ ] T006 [P] Extract content from improved_templates/resysto-blog.html to content/blog/_index.md
-- [ ] T007 [P] Extract content from improved_templates/resysto-partners.html to content/partners/_index.md
-- [ ] T008 [P] Extract content from improved_templates/resysto-roadmap.html to content/roadmap/_index.md
+- [x] T004 [P] Extract content from improved_templates/resysto-landing.html to content/_index.md
+- [x] T005 [P] Extract content from improved_templates/resysto-features.html to content/features/_index.md
+- [x] T006 [P] Extract content from improved_templates/resysto-blog.html to content/blog/_index.md
+- [x] T007 [P] Extract content from improved_templates/resysto-partners.html to content/partners/_index.md
+- [x] T008 [P] Extract content from improved_templates/resysto-roadmap.html to content/roadmap/_index.md
 
 ## Phase 3.3: Template Implementation (ONLY after content exists)
-- [ ] T009 Create backup of existing templates/home.html
-- [ ] T010 Convert improved_templates/resysto-landing.html to Zola template in templates/home.html
-- [ ] T011 Create backup of existing templates/section.html
-- [ ] T012 Convert improved_templates/resysto-features.html to Zola template in templates/section.html
-- [ ] T013 Convert improved_templates/resysto-partners.html to Zola template in templates/section.html
-- [ ] T014 Convert improved_templates/resysto-roadmap.html to Zola template in templates/section.html
-- [ ] T015 Create backup of existing templates/blog_list.html
-- [ ] T016 Convert improved_templates/resysto-blog.html to Zola template in templates/blog_list.html
-- [ ] T017 Validate visual design preservation against original HTML templates
+ - [x] T009 Create backup of existing templates/home.html
+ - [x] T010 Convert improved_templates/resysto-landing.html to Zola template in templates/home.html
+ - [x] T011 Create backup of existing templates/section.html
+ - [x] T012 Convert improved_templates/resysto-features.html to Zola template in templates/section.html
+ - [x] T013 Convert improved_templates/resysto-partners.html to Zola template in templates/section.html
+ - [x] T014 Convert improved_templates/resysto-roadmap.html to Zola template in templates/section.html
+ - [x] T015 Create backup of existing templates/blog_list.html
+ - [x] T016 Convert improved_templates/resysto-blog.html to Zola template in templates/blog_list.html
+ - [x] T017 Validate visual design preservation against original HTML templates
 
 ## Phase 3.4: CSS Integration
-- [ ] T017 Create backup of existing static/css/main.css
-- [ ] T018 [P] Merge improved_templates/resysto-landing.css into static/css/main.css
-- [ ] T019 [P] Merge improved_templates/resysto-features.css into static/css/main.css
-- [ ] T020 [P] Merge improved_templates/resysto-blog.css into static/css/main.css
-- [ ] T021 [P] Merge improved_templates/resysto-partners.css into static/css/main.css
-- [ ] T022 [P] Merge improved_templates/resysto-roadmap.css into static/css/main.css
-- [ ] T023 Optimize merged CSS file for performance (under 50KB)
+- [x] T018 Create backup of existing static/css/main.css
+- [x] T019 [P] Merge improved_templates/resysto-landing.css into static/css/main.css
+- [x] T020 [P] Merge improved_templates/resysto-features.css into static/css/main.css
+- [x] T021 [P] Merge improved_templates/resysto-blog.css into static/css/main.css
+- [x] T022 [P] Merge improved_templates/resysto-partners.css into static/css/main.css
+- [x] T023 [P] Merge improved_templates/resysto-roadmap.css into static/css/main.css
+- [x] T024 Optimize merged CSS file for performance (under 50KB)
 
 ## Phase 3.5: Validation and Testing
-- [ ] T024 [P] Validate template syntax with `zola check`
-- [ ] T025 [P] Test landing page rendering with new template and CSS
-- [ ] T026 [P] Test features page rendering with new template and CSS
-- [ ] T027 [P] Test blog page rendering with new template and CSS
-- [ ] T028 [P] Test partners page rendering with new template and CSS
-- [ ] T029 [P] Test roadmap page rendering with new template and CSS
-- [ ] T030 Validate Zola template compatibility with content structure
-- [ ] T031 Validate CSS file size is under 50KB
-- [ ] T032 Validate all pages work without JavaScript
-- [ ] T033 Build production site with `zola build`
-- [ ] T034 Verify all generated pages in public/ directory
+- [x] T025 [P] Validate template syntax with `zola check`
+- [x] T026 [P] Test landing page rendering with new template and CSS
+- [x] T027 [P] Test features page rendering with new template and CSS
+- [x] T028 [P] Test blog page rendering with new template and CSS
+- [x] T029 [P] Test partners page rendering with new template and CSS
+- [x] T030 [P] Test roadmap page rendering with new template and CSS
+- [x] T031 Validate Zola template compatibility with content structure
+- [x] T032 Validate CSS file size is under 50KB
+- [x] T033 Validate all pages work without JavaScript
+- [x] T034 Build production site with `zola build`
+- [x] T035 Verify all generated pages in public/ directory
 
 ## Dependencies
 - Content extraction (T004-T008) before template conversion (T009-T016)
@@ -94,7 +94,7 @@
 - Template conversion (T010, T012-T014, T016) before visual design validation (T017)
 - CSS backup (T018) before CSS merging (T019-T023)
 - CSS merging (T019-T023) before CSS optimization (T024)
-- Template and CSS implementation before validation (T025-T034)
+- Template and CSS implementation before validation (T025-T035)
 
 ## Parallel Example
 ```
@@ -105,14 +105,14 @@ Task: "Extract content from improved_templates/resysto-blog.html to content/blog
 Task: "Extract content from improved_templates/resysto-partners.html to content/partners/_index.md"
 Task: "Extract content from improved_templates/resysto-roadmap.html to content/roadmap/_index.md"
 
-# Launch T018-T022 together (CSS merging):
+# Launch T019-T023 together (CSS merging):
 Task: "Merge improved_templates/resysto-landing.css into static/css/main.css"
 Task: "Merge improved_templates/resysto-features.css into static/css/main.css"
 Task: "Merge improved_templates/resysto-blog.css into static/css/main.css"
 Task: "Merge improved_templates/resysto-partners.css into static/css/main.css"
 Task: "Merge improved_templates/resysto-roadmap.css into static/css/main.css"
 
-# Launch T025-T029 together (page testing):
+# Launch T026-T030 together (page testing):
 Task: "Test landing page rendering with new template and CSS"
 Task: "Test features page rendering with new template and CSS"
 Task: "Test blog page rendering with new template and CSS"
