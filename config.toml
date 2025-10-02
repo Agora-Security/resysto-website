@@ -95,10 +95,10 @@ enable_twitter_cards = true
 
 [extra.nav]
 items = [
-  { name = "Features", url = "/features/" },
-  { name = "Roadmap", url = "/roadmap/" },
-  { name = "Partners", url = "/partners/" },
-  { name = "Blog", url = "/blog/" },
-  { name = "About", url = "/about/" },
-  { name = "Access", url = "/access/" },
+  { name = "Features", url = "/features" },
+  { name = "Roadmap", url = "/roadmap" },
+  { name = "Partners", url = "/partners" },
+  { name = "Blog", url = "/blog" },
+  { name = "About", url = "/about" },
+  { name = "Access", url = "/access" },
 ]

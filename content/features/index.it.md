@@ -17,9 +17,9 @@ platform_services_description = "Servizi avanzati che alimentano la piattaforma 
 cta_title = "Pronto a Trasformare il Tuo Programma di Sicurezza?"
 cta_description = "Inizia oggi a costruire il tuo programma completo di cybersecurity con la piattaforma integrata di resysto."
 cta_primary_text = "Inizia"
-cta_primary_url = "/it/access/"
+cta_primary_url = "/it/access"
 cta_secondary_text = "Vedi Roadmap"
-cta_secondary_url = "/it/roadmap/"
+cta_secondary_url = "/it/roadmap"
 
 # Applications
 [[extra.applications]]

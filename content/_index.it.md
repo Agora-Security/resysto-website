@@ -11,9 +11,9 @@ hero_subtitle = "Governa e gestisci processi e strumenti di cybersecurity e priv
 
 # CTAs
 cta_primary_text = "Inizia"
-cta_primary_url = "/it/access/"
+cta_primary_url = "/it/access"
 cta_secondary_text = "Esplora le Funzionalità"
-cta_secondary_url = "/it/features/"
+cta_secondary_url = "/it/features"
 
 # Section Titles
 problems_title = "Problemi che risolviamo"
@@ -27,7 +27,7 @@ services_label = "Servizi della Piattaforma"
 final_cta_title = "Unisciti alle organizzazioni lungimiranti che proteggono il loro futuro digitale"
 final_cta_description = "Inizia oggi a costruire il tuo programma completo di cybersecurity"
 final_cta_button = "Inizia Ora"
-final_cta_url = "/it/access/"
+final_cta_url = "/it/access"
 
 # Problems Section
 [[extra.problems]]
