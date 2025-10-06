@@ -10,7 +10,7 @@
         </p>
         
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight">
-            Central Cyber Resilience and <span class="text-accent-blue glow-blue">Data Protection</span> platform
+            Central <span class="text-accent-blue glow-blue">Cyber Resilience</span> and <span class="text-accent-blue glow-blue">Data Protection</span> platform
         </h1>
         
         <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-12 leading-relaxed">
@@ -63,7 +63,7 @@
         {% for audience in section.extra.built_for_audiences %}
         <div class="text-center">
             <div class="mb-6 flex justify-center">
-                <div class="p-6 bg-gray-50 dark:bg-dark-surface border border-accent-blue rounded-full glow-blue icon-hover">
+                <div class="p-6 bg-gray-50 dark:bg-dark-surface border border-accent-{{ audience.color }} rounded-full glow-{{ audience.color }} icon-hover">
                     {{ audience.icon | safe }}
                 </div>
             </div>
