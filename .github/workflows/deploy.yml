@@ -19,11 +19,6 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install deps and build CSS
-        run: |
-          npm ci
-          npx tailwindcss -i ./assets/css/main.css -o ./static/css/main.css --minify
-
       - name: build_and_deploy
         uses: shalzz/zola-deploy-action@master
         env:
