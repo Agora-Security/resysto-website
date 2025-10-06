@@ -69,7 +69,7 @@ twitter_card = "summary_large_image"
 twitter_site = "@agorasecurity"
 twitter_creator = "@agorasecurity"
 default_image = "/images/og-default.svg"
-canonical_base = "https://resysto.io"
+canonical_base = "https://agora-security.github.io/resysto-website/"
 company_name = "Agora Security"
 contact_email = "info@agorasecurity.it"
 
