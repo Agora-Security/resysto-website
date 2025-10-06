@@ -18,10 +18,10 @@
         </p>
         
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="{{ section.extra.cta_secondary_url }}" class="interactive-element px-8 py-4 bg-accent-blue text-dark-bg font-semibold rounded-lg glow-blue hover:bg-accent-green transition-all">
+            <a href="{{config.base_url}}{{ section.extra.cta_secondary_url }}" class="interactive-element px-8 py-4 bg-accent-blue text-dark-bg font-semibold rounded-lg glow-blue hover:bg-accent-green transition-all">
                 {{ section.extra.cta_secondary_text }}
             </a>
-            <a href="{{ section.extra.cta_primary_url }}" class="interactive-element px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple">
+            <a href="{{config.base_url}}{{ section.extra.cta_primary_url }}" class="interactive-element px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple">
                 {{ section.extra.cta_primary_text }}
             </a>
         </div>

@@ -95,7 +95,7 @@ enable_twitter_cards = true
 
 [extra.nav]
 items = [
-  { name = "Features", url = "/features" },
+  { name = "Features", url = "https://agora-security.github.io/resysto-website/features" },
   { name = "Roadmap", url = "/roadmap" },
   { name = "Partners", url = "/partners" },
   { name = "Blog", url = "/blog" },
