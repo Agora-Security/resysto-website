@@ -1,4 +1,4 @@
-base_url = "https://agora-security.github.io/resysto-website/"
+base_url = "https://resysto.io"
 title = "resysto"
 description = "Central Cyber Resilience and Data Protection platform to govern and manage cybersecurity and privacy."
 default_language = "en"
@@ -69,7 +69,7 @@ twitter_card = "summary_large_image"
 twitter_site = "@agorasecurity"
 twitter_creator = "@agorasecurity"
 default_image = "/images/og-default.svg"
-canonical_base = "https://agora-security.github.io/resysto-website/"
+canonical_base = "https://resysto.io"
 company_name = "Agora Security"
 contact_email = "info@agorasecurity.it"
 
@@ -95,7 +95,7 @@ enable_twitter_cards = true
 
 [extra.nav]
 items = [
-  { name = "Features", url = "https://agora-security.github.io/resysto-website/features" },
+  { name = "Features", url = "/features" },
   { name = "Roadmap", url = "/roadmap" },
   { name = "Partners", url = "/partners" },
   { name = "Blog", url = "/blog" },
