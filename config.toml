@@ -1,4 +1,4 @@
-base_url = "https://resysto.io/"
+base_url = "https://agora-security.github.io/resysto-website/"
 title = "resysto"
 description = "Central Cyber Resilience and Data Protection platform to govern and manage cybersecurity and privacy."
 default_language = "en"
