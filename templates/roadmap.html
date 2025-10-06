@@ -211,7 +211,7 @@
             {{ page.extra.disclaimer_text }}
             {% if page.extra.disclaimer_updates_text %}
             {{ page.extra.disclaimer_updates_text }}
-            <a href="{{ page.extra.disclaimer_blog_url }}" class="text-accent-blue hover:text-accent-green transition-colors">{{ page.extra.disclaimer_blog_link }}</a>
+            <a href="{{config.base_url}}{{ page.extra.disclaimer_blog_url }}" class="text-accent-blue hover:text-accent-green transition-colors">{{ page.extra.disclaimer_blog_link }}</a>
             {{ page.extra.disclaimer_contact_text }}
             <a href="mailto:{{ page.extra.disclaimer_email }}" class="text-accent-blue hover:text-accent-green transition-colors">{{ page.extra.disclaimer_email }}</a>.
             {% endif %}
@@ -231,10 +231,10 @@
             {{ page.extra.cta_description }}
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="{{ page.extra.cta_primary_url }}" class="px-8 py-3 bg-accent-blue text-white font-semibold rounded-lg hover:bg-accent-blue/90 transition-all interactive-element glow-blue">
+            <a href="{{config.base_url}}{{ page.extra.cta_primary_url }}" class="px-8 py-3 bg-accent-blue text-white font-semibold rounded-lg hover:bg-accent-blue/90 transition-all interactive-element glow-blue">
                 {{ page.extra.cta_primary_text }}
             </a>
-            <a href="{{ page.extra.cta_secondary_url }}" class="px-8 py-3 border-2 border-accent-blue text-accent-blue font-semibold rounded-lg hover:bg-accent-blue/10 transition-all interactive-element">
+            <a href="{{ config.base_url }}{{ page.extra.cta_secondary_url }}" class="px-8 py-3 border-2 border-accent-blue text-accent-blue font-semibold rounded-lg hover:bg-accent-blue/10 transition-all interactive-element">
                 {{ page.extra.cta_secondary_text }}
             </a>
         </div>

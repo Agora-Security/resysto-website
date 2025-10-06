@@ -332,10 +332,10 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
-        .cyber-logo:hover {
+        /* .cyber-logo:hover {
             transform: scale(1.05) translateY(-1px);
             letter-spacing: 0.02em;
-        }
+        } */
         
         .cyber-logo .glow-text {
             position: relative;
@@ -397,11 +397,9 @@
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/" class="flex items-center space-x-3 group">
-                        <div class="cyber-logo font-heading text-3xl font-bold tracking-tight">
-                            <span class="text-accent-blue glow-text">re</span><span class="text-accent-green glow-text">sys</span><span class="text-accent-purple glow-text">to</span>
-                        </div>
-                    </a>
+                    <div class="cyber-logo font-heading text-3xl font-bold tracking-tight">
+                        <span class="text-accent-blue glow-text">re</span><span class="text-accent-green glow-text">sys</span><span class="text-accent-purple glow-text">to</span>
+                    </div>                    
                 </div>
                 
                 <!-- Navigation Menu -->
