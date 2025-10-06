@@ -347,7 +347,7 @@
             letter-spacing: 0.02em;
         } */
         
-        .cyber-logo .glow-text {
+        /* .cyber-logo .glow-text {
             position: relative;
             text-shadow: 
                 0 0 10px currentColor,
@@ -356,16 +356,16 @@
                 0 0 40px currentColor;
             animation: glow-pulse 3s ease-in-out infinite;
             transition: all 0.3s ease;
-        }
+        } */
         
-        .cyber-logo:hover .glow-text {
+        /* .cyber-logo:hover .glow-text {
             text-shadow: 
                 0 0 15px currentColor,
                 0 0 30px currentColor,
                 0 0 45px currentColor,
                 0 0 60px currentColor,
                 0 0 75px currentColor;
-        }
+        } */
         
         @keyframes glow-pulse {
             0%, 100% { 
@@ -415,12 +415,12 @@
                 <!-- Navigation Menu -->
                 <ul class="hidden md:flex items-center space-x-8 font-medium">
                     <li><a href="{{config.base_url}}{% if lang != config.default_language %}{{ lang }}{% endif %}" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if current_path == '/' %}active-nav text-accent-blue{% endif %}" data-page="/">{{ trans(key="home", lang=lang) }}</a></li>
-                    <li><a href="{{config.base_url}}{% if lang != config.default_language %}{{ lang }}{% endif %}features" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/features' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/features">{{ trans(key="features", lang=lang) }}</a></li>
-                    <li><a href="{{config.base_url}}{% if lang != config.default_language %}{{ lang }}{% endif %}roadmap" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/roadmap' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/roadmap">{{ trans(key="roadmap", lang=lang) }}</a></li>
-                    <li><a href="{{config.base_url}}{% if lang != config.default_language %}{{ lang }}{% endif %}partners" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/partners' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/partners">{{ trans(key="partners", lang=lang) }}</a></li>
-                    <li><a href="{{config.base_url}}{% if lang != config.default_language %}{{ lang }}{% endif %}blog" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/blog' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/blog">{{ trans(key="blog", lang=lang) }}</a></li>
-                    <li><a href="{{config.base_url}}{% if lang != config.default_language %}{{ lang }}{% endif %}about" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/about' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/about">{{ trans(key="about", lang=lang) }}</a></li>
-                    <li><a href="{{config.base_url}}{% if lang != config.default_language %}{{ lang }}{% endif %}access" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/access' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/access">{{ trans(key="access", lang=lang) }}</a></li>
+                    <li><a href="{{config.base_url}}{% if lang != config.default_language %}{{ lang }}{% endif %}/features" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/features' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/features">{{ trans(key="features", lang=lang) }}</a></li>
+                    <li><a href="{{config.base_url}}{% if lang != config.default_language %}{{ lang }}{% endif %}/roadmap" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/roadmap' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/roadmap">{{ trans(key="roadmap", lang=lang) }}</a></li>
+                    <li><a href="{{config.base_url}}{% if lang != config.default_language %}{{ lang }}{% endif %}/partners" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/partners' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/partners">{{ trans(key="partners", lang=lang) }}</a></li>
+                    <li><a href="{{config.base_url}}{% if lang != config.default_language %}{{ lang }}{% endif %}/blog" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/blog' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/blog">{{ trans(key="blog", lang=lang) }}</a></li>
+                    <li><a href="{{config.base_url}}{% if lang != config.default_language %}{{ lang }}{% endif %}/about" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/about' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/about">{{ trans(key="about", lang=lang) }}</a></li>
+                    <li><a href="{{config.base_url}}{% if lang != config.default_language %}{{ lang }}{% endif %}/access" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/access' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/access">{{ trans(key="access", lang=lang) }}</a></li>
                 </ul>
                 
                 <!-- Language Switcher and Theme Toggle -->

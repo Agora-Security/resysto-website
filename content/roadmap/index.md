@@ -38,7 +38,7 @@ cta_secondary_url = "about#contact"
 # Phases
 [[extra.phases]]
 name = "Phase 1 · MVP Website and vCISO App Foundation"
-timeline = "Q1–Q2 2024"
+timeline = "Q1–Q2 2025"
 description = "Core launch scope for the website and foundational app modules."
 status = "completed"
 status_label = "Completed"
@@ -56,7 +56,7 @@ in_progress = [
 
 [[extra.phases]]
 name = "Phase 2 · Differentiators and Integrations"
-timeline = "Q3–Q4 2024"
+timeline = "Q3–Q4 2025"
 description = "Focus on integrations, MSSP enablement, and reporting."
 status = "in-progress"
 status_label = "In Progress"
@@ -76,7 +76,7 @@ technical_focus = [
 
 [[extra.phases]]
 name = "Phase 3 · Scale and Intelligence"
-timeline = "Q1–Q2 2025"
+timeline = "Q1–Q2 2026"
 description = "Automation, AI-assisted workflows, and enterprise controls."
 status = "planned"
 status_label = "Planned"
@@ -96,7 +96,7 @@ technical_focus = [
 
 [[extra.phases]]
 name = "Future Considerations · Phase 4+"
-timeline = "2025+"
+timeline = "2026+"
 description = "Ideas we intend to explore and validate with users."
 status = "future"
 status_label = "Future"
