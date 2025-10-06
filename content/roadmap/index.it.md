@@ -23,7 +23,7 @@ looking_ahead_label = "Prospettive Future"
 disclaimer_text = "La tempistica è soggetta a modifiche in base al feedback degli utenti e alle esigenze del mercato."
 disclaimer_updates_text = "Per gli ultimi aggiornamenti, segui il nostro"
 disclaimer_blog_link = "blog"
-disclaimer_blog_url = "/it/blog/"
+disclaimer_blog_url = "/it/blog"
 disclaimer_contact_text = "o contattaci all'indirizzo"
 disclaimer_email = "info@agorasecurity.it"
 
@@ -31,9 +31,9 @@ disclaimer_email = "info@agorasecurity.it"
 cta_title = "Vuoi Influenzare la Nostra Roadmap?"
 cta_description = "Apprezziamo il feedback dei clienti. Condividi le tue priorità e aiutaci a plasmare il futuro di resysto."
 cta_primary_text = "Inizia"
-cta_primary_url = "/it/access/"
+cta_primary_url = "/it/access"
 cta_secondary_text = "Contattaci"
-cta_secondary_url = "/it/about/#contact"
+cta_secondary_url = "/it/about#contact"
 
 # Phases
 [[extra.phases]]

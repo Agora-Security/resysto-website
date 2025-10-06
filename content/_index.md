@@ -11,9 +11,9 @@ hero_subtitle = "Govern and manage cybersecurity and privacy processes and tools
 
 # CTAs
 cta_primary_text = "Get Started"
-cta_primary_url = "/access/"
+cta_primary_url = "/access"
 cta_secondary_text = "Explore Features"
-cta_secondary_url = "/features/"
+cta_secondary_url = "/features"
 
 # Section Titles
 problems_title = "Problems we solve"
@@ -27,7 +27,7 @@ services_label = "Platform Services"
 final_cta_title = "Join forward-thinking organizations securing their digital future"
 final_cta_description = "Start building your comprehensive cybersecurity program today"
 final_cta_button = "Get Started Now"
-final_cta_url = "/access/"
+final_cta_url = "/access"
 
 # Problems Section
 [[extra.problems]]

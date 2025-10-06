@@ -11,7 +11,7 @@ hero_subtitle = "Aggiornamenti di prodotto, guide pratiche, approfondimenti sull
 hero_cta_primary_text = "Iscriviti RSS"
 hero_cta_primary_url = "/rss.xml"
 hero_cta_secondary_text = "Torna alla Home"
-hero_cta_secondary_url = "/it/"
+hero_cta_secondary_url = "/it"
 
 # Blog Articles
 [[extra.articles]]
