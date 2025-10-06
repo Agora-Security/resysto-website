@@ -157,6 +157,41 @@
             width: 100%;
         }
         
+        /* Navigation link glow effect */
+        .nav-link {
+            position: relative;
+            font-weight: 500;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #00D4FF, #39FF14);
+            border-radius: 2px;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+        }
+        
+        .nav-link:hover::after,
+        .nav-link.active-nav::after {
+            width: 100%;
+        }
+        
+        .nav-link:hover {
+            text-shadow: 0 0 12px rgba(0, 212, 255, 0.6);
+            transform: translateY(-1px);
+        }
+        
+        .nav-link.active-nav {
+            text-shadow: 0 0 12px rgba(0, 212, 255, 0.8);
+            font-weight: 600;
+        }
+        
         /* Status badges - professional with color-coding */
         .status-badge {
             display: inline-flex;
@@ -288,6 +323,70 @@
             backdrop-filter: blur(12px) saturate(180%);
             -webkit-backdrop-filter: blur(12px) saturate(180%);
         }
+        
+        /* Cyber Logo Styling */
+        .cyber-logo {
+            position: relative;
+            display: inline-block;
+            letter-spacing: -0.05em;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .cyber-logo:hover {
+            transform: scale(1.05) translateY(-1px);
+            letter-spacing: 0.02em;
+        }
+        
+        .cyber-logo .glow-text {
+            position: relative;
+            text-shadow: 
+                0 0 10px currentColor,
+                0 0 20px currentColor,
+                0 0 30px currentColor,
+                0 0 40px currentColor;
+            animation: glow-pulse 3s ease-in-out infinite;
+            transition: all 0.3s ease;
+        }
+        
+        .cyber-logo:hover .glow-text {
+            text-shadow: 
+                0 0 15px currentColor,
+                0 0 30px currentColor,
+                0 0 45px currentColor,
+                0 0 60px currentColor,
+                0 0 75px currentColor;
+        }
+        
+        @keyframes glow-pulse {
+            0%, 100% { 
+                filter: brightness(1);
+                text-shadow: 
+                    0 0 10px currentColor,
+                    0 0 20px currentColor,
+                    0 0 30px currentColor;
+            }
+            50% { 
+                filter: brightness(1.2);
+                text-shadow: 
+                    0 0 15px currentColor,
+                    0 0 30px currentColor,
+                    0 0 45px currentColor,
+                    0 0 60px currentColor;
+            }
+        }
+        
+        /* Stagger animation for each part */
+        .cyber-logo span:nth-child(1) {
+            animation-delay: 0s;
+        }
+        
+        .cyber-logo span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        
+        .cyber-logo span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
     </style>
 </head>
 <body class="bg-white dark:bg-dark-bg text-gray-900 dark:text-gray-100 font-body">
@@ -299,19 +398,21 @@
                 <!-- Logo -->
                 <div class="flex items-center">
                     <a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/" class="flex items-center space-x-3 group">
-                        <img src="/images/resysto-logo.png" alt="Resysto Logo" class="h-10 w-auto transition-transform duration-300 group-hover:scale-105">
+                        <div class="cyber-logo font-heading text-3xl font-bold tracking-tight">
+                            <span class="text-accent-blue glow-text">re</span><span class="text-accent-green glow-text">sys</span><span class="text-accent-purple glow-text">to</span>
+                        </div>
                     </a>
                 </div>
                 
                 <!-- Navigation Menu -->
                 <ul class="hidden md:flex items-center space-x-8 font-medium">
-                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="home", lang=lang) }}</a></li>
-                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/features" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="features", lang=lang) }}</a></li>
-                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/roadmap" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="roadmap", lang=lang) }}</a></li>
-                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/partners" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="partners", lang=lang) }}</a></li>
-                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/blog" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="blog", lang=lang) }}</a></li>
-                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/about" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="about", lang=lang) }}</a></li>
-                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/access" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="access", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if current_path == '/' %}active-nav text-accent-blue{% endif %}" data-page="/">{{ trans(key="home", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/features" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/features' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/features">{{ trans(key="features", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/roadmap" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/roadmap' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/roadmap">{{ trans(key="roadmap", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/partners" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/partners' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/partners">{{ trans(key="partners", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/blog" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/blog' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/blog">{{ trans(key="blog", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/about" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/about' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/about">{{ trans(key="about", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/access" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/access' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/access">{{ trans(key="access", lang=lang) }}</a></li>
                 </ul>
                 
                 <!-- Language Switcher and Theme Toggle -->
@@ -371,6 +472,31 @@
     </footer>
 
     <script>
+        // Active Navigation Highlighting
+        (function() {
+            const currentPath = window.location.pathname;
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            navLinks.forEach(link => {
+                const linkPath = link.getAttribute('data-page');
+                // Remove active class from all
+                link.classList.remove('active-nav', 'text-accent-blue');
+                
+                // Check if current path matches
+                if (linkPath === '/') {
+                    // Home page exact match
+                    if (currentPath === '/' || currentPath === '/it/' || currentPath === '/it') {
+                        link.classList.add('active-nav', 'text-accent-blue');
+                    }
+                } else {
+                    // Other pages - check if path contains the page name
+                    if (currentPath.includes(linkPath)) {
+                        link.classList.add('active-nav', 'text-accent-blue');
+                    }
+                }
+            });
+        })();
+        
         // Browser Language Detection and Redirect
         (function() {
             // Only run on the root/home page to avoid constant redirects
