@@ -1,22 +1,16 @@
-name: Build and Deploy (main)
+name: Build and deploy GH Pages
 
 on:
   push:
     branches: [ main ]
 
 jobs:
-  build-deploy:
+  build:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     steps:
-      - name: Checkout
+      - name: checkout
         uses: actions/checkout@v4
-
-      - name: Setup Rust
-        uses: dtolnay/rust-toolchain@stable
-
-      - name: Install Zola
-        run: |
-          curl -sSL https://github.com/getzola/zola/releases/latest/download/zola-x86_64-unknown-linux-gnu.tar.gz | sudo tar -xz -C /usr/local/bin zola
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -28,12 +22,10 @@ jobs:
           npm ci
           npx tailwindcss -i ./assets/css/main.css -o ./static/css/main.css --minify
 
-      - name: Build site
-        run: zola build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-
+      - name: build_and_deploy
+        uses: shalzz/zola-deploy-action@master
+        env:
+          # Target branch
+          PAGES_BRANCH: gh-pages
+          # Use the automatic token for same-repo publishing
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
