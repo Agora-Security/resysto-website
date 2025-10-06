@@ -1,236 +1,505 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light" class="no-js">
-  <head>
-    <meta charset="utf-8" />
+<html lang="{{ lang }}" class="">
+<head>
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ config.extra.site_name }}</title>
-    <meta name="description" content="{{ page.description | default(value=config.description) }}" />
-    <link rel="canonical" href="{{ config.extra.canonical_base ~ current_url | safe }}" />
+    <title>{% if page.title %}{{ page.title }}{% else %}resysto{% endif %}</title>
     
-    <!-- Enhanced SEO Meta Tags -->
-    <meta property="og:type" content="{{ config.extra.og_type }}" />
-    <meta property="og:site_name" content="{{ config.extra.site_name }}" />
-    <meta property="og:title" content="{% if page.title %}{{ page.title }} | {% endif %}{{ config.extra.site_name }}" />
-    <meta property="og:description" content="{{ page.description | default(value=config.description) }}" />
-    <meta property="og:url" content="{{ config.extra.canonical_base ~ current_url | safe }}" />
-    <meta property="og:image" content="{{ page.extra.og_image | default(value=config.extra.default_image) }}" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     
-    <!-- Twitter Cards -->
-    <meta name="twitter:card" content="{{ config.extra.twitter_card }}" />
-    <meta name="twitter:site" content="{{ config.extra.twitter_site }}" />
-    <meta name="twitter:creator" content="{{ config.extra.twitter_creator }}" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Theme and Accessibility -->
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)" />
-    <meta name="color-scheme" content="light dark" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ get_url(path='css/main.css') }}" />
     
-    <!-- Audience Targeting Meta -->
-    {% if page.extra.audience %}
-      <meta name="target-audience" content="{{ page.extra.audience | join(sep=', ') }}" />
-    {% endif %}
-    
-    <!-- Performance and Layout Meta -->
-    {% if page.extra.performance_budget %}
-      <meta name="performance-budget" content="{{ page.extra.performance_budget }}" />
-    {% endif %}
-    {% if page.extra.accessibility_compliance %}
-      <meta name="accessibility-compliance" content="{{ page.extra.accessibility_compliance }}" />
-    {% endif %}
-    
-    <!-- Structured Data -->
-    {% if config.extra.enable_structured_data %}
-      <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "{{ config.extra.site_name }}",
-        "description": "{{ config.description }}",
-        "url": "{{ config.extra.canonical_base }}",
-        "publisher": {
-          "@type": "Organization",
-          "name": "{{ config.extra.company_name }}",
-          "email": "{{ config.extra.contact_email }}"
-        }
-      }
-      </script>
-    {% endif %}
-    
-    <!-- Feeds -->
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="{{ get_url(path='rss.xml') }}" />
-    
-    <!-- Theme Toggle Script -->
+    <!-- Tailwind Configuration -->
     <script>
-      (function() {
-        try {
-          var stored = localStorage.getItem('theme');
-          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-          var theme = stored || (prefersDark ? 'dark' : 'light');
-          document.documentElement.setAttribute('data-theme', theme);
-          document.documentElement.classList.remove('no-js');
-        } catch (e) {}
-      })();
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            bg: '#0A0A0A',
+                            surface: '#151515',
+                            border: '#252525',
+                        },
+                        light: {
+                            bg: '#FFFFFF',
+                            surface: '#F9FAFB',
+                            border: '#E5E7EB',
+                        },
+                        accent: {
+                            blue: '#00D4FF',
+                            green: '#39FF14',
+                            purple: '#B026FF',
+                        }
+                    },
+                    fontFamily: {
+                        heading: ['Space Grotesk', 'sans-serif'],
+                        body: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    boxShadow: {
+                        'neon-blue': '0 0 20px rgba(0, 212, 255, 0.5)',
+                        'neon-green': '0 0 20px rgba(57, 255, 20, 0.5)',
+                        'neon-purple': '0 0 20px rgba(176, 38, 255, 0.5)',
+                    }
+                }
+            }
+        }
     </script>
     
-    <!-- CSS Preload -->
-    <link rel="preload" href="/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="/css/main.css" /></noscript>
-  </head>
-  <body class="min-h-screen flex flex-col {% if page.extra.layout_type %}layout-{{ page.extra.layout_type }}{% else %}layout-{{ config.extra.default_layout_type }}{% endif %} {% if page.extra.content_density %}density-{{ page.extra.content_density }}{% else %}density-{{ config.extra.default_content_density }}{% endif %}">
-    <div class="site-bg" aria-hidden="true"></div>
-    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:bg-white focus:text-black focus:px-3 focus:py-2 focus:rounded">Skip to main content</a>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 400;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        
+        code, pre {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 400;
+        }
+        
+        /* Smooth transitions - more professional timing */
+        * {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Enhanced neon glow effects */
+        .glow-blue {
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), 0 0 40px rgba(0, 212, 255, 0.1);
+        }
+        
+        .glow-blue:hover {
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.5), 0 0 60px rgba(0, 212, 255, 0.2);
+        }
+        
+        .glow-green {
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.3), 0 0 40px rgba(57, 255, 20, 0.1);
+        }
+        
+        .glow-green:hover {
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.5), 0 0 60px rgba(57, 255, 20, 0.2);
+        }
+        
+        .glow-purple {
+            box-shadow: 0 0 20px rgba(176, 38, 255, 0.3), 0 0 40px rgba(176, 38, 255, 0.1);
+        }
+        
+        .glow-purple:hover {
+            box-shadow: 0 0 30px rgba(176, 38, 255, 0.5), 0 0 60px rgba(176, 38, 255, 0.2);
+        }
+        
+        /* Micro-interactions with smooth feedback */
+        .interactive-element {
+            position: relative;
+            transform: scale(1);
+            transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .interactive-element:hover {
+            transform: scale(1.03) translateY(-2px);
+        }
+        
+        .interactive-element:active {
+            transform: scale(0.98);
+            transition: transform 0.1s ease;
+        }
+        
+        /* Card hover effects */
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Link underline animation */
+        .link-underline {
+            position: relative;
+        }
+        
+        .link-underline::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: currentColor;
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .link-underline:hover::after {
+            width: 100%;
+        }
+        
+        /* Status badges - professional with color-coding */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            padding: 0.375rem 0.875rem;
+            border-radius: 9999px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid transparent;
+        }
+        
+        .status-badge:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Status badge dot indicator */
+        .status-badge::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: currentColor;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.7; transform: scale(1.2); }
+        }
+        
+        /* Implemented status - green */
+        .status-implemented {
+            background: rgba(57, 255, 20, 0.1);
+            color: #39FF14;
+            border-color: rgba(57, 255, 20, 0.3);
+        }
+        
+        .status-implemented:hover {
+            background: rgba(57, 255, 20, 0.15);
+            border-color: rgba(57, 255, 20, 0.5);
+        }
+        
+        /* Beta status - yellow/amber */
+        .status-beta {
+            background: rgba(251, 191, 36, 0.1);
+            color: #FBB624;
+            border-color: rgba(251, 191, 36, 0.3);
+        }
+        
+        .status-beta:hover {
+            background: rgba(251, 191, 36, 0.15);
+            border-color: rgba(251, 191, 36, 0.5);
+        }
+        
+        /* In Progress status - purple */
+        .status-progress {
+            background: rgba(176, 38, 255, 0.1);
+            color: #B026FF;
+            border-color: rgba(176, 38, 255, 0.3);
+        }
+        
+        .status-progress:hover {
+            background: rgba(176, 38, 255, 0.15);
+            border-color: rgba(176, 38, 255, 0.5);
+        }
+        
+        /* Planned status - blue */
+        .status-planned {
+            background: rgba(0, 212, 255, 0.1);
+            color: #00D4FF;
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+        
+        .status-planned:hover {
+            background: rgba(0, 212, 255, 0.15);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+        
+        /* SVG icon animations */
+        svg {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .icon-hover svg {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .card-hover:hover .icon-hover svg {
+            transform: scale(1.1) rotate(-3deg);
+        }
+        
+        /* Feature card enhancements */
+        .feature-card {
+            backdrop-filter: blur(8px);
+            background: rgba(21, 21, 21, 0.8);
+            border: 1px solid rgba(37, 37, 37, 0.8);
+        }
+        
+        .feature-card:hover {
+            border-color: rgba(57, 255, 20, 0.5);
+            background: rgba(21, 21, 21, 0.95);
+        }
+        
+        .icon-hover:hover svg {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        /* Gradient text effect */
+        .gradient-text {
+            background: linear-gradient(135deg, #00D4FF 0%, #39FF14 50%, #B026FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% auto;
+            animation: gradient-shift 3s ease infinite;
+        }
+        
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Backdrop blur enhancement */
+        .glass-effect {
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-dark-bg text-gray-900 dark:text-gray-100 font-body">
     
-    <!-- Improved Header matching enhanced templates -->
-    <header class="navbar" role="banner" data-audience-targeting="{% if config.extra.enable_audience_targeting %}enabled{% else %}disabled{% endif %}">
-      <div class="nav-container">
-        <a href="/" class="brand-link" aria-label="{{ config.extra.site_name }} home">
-          <span class="brand-text">{{ config.extra.site_name }}</span>
-        </a>
-        <div class="nav-links" aria-label="Primary navigation">
-          {% for item in config.extra.nav.items %}
-            {% if item.name | lower == "access" %}
-              <a href="{{ item.url }}" class="btn btn-cta">{{ item.name }}</a>
-            {% else %}
-              <a href="{{ item.url }}" class="nav-link" {% if item.url == current_url %}aria-current="page"{% endif %}>{{ item.name }}</a>
-            {% endif %}
-          {% endfor %}
-        </div>
-      </div>
+    <!-- Header (Sticky Navigation) -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-dark-bg/80 border-b border-gray-200 dark:border-dark-border">
+        <nav class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/" class="flex items-center space-x-3 group">
+                        <img src="/images/resysto-logo.png" alt="Resysto Logo" class="h-10 w-auto transition-transform duration-300 group-hover:scale-105">
+                    </a>
+                </div>
+                
+                <!-- Navigation Menu -->
+                <ul class="hidden md:flex items-center space-x-8 font-medium">
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="home", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/features/" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="features", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/roadmap/" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="roadmap", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/partners/" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="partners", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/blog/" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="blog", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/about/" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="about", lang=lang) }}</a></li>
+                    <li><a href="{% if lang != config.default_language %}/{{ lang }}{% endif %}/access/" class="text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors">{{ trans(key="access", lang=lang) }}</a></li>
+                </ul>
+                
+                <!-- Language Switcher and Theme Toggle -->
+                <div class="flex items-center gap-3">
+                    <!-- Language Switcher -->
+                    <div class="relative">
+                        <button id="language-toggle" class="flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-200 dark:border-dark-border hover:border-accent-blue transition-all interactive-element" aria-label="Change language">
+                            <span class="text-sm font-medium">{{ lang | upper }}</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="language-menu" class="hidden absolute right-0 mt-2 w-32 rounded-lg bg-gray-50 dark:bg-dark-surface border border-gray-200 dark:border-dark-border shadow-lg">
+                            <a href="#" id="lang-en" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-dark-border transition-colors {% if lang == 'en' %}text-accent-blue{% endif %}" data-lang="en">
+                                English
+                            </a>
+                            <a href="#" id="lang-it" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-dark-border transition-colors {% if lang == 'it' %}text-accent-blue{% endif %}" data-lang="it">
+                                Italiano
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-lg border border-gray-200 dark:border-dark-border hover:border-accent-blue transition-all interactive-element" aria-label="Toggle theme">
+                        <!-- Sun Icon (Light Mode) -->
+                        <svg id="theme-toggle-light-icon" class="hidden w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+                        </svg>
+                        <!-- Moon Icon (Dark Mode) -->
+                        <svg id="theme-toggle-dark-icon" class="w-6 h-6 text-accent-blue" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
     </header>
     
-    <!-- Enhanced Main Content Area -->
-    <main id="main" class="flex-1" tabindex="-1" 
-          {% if page.extra.audience %}data-audience="{{ page.extra.audience | join(sep=' ') }}"{% endif %}
-          {% if page.extra.content_priority %}data-priority="{{ page.extra.content_priority }}"{% endif %}
-          {% if page.extra.show_key_concepts %}data-show-concepts="{{ page.extra.show_key_concepts }}"{% endif %}>
-      {% block content %}{% endblock content %}
+    <main>
+        {% block content %}
+        <!-- Contenuto inserito dai singoli template -->
+        {% endblock content %}
     </main>
-    
-    <!-- Improved Footer to match enhanced templates -->
-    <footer class="footer" role="contentinfo">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-brand">
-            <a href="/" class="brand-link"><span class="brand-text">{{ config.extra.site_name }}</span></a>
-            <p class="footer-description">{{ config.description }}</p>
-          </div>
 
-          <div class="footer-links">
-            <div class="footer-column">
-              <h4 class="footer-title">Product</h4>
-              <a href="/features/" class="footer-link">Features</a>
-              <a href="/roadmap/" class="footer-link">Roadmap</a>
+    <!-- Footer -->
+    <footer class="border-t border-gray-200 dark:border-dark-border mt-20">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-600 dark:text-gray-500 text-sm">
+                    © 2025 Agora Security. All rights reserved.
+                </p>
+                <p class="text-gray-600 dark:text-gray-500 text-sm">
+                    Contact: <a href="mailto:info@agorasecurity.it" class="text-accent-blue hover:text-accent-green transition-colors">info@agorasecurity.it</a>
+                </p>
             </div>
-            <div class="footer-column">
-              <h4 class="footer-title">Company</h4>
-              <a href="/about/" class="footer-link">About</a>
-              <a href="/blog/" class="footer-link">Blog</a>
-              <a href="/partners/" class="footer-link">Partners</a>
-            </div>
-            <div class="footer-column">
-              <h4 class="footer-title">Support</h4>
-              <a href="/access/" class="footer-link">Get Access</a>
-              <a href="mailto:{{ config.extra.contact_email }}" class="footer-link">Contact</a>
-              <a href="/" class="footer-link">Documentation</a>
-            </div>
-          </div>
         </div>
-
-        <div class="footer-bottom">
-          <p class="text-sm">© {{ now() | date(format="%Y") }} {{ config.extra.site_name }}. All rights reserved.</p>
-        </div>
-      </div>
     </footer>
+
     <script>
-      (function(){
-        // Performance optimization: lazy loading and async decoding
-        try {
-          if ('loading' in HTMLImageElement.prototype) {
-            document.querySelectorAll('img:not([loading])').forEach(function(img){ img.loading = 'lazy'; });
-          }
-          document.querySelectorAll('img:not([decoding])').forEach(function(img){ img.decoding = 'async'; });
-        } catch (e) {}
-        
-        // Theme toggle functionality
-        var themeBtn = document.getElementById('theme-toggle');
-        if (themeBtn) {
-          themeBtn.addEventListener('click', function(){
-            var root = document.documentElement;
-            var current = root.getAttribute('data-theme') || 'light';
-            var next = current === 'dark' ? 'light' : 'dark';
-            root.setAttribute('data-theme', next);
-            try { localStorage.setItem('theme', next); } catch (e) {}
-          });
-        }
-        
-        // Audience targeting functionality
-        var audienceBtn = document.getElementById('audience-toggle');
-        if (audienceBtn) {
-          audienceBtn.addEventListener('click', function(){
-            var body = document.body;
-            var currentAudience = body.getAttribute('data-current-audience') || 'all';
-            var audiences = ['ciso', 'business', 'all'];
-            var currentIndex = audiences.indexOf(currentAudience);
-            var nextIndex = (currentIndex + 1) % audiences.length;
-            var nextAudience = audiences[nextIndex];
+        // Browser Language Detection and Redirect
+        (function() {
+            // Only run on the root/home page to avoid constant redirects
+            const currentLang = '{{ lang }}';
+            const currentPath = window.location.pathname;
             
-            body.setAttribute('data-current-audience', nextAudience);
+            // Check if user has manually selected a language (stored in localStorage)
+            const userSelectedLang = localStorage.getItem('userSelectedLanguage');
             
-            // Update audience-specific content visibility
-            var audienceContent = document.querySelectorAll('[data-audience-content]');
-            audienceContent.forEach(function(element) {
-              var targetAudience = element.getAttribute('data-audience-content');
-              if (nextAudience === 'all' || targetAudience === nextAudience) {
-                element.style.display = '';
-              } else {
-                element.style.display = 'none';
-              }
+            if (!userSelectedLang) {
+                // Get browser language
+                const browserLang = navigator.language || navigator.userLanguage;
+                const primaryLang = browserLang.split('-')[0].toLowerCase();
+                
+                // If browser is Italian and we're not already on Italian version
+                if (primaryLang === 'it' && currentLang !== 'it') {
+                    // Check if we're on a page that has an Italian version
+                    if (currentPath === '/' || currentPath === '') {
+                        window.location.href = '/it/';
+                    } else if (!currentPath.startsWith('/it/')) {
+                        // Convert current path to Italian version
+                        window.location.href = '/it' + currentPath;
+                    }
+                }
+                // For all other languages, stay on English (default)
+            }
+        })();
+        
+        // Language Switcher Script
+        const languageToggle = document.getElementById('language-toggle');
+        const languageMenu = document.getElementById('language-menu');
+        const currentLang = '{{ lang }}';
+        
+        if (languageToggle && languageMenu) {
+            // Set up correct language URLs based on current page
+            const currentPath = window.location.pathname;
+            const langEnLink = document.getElementById('lang-en');
+            const langItLink = document.getElementById('lang-it');
+            
+            if (langEnLink && langItLink) {
+                // Calculate the correct URLs for language switching
+                if (currentLang === 'it') {
+                    // Remove /it from the path for English
+                    const enPath = currentPath.replace(/^\/it(\/|$)/, '/');
+                    langEnLink.href = enPath || '/';
+                    langItLink.href = currentPath;
+                } else {
+                    // Add /it to the path for Italian
+                    langEnLink.href = currentPath;
+                    langItLink.href = '/it' + currentPath;
+                }
+            }
+            
+            languageToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                languageMenu.classList.toggle('hidden');
             });
             
-            // Update button text
-            var audienceLabels = { 'ciso': 'CISO', 'business': 'Business', 'all': 'All' };
-            audienceBtn.setAttribute('title', 'Current view: ' + audienceLabels[nextAudience]);
-          });
-        }
-        
-        // Adaptive layout based on content length
-        function adaptLayoutBasedOnContent() {
-          var main = document.getElementById('main');
-          if (!main) return;
-          
-          var contentLength = main.textContent.length;
-          var thresholds = {{ config.extra.content_thresholds | default(value="{ short = 500, medium = 1500, long = 3000 }") | safe }};
-          
-          var densityClass = 'density-balanced';
-          if (contentLength < thresholds.short) {
-            densityClass = 'density-compact';
-          } else if (contentLength > thresholds.long) {
-            densityClass = 'density-detailed';
-          }
-          
-          document.body.className = document.body.className.replace(/density-\w+/, densityClass);
-        }
-        
-        // Run adaptive layout on load and resize
-        if (window.addEventListener) {
-          window.addEventListener('load', adaptLayoutBasedOnContent);
-          window.addEventListener('resize', adaptLayoutBasedOnContent);
-        }
-        
-        // Performance budget monitoring
-        if (window.performance && window.performance.timing) {
-          window.addEventListener('load', function() {
-            var timing = window.performance.timing;
-            var loadTime = timing.loadEventEnd - timing.navigationStart;
-            var budget = {{ config.extra.performance_budget | default(value=500) }};
+            // Close menu when clicking outside
+            document.addEventListener('click', function() {
+                languageMenu.classList.add('hidden');
+            });
             
-            if (loadTime > budget) {
-              console.warn('Performance budget exceeded: ' + loadTime + 'ms > ' + budget + 'ms');
-            }
-          });
+            languageMenu.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+            
+            // Track manual language selection
+            const languageLinks = languageMenu.querySelectorAll('a');
+            languageLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Store user's manual language selection
+                    const selectedLang = this.getAttribute('data-lang');
+                    if (selectedLang) {
+                        localStorage.setItem('userSelectedLanguage', selectedLang);
+                    }
+                });
+            });
         }
-      })();
+        
+        // Theme Toggle Script
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+        const htmlElement = document.documentElement;
+        
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        // Set initial theme
+        if (currentTheme === 'light') {
+            htmlElement.classList.remove('dark');
+            themeToggleDarkIcon.classList.remove('hidden');  // Show moon icon in light mode
+            themeToggleLightIcon.classList.add('hidden');     // Hide sun icon in light mode
+        } else {
+            htmlElement.classList.add('dark');
+            themeToggleLightIcon.classList.remove('hidden');  // Show sun icon in dark mode
+            themeToggleDarkIcon.classList.add('hidden');      // Hide moon icon in dark mode
+        }
+        
+        // Toggle theme
+        themeToggleBtn.addEventListener('click', function() {
+            // Toggle icons
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+            
+            // Toggle theme
+            if (htmlElement.classList.contains('dark')) {
+                htmlElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                htmlElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
     </script>
-  </body>
-  </html>
-
+</body>
+</html>

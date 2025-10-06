@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Hero Section -->
+<section class="relative min-h-[40vh] flex items-center justify-center overflow-hidden pattern-dots">
+    <div class="absolute inset-0 bg-gradient-to-br from-dark-bg via-dark-surface to-dark-bg opacity-90"></div>
+    
+    <div class="relative z-10 max-w-4xl mx-auto px-6 py-16 text-center">
+        <p class="text-accent-blue text-sm font-semibold tracking-wider uppercase mb-4">{{ page.extra.kicker }}</p>
+        <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">{{ page.extra.hero_title }}</h1>
+        <p class="text-xl text-gray-300">{{ page.extra.hero_subtitle }}</p>
+    </div>
+</section>
+
+<!-- Introduction -->
+<section class="bg-dark-bg py-12">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <p class="text-gray-300 text-lg">{{ page.extra.intro_text }}</p>
+    </div>
+</section>
+
+<!-- Roadmap Timeline -->
+<section class="bg-dark-bg py-20">
+    <div class="max-w-7xl mx-auto px-6">
+        
+        <div class="timeline-container relative">
+            <!-- Timeline Line -->
+            <div class="timeline-line hidden md:block"></div>
+            
+            <!-- Phases -->
+            {% for phase in page.extra.phases %}
+            <div class="timeline-card mb-16 relative">
+                
+                <!-- Timeline Dot -->
+                <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 -translate-y-4 timeline-dot">
+                    <div class="w-6 h-6 rounded-full bg-accent-{{ phase.color }} border-4 border-dark-bg"></div>
+                </div>
+                
+                <!-- Phase Card -->
+                <div class="phase-card phase-{{ phase.status }} bg-dark-surface border border-dark-border rounded-lg p-8 md:ml-8">
+                    
+                    <!-- Phase Header -->
+                    <div class="flex flex-wrap items-center gap-4 mb-6">
+                        <h2 class="text-3xl font-bold text-white">{{ phase.name }}</h2>
+                        <span class="quarter-badge">{{ phase.timeline }}</span>
+                        <span class="status-badge status-{{ phase.status }} px-4 py-1 rounded-full text-sm font-bold uppercase">
+                            {{ phase.status_icon }} {{ phase.status_label }}
+                        </span>
+                    </div>
+                    
+                    <p class="text-gray-300 text-lg mb-8">{{ phase.description }}</p>
+                    
+                    <!-- Completed Items (if any) -->
+                    {% if phase.completed %}
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                            <span>✅</span>
+                            {{ page.extra.completed_label }}
+                        </h3>
+                        <ul class="space-y-2">
+                            {% for item in phase.completed %}
+                            <li class="text-gray-300 flex items-start gap-2">
+                                <span class="text-accent-green mt-1">•</span>
+                                {{ item }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- In Progress Items (if any) -->
+                    {% if phase.in_progress %}
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                            <span>🔄</span>
+                            {{ page.extra.in_progress_label }}
+                        </h3>
+                        <ul class="space-y-2">
+                            {% for item in phase.in_progress %}
+                            <li class="text-gray-300 flex items-start gap-2">
+                                <span class="text-accent-blue mt-1">•</span>
+                                {{ item }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Key Deliverables -->
+                    {% if phase.deliverables %}
+                    <div class="mb-8">
+                        <h3 class="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                            <span>🎯</span>
+                            {{ page.extra.deliverables_label }}
+                        </h3>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            {% for deliverable in phase.deliverables %}
+                            <div class="deliverable-item">
+                                <div class="deliverable-icon bg-accent-blue/20">
+                                    <span>{{ deliverable.icon }}</span>
+                                </div>
+                                <div>
+                                    <h4 class="text-white font-semibold text-sm">{{ deliverable.title }}</h4>
+                                    <p class="text-gray-400 text-xs">{{ deliverable.description }}</p>
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Technical Focus -->
+                    {% if phase.technical_focus %}
+                    <div>
+                        <h3 class="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                            <span>🔧</span>
+                            {{ page.extra.technical_focus_label }}
+                        </h3>
+                        <ul class="space-y-2">
+                            {% for item in phase.technical_focus %}
+                            <li class="text-gray-300 flex items-start gap-2">
+                                <span class="text-accent-purple mt-1">•</span>
+                                {{ item }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
+                    <!-- Looking Ahead (if any) -->
+                    {% if phase.looking_ahead %}
+                    <div>
+                        <h3 class="text-xl font-semibold text-white mb-4 flex items-center gap-2">
+                            <span>👀</span>
+                            {{ page.extra.looking_ahead_label }}
+                        </h3>
+                        <ul class="space-y-2">
+                            {% for item in phase.looking_ahead %}
+                            <li class="text-gray-300 flex items-start gap-2">
+                                <span class="text-yellow-500 mt-1">•</span>
+                                {{ item }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
+                </div>
+            </div>
+            {% endfor %}
+            
+        </div>
+
+    </div>
+</section>
+
+<!-- Disclaimer Section -->
+<section class="bg-dark-surface py-12">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="bg-dark-bg border border-dark-border rounded-lg p-8 text-center">
+            <p class="text-gray-400 text-sm mb-4">{{ page.extra.disclaimer_text }}</p>
+            <p class="text-gray-400 text-sm">
+                {{ page.extra.disclaimer_updates_text }}
+                <a href="{{ page.extra.disclaimer_blog_url }}" class="text-accent-blue hover:text-accent-green">{{ page.extra.disclaimer_blog_link }}</a>
+                {{ page.extra.disclaimer_contact_text }}
+                <a href="mailto:{{ page.extra.disclaimer_email }}" class="text-accent-blue hover:text-accent-green">{{ page.extra.disclaimer_email }}</a>.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="bg-dark-bg py-20">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="bg-gradient-to-r from-accent-blue/20 via-accent-green/20 to-accent-purple/20 border border-accent-blue/30 rounded-lg p-12 text-center glow-blue">
+            <h2 class="text-3xl font-bold text-white mb-4">{{ page.extra.cta_title }}</h2>
+            <p class="text-gray-300 text-lg mb-8">{{ page.extra.cta_description }}</p>
+            <div class="flex gap-4 justify-center">
+                <a href="{{ page.extra.cta_primary_url }}" class="bg-accent-blue text-dark-bg font-bold px-8 py-4 rounded-lg glow-blue hover:bg-opacity-90 interactive-element">
+                    {{ page.extra.cta_primary_text }}
+                </a>
+                <a href="{{ page.extra.cta_secondary_url }}" class="bg-dark-surface border border-accent-blue text-accent-blue font-bold px-8 py-4 rounded-lg hover:bg-accent-blue/10 interactive-element">
+                    {{ page.extra.cta_secondary_text }}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock content %}

@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section id="hero" class="container mx-auto px-6 py-24 md:py-32">
+    <div class="max-w-4xl mx-auto text-center">
+        <p class="text-accent-green text-sm font-semibold uppercase tracking-widest mb-6">
+            PRODUCT ROADMAP
+        </p>
+        
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight">
+            Where we're <span class="text-accent-blue glow-blue">going</span>
+        </h1>
+        
+        <p class="text-xl md:text-2xl text-gray-400 dark:text-gray-400 light:text-gray-600 mb-12 leading-relaxed">
+            Our development roadmap for building the most comprehensive cybersecurity platform.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="#roadmap" class="interactive-element px-8 py-4 bg-accent-blue text-dark-bg font-semibold rounded-lg glow-blue hover:bg-accent-green transition-all">
+                View Roadmap
+            </a>
+            <a href="/features/" class="interactive-element px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple">
+                Current Features
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Roadmap Section -->
+<section id="roadmap" class="container mx-auto px-6 py-20">
+    <div class="max-w-6xl mx-auto">
+        
+        <!-- Phase 1 - Completed -->
+        <div class="mb-16">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-accent-green">
+                    <svg class="w-6 h-6 text-dark-bg" fill="currentColor" viewBox="0 0 20 20" stroke-width="2">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-heading font-bold text-white dark:text-white light:text-gray-900">
+                        Phase 1: vCISO Foundation
+                    </h2>
+                    <span class="inline-flex items-center px-4 py-1 mt-2 rounded-full text-sm font-semibold bg-accent-green text-dark-bg">
+                        Completed
+                    </span>
+                </div>
+            </div>
+            <div class="ml-6 pl-10 border-l-2 border-accent-green">
+                <p class="text-lg text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed mb-6">
+                    Core vCISO capabilities with seven integrated modules for comprehensive security governance.
+                </p>
+                <ul class="space-y-3">
+                    <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                        <svg class="w-6 h-6 text-accent-green mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>People, Documents, Tools, Assets management</span>
+                    </li>
+                    <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                        <svg class="w-6 h-6 text-accent-green mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>Cyber Posture assessment and monitoring</span>
+                    </li>
+                    <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                        <svg class="w-6 h-6 text-accent-green mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>Roadmap planning and Supply Chain Risk Management</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Phase 2 - In Progress -->
+        <div class="mb-16">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-accent-purple/20 border-2 border-accent-purple text-accent-purple font-bold">
+                    2
+                </div>
+                <div>
+                    <h2 class="text-3xl font-heading font-bold text-white dark:text-white light:text-gray-900">
+                        Phase 2: Platform Intelligence
+                    </h2>
+                    <span class="inline-flex items-center px-4 py-1 mt-2 rounded-full text-sm font-semibold bg-accent-purple/20 text-accent-purple border border-accent-purple/50">
+                        In Progress
+                    </span>
+                </div>
+            </div>
+            <div class="ml-6 pl-10 border-l-2 border-accent-purple">
+                <p class="text-lg text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed mb-6">
+                    Advanced AI and automation capabilities to enhance platform intelligence.
+                </p>
+                <ul class="space-y-3">
+                    <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                        <svg class="w-6 h-6 text-accent-purple mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>Documents Manager with OCR and semantic search</span>
+                    </li>
+                    <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                        <svg class="w-6 h-6 text-accent-purple mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>RAG-powered knowledge base and recommendations</span>
+                    </li>
+                    <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                        <svg class="w-6 h-6 text-accent-purple mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>AI assistant for security insights and automation</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Phase 3 - Planned -->
+        <div class="mb-16">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="flex items-center justify-center w-12 h-12 rounded-full bg-accent-blue/20 border-2 border-accent-blue text-accent-blue font-bold">
+                    3
+                </div>
+                <div>
+                    <h2 class="text-3xl font-heading font-bold text-white dark:text-white light:text-gray-900">
+                        Phase 3: Incident Management
+                    </h2>
+                    <span class="inline-flex items-center px-4 py-1 mt-2 rounded-full text-sm font-semibold bg-accent-blue/20 text-accent-blue border border-accent-blue/50">
+                        Planned
+                    </span>
+                </div>
+            </div>
+            <div class="ml-6 pl-10 border-l-2 border-accent-blue">
+                <p class="text-lg text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed mb-6">
+                    Comprehensive incident response and crisis management capabilities.
+                </p>
+                <ul class="space-y-3">
+                    <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                        <svg class="w-6 h-6 text-accent-blue mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>Coordinated incident response workflows</span>
+                    </li>
+                    <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                        <svg class="w-6 h-6 text-accent-blue mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>Crisis communication and stakeholder management</span>
+                    </li>
+                    <li class="flex items-start text-gray-300 dark:text-gray-300 light:text-gray-700">
+                        <svg class="w-6 h-6 text-accent-blue mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                        </svg>
+                        <span>Post-incident analysis and lessons learned</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+{% endblock content %}
