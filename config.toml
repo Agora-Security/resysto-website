@@ -65,13 +65,10 @@ highlight_theme = "ayu-dark"
 [extra]
 site_name = "resysto"
 og_type = "website"
-twitter_card = "summary_large_image"
-twitter_site = "@agorasecurity"
-twitter_creator = "@agorasecurity"
 default_image = "/images/og-default.svg"
 canonical_base = "https://resysto.io"
 company_name = "Agora Security"
-contact_email = "info@agorasecurity.it"
+contact_email = "resysto-support@agorasecurity.it"
 
 # Layout configuration
 default_layout_type = "content_heavy"
@@ -91,7 +88,6 @@ content_thresholds = { short = 500, medium = 1500, long = 3000 }
 # SEO and meta
 enable_structured_data = true
 enable_open_graph = true
-enable_twitter_cards = true
 
 [extra.nav]
 items = [
