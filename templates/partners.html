@@ -8,11 +8,11 @@
         {{ page.extra.kicker | default(value="ECOSYSTEM") }}
     </p>
     
-    <h1 class="text-5xl md:text-6xl font-heading font-bold mb-6 text-white dark:text-white light:text-gray-900">
+    <h1 class="text-5xl md:text-6xl font-heading font-bold mb-6 text-gray-900 dark:text-white">
         {{ page.extra.hero_title | default(value="Partner with resysto") }}
     </h1>
     
-    <p class="text-xl text-gray-400 dark:text-gray-400 light:text-gray-600 max-w-3xl mx-auto mb-8">
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
         {{ page.extra.hero_subtitle }}
     </p>
     
@@ -26,7 +26,7 @@
         </a>
     </div>
     
-    <p class="text-lg text-gray-400 dark:text-gray-400 light:text-gray-600 max-w-2xl mx-auto">
+    <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
         {{ page.extra.intro_text }}
     </p>
 </section>
@@ -39,7 +39,7 @@
             <svg class="w-10 h-10 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
             </svg>
-            <h2 class="text-4xl md:text-5xl font-heading font-bold text-white dark:text-white light:text-gray-900">
+            <h2 class="text-4xl md:text-5xl font-heading font-bold text-gray-900 dark:text-white">
                 {{ page.extra.mssp_title }}
             </h2>
         </div>
@@ -48,17 +48,17 @@
         <div class="grid md:grid-cols-2 gap-12 mb-12">
             <!-- Left Column: Why Partner -->
             <div class="space-y-6">
-                <h3 class="text-2xl font-heading font-semibold text-white dark:text-white light:text-gray-900">
+                <h3 class="text-2xl font-heading font-semibold text-gray-900 dark:text-white">
                     {{ page.extra.mssp_why_title }}
                 </h3>
-                <p class="text-lg text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed">
+                <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
                     {{ page.extra.mssp_why_text }}
                 </p>
             </div>
             
             <!-- Right Column: Benefits -->
             <div class="space-y-6">
-                <h3 class="text-2xl font-heading font-semibold text-white dark:text-white light:text-gray-900">
+                <h3 class="text-2xl font-heading font-semibold text-gray-900 dark:text-white">
                     {{ page.extra.mssp_benefits_title }}
                 </h3>
                 <ul class="space-y-3">
@@ -67,7 +67,7 @@
                         <svg class="w-6 h-6 text-accent-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <span class="text-gray-400 dark:text-gray-400 light:text-gray-600">{{ benefit }}</span>
+                        <span class="text-gray-600 dark:text-gray-400">{{ benefit }}</span>
                     </li>
                     {% endfor %}
                 </ul>
@@ -75,8 +75,8 @@
         </div>
         
         <!-- Full Width: Ideal Partners -->
-        <div class="bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-8">
-            <h3 class="text-xl font-heading font-semibold mb-6 text-white dark:text-white light:text-gray-900">
+        <div class="bg-light-surface dark:bg-dark-surface border border-light-border dark:border-dark-border rounded-xl p-8">
+            <h3 class="text-xl font-heading font-semibold mb-6 text-gray-900 dark:text-white">
                 {{ page.extra.mssp_ideal_title }}
             </h3>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
@@ -85,7 +85,7 @@
                     <svg class="w-5 h-5 text-accent-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
-                    <span class="text-sm text-gray-300 dark:text-gray-300 light:text-gray-700">{{ partner }}</span>
+                    <span class="text-sm text-gray-700 dark:text-gray-300">{{ partner }}</span>
                 </div>
                 {% endfor %}
             </div>
@@ -101,7 +101,7 @@
             <svg class="w-10 h-10 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" />
             </svg>
-            <h2 class="text-4xl md:text-5xl font-heading font-bold text-white dark:text-white light:text-gray-900">
+            <h2 class="text-4xl md:text-5xl font-heading font-bold text-gray-900 dark:text-white">
                 {{ page.extra.tech_title }}
             </h2>
         </div>
@@ -110,10 +110,10 @@
         <div class="grid md:grid-cols-2 gap-12">
             <!-- Left Column: Integration Opportunities -->
             <div class="space-y-6">
-                <h3 class="text-2xl font-heading font-semibold text-white dark:text-white light:text-gray-900">
+                <h3 class="text-2xl font-heading font-semibold text-gray-900 dark:text-white">
                     {{ page.extra.tech_integration_title }}
                 </h3>
-                <p class="text-lg text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed mb-6">
+                <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
                     {{ page.extra.tech_integration_text }}
                 </p>
                 
@@ -132,7 +132,7 @@
             
             <!-- Right Column: Benefits and Categories -->
             <div class="space-y-6">
-                <h3 class="text-2xl font-heading font-semibold text-white dark:text-white light:text-gray-900">
+                <h3 class="text-2xl font-heading font-semibold text-gray-900 dark:text-white">
                     {{ page.extra.tech_benefits_title }}
                 </h3>
                 <ul class="space-y-3 mb-8">
@@ -141,7 +141,7 @@
                         <svg class="w-6 h-6 text-accent-purple flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
-                        <span class="text-gray-400 dark:text-gray-400 light:text-gray-600">{{ benefit }}</span>
+                        <span class="text-gray-600 dark:text-gray-400">{{ benefit }}</span>
                     </li>
                     {% endfor %}
                 </ul>
@@ -169,7 +169,7 @@
             <svg class="w-10 h-10 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
             </svg>
-            <h2 class="text-4xl md:text-5xl font-heading font-bold text-center text-white dark:text-white light:text-gray-900">
+            <h2 class="text-4xl md:text-5xl font-heading font-bold text-center text-gray-900 dark:text-white">
                 {{ page.extra.getstarted_title }}
             </h2>
         </div>
@@ -177,11 +177,11 @@
         <!-- Contact Cards Grid -->
         <div class="grid md:grid-cols-2 gap-8">
             {% for card in page.extra.contact_cards %}
-            <div class="feature-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-8 card-hover">
-                <h3 class="text-2xl font-heading font-semibold mb-4 text-white dark:text-white light:text-gray-900">
+            <div class="feature-card bg-light-surface dark:bg-dark-surface border border-light-border dark:border-dark-border rounded-xl p-8 card-hover">
+                <h3 class="text-2xl font-heading font-semibold mb-4 text-gray-900 dark:text-white">
                     {{ card.title }}
                 </h3>
-                <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 mb-6 leading-relaxed">
+                <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
                     {{ card.description }}
                 </p>
                 
@@ -239,17 +239,17 @@
                 <svg class="w-10 h-10 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 013 3h-15a3 3 0 013-3m9 0v-3.375c0-.621-.503-1.125-1.125-1.125h-.871M7.5 18.75v-3.375c0-.621.504-1.125 1.125-1.125h.872m5.007 0H9.497m5.007 0a7.454 7.454 0 01-.982-3.172M9.497 14.25a7.454 7.454 0 00.981-3.172M5.25 4.236c-.982.143-1.954.317-2.916.52A6.003 6.003 0 007.73 9.728M5.25 4.236V4.5c0 2.108.966 3.99 2.48 5.228M5.25 4.236V2.721C7.456 2.41 9.71 2.25 12 2.25c2.291 0 4.545.16 6.75.47v1.516M7.73 9.728a6.726 6.726 0 002.748 1.35m8.272-6.842V4.5c0 2.108-.966 3.99-2.48 5.228m2.48-5.492a46.32 46.32 0 012.916.52 6.003 6.003 0 01-5.395 4.972m0 0a6.726 6.726 0 01-2.749 1.35m0 0a6.772 6.772 0 01-3.044 0" />
                 </svg>
-                <h2 class="text-3xl md:text-4xl font-heading font-bold text-white dark:text-white light:text-gray-900">
+                <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 dark:text-white">
                     {{ page.extra.success_title }}
                 </h2>
             </div>
             
-            <p class="text-lg text-gray-400 dark:text-gray-400 light:text-gray-600 mb-8">
+            <p class="text-lg text-gray-600 dark:text-gray-400 mb-8">
                 {{ page.extra.success_text }}
             </p>
             
             <!-- Final CTA -->
-            <p class="text-xl text-white dark:text-white light:text-gray-900 font-semibold">
+            <p class="text-xl text-gray-900 dark:text-white font-semibold">
                 {{ page.extra.final_cta_text }}
             </p>
         </div>

@@ -8,16 +8,16 @@
         {{ page.extra.kicker | default(value="ROADMAP") }}
     </p>
     
-    <h1 class="text-5xl md:text-6xl font-heading font-bold mb-6 text-white dark:text-white light:text-gray-900">
+    <h1 class="text-5xl md:text-6xl font-heading font-bold mb-6 text-gray-900 dark:text-white">
         {{ page.extra.hero_title | default(value="Our Product Roadmap") }}
     </h1>
     
-    <p class="text-xl text-gray-400 dark:text-gray-400 light:text-gray-600 max-w-3xl mx-auto mb-8">
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
         {{ page.extra.hero_subtitle | default(value="See what's built, what's next, and where we're going.") }}
     </p>
     
     {% if page.extra.intro_text %}
-    <p class="text-lg text-gray-400 dark:text-gray-400 light:text-gray-600 max-w-2xl mx-auto">
+    <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
         {{ page.extra.intro_text }}
     </p>
     {% endif %}
@@ -62,7 +62,7 @@
                     {% endif %}
                     
                     <!-- Card content -->
-                    <div class="feature-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-8 card-hover ml-16 md:ml-0">
+                    <div class="feature-card bg-light-surface dark:bg-dark-surface border border-light-border dark:border-dark-border rounded-xl p-8 card-hover ml-16 md:ml-0">
                         
                         <!-- Status badge -->
                         <div class="mb-4">
@@ -77,17 +77,17 @@
                         </div>
                         
                         <!-- Timeline -->
-                        <p class="text-sm font-mono text-gray-500 dark:text-gray-500 light:text-gray-600 mb-2">
+                        <p class="text-sm font-mono text-gray-600 dark:text-gray-500 mb-2">
                             {{ phase.timeline }}
                         </p>
                         
                         <!-- Title -->
-                        <h3 class="text-2xl md:text-3xl font-heading font-bold mb-4 text-white dark:text-white light:text-gray-900">
+                        <h3 class="text-2xl md:text-3xl font-heading font-bold mb-4 text-gray-900 dark:text-white">
                             {{ phase.name }}
                         </h3>
                         
                         <!-- Description -->
-                        <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 mb-6">
+                        <p class="text-gray-600 dark:text-gray-400 mb-6">
                             {{ phase.description }}
                         </p>
                         
@@ -143,10 +143,10 @@
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" />
                                         </svg>
                                     </div>
-                                    <div>
-                                        <p class="text-sm font-medium text-white">{{ item.title }}</p>
-                                        <p class="text-xs text-gray-500">{{ item.description }}</p>
-                                    </div>
+                                <div>
+                                    <p class="text-sm font-medium text-gray-900 dark:text-white">{{ item.title }}</p>
+                                    <p class="text-xs text-gray-500">{{ item.description }}</p>
+                                </div>
                                 </div>
                                 {% endfor %}
                             </div>
@@ -207,7 +207,7 @@
 {% if page.extra.disclaimer_text %}
 <section class="container mx-auto px-6 py-12 mb-12">
     <div class="max-w-3xl mx-auto text-center">
-        <p class="text-sm text-gray-500 dark:text-gray-500 light:text-gray-600">
+        <p class="text-sm text-gray-600 dark:text-gray-500">
             {{ page.extra.disclaimer_text }}
             {% if page.extra.disclaimer_updates_text %}
             {{ page.extra.disclaimer_updates_text }}
@@ -224,10 +224,10 @@
 {% if page.extra.cta_title %}
 <section class="container mx-auto px-6 py-20 mb-20">
     <div class="max-w-4xl mx-auto bg-gradient-to-br from-accent-blue/10 via-accent-purple/10 to-accent-green/10 border border-accent-blue/30 rounded-2xl p-12 text-center">
-        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4 text-white dark:text-white light:text-gray-900">
+        <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4 text-gray-900 dark:text-white">
             {{ page.extra.cta_title }}
         </h2>
-        <p class="text-lg text-gray-400 dark:text-gray-400 light:text-gray-600 mb-8 max-w-2xl mx-auto">
+        <p class="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
             {{ page.extra.cta_description }}
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">

@@ -13,7 +13,7 @@
             Explore resysto <span class="text-accent-blue glow-blue">Features</span>
         </h1>
         
-        <p class="text-xl md:text-2xl text-gray-400 dark:text-gray-400 light:text-gray-600 mb-12 leading-relaxed">
+        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-12 leading-relaxed">
             {{ page.extra.hero_subtitle | default(value="Applications and services designed for resilient, auditable security operations.") }}
         </p>
         
@@ -36,9 +36,9 @@
     <div class="mb-20">
         <div class="max-w-5xl mx-auto">
             <!-- Category Header -->
-            <div class="mb-8 pb-6 border-b border-dark-border dark:border-dark-border light:border-light-border">
+            <div class="mb-8 pb-6 border-b border-light-border dark:border-dark-border">
                 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
-                    <h2 class="text-4xl md:text-5xl font-heading font-bold text-white dark:text-white light:text-gray-900">
+                    <h2 class="text-4xl md:text-5xl font-heading font-bold text-gray-900 dark:text-white">
                         {{ app.name }}
                     </h2>
                     {% if app.status == "implemented" %}
@@ -51,7 +51,7 @@
                     <span class="status-badge status-planned w-fit">{{ app.status_label }}</span>
                     {% endif %}
                 </div>
-                <p class="text-lg text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed">
+                <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
                     {{ app.description }}
                 </p>
             </div>
@@ -60,7 +60,7 @@
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 {% for module in app.modules %}
-                <div class="feature-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6 hover:border-accent-green transition-all interactive-element card-hover">
+                <div class="feature-card bg-light-surface dark:bg-dark-surface border border-light-border dark:border-dark-border rounded-xl p-6 hover:border-accent-green transition-all interactive-element card-hover">
                     <div class="flex items-start justify-between mb-4">
                         <div class="p-3 bg-accent-green/10 rounded-lg icon-hover">
                             {% if module.icon %}
@@ -78,10 +78,10 @@
                         <span class="status-badge status-planned">Planned</span>
                         {% endif %}
                     </div>
-                    <h3 class="text-xl font-heading font-semibold mb-3 text-white dark:text-white light:text-gray-900">
+                    <h3 class="text-xl font-heading font-semibold mb-3 text-gray-900 dark:text-white">
                         {{ module.name }}
                     </h3>
-                    <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed">
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                         {{ module.description }}
                     </p>
                 </div>
@@ -99,17 +99,17 @@
 <section id="platform-services" class="container mx-auto px-6 py-20">
     <div class="max-w-5xl mx-auto">
         <div class="text-center mb-12">
-            <h2 class="text-4xl md:text-5xl font-heading font-bold text-white dark:text-white light:text-gray-900 mb-4">
+            <h2 class="text-4xl md:text-5xl font-heading font-bold text-gray-900 dark:text-white mb-4">
                 {{ page.extra.platform_services_title | default(value="Platform Services") }}
             </h2>
-            <p class="text-lg text-gray-400 dark:text-gray-400 light:text-gray-600 leading-relaxed max-w-3xl mx-auto">
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mx-auto">
                 {{ page.extra.platform_services_description | default(value="Advanced services that power the Resysto platform") }}
             </p>
         </div>
         
         <div class="grid md:grid-cols-3 gap-6">
             {% for service in page.extra.platform_services %}
-            <div class="feature-card bg-dark-surface dark:bg-dark-surface light:bg-light-surface border border-dark-border dark:border-dark-border light:border-light-border rounded-xl p-6 hover:border-accent-purple transition-all interactive-element card-hover">
+            <div class="feature-card bg-light-surface dark:bg-dark-surface border border-light-border dark:border-dark-border rounded-xl p-6 hover:border-accent-purple transition-all interactive-element card-hover">
                 <div class="flex items-start justify-between mb-4">
                     <div class="p-3 bg-accent-purple/10 rounded-lg icon-hover">
                         {% if service.icon %}
@@ -123,10 +123,10 @@
                     </div>
                     <span class="status-badge status-progress">Coming Soon</span>
                 </div>
-                <h3 class="text-xl font-heading font-semibold mb-3 text-white dark:text-white light:text-gray-900">
+                <h3 class="text-xl font-heading font-semibold mb-3 text-gray-900 dark:text-white">
                     {{ service.name }}
                 </h3>
-                <p class="text-gray-400 dark:text-gray-400 light:text-gray-600 text-sm leading-relaxed">
+                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
                     {{ service.description }}
                 </p>
             </div>

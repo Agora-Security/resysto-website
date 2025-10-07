@@ -8,7 +8,7 @@
         {{ page.extra.kicker | default(value="ACCESS") }}
     </p>
     
-    <h1 class="text-5xl md:text-6xl font-heading font-bold mb-6 text-white">
+    <h1 class="text-5xl md:text-6xl font-heading font-bold mb-6 text-gray-900 dark:text-white">
         {{ page.extra.hero_title }}
     </h1>
     
@@ -29,7 +29,7 @@
 <!-- Console Selection Section -->
 <section class="container mx-auto px-6 py-20">
     <div class="max-w-6xl mx-auto">
-        <h2 class="text-4xl font-heading font-bold text-center mb-4 text-white">
+        <h2 class="text-4xl font-heading font-bold text-center mb-4 text-gray-900 dark:text-white">
             {{ page.extra.console_title }}
         </h2>
         <p class="text-lg text-gray-400 text-center mb-12 max-w-3xl mx-auto">
@@ -43,7 +43,7 @@
                     <div class="p-3 bg-accent-blue/10 rounded-lg">
                         {{ console.icon | safe }}
                     </div>
-                    <h3 class="text-2xl font-heading font-semibold text-white">
+                    <h3 class="text-2xl font-heading font-semibold text-gray-900 dark:text-white">
                         {{ console.title }}
                     </h3>
                 </div>
@@ -83,7 +83,7 @@
             <svg class="w-10 h-10 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
             </svg>
-            <h2 class="text-4xl font-heading font-bold text-white">
+            <h2 class="text-4xl font-heading font-bold text-gray-900 dark:text-white">
                 {{ page.extra.security_title }}
             </h2>
         </div>
@@ -93,7 +93,7 @@
             <div class="space-y-4">
                 <div class="flex items-center gap-3 mb-4">
                     {{ column.icon | safe }}
-                    <h3 class="text-xl font-semibold text-white">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
                         {{ column.title }}
                     </h3>
                 </div>
@@ -123,7 +123,7 @@
             <svg class="w-10 h-10 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
             </svg>
-            <h2 class="text-3xl font-heading font-bold text-white">
+            <h2 class="text-3xl font-heading font-bold text-gray-900 dark:text-white">
                 {{ page.extra.mobile_title }}
             </h2>
         </div>
@@ -136,7 +136,7 @@
 <!-- Final CTA -->
 <section class="container mx-auto px-6 py-12 mb-20">
     <div class="max-w-3xl mx-auto text-center">
-        <p class="text-xl text-white font-semibold">
+        <p class="text-xl text-gray-900 dark:text-white font-semibold">
             {{ page.extra.final_cta_text }}
             <a href="{{ page.extra.final_cta_link_url }}" class="text-accent-blue hover:text-accent-green transition-colors ml-2">
                 {{ page.extra.final_cta_link_text }}
