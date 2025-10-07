@@ -37,12 +37,12 @@ icon = '<svg class="w-8 h-8 text-accent-blue" fill="none" stroke="currentColor" 
 target = "For: Individual organizations, security teams, and direct users."
 description = "Access the full resysto platform with all vCISO modules and features:"
 features = [
-    "People Management and org charts",
-    "Documents Manager with OCR and search",
-    "Tools Integration inventory",
-    "Assets tracking and classification",
-    "Cyber Posture monitoring",
-    "Security Roadmap planning",
+    "Organization People and Groups Management",
+    "Documents Manager with RAG",
+    "Tools Integration Inventory",
+    "Assets Tracking and Classification",
+    "Cyber Posture Monitoring",
+    "Security Roadmap Planning",
     "Supply Chain Risk Management (SCRM)"
 ]
 cta_text = "Access Main Console"
@@ -56,15 +56,14 @@ icon = '<svg class="w-8 h-8 text-accent-green" fill="none" stroke="currentColor"
 target = "For: Managed Service Providers, MSSPs, and multi-tenant environments."
 description = "Dedicated console for service providers managing multiple client environments:"
 features = [
-    "Multi-tenant Management across clients",
-    "Client Dashboards with aggregated data",
-    "Standardized Workflows and templates",
+    "Multi-tenant Management across Clients",
+    "Standardized Documents Templates",
     "Centralized Reporting for all tenants",
-    "Bulk Operations and automation",
-    "Client Provisioning and onboarding"
+    "Bulk Operations and Automation",
+    "Client Provisioning and Onboarding"
 ]
 cta_text = "Access MSSP Console"
-cta_url = "https://mssp.resysto.com"
+cta_url = "https://hub.resysto.com"
 cta_type = "secondary"
 
 [[extra.security_columns]]
@@ -80,7 +79,7 @@ items = [
 title = "Getting Help"
 icon = '<svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" /></svg>'
 items = [
-    { text = "Documentation", link = "https://docs.resysto.com" },
+    { text = "Documentation", link = "" },
     { text = "Support", link = "mailto:resysto-support@agorasecurity.it" },
     { text = "Training", link = "/about/#contact" }
 ]
@@ -89,8 +88,8 @@ items = [
 title = "System Status"
 icon = '<svg class="w-6 h-6 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z" /></svg>'
 items = [
-    { text = "Platform Status", link = "https://status.resysto.com" },
-    { text = "Maintenance Windows", link = "https://status.resysto.com/maintenance" },
-    { text = "Incident Updates", link = "https://status.resysto.com/incidents" }
+    { text = "Platform Status", link = "" },
+    { text = "Maintenance Windows", link = "" },
+    { text = "Incident Updates", link = "" }
 ]
 +++
