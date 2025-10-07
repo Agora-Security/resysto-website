@@ -15,77 +15,27 @@
     <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
         {{ page.extra.hero_subtitle }}
     </p>
-    
-    <!-- CTA Buttons -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="{{ page.extra.hero_cta_primary_url }}" class="px-8 py-3 border-2 border-accent-blue text-accent-blue font-semibold rounded-lg hover:bg-accent-blue/10 transition-all interactive-element">
-            {{ page.extra.hero_cta_primary_text }}
-        </a>
-        <a href="{{ page.extra.hero_cta_secondary_url }}" class="inline-flex items-center gap-2 px-8 py-3 text-gray-400 hover:text-accent-blue transition-colors">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            <span>{{ page.extra.hero_cta_secondary_text }}</span>
-        </a>
-    </div>
-</section>
-
-<!-- Articles Grid Section -->
-<section class="container mx-auto px-6 py-12 mb-20">
-    <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {% for article in page.extra.articles %}
-            <article class="feature-card bg-light-surface dark:bg-dark-surface border border-light-border dark:border-dark-border rounded-xl p-6 card-hover group cursor-pointer">
-                <!-- Category Badge -->
-                {% if article.category %}
-                <div class="mb-4">
-                    <span class="inline-block px-3 py-1 bg-accent-blue/10 border border-accent-blue/30 rounded-full text-xs font-semibold text-accent-blue uppercase tracking-wider">
-                        {{ article.category }}
-                    </span>
-                </div>
-                {% endif %}
-                
-                <!-- Title -->
-                <h3 class="text-2xl font-heading font-semibold mb-3 text-gray-900 dark:text-white group-hover:text-accent-blue transition-colors">
-                    {{ article.title }}
-                </h3>
-                
-                <!-- Date -->
-                <p class="text-sm text-gray-600 dark:text-gray-500 mb-4">
-                    {{ article.date }}
-                </p>
-                
-                <!-- Description -->
-                <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-                    {{ article.description }}
-                </p>
-                
-                <!-- Read More Link -->
-                <a href="{{ article.link }}" class="inline-flex items-center gap-2 text-accent-blue hover:text-accent-green transition-colors font-medium group/link">
-                    <span>Read more</span>
-                    <svg class="w-4 h-4 transform group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                </a>
-            </article>
-            {% endfor %}
-        </div>
-    </div>
 </section>
 
 <!-- Coming Soon Section -->
 <section class="container mx-auto px-6 py-12 mb-20">
-    <div class="max-w-2xl mx-auto text-center">
-        <div class="bg-light-surface dark:bg-dark-surface border border-light-border dark:border-dark-border rounded-xl p-12">
-            <svg class="w-16 h-16 text-accent-purple mx-auto mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+    <div class="max-w-3xl mx-auto text-center">
+        <div class="bg-light-surface dark:bg-dark-surface border border-light-border dark:border-dark-border rounded-xl p-16">
+            <svg class="w-20 h-20 text-accent-purple mx-auto mb-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
             </svg>
-            <h2 class="text-2xl font-heading font-bold mb-4 text-gray-900 dark:text-white">
-                More Content Coming Soon
+            <h2 class="text-3xl font-heading font-bold mb-6 text-gray-900 dark:text-white">
+                {{ page.extra.coming_soon_title | default(value="Coming Soon") }}
             </h2>
-            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                We're preparing in-depth articles, tutorials, and case studies. Subscribe to our RSS feed to stay updated with the latest from the resysto team.
+            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
+                {{ page.extra.coming_soon_description | default(value="We're preparing in-depth articles, tutorials, and case studies. Stay tuned for updates from the resysto team.") }}
             </p>
+            <a href="{{ page.extra.hero_cta_secondary_url }}" class="inline-flex items-center gap-2 px-8 py-3 text-accent-blue hover:text-accent-green transition-colors font-semibold interactive-element">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+                <span>{{ page.extra.hero_cta_secondary_text | default(value="Back to Home") }}</span>
+            </a>
         </div>
     </div>
 </section>
