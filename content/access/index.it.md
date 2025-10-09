@@ -1,21 +1,21 @@
 +++
-title = "Accesso - Resysto | Login Console"
-description = "Scegli tra la console principale della piattaforma e la console multi-tenant MSSP per accedere al tuo ambiente resysto."
+title = "Accesso - Resysto | Unisciti alla Beta Privata"
+description = "Unisciti al programma di Beta Privata di resysto e ottieni accesso anticipato alla nostra piattaforma di cybersecurity. Richiedi l'accesso e unisciti alla nostra lista d'attesa."
 template = "access.html"
 
 [extra]
 # Hero Section
-kicker = "ACCESSO"
-hero_title = "Accedi alla tua console"
-hero_subtitle = "Scegli tra la piattaforma principale e la console multi-tenant MSSP."
-hero_cta_primary_text = "Console Principale"
-hero_cta_primary_url = "#main-console"
-hero_cta_secondary_text = "Console MSSP"
-hero_cta_secondary_url = "#mssp-console"
+kicker = "UNISCITI AL FUTURO DELLA CYBERSECURITY"
+hero_title = "Unisciti al nostro Programma Beta Privato"
+hero_subtitle = "Siamo attualmente in Beta Privata. Richiedi l'accesso anticipato alla piattaforma resysto completando il nostro modulo di richiesta. I candidati selezionati saranno aggiunti alla nostra lista d'attesa esclusiva."
+hero_cta_primary_text = "Richiedi Accesso Beta"
+hero_cta_primary_url = "#request-access"
+hero_cta_secondary_text = ""
+hero_cta_secondary_url = ""
 
 # Console Selection Section
-console_title = "Accedi alle tue Console resysto"
-console_intro = "Benvenuto nel portale di accesso resysto. Scegli la console che meglio si adatta al tuo ruolo ed esigenze."
+console_title = "A Cosa Avrai Accesso"
+console_intro = "Una volta accettato nella Beta Privata, avrai accesso alla nostra potente piattaforma di cybersecurity con capacità individuali e multi-tenant."
 
 # Security & Support Section (title must be before arrays)
 security_title = "Security & Support"
@@ -27,7 +27,7 @@ mobile_text = "We're working on native mobile applications for iOS and Android t
 # Final CTA
 final_cta_text = "Need help accessing your console?"
 final_cta_link_text = "Contact Support"
-final_cta_link_url = "mailto:support@agorasecurity.it"
+final_cta_link_url = "mailto:resysto-support@agorasecurity.it"
 
 # Main Console
 [[extra.consoles]]
@@ -81,7 +81,7 @@ title = "Getting Help"
 icon = '<svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" /></svg>'
 items = [
     { text = "Documentation", link = "https://docs.resysto.com" },
-    { text = "Support", link = "mailto:support@agorasecurity.it" },
+    { text = "Support", link = "mailto:resysto-support@agorasecurity.it" },
     { text = "Training", link = "/about/#contact" }
 ]
 

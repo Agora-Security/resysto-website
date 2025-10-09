@@ -1,21 +1,21 @@
 +++
-title = "Access - Resysto | Console Login"
-description = "Choose between the main platform console and the MSSP multi-tenant console to access your resysto environment."
+title = "Access - Resysto | Join Private Beta"
+description = "Join the resysto Private Beta program and get early access to our cybersecurity platform. Request access and join our waitlist."
 template = "access.html"
 
 [extra]
 # Hero Section
-kicker = "WEB APPLICATIONS ACCESS"
-hero_title = "Sign in to your console"
-hero_subtitle = "Choose between the main platform and the MSSP multi-tenant console."
-hero_cta_primary_text = "Main Console"
-hero_cta_primary_url = "#main-console"
-hero_cta_secondary_text = "MSSP Console"
-hero_cta_secondary_url = "#mssp-console"
+kicker = "JOIN THE FUTURE OF CYBERSECURITY"
+hero_title = "Join our Private Beta Program"
+hero_subtitle = "We're currently in Private Beta. Request early access to the resysto platform by completing our application form. Selected applicants will be added to our exclusive waitlist."
+hero_cta_primary_text = "Request Beta Access"
+hero_cta_primary_url = "#request-access"
+hero_cta_secondary_text = ""
+hero_cta_secondary_url = ""
 
 # Console Selection Section
-console_title = "Access Your resysto Consoles"
-console_intro = "Welcome to the resysto access portal. Choose the console that best fits your role and needs."
+console_title = "What You'll Get Access To"
+console_intro = "Once accepted into the Private Beta, you'll gain access to our powerful cybersecurity platform with both individual and multi-tenant capabilities."
 
 # Security & Support Section (title must be before arrays)
 security_title = "Security & Support"
@@ -27,7 +27,7 @@ mobile_text = "We're working on native mobile applications for iOS and Android t
 # Final CTA
 final_cta_text = "Need help accessing your console?"
 final_cta_link_text = "Contact Support"
-final_cta_link_url = "mailto:support@agorasecurity.it"
+final_cta_link_url = "mailto:resysto-support@agorasecurity.it"
 
 # Main Console
 [[extra.consoles]]

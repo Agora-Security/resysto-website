@@ -1,5 +1,32 @@
 {% extends "base.html" %}
 
+{% block extra_head %}
+<!-- START Formbricks Surveys -->
+<script type="text/javascript">
+!function(){
+    var appUrl = "https://app.formbricks.com";
+    var environmentId = "cmghvxgje05l1ad01dj87x2pa";
+    var t=document.createElement("script");
+    t.type="text/javascript";
+    t.async=true;
+    t.src=appUrl+"/js/formbricks.umd.cjs";
+    t.onload=function(){
+        if(window.formbricks) {
+            window.formbricks.setup({environmentId:environmentId,appUrl:appUrl});
+            // Logout any existing user on page load
+            window.formbricks.logout();
+            console.log('🧱 Formbricks loaded and user logged out');
+        } else {
+            console.error("Formbricks library failed to load properly. The formbricks object is not available.");
+        }
+    };
+    var e=document.getElementsByTagName("script")[0];
+    e.parentNode.insertBefore(t,e);
+}();
+</script>
+<!-- END Formbricks Surveys -->
+{% endblock extra_head %}
+
 {% block content %}
 
 <!-- Hero Section -->
@@ -16,14 +43,18 @@
         {{ page.extra.hero_subtitle }}
     </p>
     
+    {% if page.extra.hero_cta_primary_text %}
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="{{ page.extra.hero_cta_primary_url }}" class="px-8 py-3 bg-accent-blue text-white font-semibold rounded-lg hover:bg-accent-blue/90 transition-all interactive-element glow-blue">
+        <a id="request-access-button" href="{{ page.extra.hero_cta_primary_url }}" class="px-8 py-3 bg-accent-blue text-white font-semibold rounded-lg hover:bg-accent-blue/90 transition-all interactive-element glow-blue ">
             {{ page.extra.hero_cta_primary_text }}
         </a>
+        {% if page.extra.hero_cta_secondary_text %}
         <a href="{{ page.extra.hero_cta_secondary_url }}" class="px-8 py-3 border-2 border-accent-blue text-accent-blue font-semibold rounded-lg hover:bg-accent-blue/10 transition-all interactive-element">
             {{ page.extra.hero_cta_secondary_text }}
         </a>
+        {% endif %}
     </div>
+    {% endif %}
 </section>
 
 <!-- Console Selection Section -->
@@ -79,6 +110,7 @@
 </section>
 
 <!-- Security & Support Section -->
+<!--
 <section class="container mx-auto px-6 py-20 bg-dark-surface/30">
     <div class="max-w-6xl mx-auto">
         <div class="flex items-center gap-3 mb-12 justify-center">
@@ -117,6 +149,7 @@
         </div>
     </div>
 </section>
+-->
 
 <!-- Mobile Access Section -->
 <!-- <section class="container mx-auto px-6 py-20">
