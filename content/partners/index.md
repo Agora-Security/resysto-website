@@ -29,10 +29,6 @@ tech_integration_types_title = "Integration Types"
 tech_benefits_title = "Partner Benefits"
 tech_categories_title = "Integration Categories"
 
-# Get Started Section
-contact_title = "Get Started with Partnership"
-getstarted_title = "Get Started"
-
 # Success Stories Section
 success_title = "Partner Success Stories"
 success_text = "Coming soon: Case studies and success stories from our growing partner community."
@@ -76,19 +72,4 @@ tech_categories = [
     "Cloud Platforms (AWS, Azure, GCP)",
     "Collaboration Tools (Slack, Teams, Email)"
 ]
-
-[[extra.contact_cards]]
-title = "For MSP/MSSP Partners"
-description = "Contact our partner team to discuss how resysto can enhance your managed security services offering."
-email = "partners@resysto.io"
-phone = "+39 02 1234 5678"
-type = "mssp"
-
-[[extra.contact_cards]]
-title = "For Technical Partners"
-description = "Start with our developer documentation and integration guides, or reach out to discuss custom integration opportunities."
-portal_text = "Developer Portal"
-portal_url = "https://docs.resysto.com"
-support_email = "partners@resysto.io"
-type = "technical"
 +++

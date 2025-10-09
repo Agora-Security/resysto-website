@@ -29,10 +29,6 @@ tech_integration_types_title = "Tipi di Integrazione"
 tech_benefits_title = "Vantaggi per i Partner"
 tech_categories_title = "Categorie di Integrazione"
 
-# Get Started Section
-contact_title = "Inizia la Partnership"
-getstarted_title = "Inizia"
-
 # Success Stories Section
 success_title = "Storie di Successo dei Partner"
 success_text = "Prossimamente: Casi di studio e storie di successo dalla nostra crescente comunità di partner."
@@ -76,19 +72,4 @@ tech_categories = [
     "Piattaforme Cloud (AWS, Azure, GCP)",
     "Strumenti di Collaborazione (Slack, Teams, Email)"
 ]
-
-[[extra.contact_cards]]
-title = "Per Partner MSP/MSSP (WIP)"
-description = "Contatta il nostro team partner per discutere di come resysto può migliorare la tua offerta di servizi di sicurezza gestiti."
-email = "partners@resysto.io"
-phone = "+39 02 1234 5678"
-type = "mssp"
-
-[[extra.contact_cards]]
-title = "Per Partner Tecnici (WIP)"
-description = "Inizia con la nostra documentazione per sviluppatori e guide di integrazione, oppure contattaci per discutere opportunità di integrazione personalizzate."
-portal_text = "Portale Sviluppatori"
-portal_url = "https://docs.resysto.com"
-support_email = "partners@resysto.io"
-type = "technical"
 +++
