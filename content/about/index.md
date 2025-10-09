@@ -15,7 +15,7 @@ hero_cta_secondary_url = "#contact"
 
 # About resysto Section
 about_title = "About resysto"
-about_text = "resysto was created to help organizations move from ad-hoc security work to a programmatic approach. We believe that effective cybersecurity management shouldn't require a massive budget or a team of specialists—it should be accessible, structured, and measurable for organizations of all sizes."
+about_text = "resysto was created to help organizations move from ad-hoc security work to a programmatic approach. We believe that effective cybersecurity management should not require a massive budget or a team of specialists—it should be accessible, structured, and measurable for organizations of all sizes."
 
 # Mission Section
 mission_title = "Our Mission"
@@ -29,9 +29,9 @@ scenarios_title = "Real-World Scenarios"
 solutions_title = "How resysto Solves These Problems"
 
 # Agora Security Section (all simple values must be before arrays)
-agora_title = "About Agora Security"
+agora_title = "About us"
 agora_icon = '<svg class="w-8 h-8 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" /></svg>'
-agora_text = "resysto is developed by Agora Security, an Italian cybersecurity company founded on the principle that security should be measurable, manageable, and accessible to all organizations. We combine deep technical expertise with practical business understanding to create tools that security teams actually want to use."
+agora_text = "resysto is developed by an Italian cybersecurity start-up company, founded on the principle that security should be measurable, manageable, and accessible to all organizations. We combine deep technical expertise with practical business understanding to create tools that security teams actually want to use."
 agora_approach_title = "Our Approach"
 agora_learn_more = "Learn more about Agora Security at"
 agora_website_text = "agorasecurity.it"
@@ -85,11 +85,11 @@ solutions = [
 [[extra.solutions]]
 title = "For Enterprises"
 solutions = [
-    "Unified Platform: Single source of truth for security operations",
+    "Unified Platform: Single source of truth for security governance and operations",
     "Process Standardization: Consistent workflows across all teams",
     "Real-time Visibility: Always-on security posture monitoring",
-    "Automated Reporting: Board-ready reports in minutes",
-    "Integration Ready: Connect existing tools and data sources"
+    "Automated Reporting: Board-ready reports in minutes (WIP)",
+    "Integration Ready: Connect existing tools and data sources (WIP)"
 ]
 
 [[extra.contacts]]
