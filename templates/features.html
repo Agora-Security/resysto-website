@@ -72,14 +72,26 @@
                             </svg>
                         {% endif %}
                     </div>
-                        {% if module.status == "implemented" or app.status == "implemented" %}
-                        <span class="status-badge status-implemented">{% if module.status %}{{ module.status_label }}{% else %}{{ app.status_label }}{% endif %}</span>
-                        {% elif module.status == "beta" or app.status == "beta" %}
-                        <span class="status-badge status-beta">{% if module.status %}{{ module.status_label }}{% else %}{{ app.status_label }}{% endif %}</span>
-                        {% elif module.status == "progress" or app.status == "progress" %}
-                        <span class="status-badge status-progress">{% if module.status %}{{ module.status_label }}{% else %}{{ app.status_label }}{% endif %}</span>
-                        {% elif module.status == "planned" or app.status == "planned" %}
-                        <span class="status-badge status-planned">{% if module.status %}{{ module.status_label }}{% else %}{{ app.status_label }}{% endif %}</span>
+                        {% if module.status %}
+                            {% if module.status == "implemented" %}
+                            <span class="status-badge status-implemented">{{ module.status_label }}</span>
+                            {% elif module.status == "beta" %}
+                            <span class="status-badge status-beta">{{ module.status_label }}</span>
+                            {% elif module.status == "progress" %}
+                            <span class="status-badge status-progress">{{ module.status_label }}</span>
+                            {% elif module.status == "planned" %}
+                            <span class="status-badge status-planned">{{ module.status_label }}</span>
+                            {% endif %}
+                        {% else %}
+                            {% if app.status == "implemented" %}
+                            <span class="status-badge status-implemented">{{ app.status_label }}</span>
+                            {% elif app.status == "beta" %}
+                            <span class="status-badge status-beta">{{ app.status_label }}</span>
+                            {% elif app.status == "progress" %}
+                            <span class="status-badge status-progress">{{ app.status_label }}</span>
+                            {% elif app.status == "planned" %}
+                            <span class="status-badge status-planned">{{ app.status_label }}</span>
+                            {% endif %}
                         {% endif %}
                     </div>
                     <h3 class="text-xl font-heading font-semibold mb-3 text-gray-900 dark:text-white">
