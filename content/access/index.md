@@ -9,7 +9,7 @@ kicker = "JOIN THE FUTURE OF CYBERSECURITY"
 hero_title = "Join our Private Beta Program"
 hero_subtitle = "We're currently in Private Beta. Request early access to the resysto platform by completing our application form. Selected applicants will be added to our exclusive waitlist."
 hero_cta_primary_text = "Request Beta Access"
-hero_cta_primary_url = "#request-access"
+hero_cta_primary_url = "#request-beta-access"
 hero_cta_secondary_text = ""
 hero_cta_secondary_url = ""
 

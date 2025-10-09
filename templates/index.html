@@ -18,12 +18,12 @@
         </p>
         
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="{{config.base_url}}{{ section.extra.cta_secondary_url }}" class="interactive-element px-8 py-4 bg-accent-blue text-dark-bg font-semibold rounded-lg glow-blue hover:bg-accent-green transition-all">
+            <button type="button" onclick="window.location.href='{{config.base_url}}{{ section.extra.cta_secondary_url }}'" class="interactive-element px-8 py-4 bg-accent-blue text-dark-bg font-semibold rounded-lg glow-blue hover:bg-accent-green transition-all cursor-pointer">
                 {{ section.extra.cta_secondary_text }}
-            </a>
-            <a href="{{config.base_url}}{{ section.extra.cta_primary_url }}" class="interactive-element px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple">
+            </button>
+            <button type="button" onclick="window.location.href='{{config.base_url}}{{ section.extra.cta_primary_url }}'" class="interactive-element px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple cursor-pointer">
                 {{ section.extra.cta_primary_text }}
-            </a>
+            </button>
         </div>
     </div>
 </section>
@@ -75,9 +75,9 @@
     </div>
     
     <div class="text-center mt-12">
-        <a href="{{config.base_url}}/partners/" class="interactive-element inline-block px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple">
+        <button type="button" onclick="window.location.href='{{config.base_url}}/partners/'" class="interactive-element inline-block px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple cursor-pointer">
             Learn About Our Partner Program
-        </a>
+        </button>
     </div>
 </section>
 
@@ -190,9 +190,9 @@
     </div>
     
     <div class="text-center mt-12">
-        <a href="{{config.base_url}}/features/" class="interactive-element inline-block px-8 py-4 border-2 border-accent-blue text-accent-blue font-semibold rounded-lg hover:bg-accent-blue hover:text-dark-bg transition-all glow-blue">
+        <button type="button" onclick="window.location.href='{{config.base_url}}/features/'" class="interactive-element inline-block px-8 py-4 border-2 border-accent-blue text-accent-blue font-semibold rounded-lg hover:bg-accent-blue hover:text-dark-bg transition-all glow-blue cursor-pointer">
             Explore All Features
-        </a>
+        </button>
     </div>
 </section>
 
@@ -206,9 +206,9 @@
             <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
                 {{ section.extra.final_cta_description }}
             </p>
-            <a href="{{config.base_url}}{{ section.extra.final_cta_url }}" class="interactive-element inline-block px-10 py-5 bg-accent-blue text-dark-bg font-semibold text-lg rounded-lg glow-blue hover:bg-accent-green transition-all">
+            <button type="button" onclick="window.location.href='{{config.base_url}}{{ section.extra.final_cta_url }}'" class="interactive-element inline-block px-10 py-5 bg-accent-blue text-dark-bg font-semibold text-lg rounded-lg glow-blue hover:bg-accent-green transition-all cursor-pointer">
                 {{ section.extra.final_cta_button }}
-            </a>
+            </button>
             <p class="text-sm text-gray-500 dark:text-gray-500 mt-6">
                 {{ section.extra.final_cta_note }}
             </p>

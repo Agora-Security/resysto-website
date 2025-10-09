@@ -17,12 +17,12 @@
     </p>
     
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="{{ page.extra.hero_cta_primary_url }}" class="px-8 py-3 bg-accent-blue text-white font-semibold rounded-lg hover:bg-accent-blue/90 transition-all interactive-element glow-blue">
+        <button type="button" onclick="window.location.href='{{ page.extra.hero_cta_primary_url }}'" class="px-8 py-3 bg-accent-blue text-white font-semibold rounded-lg hover:bg-accent-blue/90 transition-all interactive-element glow-blue cursor-pointer">
             {{ page.extra.hero_cta_primary_text }}
-        </a>
-        <a href="{{ page.extra.hero_cta_secondary_url }}" class="px-8 py-3 border-2 border-accent-blue text-accent-blue font-semibold rounded-lg hover:bg-accent-blue/10 transition-all interactive-element">
+        </button>
+        <button type="button" onclick="window.location.href='{{ page.extra.hero_cta_secondary_url }}'" class="px-8 py-3 border-2 border-accent-blue text-accent-blue font-semibold rounded-lg hover:bg-accent-blue/10 transition-all interactive-element cursor-pointer">
             {{ page.extra.hero_cta_secondary_text }}
-        </a>
+        </button>
     </div>
 </section>
 

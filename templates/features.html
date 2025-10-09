@@ -18,12 +18,12 @@
         </p>
         
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="#capabilities" class="interactive-element px-8 py-4 bg-accent-blue text-dark-bg font-semibold rounded-lg glow-blue hover:bg-accent-green transition-all">
+            <button type="button" onclick="document.getElementById('capabilities').scrollIntoView({behavior: 'smooth'})" class="interactive-element px-8 py-4 bg-accent-blue text-dark-bg font-semibold rounded-lg glow-blue hover:bg-accent-green transition-all cursor-pointer">
                 See capabilities
-            </a>
-            <a href="{{config.base_url}}/access/" class="interactive-element px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple">
+            </button>
+            <button type="button" onclick="window.location.href='{{config.base_url}}/access/'" class="interactive-element px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple cursor-pointer">
                 Access platform
-            </a>
+            </button>
         </div>
     </div>
 </section>
