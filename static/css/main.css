@@ -10,42 +10,76 @@
     --dark-border: #252525;
 }
 
-/* Global styles and transitions */
+/* Global resets and base styles */
 * {
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Neon effects */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+}
+
+code, pre {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+}
+
+/* Global styles and transitions */
+* {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced neon glow effects */
 .glow-blue {
-    box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), 0 0 40px rgba(0, 212, 255, 0.1);
 }
 
 .glow-blue:hover {
-    box-shadow: 0 0 25px rgba(0, 212, 255, 0.6);
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.5), 0 0 60px rgba(0, 212, 255, 0.2);
 }
 
 .glow-green {
-    box-shadow: 0 0 15px rgba(57, 255, 20, 0.4);
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.3), 0 0 40px rgba(57, 255, 20, 0.1);
 }
 
 .glow-green:hover {
-    box-shadow: 0 0 25px rgba(57, 255, 20, 0.6);
+    box-shadow: 0 0 30px rgba(57, 255, 20, 0.5), 0 0 60px rgba(57, 255, 20, 0.2);
 }
 
 .glow-purple {
-    box-shadow: 0 0 15px rgba(176, 38, 255, 0.4);
+    box-shadow: 0 0 20px rgba(176, 38, 255, 0.3), 0 0 40px rgba(176, 38, 255, 0.1);
 }
 
 .glow-purple:hover {
-    box-shadow: 0 0 25px rgba(176, 38, 255, 0.6);
+    box-shadow: 0 0 30px rgba(176, 38, 255, 0.5), 0 0 60px rgba(176, 38, 255, 0.2);
 }
 
-/* Gradient text */
+/* Gradient text effect */
 .gradient-text {
-    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-green) 50%, var(--accent-purple) 100%);
+    background: linear-gradient(135deg, #00D4FF 0%, #39FF14 50%, #B026FF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    background-size: 200% auto;
+    animation: gradient-shift 3s ease infinite;
+}
+
+@keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
 }
 
 /* Animations */
@@ -88,12 +122,14 @@
 }
 
 @keyframes pulse-dot {
-    0%, 100% {
-        transform: scale(1);
+    0%, 100% { 
+        opacity: 1; 
+        transform: scale(1); 
         box-shadow: 0 0 20px currentColor;
     }
-    50% {
-        transform: scale(1.15);
+    50% { 
+        opacity: 0.7; 
+        transform: scale(1.2); 
         box-shadow: 0 0 30px currentColor;
     }
 }
@@ -126,35 +162,43 @@
     animation: float 6s ease-in-out infinite;
 }
 
-/* Interactive elements */
+/* Micro-interactions with smooth feedback */
 .interactive-element {
+    position: relative;
     transform: scale(1);
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 .interactive-element:hover {
-    transform: scale(1.02);
+    transform: scale(1.03) translateY(-2px);
 }
 
 .interactive-element:active {
     transform: scale(0.98);
+    transition: transform 0.1s ease;
 }
 
 /* Card hover effects */
 .card-hover {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .card-hover:hover {
     transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
 
 .feature-card {
     transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+    background: rgba(21, 21, 21, 0.8);
+    border: 1px solid rgba(37, 37, 37, 0.8);
 }
 
 .feature-card:hover {
     transform: scale(1.05);
+    border-color: rgba(57, 255, 20, 0.5);
+    background: rgba(21, 21, 21, 0.95);
 }
 
 .module-card {
@@ -225,7 +269,7 @@
     letter-spacing: 0.05em;
 }
 
-/* Status badge */
+/* Status badge - professional with color-coding */
 .status-badge {
     display: inline-flex;
     align-items: center;
@@ -244,6 +288,7 @@
     transform: scale(1.05);
 }
 
+/* Status badge dot indicator */
 .status-badge::before {
     content: '';
     width: 6px;
@@ -253,47 +298,51 @@
     animation: pulse-dot 2s ease-in-out infinite;
 }
 
+/* Implemented status - green */
 .status-implemented {
-    background-color: rgba(57, 255, 20, 0.2);
-    color: var(--accent-green);
+    background: rgba(57, 255, 20, 0.1);
+    color: #39FF14;
     border-color: rgba(57, 255, 20, 0.3);
 }
 
 .status-implemented:hover {
-    background-color: rgba(57, 255, 20, 0.3);
+    background: rgba(57, 255, 20, 0.15);
     border-color: rgba(57, 255, 20, 0.5);
 }
 
+/* Beta status - yellow/amber */
 .status-beta {
-    background-color: rgba(255, 215, 0, 0.2);
-    color: var(--accent-yellow);
-    border-color: rgba(255, 215, 0, 0.3);
+    background: rgba(251, 191, 36, 0.1);
+    color: #FBB624;
+    border-color: rgba(251, 191, 36, 0.3);
 }
 
 .status-beta:hover {
-    background-color: rgba(255, 215, 0, 0.3);
-    border-color: rgba(255, 215, 0, 0.5);
+    background: rgba(251, 191, 36, 0.15);
+    border-color: rgba(251, 191, 36, 0.5);
 }
 
+/* In Progress status - purple */
 .status-progress, .status-implementing {
-    background-color: rgba(176, 38, 255, 0.2);
-    color: var(--accent-purple);
+    background: rgba(176, 38, 255, 0.1);
+    color: #B026FF;
     border-color: rgba(176, 38, 255, 0.3);
 }
 
 .status-progress:hover, .status-implementing:hover {
-    background-color: rgba(176, 38, 255, 0.3);
+    background: rgba(176, 38, 255, 0.15);
     border-color: rgba(176, 38, 255, 0.5);
 }
 
+/* Planned status - blue */
 .status-planned {
-    background-color: rgba(0, 212, 255, 0.2);
-    color: var(--accent-blue);
+    background: rgba(0, 212, 255, 0.1);
+    color: #00D4FF;
     border-color: rgba(0, 212, 255, 0.3);
 }
 
 .status-planned:hover {
-    background-color: rgba(0, 212, 255, 0.3);
+    background: rgba(0, 212, 255, 0.15);
     border-color: rgba(0, 212, 255, 0.5);
 }
 
@@ -767,4 +816,121 @@
     font-weight: 600;
     background: linear-gradient(135deg, rgba(0, 212, 255, 0.2) 0%, rgba(176, 38, 255, 0.2) 100%);
     border: 1px solid rgba(0, 212, 255, 0.3);
+}
+
+/* SVG icon animations */
+svg {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.icon-hover svg {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover .icon-hover svg {
+    transform: scale(1.1) rotate(-3deg);
+}
+
+.icon-hover:hover svg {
+    transform: scale(1.1) rotate(5deg);
+}
+
+/* Link underline animation */
+.link-underline {
+    position: relative;
+}
+
+.link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link-underline:hover::after {
+    width: 100%;
+}
+
+/* Navigation link glow effect */
+.nav-link {
+    position: relative;
+    font-weight: 500;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #00D4FF, #39FF14);
+    border-radius: 2px;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.5);
+}
+
+.nav-link:hover::after,
+.nav-link.active-nav::after {
+    width: 100%;
+}
+
+.nav-link:hover {
+    text-shadow: 0 0 12px rgba(0, 212, 255, 0.6);
+    transform: translateY(-1px);
+}
+
+.nav-link.active-nav {
+    text-shadow: 0 0 12px rgba(0, 212, 255, 0.8);
+    font-weight: 600;
+}
+
+/* Backdrop blur enhancement */
+.glass-effect {
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+}
+
+/* Cyber Logo Styling */
+.cyber-logo {
+    position: relative;
+    display: inline-block;
+    letter-spacing: -0.05em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes glow-pulse {
+    0%, 100% { 
+        filter: brightness(1);
+        text-shadow: 
+            0 0 10px currentColor,
+            0 0 20px currentColor,
+            0 0 30px currentColor;
+    }
+    50% { 
+        filter: brightness(1.2);
+        text-shadow: 
+            0 0 15px currentColor,
+            0 0 30px currentColor,
+            0 0 45px currentColor,
+            0 0 60px currentColor;
+    }
+}
+
+/* Stagger animation for logo parts */
+.cyber-logo span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.cyber-logo span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.cyber-logo span:nth-child(3) {
+    animation-delay: 0.4s;
 }
