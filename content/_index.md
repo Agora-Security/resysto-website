@@ -12,22 +12,25 @@ hero_subtitle = "Govern and manage cybersecurity and privacy processes and tools
 # CTAs
 cta_primary_text = "Get Started"
 cta_primary_url = "/access"
-cta_secondary_text = "Explore Features"
-cta_secondary_url = "/features"
+cta_secondary_text = "Explore Roadmap"
+cta_secondary_url = "/roadmap"
 
 # Section Titles
 problems_title = "Problems we solve"
 built_for_title = "Built for"
+use_cases_title = "Main Use Cases"
+use_cases_subtitle = "Real-world scenarios where resysto delivers immediate value"
 capabilities_title = "Capabilities"
 capabilities_subtitle = "Comprehensive tools and services for modern security operations"
 applications_label = "Applications"
 services_label = "Platform Services"
 
 # Final CTA
-final_cta_title = "Join forward-thinking organizations securing their digital future"
-final_cta_description = "Start building your comprehensive cybersecurity program today"
-final_cta_button = "Get Started Now"
+final_cta_title = "Ready to Transform Your Security Operations?"
+final_cta_description = "Join organizations building resilient cybersecurity programs with resysto. Request access to our private beta and start your journey today."
+final_cta_button = "Request Beta Access"
 final_cta_url = "/access"
+final_cta_note = "Limited spots available for our private beta program"
 
 # Problems Section
 [[extra.problems]]
@@ -64,33 +67,81 @@ icon = '<svg class="w-10 h-10 text-accent-purple" fill="none" stroke="currentCol
 text = "Cybersecurity advisors and MSSPs"
 color = "purple"
 
+# Use Cases Section
+[[extra.use_cases]]
+title = "Virtual CISO for SMBs"
+description = "Get enterprise-grade security governance without hiring a full-time CISO"
+color = "blue"
+icon = '<svg class="w-12 h-12 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>'
+items = [
+    "Build comprehensive security programs from scratch",
+    "Track assets, documents, and security tools in one place",
+    "Assess cyber posture against frameworks like NIST CSF or ISO 27001",
+    "Generate roadmaps aligned with business priorities"
+]
+
+[[extra.use_cases]]
+title = "Streamlined Compliance & Audits"
+description = "Prepare for audits and compliance requirements with automated evidence collection"
+color = "green"
+icon = '<svg class="w-12 h-12 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>'
+items = [
+    "Centralize all security policies and procedures",
+    "Map controls to compliance frameworks automatically",
+    "Generate audit-ready documentation on demand",
+    "Track compliance gaps and remediation progress"
+]
+
+[[extra.use_cases]]
+title = "Incident Response Coordination"
+description = "Manage cybersecurity incidents from detection to resolution with coordinated workflows"
+color = "purple"
+icon = '<svg class="w-12 h-12 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" /></svg>'
+items = [
+    "Execute incident response playbooks with guided workflows",
+    "Coordinate team communications and escalations",
+    "Manage regulatory notifications (NIS2, GDPR, etc.)",
+    "Document lessons learned and forensic evidence"
+]
+
+[[extra.use_cases]]
+title = "Multi-Client MSSP Operations"
+description = "Deliver consistent security services across multiple client environments at scale"
+color = "green"
+icon = '<svg class="w-12 h-12 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" /></svg>'
+items = [
+    "Manage multiple clients from a single console",
+    "Standardize security processes across all customers",
+    "Demonstrate value with centralized reporting",
+    "Scale services without increasing overhead"
+]
+
 # Capabilities Section
 # Applications
 [[extra.applications]]
 name = "vCISO"
 icon = '<svg class="w-8 h-8 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>'
-description = "Complete virtual Chief Information Security Officer platform"
-modules = ["people", "documents", "tools", "assets", "posture", "roadmap", "SCRM"]
+modules = ["People", "Documents", "Tools", "Assets", "Cyber Posture", "Roadmap", "Supply Chain Risk"]
 
 [[extra.applications]]
 name = "Incident Management"
 icon = '<svg class="w-8 h-8 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" /></svg>'
-description = "Coordinated incident response and crisis management"
-modules = ["response", "communications", "post-incident"]
+modules = ["Incident Tracker", "Incident Orchestrator", "Incident Notification", "Table Top Exercises", "Lessons Learnt", "Forensic Evidence"]
 
 # Platform Services
 [[extra.platform_services]]
 name = "Documents Manager"
 icon = '<svg class="w-8 h-8 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776" /></svg>'
-description = "OCR, metadata extraction, and semantic search"
 
 [[extra.platform_services]]
-name = "RAG Knowledge"
+name = "GraphRAG Knowledge"
 icon = '<svg class="w-8 h-8 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" /></svg>'
-description = "AI-powered knowledge retrieval and recommendations"
 
 [[extra.platform_services]]
 name = "AI Assistant"
 icon = '<svg class="w-8 h-8 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" /></svg>'
-description = "Intelligent security insights and automation"
+
+[[extra.platform_services]]
+name = "MCP Server"
+icon = '<svg class="w-8 h-8 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z" /></svg>'
 +++

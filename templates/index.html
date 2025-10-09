@@ -73,13 +73,60 @@
         </div>
         {% endfor %}
     </div>
+    
+    <div class="text-center mt-12">
+        <a href="{{config.base_url}}/partners/" class="interactive-element inline-block px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple">
+            Learn About Our Partner Program
+        </a>
+    </div>
+</section>
+
+<!-- Use Cases Section -->
+<section id="use-cases" class="bg-gray-50 dark:bg-dark-surface py-20">
+    <div class="container mx-auto px-6">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-4 text-center">
+            {{ section.extra.use_cases_title }}
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-400 mb-12 text-center max-w-3xl mx-auto">
+            {{ section.extra.use_cases_subtitle }}
+        </p>
+        
+        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {% for use_case in section.extra.use_cases %}
+            <div class="bg-white dark:bg-dark-bg border border-gray-200 dark:border-dark-border rounded-xl p-8 hover:border-accent-{{ use_case.color }} transition-all interactive-element">
+                <div class="mb-4">
+                    {{ use_case.icon | safe }}
+                </div>
+                <h3 class="text-2xl font-heading font-semibold mb-3 text-gray-900 dark:text-white">
+                    {{ use_case.title }}
+                </h3>
+                <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+                    {{ use_case.description }}
+                </p>
+                <ul class="space-y-2">
+                    {% for item in use_case.items %}
+                    <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+                        <svg class="w-5 h-5 text-accent-{{ use_case.color }} flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                        </svg>
+                        {{ item }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </section>
 
 <!-- Capabilities Section -->
 <section id="features" class="container mx-auto px-6 py-20">
-    <h2 class="text-4xl md:text-5xl font-heading font-bold mb-12 text-center">
+    <h2 class="text-4xl md:text-5xl font-heading font-bold mb-4 text-center">
         {{ section.extra.capabilities_title }}
     </h2>
+    <p class="text-xl text-gray-600 dark:text-gray-400 mb-12 text-center max-w-3xl mx-auto">
+        {{ section.extra.capabilities_subtitle }}
+    </p>
     
     <div class="max-w-4xl mx-auto space-y-8">
         <!-- Applications Group -->
@@ -96,12 +143,9 @@
                             {{ app.icon | safe }}
                         </div>
                         <div>
-                            <h4 class="text-xl font-medium mb-1 text-gray-900 dark:text-white">
+                            <h4 class="text-xl font-medium mb-2 text-gray-900 dark:text-white">
                                 {{ app.name }}
                             </h4>
-                            <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                                {{ app.description }}
-                            </p>
                             {% if app.modules %}
                             <p class="text-xs font-mono text-gray-600 dark:text-gray-500">
                                 {{ app.modules | join(sep=", ") }}
@@ -131,12 +175,9 @@
                             {{ service.icon | safe }}
                         </div>
                         <div>
-                            <h4 class="text-xl font-medium mb-1 text-gray-900 dark:text-white">
+                            <h4 class="text-xl font-medium text-gray-900 dark:text-white">
                                 {{ service.name }}
                             </h4>
-                            <p class="text-sm text-gray-600 dark:text-gray-400">
-                                {{ service.description }}
-                            </p>
                         </div>
                     </div>
                     <span class="status-badge status-progress text-xs px-2 py-0.5 rounded-full flex-shrink-0">
@@ -145,6 +186,32 @@
                 </div>
                 {% endfor %}
             </div>
+        </div>
+    </div>
+    
+    <div class="text-center mt-12">
+        <a href="{{config.base_url}}/features/" class="interactive-element inline-block px-8 py-4 border-2 border-accent-blue text-accent-blue font-semibold rounded-lg hover:bg-accent-blue hover:text-dark-bg transition-all glow-blue">
+            Explore All Features
+        </a>
+    </div>
+</section>
+
+<!-- Final CTA Section -->
+<section id="beta-access" class="bg-gradient-to-br from-accent-blue/10 via-accent-purple/10 to-accent-green/10 dark:from-accent-blue/5 dark:via-accent-purple/5 dark:to-accent-green/5 py-20">
+    <div class="container mx-auto px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6">
+                {{ section.extra.final_cta_title }}
+            </h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
+                {{ section.extra.final_cta_description }}
+            </p>
+            <a href="{{config.base_url}}{{ section.extra.final_cta_url }}" class="interactive-element inline-block px-10 py-5 bg-accent-blue text-dark-bg font-semibold text-lg rounded-lg glow-blue hover:bg-accent-green transition-all">
+                {{ section.extra.final_cta_button }}
+            </a>
+            <p class="text-sm text-gray-500 dark:text-gray-500 mt-6">
+                {{ section.extra.final_cta_note }}
+            </p>
         </div>
     </div>
 </section>
