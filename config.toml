@@ -68,7 +68,7 @@ og_type = "website"
 default_image = "/images/og-default.svg"
 canonical_base = "https://resysto.io"
 company_name = "Agora Security"
-contact_email = "resysto-support@agorasecurity.it"
+contact_email = "support@resysto.io"
 
 # Layout configuration
 default_layout_type = "content_heavy"

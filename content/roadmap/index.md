@@ -25,7 +25,7 @@ disclaimer_updates_text = "For the latest updates, follow our"
 disclaimer_blog_link = "blog"
 disclaimer_blog_url = "/blog"
 disclaimer_contact_text = "or contact us at"
-disclaimer_email = "resysto-support@agorasecurity.it"
+disclaimer_email = "support@resysto.io"
 
 # CTA Section
 cta_title = "Want to Influence Our Roadmap?"
