@@ -18,15 +18,15 @@ console_title = "A Cosa Avrai Accesso"
 console_intro = "Una volta accettato nella Beta Privata, avrai accesso alla nostra potente piattaforma di cybersecurity con capacità individuali e multi-tenant."
 
 # Security & Support Section (title must be before arrays)
-security_title = "Security & Support"
+security_title = "Sicurezza e Supporto"
 
 # Mobile Section
-mobile_title = "Mobile Access Coming Soon"
-mobile_text = "We're working on native mobile applications for iOS and Android to give you secure access to your resysto console on the go."
+mobile_title = "Accesso Mobile Prossimamente"
+mobile_text = "Stiamo lavorando su applicazioni mobili native per iOS e Android per darti accesso sicuro alla tua console resysto in movimento."
 
 # Final CTA
-final_cta_text = "Need help accessing your console?"
-final_cta_link_text = "Contact Support"
+final_cta_text = "Hai bisogno di aiuto per accedere alla tua console?"
+final_cta_link_text = "Contatta il Supporto"
 final_cta_link_url = "mailto:resysto-support@agorasecurity.it"
 
 # Main Console

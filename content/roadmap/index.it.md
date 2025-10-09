@@ -10,7 +10,7 @@ hero_title = "La Nostra Roadmap di Prodotto"
 hero_subtitle = "Scopri cosa è stato realizzato, cosa c'è in programma e dove stiamo andando."
 
 # Introduction
-intro_text = "La nostra roadmap di sviluppo è organizzata in tre fasi, focalizzate su funzionalità core, integrazioni e automazione intelligente."
+intro_text = "La nostra roadmap di sviluppo è organizzata nelle seguenti fasi, focalizzate su funzionalità core, integrazioni e automazione intelligente."
 
 # Labels
 completed_label = "Completato"
@@ -37,74 +37,74 @@ cta_secondary_url = "/it/about#contact"
 
 # Phases
 [[extra.phases]]
-name = "Phase 1 · virtual-CISO (vCISO) App Foundation"
+name = "Fase 1 · Fondamenta dell'Applicazione virtual-CISO (vCISO)"
 timeline = "Q2–Q3 2025"
-description = "Core launch scope for virtual-CISO application, and foundational app modules."
+description = "Ambito di lancio principale per l'applicazione virtual-CISO e moduli fondamentali dell'app."
 status = "completed"
-status_label = "Completed"
+status_label = "Completato"
 status_icon = "✅"
 color = "green"
 completed = [
-    "vCISO application with core modules",
-    "Basic Documents Manager service"
+    "Applicazione vCISO con moduli core",
+    "Servizio base Documents Manager"
 ]
 in_progress = [
-    "Documents Manager advanced features",
-    "User onboarding and documentation"
+    "Funzionalità avanzate del Documents Manager",
+    "Onboarding utente e documentazione"
 ]
 
 [[extra.phases]]
-name = "Phase 2 · MSSP Integration, Incident Management application, and first AI services integrations"
+name = "Fase 2 · Integrazione MSSP, applicazione Incident Management e prime integrazioni servizi AI"
 timeline = "Q4 2025"
-description = "Focus on MSSP enablement, automation, AI-assisted workflows."
+description = "Focus su abilitazione MSSP, automazione e workflow assistiti da AI."
 status = "in-progress"
-status_label = "In Progress"
+status_label = "In Corso"
 status_icon = "🔄"
 color = "blue"
 deliverables = [
-    { icon = "🌐", title = "MSSP Multi-tenant Access", description = "Dedicated console for managed service providers" },
-    { icon = "🚨", title = "Incident Management", description = "Improve the platform with an Incident Management solution, for Incident Response workflows and automation" },
-    { icon = "🧠", title = "GraphRAG Knowledge System", description = "Design and implement a GraphRAG for contextual and automated security assistance" },
-    { icon = "🤖", title = "AI Assistant", description = "Design and implement an intelligent AI agent for security recommendations and automations (e.g. security assessment auto-completion, or third party surveys auto-completion)" }
+    { icon = "🌐", title = "Accesso Multi-tenant MSSP", description = "Console dedicata per i fornitori di servizi gestiti" },
+    { icon = "🚨", title = "Gestione Incidenti", description = "Migliora la piattaforma con una soluzione di Gestione Incidenti, per workflow di Incident Response e automazione" },
+    { icon = "🧠", title = "Sistema GraphRAG Knowledge", description = "Progetta e implementa un GraphRAG per assistenza di sicurezza contestuale e automatizzata" },
+    { icon = "🤖", title = "AI Assistant", description = "Progetta e implementa un agente AI intelligente per raccomandazioni e automazioni di sicurezza (es. auto-completamento valutazioni di sicurezza o survey di terze parti)" }
 ]
 technical_focus = [
-    "Multi‑tenant architecture implementation",
-    "Marketplace for third‑party extensions",
-    "Knowledge base and search capabilities",
-    "GenAI integration",
-    "Advanced workflow automation"
+    "Implementazione architettura multi-tenant",
+    "Marketplace per estensioni di terze parti",
+    "Base di conoscenza e capacità di ricerca",
+    "Integrazione GenAI",
+    "Automazione avanzata dei workflow"
 ]
 
 [[extra.phases]]
-name = "Phase 3 · Tools integrations and advance reporting"
+name = "Fase 3 · Integrazioni strumenti e reporting avanzato"
 timeline = "Q1–Q2 2026"
-description = "Focus on tech tools integrations, reporting, and enterprise controls."
+description = "Focus su integrazioni strumenti tech, reporting e controlli enterprise."
 status = "planned"
-status_label = "Planned"
+status_label = "Pianificato"
 status_icon = "🎯"
 color = "purple"
 deliverables = [
-    { icon = "🔗", title = "External Tool Integration", description = "First‑party integrations with popular security tools" },
-    { icon = "📊", title = "Enhanced Reporting", description = "Advanced analytics and compliance reporting" },
-    { icon = "📈", title = "Advanced Analytics", description = "Predictive security posture and risk assessment" },
-    { icon = "🔐", title = "Enterprise Features", description = "Advanced role management and audit capabilities" }
+    { icon = "🔗", title = "Integrazione Strumenti Esterni", description = "Integrazioni first-party con strumenti di sicurezza popolari" },
+    { icon = "📊", title = "Reporting Avanzato", description = "Analytics avanzati e reporting di conformità" },
+    { icon = "📈", title = "Analytics Avanzati", description = "Postura di sicurezza predittiva e valutazione del rischio" },
+    { icon = "🔐", title = "Funzionalità Enterprise", description = "Gestione avanzata dei ruoli e capacità di audit" }
 ]
 technical_focus = [
-    "API development for third‑party integrations",
-    "Enterprise‑grade security and compliance"
+    "Sviluppo API per integrazioni di terze parti",
+    "Sicurezza e conformità di livello enterprise"
 ]
 
 [[extra.phases]]
-name = "Future Considerations · Phase 4+"
+name = "Considerazioni Future · Fase 4+"
 timeline = "Q3 2026+"
-description = "Ideas we intend to explore and validate with users."
+description = "Idee che intendiamo esplorare e validare con gli utenti."
 status = "future"
-status_label = "Future"
+status_label = "Futuro"
 status_icon = "👀"
 color = "blue"
 looking_ahead = [
-    "Mobile applications",
-    "Threat Intelligence lead Cybersecurity Roadmap and Governance definition",
-    "Industry‑specific compliance modules"
+    "Applicazioni mobile",
+    "Roadmap di Cybersecurity guidata da Threat Intelligence e definizione della Governance",
+    "Moduli di conformità specifici per settore"
 ]
 +++

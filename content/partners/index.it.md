@@ -15,79 +15,79 @@ hero_cta_secondary_url = "#mssp-partners"
 intro_text = "Unisciti al nostro ecosistema in crescita di partner che stanno trasformando la gestione della cybersecurity con resysto."
 
 # MSP/MSSP Partners Section (simple values must be before arrays)
-mssp_title = "MSP/MSSP Partners (Implementing)"
-mssp_why_title = "Why Partner with resysto?"
-mssp_why_text = "Use resysto to deliver managed cybersecurity services at scale. Our platform enables you to standardize security operations across all your clients, reduce operational overhead, and demonstrate measurable value."
-mssp_benefits_title = "Partner Benefits"
-mssp_ideal_title = "Ideal Partners"
+mssp_title = "Partner MSP/MSSP (In Implementazione)"
+mssp_why_title = "Perché Diventare Partner di resysto?"
+mssp_why_text = "Usa resysto per fornire servizi di cybersecurity gestiti su scala. La nostra piattaforma ti consente di standardizzare le operazioni di sicurezza su tutti i tuoi clienti, ridurre il carico operativo e dimostrare valore misurabile."
+mssp_benefits_title = "Vantaggi per i Partner"
+mssp_ideal_title = "Partner Ideali"
 
 # Technical Partners Section
-tech_title = "Technical Partners (Planned)"
-tech_integration_title = "Integration Opportunities"
-tech_integration_text = "Integrate your IT/Cybersecurity tools with resysto to create a unified security operations platform. We're building an open ecosystem where best-of-breed tools work together seamlessly."
-tech_integration_types_title = "Integration Types"
-tech_benefits_title = "Partner Benefits"
-tech_categories_title = "Integration Categories"
+tech_title = "Partner Tecnici (Pianificato)"
+tech_integration_title = "Opportunità di Integrazione"
+tech_integration_text = "Integra i tuoi strumenti IT/Cybersecurity con resysto per creare una piattaforma unificata di operazioni di sicurezza. Stiamo costruendo un ecosistema aperto dove gli strumenti migliori lavorano insieme senza problemi."
+tech_integration_types_title = "Tipi di Integrazione"
+tech_benefits_title = "Vantaggi per i Partner"
+tech_categories_title = "Categorie di Integrazione"
 
 # Get Started Section
-contact_title = "Get Started with Partnership"
-getstarted_title = "Get Started"
+contact_title = "Inizia la Partnership"
+getstarted_title = "Inizia"
 
 # Success Stories Section
-success_title = "Partner Success Stories"
-success_text = "Coming soon: Case studies and success stories from our growing partner community."
+success_title = "Storie di Successo dei Partner"
+success_text = "Prossimamente: Casi di studio e storie di successo dalla nostra crescente comunità di partner."
 
 # Final CTA
-final_cta_text = "Ready to join our partner ecosystem? Contact us today to discuss how resysto can enhance your cybersecurity services."
+final_cta_text = "Pronto a unirti al nostro ecosistema di partner? Contattaci oggi per discutere di come resysto può migliorare i tuoi servizi di cybersecurity."
 
 mssp_benefits = [
-    "Dedicated MSSP Console with multi-tenant management",
-    "Standardized Workflows across all client environments",
-    "White-label Options for your brand",
-    "Centralized Reporting and analytics dashboard",
-    "Partner Training and certification programs",
-    "Co-marketing Opportunities and lead sharing"
+    "Console MSSP Dedicata con gestione multi-tenant",
+    "Workflow Standardizzati su tutti gli ambienti cliente",
+    "Opzioni White-label per il tuo brand",
+    "Reporting Centralizzato e dashboard di analytics",
+    "Programmi di Training e certificazione per Partner",
+    "Opportunità di Co-marketing e condivisione di lead"
 ]
 
 mssp_ideal_partners = [
-    "Managed Service Providers (MSPs) expanding into security",
-    "Managed Security Service Providers (MSSPs)",
-    "IT Consultants offering cybersecurity advisory",
-    "Value-Added Resellers (VARs) in the security space"
+    "Managed Service Provider (MSP) che si espandono nella sicurezza",
+    "Managed Security Service Provider (MSSP)",
+    "Consulenti IT che offrono consulenza di cybersecurity",
+    "Rivenditori a Valore Aggiunto (VAR) nel settore della sicurezza"
 ]
 
 tech_integration_types = [
-    "API-based integrations for real-time data exchange",
-    "Webhook support for event-driven automation",
-    "OAuth 2.0 authentication for secure access",
-    "Pre-built connectors for popular platforms"
+    "Integrazioni basate su API per scambio dati in tempo reale",
+    "Supporto Webhook per automazione event-driven",
+    "Autenticazione OAuth 2.0 per accesso sicuro",
+    "Connettori pre-costruiti per piattaforme popolari"
 ]
 
 tech_benefits = [
-    "Access to resysto's growing customer base",
-    "Joint Solution Development and go-to-market",
-    "Priority Support for integration development",
-    "Co-marketing and case study opportunities"
+    "Accesso alla base clienti in crescita di resysto",
+    "Sviluppo Congiunto di Soluzioni e go-to-market",
+    "Supporto Prioritario per lo sviluppo dell'integrazione",
+    "Opportunità di co-marketing e casi di studio"
 ]
 
 tech_categories = [
-    "Security Tools (SIEM, EDR, Vulnerability Scanners)",
-    "IT Management (RMM, PSA, Ticketing)",
-    "Cloud Platforms (AWS, Azure, GCP)",
-    "Collaboration Tools (Slack, Teams, Email)"
+    "Strumenti di Sicurezza (SIEM, EDR, Scanner di Vulnerabilità)",
+    "Gestione IT (RMM, PSA, Ticketing)",
+    "Piattaforme Cloud (AWS, Azure, GCP)",
+    "Strumenti di Collaborazione (Slack, Teams, Email)"
 ]
 
 [[extra.contact_cards]]
-title = "For MSP/MSSP Partners (WIP)"
-description = "Contact our partner team to discuss how resysto can enhance your managed security services offering."
+title = "Per Partner MSP/MSSP (WIP)"
+description = "Contatta il nostro team partner per discutere di come resysto può migliorare la tua offerta di servizi di sicurezza gestiti."
 email = "resysto-partners@agorasecurity.it"
 phone = "+39 02 1234 5678"
 type = "mssp"
 
 [[extra.contact_cards]]
-title = "For Technical Partners (WIP)"
-description = "Start with our developer documentation and integration guides, or reach out to discuss custom integration opportunities."
-portal_text = "Developer Portal"
+title = "Per Partner Tecnici (WIP)"
+description = "Inizia con la nostra documentazione per sviluppatori e guide di integrazione, oppure contattaci per discutere opportunità di integrazione personalizzate."
+portal_text = "Portale Sviluppatori"
 portal_url = "https://docs.resysto.com"
 support_email = "integrations@agorasecurity.it"
 type = "technical"
