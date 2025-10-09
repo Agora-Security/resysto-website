@@ -9,20 +9,20 @@ kicker = "ECOSISTEMA"
 hero_title = "Diventa Partner di resysto"
 hero_subtitle = "Unisciti a MSP/MSSP e partner tecnologici che costruiscono operazioni di sicurezza resilienti."
 hero_cta_primary_text = "Contatta il Team Partner"
-hero_cta_primary_url = "mailto:partners@agorasecurity.it"
+hero_cta_primary_url = "mailto:resysto-partners@agorasecurity.it"
 hero_cta_secondary_text = "Vedi i Vantaggi"
 hero_cta_secondary_url = "#mssp-partners"
 intro_text = "Unisciti al nostro ecosistema in crescita di partner che stanno trasformando la gestione della cybersecurity con resysto."
 
 # MSP/MSSP Partners Section (simple values must be before arrays)
-mssp_title = "MSP/MSSP Partners"
+mssp_title = "MSP/MSSP Partners (Implementing)"
 mssp_why_title = "Why Partner with resysto?"
 mssp_why_text = "Use resysto to deliver managed cybersecurity services at scale. Our platform enables you to standardize security operations across all your clients, reduce operational overhead, and demonstrate measurable value."
 mssp_benefits_title = "Partner Benefits"
 mssp_ideal_title = "Ideal Partners"
 
 # Technical Partners Section
-tech_title = "Technical Partners"
+tech_title = "Technical Partners (Planned)"
 tech_integration_title = "Integration Opportunities"
 tech_integration_text = "Integrate your IT/Cybersecurity tools with resysto to create a unified security operations platform. We're building an open ecosystem where best-of-breed tools work together seamlessly."
 tech_integration_types_title = "Integration Types"
@@ -66,7 +66,6 @@ tech_integration_types = [
 tech_benefits = [
     "Access to resysto's growing customer base",
     "Joint Solution Development and go-to-market",
-    "Technical Documentation and sandbox environment",
     "Priority Support for integration development",
     "Co-marketing and case study opportunities"
 ]
@@ -79,14 +78,14 @@ tech_categories = [
 ]
 
 [[extra.contact_cards]]
-title = "For MSP/MSSP Partners"
+title = "For MSP/MSSP Partners (WIP)"
 description = "Contact our partner team to discuss how resysto can enhance your managed security services offering."
-email = "partners@agorasecurity.it"
+email = "resysto-partners@agorasecurity.it"
 phone = "+39 02 1234 5678"
 type = "mssp"
 
 [[extra.contact_cards]]
-title = "For Technical Partners"
+title = "For Technical Partners (WIP)"
 description = "Start with our developer documentation and integration guides, or reach out to discuss custom integration opportunities."
 portal_text = "Developer Portal"
 portal_url = "https://docs.resysto.com"
