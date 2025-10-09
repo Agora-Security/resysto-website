@@ -72,9 +72,9 @@
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <div class="cyber-logo font-heading text-3xl font-bold tracking-tight">
+                    <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}" class="cyber-logo font-heading text-3xl font-bold tracking-tight cursor-pointer">
                         <span class="text-accent-blue glow-text">re</span><span class="text-accent-green glow-text">sys</span><span class="text-accent-purple glow-text">to</span>
-                    </div>                    
+                    </a>                    
                 </div>
                 
                 <!-- Desktop Navigation Menu -->
