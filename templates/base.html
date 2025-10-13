@@ -3,7 +3,118 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{% if page.title %}{{ page.title }}{% else %}resysto{% endif %}</title>
+    
+    <!-- SEO: Title Tag -->
+    <title>{% if page.title %}{{ page.title }} | Resysto{% elif section.title %}{{ section.title }} | Resysto{% else %}Resysto - Central Cyber Resilience and Data Protection Platform{% endif %}</title>
+    
+    <!-- SEO: Meta Description -->
+    <meta name="description" content="{% if page.description %}{{ page.description }}{% elif section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}" />
+    
+    <!-- SEO: Keywords -->
+    <meta name="keywords" content="cyber resilience, cybersecurity platform, data protection, GDPR, NIS2, vCISO, incident management, security compliance, ISO 27001, NIST CSF, security operations, cyber risk management, MSSP platform{% if lang == 'it' %}, piattaforma cybersecurity, gestione incidenti, conformità sicurezza{% endif %}" />
+    
+    <!-- SEO: Author and Organization -->
+    <meta name="author" content="Agora Security" />
+    <meta name="publisher" content="Agora Security Srl" />
+    
+    <!-- SEO: Canonical URL -->
+    <link rel="canonical" href="{{ config.base_url }}{% if lang != config.default_language %}/{{ lang }}{% endif %}{{ current_path | default(value='/') }}" />
+    
+    <!-- SEO: Hreflang Tags for Multi-language Support -->
+    <link rel="alternate" hreflang="en" href="{{ config.base_url }}{{ current_path | default(value='/') | replace(from='/it', to='') | replace(from='/it/', to='/') }}" />
+    <link rel="alternate" hreflang="it" href="{{ config.base_url }}/it{{ current_path | default(value='/') | replace(from='/it', to='') | replace(from='/it/', to='') }}" />
+    <link rel="alternate" hreflang="x-default" href="{{ config.base_url }}{{ current_path | default(value='/') | replace(from='/it', to='') | replace(from='/it/', to='/') }}" />
+    
+    <!-- SEO: Open Graph Meta Tags (Facebook, LinkedIn) -->
+    <meta property="og:type" content="{% if page.extra.og_type %}{{ page.extra.og_type }}{% else %}{{ config.extra.og_type }}{% endif %}" />
+    <meta property="og:site_name" content="{{ config.extra.site_name }}" />
+    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% elif section.title %}{{ section.title }}{% else %}Resysto - Central Cyber Resilience and Data Protection Platform{% endif %}" />
+    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% elif section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}" />
+    <meta property="og:url" content="{{ config.base_url }}{% if lang != config.default_language %}/{{ lang }}{% endif %}{{ current_path | default(value='/') }}" />
+    <meta property="og:image" content="{% if page.extra.image %}{{ config.base_url }}{{ page.extra.image }}{% elif section.extra.image %}{{ config.base_url }}{{ section.extra.image }}{% else %}{{ config.base_url }}{{ config.extra.default_image }}{% endif %}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="{% if lang == 'it' %}it_IT{% else %}en_US{% endif %}" />
+    {% if lang == 'en' %}<meta property="og:locale:alternate" content="it_IT" />{% endif %}
+    {% if lang == 'it' %}<meta property="og:locale:alternate" content="en_US" />{% endif %}
+    
+    <!-- SEO: Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% elif section.title %}{{ section.title }}{% else %}Resysto - Central Cyber Resilience and Data Protection Platform{% endif %}" />
+    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% elif section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}" />
+    <meta name="twitter:image" content="{% if page.extra.image %}{{ config.base_url }}{{ page.extra.image }}{% elif section.extra.image %}{{ config.base_url }}{{ section.extra.image }}{% else %}{{ config.base_url }}{{ config.extra.default_image }}{% endif %}" />
+    <meta name="twitter:site" content="@resysto" />
+    <meta name="twitter:creator" content="@resysto" />
+    
+    <!-- SEO: Additional Meta Tags -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="theme-color" content="#00D4FF" />
+    <meta name="format-detection" content="telephone=no" />
+    
+    <!-- Favicon and App Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    
+    <!-- SEO: Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Resysto",
+      "legalName": "Agora Security Srl",
+      "url": "{{ config.base_url }}",
+      "logo": "{{ config.base_url }}/images/resysto-logo.png",
+      "foundingDate": "2024",
+      "description": "{{ config.description }}",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "IT"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "{{ config.extra.contact_email }}",
+        "contactType": "Customer Support"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/agora-security"
+      ]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Resysto",
+      "url": "{{ config.base_url }}",
+      "description": "{{ config.description }}",
+      "inLanguage": ["en", "it"],
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "{{ config.base_url }}/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    {% if page or section %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "{% if page.extra.schema_type %}{{ page.extra.schema_type }}{% else %}WebPage{% endif %}",
+      "name": "{% if page.title %}{{ page.title }}{% elif section.title %}{{ section.title }}{% else %}Resysto{% endif %}",
+      "description": "{% if page.description %}{{ page.description }}{% elif section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}",
+      "url": "{{ config.base_url }}{% if lang != config.default_language %}/{{ lang }}{% endif %}{{ current_path | default(value='/') }}",
+      "inLanguage": "{{ lang }}",
+      "isPartOf": {
+        "@type": "WebSite",
+        "url": "{{ config.base_url }}"
+      }
+    }
+    </script>
+    {% endif %}
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-WBC0XK3R58"></script>
@@ -75,7 +186,7 @@
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}" class="cyber-logo font-heading text-3xl font-bold tracking-tight cursor-pointer">
+                    <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}" class="cyber-logo font-heading text-3xl font-bold tracking-tight cursor-pointer" aria-label="Resysto - Cyber Resilience Platform">
                         <span class="text-accent-blue glow-text">re</span><span class="text-accent-green glow-text">sys</span><span class="text-accent-purple glow-text">to</span>
                     </a>                    
                 </div>

@@ -1,0 +1,26 @@
+{
+  "name": "Resysto - Cyber Resilience & Data Protection Platform",
+  "short_name": "Resysto",
+  "description": "Central Cyber Resilience and Data Protection platform to govern and manage cybersecurity and privacy.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0A0A",
+  "theme_color": "#00D4FF",
+  "icons": [
+    {
+      "src": "/images/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "productivity", "security"],
+  "lang": "en",
+  "dir": "ltr"
+}
+
+

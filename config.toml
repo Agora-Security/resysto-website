@@ -88,6 +88,21 @@ content_thresholds = { short = 500, medium = 1500, long = 3000 }
 # SEO and meta
 enable_structured_data = true
 enable_open_graph = true
+enable_twitter_cards = true
+
+# SEO keywords for better discoverability
+keywords = [
+  "cyber resilience",
+  "cybersecurity platform",
+  "data protection",
+  "vCISO",
+  "virtual CISO",
+  "incident management",
+  "GDPR compliance",
+  "NIS2", "ISO 27001",
+  "NIST CSF",
+  "cybersecurity governance"
+]
 
 [extra.nav]
 items = [
