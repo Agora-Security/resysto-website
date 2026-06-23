@@ -25,6 +25,10 @@
     <link rel="alternate" hreflang="it" href="{{ config.base_url }}/it{{ current_path | default(value='/') | replace(from='/it', to='') | replace(from='/it/', to='') }}" />
     <link rel="alternate" hreflang="x-default" href="{{ config.base_url }}{{ current_path | default(value='/') | replace(from='/it', to='') | replace(from='/it/', to='/') }}" />
     
+    <!-- RSS Feed Auto-Discovery -->
+    <link rel="alternate" type="application/atom+xml" title="Resysto Blog Feed" href="{{ config.base_url }}/blog/atom.xml" />
+    {% if lang == 'it' %}<link rel="alternate" type="application/atom+xml" title="Resysto Blog Feed (Italiano)" href="{{ config.base_url }}/it/blog/atom.xml" />{% endif %}
+    
     <!-- SEO: Open Graph Meta Tags (Facebook, LinkedIn) -->
     <meta property="og:type" content="{% if page.extra.og_type %}{{ page.extra.og_type }}{% else %}{{ config.extra.og_type }}{% endif %}" />
     <meta property="og:site_name" content="{{ config.extra.site_name }}" />
@@ -262,7 +266,7 @@
         <div class="container mx-auto px-6 py-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-gray-600 dark:text-gray-500 text-sm">
-                    © 2025 Resysto.io | proudly a product of Agora Security Srl, Italian VAT IT04450760246. All rights reserved.
+                    © 2025 Resysto.io | proudly a product of Agora Security Srl, Italian VAT Number IT04450760246. All rights reserved.
                 </p>
                 <p class="text-gray-600 dark:text-gray-500 text-sm">
                     Contact: <a href="mailto:support@resysto.io" target="_blank" class="text-accent-blue hover:text-accent-green transition-colors">support@resysto.io</a>
