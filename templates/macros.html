@@ -1,0 +1,19 @@
+{# Resysto brand assets — keep mark + wordmark consistent everywhere they appear. #}
+
+{# Geometric mark: a hexagon (protection / structure, straight lines) holding
+   a teal curved "y" (the letter at the heart of res-y-sto — y = Cyber — whose
+   arms reach upward for readiness/estote parati and resilience that rises
+   again). Curved glyph vs. straight hexagon = the brand's straight/curved
+   tension. The hexagon stroke uses currentColor so it adapts to theme; pass a
+   text-* colour in `class`. #}
+{% macro logo_mark(class="h-8 w-8 text-gray-900 dark:text-white") %}
+<svg class="{{ class }}" viewBox="0 0 64 64" fill="none" stroke-linejoin="round" stroke-linecap="round" aria-hidden="true">
+    <path d="M19 9.5 L45 9.5 L58 32 L45 54.5 L19 54.5 L6 32 Z" stroke="currentColor" stroke-width="3.2" />
+    <path d="M32 49 L32 33" stroke="#00d3bb" stroke-width="5" />
+    <path d="M32 33 C29 24 25 21 18 17" stroke="#00d3bb" stroke-width="5" />
+    <path d="M32 33 C35 24 39 21 46 17" stroke="#00d3bb" stroke-width="5" />
+</svg>
+{% endmacro logo_mark %}
+
+{# Monolithic wordmark with the single teal "y" (y = Cyber). #}
+{% macro wordmark() %}<span class="text-gray-900 dark:text-white">res</span><span class="text-accent-green">y</span><span class="text-gray-900 dark:text-white">sto</span>{% endmacro wordmark %}

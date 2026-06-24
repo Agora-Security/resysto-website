@@ -13,9 +13,15 @@
             {{ section.extra.hero_title | safe }}
         </h1>
 
-        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-12 leading-relaxed">
+        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
             {{ section.extra.hero_subtitle }}
         </p>
+
+        {% if section.extra.hero_plain %}
+        <p class="text-base md:text-lg text-gray-500 dark:text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+            {{ section.extra.hero_plain }}
+        </p>
+        {% endif %}
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button type="button"
@@ -66,20 +72,6 @@
                 </h3>
                 <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
                     {{ section.extra.strength_turnkey_desc }}
-                </p>
-            </div>
-        </div>
-
-        <!-- Consulting Support (1 col) -->
-        <div
-            class="relative bg-gradient-to-br from-accent-green/10 via-white/80 to-white/90 dark:from-accent-green/10 dark:via-dark-surface/90 dark:to-dark-surface backdrop-blur-xl border border-accent-green/30 dark:border-accent-green/40 shadow-lg hover:shadow-neon-green rounded-2xl p-8 hover:border-accent-green transition-all duration-300 card-hover flex flex-col justify-between">
-            <div>
-
-                <h3 class="text-2xl font-heading font-bold mb-4 text-gray-900 dark:text-white">
-                    {{ section.extra.strength_consulting_title }}
-                </h3>
-                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
-                    {{ section.extra.strength_consulting_desc }}
                 </p>
             </div>
         </div>
@@ -160,6 +152,87 @@
 <!-- Section Divider -->
 <div class="w-full max-w-5xl mx-auto my-6 px-6">
     <div class="h-[1px] bg-gradient-to-r from-transparent via-accent-purple/20 via-accent-green/20 to-transparent">
+    </div>
+</div>
+
+<!-- Real-World Scenarios Section -->
+<section class="container mx-auto px-6 py-20 relative overflow-hidden">
+    <div class="absolute top-1/4 left-0 w-96 h-96 bg-accent-green/5 dark:bg-accent-green/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    <div class="absolute bottom-1/4 right-0 w-96 h-96 bg-accent-blue/5 dark:bg-accent-blue/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    <div class="max-w-6xl mx-auto">
+        <div class="flex items-center gap-3 mb-12 justify-center">
+            <svg class="w-10 h-10 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+            </svg>
+            <h2 class="text-4xl font-heading font-bold text-gray-900 dark:text-white">
+                {{ section.extra.scenarios_title }}
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            {% for challenge in section.extra.challenges %}
+            <div class="bg-gradient-to-br from-accent-blue/10 via-white/80 to-white/90 dark:from-accent-blue/10 dark:via-dark-surface/90 dark:to-dark-surface backdrop-blur-xl border border-accent-blue/30 dark:border-accent-blue/40 rounded-xl p-8 shadow-lg hover:shadow-neon-blue">
+                <h3 class="text-2xl font-heading font-semibold mb-4 text-gray-900 dark:text-white">
+                    {{ challenge.title }}
+                </h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">
+                    {{ challenge.description }}
+                </p>
+                <ul class="space-y-3">
+                    {% for issue in challenge.issues %}
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-accent-blue flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+                        </svg>
+                        <span class="text-sm text-gray-600 dark:text-gray-400"><strong class="text-gray-900 dark:text-white">{{ issue | split(pat=":") | first }}:</strong>{{ issue | split(pat=":") | last }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Solutions Section -->
+<section class="container mx-auto px-6 py-20 relative overflow-hidden">
+    <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent-purple/5 dark:bg-accent-purple/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-accent-blue/5 dark:bg-accent-blue/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    <div class="max-w-6xl mx-auto">
+        <div class="flex items-center gap-3 mb-12 justify-center">
+            <svg class="w-10 h-10 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+            </svg>
+            <h2 class="text-4xl font-heading font-bold text-gray-900 dark:text-white">
+                {{ section.extra.solutions_title | safe }}
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            {% for solution in section.extra.solutions %}
+            <div class="bg-gradient-to-br from-accent-blue/10 via-white/80 to-white/90 dark:from-accent-blue/10 dark:via-dark-surface/90 dark:to-dark-surface backdrop-blur-xl border border-accent-blue/30 dark:border-accent-blue/40 rounded-xl p-8 shadow-lg hover:shadow-neon-blue">
+                <h3 class="text-2xl font-heading font-semibold mb-6 text-gray-900 dark:text-white">
+                    {{ solution.title }}
+                </h3>
+                <ul class="space-y-4">
+                    {% for item in solution.solutions %}
+                    <li class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-accent-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="text-gray-600 dark:text-gray-400"><strong class="text-gray-900 dark:text-white">{{ item | split(pat=":") | first }}:</strong>{{ item | split(pat=":") | last }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Section Divider -->
+<div class="w-full max-w-5xl mx-auto my-6 px-6">
+    <div class="h-[1px] bg-gradient-to-r from-transparent via-accent-blue/20 via-accent-purple/20 to-transparent">
     </div>
 </div>
 

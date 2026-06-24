@@ -43,13 +43,14 @@ status = "completed"
 status_label = "Completed"
 status_icon = "✅"
 color = "green"
-completed = [
-    "vCISO application with core modules",
-    "Basic Documents Manager service"
+deliverables = [
+    { icon = "🛡️", title = "vCISO Application", description = "Virtual-CISO application with the core modules for governance, assets, tools, and security posture" },
+    { icon = "📄", title = "Documents Manager", description = "Document management service, from basic to advanced features, with version control and approval workflows" },
+    { icon = "🚀", title = "Onboarding & Documentation", description = "User onboarding journey and complete platform documentation" }
 ]
-in_progress = [
-    "Documents Manager advanced features",
-    "User onboarding and documentation"
+technical_focus = [
+    "Core module architecture for the vCISO application",
+    "Document management service with versioning and approvals"
 ]
 
 [[extra.phases]]
@@ -102,7 +103,7 @@ status_label = "Future"
 status_icon = "👀"
 color = "blue"
 looking_ahead = [
-    "Mobile applications",
+    "Integration of GenAI capabilities to streamline and automate incident management",
     "Threat Intelligence lead Cybersecurity Roadmap and Governance definition",
     "Industry‑specific compliance modules"
 ]

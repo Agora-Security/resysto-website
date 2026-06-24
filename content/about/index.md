@@ -5,15 +5,15 @@ template = "about.html"
 
 [extra]
 # Hero Section
-hero_title = "Why we built <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span>"
-hero_subtitle = "Programmatic security for real-world teams, from SMB to enterprise."
+hero_title = "Why we built res<span class=\"text-accent-green\">y</span>sto"
+hero_subtitle = "Programmatic security for real-world teams, from SMBs to large enterprises."
 hero_cta_primary_text = "Meet us"
 hero_cta_primary_url = "#company"
 hero_cta_secondary_text = "Get in Touch"
 hero_cta_secondary_url = "#contact"
 
 # About resysto Section
-about_title = "About <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span>"
+about_title = "About res<span class=\"text-accent-green\">y</span>sto"
 about_text = "resysto was created to help organizations move from ad-hoc security work to a programmatic approach. We believe that effective cybersecurity management must not require a massive budget or a team of specialists—it must be accessible, structured, and measurable for organizations of all sizes."
 
 # Mission Section
@@ -21,20 +21,11 @@ mission_title = "Our Mission"
 mission_icon = '<svg class="w-8 h-8 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>'
 mission_text = "To democratize enterprise-grade cybersecurity management, making it accessible and actionable for organizations of all sizes through intelligent automation, clear workflows, and evidence-based security practices."
 
-# Real-World Scenarios
-scenarios_title = "Real-World Scenarios"
-
-# Solutions Section (title must be before arrays)
-solutions_title = "How <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span> Solves These Problems"
-
 # Agora Security Section (all simple values must be before arrays)
 agora_title = "About us"
 agora_icon = '<svg class="w-8 h-8 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" /></svg>'
-agora_text = "resysto is developed by an Italian cybersecurity start-up company, founded on the principle that security should be measurable, manageable, and accessible to all organizations. We combine deep technical expertise with practical business understanding to create tools that security teams actually want to use."
+agora_text = "resysto is designed and built in Europe by a cybersecurity company certified to ISO/IEC 27001, ISO/IEC 27017, and ISO 9001. The resysto platform and its services — from the web application to the AI servers — are developed and hosted in Europe. We believe security should be measurable, manageable, and accessible to all organizations, with practical tools that support security teams rather than replace them."
 agora_approach_title = "Our Approach"
-agora_learn_more = "Learn more about Agora Security at"
-agora_website_text = "agorasecurity.it"
-agora_website_url = "https://www.agorasecurity.it"
 
 # Contact Section
 contact_title = "Contact Us"
@@ -47,48 +38,6 @@ agora_approach = [
     "People: Focus on enabling security teams, not replacing them",
     "Process: Structured frameworks that adapt to your organization",
     "Technology: Modern platform built for integration and automation"
-]
-
-[[extra.challenges]]
-title = "The SMB Challenge"
-description = "Small and medium businesses face unique cybersecurity challenges:"
-issues = [
-    "Limited Security Expertise: No dedicated CISO or security team",
-    "Resource Constraints: Budget and time limitations for security initiatives",
-    "Ad-hoc Processes: Security work happens reactively without structure",
-    "Compliance Pressure: Growing regulatory requirements without guidance",
-    "Tool Overload: Multiple point solutions that don't work together"
-]
-
-[[extra.challenges]]
-title = "The Enterprise Reality"
-description = "Even large organizations struggle with:"
-issues = [
-    "Fragmented Operations: Security tools and processes in silos",
-    "Evidence Collection: Manual work to gather audit and compliance proof",
-    "Visibility Gaps: Incomplete picture of overall security posture",
-    "Reporting Overhead: Time-consuming executive and board reporting",
-    "Process Standardization: Inconsistent approaches across teams"
-]
-
-[[extra.solutions]]
-title = "For SMBs"
-solutions = [
-    "Turnkey Solution: A turnkey product in two directions: real operations and procedural compliance.",
-    "GRC Consulting Support: Dedicated support and consulting approach, backed by years of internal expertise in GRC (Governance, Risk, and Compliance).",
-    "Affordable Compliance for SMEs: Compliance and certifications at a manageable cost tailored to SME budgets, keeping companies competitive in markets that require security certifications.",
-    "Actionable Governance: We relieve companies of manually compiling questionnaires, making cybersecurity governance practical and action-oriented rather than theoretical.",
-    "Real Visibility for Managers: Clear visibility for managers into the actual state of company cyber protection, built on concrete data instead of questionnaire answers."
-]
-
-[[extra.solutions]]
-title = "For Enterprises"
-solutions = [
-    "Unified Platform: Single source of truth for security governance and operations",
-    "Process Standardization: Consistent workflows across all teams",
-    "Real-time Visibility: Always-on security posture monitoring",
-    "Automated Reporting: Board-ready reports in minutes (WIP)",
-    "Integration Ready: Connect existing tools and data sources (WIP)"
 ]
 
 [[extra.contacts]]

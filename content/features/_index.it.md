@@ -5,18 +5,18 @@ template = "features.html"
 
 [extra]
 # Hero Section
-hero_title = "Esplora le <span class=\"text-accent-blue\">Funzionalità</span> di <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span>"
+hero_title = "Esplora le <span class=\"text-accent-blue\">Funzionalità</span> di res<span class=\"text-accent-green\">y</span>sto"
 hero_subtitle = "Applicazioni e servizi progettati per operazioni di sicurezza resilienti e verificabili."
 hero_cta_primary = "Vedi funzionalità"
 hero_cta_secondary = "Accedi alla piattaforma"
 
 # Section Titles
 platform_services_title = "Servizi della Piattaforma"
-platform_services_description = "Servizi avanzati che alimentano la piattaforma Resysto, fornendo intelligenza, automazione e capacità potenziate attraverso tutte le applicazioni."
+platform_services_description = "Servizi che portano automazione e supporto basato su AI a tutte le applicazioni della piattaforma resysto, sempre con la persona al centro delle decisioni."
 
 # CTA Section
-cta_title = "Pronto a Trasformare il Tuo Programma di Sicurezza?"
-cta_description = "Inizia oggi a costruire il tuo programma completo di cybersecurity con la piattaforma integrata di resysto."
+cta_title = "Pronti a Trasformare il Vostro Programma di Sicurezza?"
+cta_description = "Iniziate oggi a costruire il vostro programma completo di cybersecurity con la piattaforma integrata di resysto."
 cta_primary_text = "Inizia"
 cta_primary_url = "/it/access"
 cta_secondary_text = "Vedi Roadmap"
@@ -28,7 +28,7 @@ name = "Applicazione: vCISO"
 slug = "vciso"
 status = "implemented"
 status_label = "Online"
-description = "Una piattaforma completa di Chief Information Security Officer virtuale (vCISO) che fornisce governance, gestione del rischio (pianificato) e capacità di conformità senza la necessità di un CISO a tempo pieno."
+description = "Una piattaforma completa di Chief Information Security Officer virtuale (vCISO) che fornisce governance e conformità, con la gestione del rischio in arrivo."
 
 [[extra.applications]]
 name = "Applicazione: Incident Management"
@@ -44,5 +44,5 @@ name = "Servizi della Piattaforma"
 slug = "platform-services"
 status = "implemented"
 status_label = "Online"
-description = "Servizi avanzati che alimentano la piattaforma Resysto, fornendo intelligenza, automazione e capacità potenziate attraverso tutte le applicazioni."
+description = "Servizi che portano automazione e supporto basato su AI a tutte le applicazioni della piattaforma resysto, sempre con la persona al centro delle decisioni."
 +++

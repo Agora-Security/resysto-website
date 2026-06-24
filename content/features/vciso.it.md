@@ -7,7 +7,7 @@ template = "application.html"
 name = "Applicazione: vCISO"
 status = "implemented"
 status_label = "Online"
-description = "Una piattaforma completa di Chief Information Security Officer virtuale (vCISO) che fornisce governance, gestione del rischio (pianificato) e capacità di conformità senza la necessità di un CISO a tempo pieno."
+description = "Una piattaforma completa di Chief Information Security Officer virtuale (vCISO) che fornisce governance e conformità, con la gestione del rischio in arrivo."
 
 [[extra.modules]]
 name = "Persone"
@@ -15,15 +15,15 @@ status = "implemented"
 status_label = "Online"
 image = "/images/features/vciso/vciso-people.png"
 icon = '<svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg>'
-description = "Gestisci ruoli, responsabilità e gruppi di Cybersecurity dell'organizzazione. Traccia competenze e certificazioni di sicurezza dei membri del team in un'unica posizione centralizzata."
+description = "Gestisci ruoli, responsabilità e gruppi dell'organizzazione. Traccia competenze e certificazioni di sicurezza dei membri del team in un'unica posizione centralizzata."
 
 [[extra.modules]]
-name = "Documenti"
+name = "Asset"
 status = "implemented"
 status_label = "Online"
-image = "/images/features/vciso/vciso-documents.png"
-icon = '<svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>'
-description = "Repository centrale per policy di sicurezza, procedure, conformità e documentazione delle evidenze. Include controllo di versione, flussi di approvazione e mappatura automatica della conformità."
+image = "/images/features/vciso/vciso-assets.png"
+icon = '<svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z" /></svg>'
+description = "Inventario completo degli asset inclusi endpoint, software e dati. Traccia classificazione, proprietà, criticità e controlli di sicurezza per ogni asset."
 
 [[extra.modules]]
 name = "Strumenti"
@@ -34,12 +34,20 @@ icon = '<svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor"
 description = "Inventaria e gestisci gli strumenti aziendali utili per la sicurezza, traccia licenze, integrazioni e metriche di efficacia. L'obiettivo è eliminare ridondanze e ottimizzare l'investimento nel tuo stack di sicurezza."
 
 [[extra.modules]]
-name = "Asset"
+name = "Documenti"
 status = "implemented"
 status_label = "Online"
-image = "/images/features/vciso/vciso-assets.png"
-icon = '<svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z" /></svg>'
-description = "Inventario completo degli asset inclusi endpoint, software e dati. Traccia classificazione, proprietà, criticità e controlli di sicurezza per ogni asset."
+image = "/images/features/vciso/vciso-documents.png"
+icon = '<svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" /></svg>'
+description = "Repository centrale per policy di sicurezza, procedure, conformità e documentazione delle evidenze. Include controllo di versione, flussi di approvazione e mappatura automatica della conformità."
+
+[[extra.modules]]
+name = "Rischio Terze Parti"
+status = "implemented"
+status_label = "Online"
+image = "/images/features/vciso/vciso-third-party.png"
+icon = '<svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" /></svg>'
+description = "Gestione del rischio della supply chain (SCRM) e valutazione della sicurezza dei fornitori. Questionari automatizzati, monitoraggio continuo e validazione della conformità per i fornitori."
 
 [[extra.modules]]
 name = "Postura Cyber"
@@ -59,14 +67,6 @@ status_label = "Online"
 image = "/images/features/vciso/vciso-roadmap.png"
 icon = '<svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 6.75V15m6-6v8.25m.503 3.498l4.875-2.437c.381-.19.622-.58.622-1.006V4.82c0-.836-.88-1.38-1.628-1.006l-3.869 1.934c-.317.159-.69.159-1.006 0L9.503 3.252a1.125 1.125 0 00-1.006 0L3.622 5.689C3.24 5.88 3 6.27 3 6.695V19.18c0 .836.88 1.38 1.628 1.006l3.869-1.934c.317-.159.69-.159 1.006 0l4.994 2.497c.317.158.69.158 1.006 0z" /></svg>'
 description = "Pianificazione strategica della sicurezza e gestione del programma. Crea task dai gap delle valutazioni, stabilisci priorità per le iniziative, traccia i progressi e dimostra il ROI sugli investimenti di sicurezza agli stakeholder e al board."
-
-[[extra.modules]]
-name = "Rischio Terze Parti"
-status = "implemented"
-status_label = "Online"
-image = "/images/features/vciso/vciso-third-party.png"
-icon = '<svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244" /></svg>'
-description = "Gestione del rischio della supply chain (SCRM) e valutazione della sicurezza dei fornitori. Questionari automatizzati, monitoraggio continuo e validazione della conformità per i fornitori."
 
 [[extra.modules]]
 name = "Compliance"

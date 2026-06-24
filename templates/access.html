@@ -71,7 +71,7 @@
         
         <div class="grid md:grid-cols-2 gap-8">
             {% for console in page.extra.consoles %}
-            <div id="{{ console.id }}" class="feature-card relative bg-gradient-to-br transition-all duration-300 rounded-2xl p-8 card-hover {% if loop.index == 1 %}from-accent-blue/10 via-dark-surface/90 to-dark-surface border border-accent-blue/40 hover:border-accent-blue{% else %}from-accent-green/10 via-dark-surface/90 to-dark-surface border border-accent-green/40 hover:border-accent-green{% endif %}">
+            <div id="{{ console.id }}" class="feature-card relative bg-gradient-to-br backdrop-blur-xl shadow-lg transition-all duration-300 rounded-2xl p-8 card-hover {% if loop.index == 1 %}from-accent-blue/10 via-white/80 to-white/90 dark:from-accent-blue/10 dark:via-dark-surface/90 dark:to-dark-surface border border-accent-blue/30 dark:border-accent-blue/40 hover:border-accent-blue hover:shadow-neon-blue{% else %}from-accent-green/10 via-white/80 to-white/90 dark:from-accent-green/10 dark:via-dark-surface/90 dark:to-dark-surface border border-accent-green/30 dark:border-accent-green/40 hover:border-accent-green hover:shadow-neon-green{% endif %}">
                 <div class="flex items-center gap-3 mb-4">
                     <div class="p-3 bg-accent-blue/10 rounded-lg">
                         {{ console.icon | safe }}

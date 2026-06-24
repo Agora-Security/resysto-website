@@ -2,10 +2,12 @@
 title = "Blog - Resysto | Security Insights"
 description = "Product updates, how-tos, security insights, and case studies from the resysto team."
 template = "blog.html"
+sort_by = "date"
+generate_feeds = true
 
 [extra]
 # Hero Section
-hero_title = "<span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span> <span class='text-accent-blue'>Blog</span>"
+hero_title = "res<span class=\"text-accent-green\">y</span>sto <span class='text-accent-blue'>Blog</span>"
 hero_subtitle = "Product updates, how-tos, security insights, and case studies."
 hero_cta_secondary_text = "Back to Home"
 hero_cta_secondary_url = "/"

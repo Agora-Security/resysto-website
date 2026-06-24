@@ -22,33 +22,73 @@
 
     <!-- Sidebar -->
     <aside class="md:w-1/3 lg:w-1/4 flex-shrink-0">
-        <div class="sticky top-24 space-y-2" id="modules-sidebar">
-            {% for module in page.extra.modules %}
-            <button onclick="selectModule('{{ loop.index0 }}')" id="tab-btn-{{ loop.index0 }}"
-                class="module-tab-btn w-full text-left px-5 py-4 rounded-xl transition-all duration-200 border {% if loop.first %}border-accent-blue bg-accent-blue/10 text-accent-blue{% else %}border-transparent hover:border-gray-200 dark:hover:border-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800/50{% endif %} flex items-center justify-between group cursor-pointer">
-                <div class="flex items-center gap-3">
-                    <div
-                        class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 group-hover:bg-white dark:group-hover:bg-gray-700 transition-colors">
-                        {% if module.icon %}
-                        {{ module.icon | safe }}
-                        {% else %}
-                        <svg class="w-5 h-5 text-current" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                        {% endif %}
-                    </div>
-                    <span class="font-semibold">{{ module.name }}</span>
-                </div>
+        {% set implemented_count = page.extra.modules | filter(attribute="status", value="implemented") | length %}
+        {% set total_count = page.extra.modules | length %}
+        <div class="sticky top-24 space-y-8" id="modules-sidebar">
+
+            <!-- Group 1: Implemented & online -->
+            {% if implemented_count > 0 %}
+            <div class="space-y-2">
+                <h3 class="flex items-center gap-2 px-2 mb-3 text-xs font-semibold uppercase tracking-widest text-accent-green">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    {% if lang == 'it' %}Online{% else %}Online{% endif %}
+                </h3>
+                {% for module in page.extra.modules %}
                 {% if module.status == "implemented" %}
-                <span class="w-2 h-2 rounded-full bg-emerald-500" title="{{ module.status_label }}"></span>
-                {% elif module.status == "progress" %}
-                <span class="w-2 h-2 rounded-full bg-accent-purple" title="{{ module.status_label }}"></span>
-                {% elif module.status == "planned" %}
-                <span class="w-2 h-2 rounded-full bg-blue-500" title="{{ module.status_label }}"></span>
+                <button onclick="selectModule('{{ loop.index0 }}')" id="tab-btn-{{ loop.index0 }}"
+                    class="module-tab-btn w-full text-left px-5 py-4 rounded-xl transition-all duration-200 flex items-center justify-between group cursor-pointer focus:outline-none{% if loop.first %} is-active{% endif %}">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 group-hover:bg-white dark:group-hover:bg-gray-700 transition-colors">
+                            {% if module.icon %}
+                            {{ module.icon | safe }}
+                            {% else %}
+                            <svg class="w-5 h-5 text-current" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            {% endif %}
+                        </div>
+                        <span class="font-semibold">{{ module.name }}</span>
+                    </div>
+                    <span class="w-2 h-2 rounded-full bg-emerald-500" title="{{ module.status_label }}"></span>
+                </button>
                 {% endif %}
-            </button>
-            {% endfor %}
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <!-- Group 2: In development (progress + planned) -->
+            {% if implemented_count < total_count %}
+            <div class="space-y-2">
+                <h3 class="flex items-center gap-2 px-2 mb-3 text-xs font-semibold uppercase tracking-widest text-accent-purple">
+                    <span class="w-2 h-2 rounded-full bg-accent-purple"></span>
+                    {% if lang == 'it' %}In Sviluppo{% else %}In Development{% endif %}
+                </h3>
+                {% for module in page.extra.modules %}
+                {% if module.status != "implemented" %}
+                <button onclick="selectModule('{{ loop.index0 }}')" id="tab-btn-{{ loop.index0 }}"
+                    class="module-tab-btn w-full text-left px-5 py-4 rounded-xl transition-all duration-200 flex items-center justify-between group cursor-pointer focus:outline-none">
+                    <div class="flex items-center gap-3">
+                        <div
+                            class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 group-hover:bg-white dark:group-hover:bg-gray-700 transition-colors">
+                            {% if module.icon %}
+                            {{ module.icon | safe }}
+                            {% else %}
+                            <svg class="w-5 h-5 text-current" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            {% endif %}
+                        </div>
+                        <span class="font-semibold">{{ module.name }}</span>
+                    </div>
+                    <span class="w-2 h-2 rounded-full bg-accent-purple" title="{{ module.status_label }}"></span>
+                </button>
+                {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
     </aside>
 
@@ -153,39 +193,6 @@
                     </div>
                 </div>
             </div>
-            {% else %}
-            <!-- Media Gallery Placeholder -->
-            <div
-                class="bg-gradient-to-br from-accent-blue/10 via-white/80 to-white/90 dark:from-accent-blue/10 dark:via-dark-surface/90 dark:to-dark-surface backdrop-blur-xl border border-accent-blue/30 dark:border-accent-blue/40 rounded-2xl p-8 mb-8 flex flex-col items-center justify-center min-h-[400px] text-center shadow-lg hover:shadow-neon-blue relative group transition-all duration-300">
-
-                <div class="relative z-10 flex flex-col items-center">
-                    <div
-                        class="w-20 h-20 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center mb-6 shadow-md transform group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-10 h-10 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor"
-                            viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h4 class="text-2xl font-semibold text-gray-900 dark:text-white mb-3">{% if lang == 'it' %}Media non
-                        ancora disponibile{% else %}Media coming soon{% endif %}</h4>
-                    <p class="text-gray-500 dark:text-gray-400 max-w-md mb-6">
-                        {% if lang == 'it' %}
-                        Qui verranno inseriti screenshot e video dimostrativi interattivi per il modulo <span
-                            class="font-semibold text-gray-700 dark:text-gray-300">{{ module.name }}</span>.
-                        {% else %}
-                        Interactive screenshots and demo videos for the <span
-                            class="font-semibold text-gray-700 dark:text-gray-300">{{ module.name }}</span> module will
-                        be displayed here.
-                        {% endif %}
-                    </p>
-                    <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}access"
-                        class="inline-block px-6 py-2 rounded-full border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                        {% if lang == 'it' %}Richiedi una demo{% else %}Request a demo{% endif %}
-                    </a>
-                </div>
-            </div>
             {% endif %}
 
         </div>
@@ -240,8 +247,7 @@
 
         // Reset all tabs
         document.querySelectorAll('.module-tab-btn').forEach(btn => {
-            btn.classList.remove('border-accent-blue', 'bg-accent-blue/10', 'text-accent-blue');
-            btn.classList.add('border-transparent', 'text-gray-600', 'dark:text-gray-400');
+            btn.classList.remove('is-active');
         });
 
         // Show selected content and trigger animation
@@ -258,8 +264,7 @@
         // Highlight selected tab
         const btn = document.getElementById('tab-btn-' + index);
         if (btn) {
-            btn.classList.remove('border-transparent', 'text-gray-600', 'dark:text-gray-400');
-            btn.classList.add('border-accent-blue', 'bg-accent-blue/10', 'text-accent-blue');
+            btn.classList.add('is-active');
         }
 
         // Optionally update hash to allow deep linking

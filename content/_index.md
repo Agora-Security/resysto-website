@@ -8,6 +8,7 @@ template = "index.html"
 hero_kicker = "Future-ready security operations"
 hero_title = "Central <span class=\"text-accent-blue\">Cyber Resilience</span> platform"
 hero_subtitle = "Govern and manage cybersecurity and data protection processes and tools in one place."
+hero_plain = "In simple terms: knowing where your company's security stands, what's missing, and what to do next — without having to hire a full-time expert."
 
 # CTAs
 cta_primary_text = "Get Started"
@@ -16,7 +17,7 @@ cta_secondary_text = "Explore Roadmap"
 cta_secondary_url = "/roadmap"
 
 # Section Titles
-built_for_title = "<span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span> is built for:"
+built_for_title = "res<span class=\"text-accent-green\">y</span>sto is built for:"
 why_resysto_kicker = "OUR VALUES"
 use_cases_title = "Main Use Cases"
 use_cases_subtitle = "Real-world scenarios where resysto delivers immediate value"
@@ -27,6 +28,10 @@ services_label = "Platform Services"
 partner_program_button = "Learn About Our Partner Program"
 explore_features_button = "Explore All Features"
 
+# Problem / Solution Section
+scenarios_title = "Real-World Scenarios"
+solutions_title = "How res<span class=\"text-accent-green\">y</span>sto Solves These Problems"
+
 # Final CTA
 final_cta_title = "Ready to Transform Your Security Operations?"
 final_cta_description = "Join organizations building resilient cybersecurity programs with resysto. Request access to our private beta and start your journey today."
@@ -35,16 +40,14 @@ final_cta_url = "/access"
 final_cta_note = "Limited spots available for our private beta program"
 
 # GRC Strengths Section
-why_resysto_title = "Why Choose <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span>"
-why_resysto_subtitle = "Simplifies cyber security to make it practical, measurable, and sustainable."
+why_resysto_title = "Why Choose res<span class=\"text-accent-green\">y</span>sto"
+why_resysto_subtitle = "Real compliance, based on verifiable actions and not mere checklists — for concrete, measurable, and sustainable cyber security."
 strength_turnkey_title = "Turnkey Product"
 strength_turnkey_desc = "A ready-to-use product that effortlessly integrates real operations with procedural compliance."
-strength_consulting_title = "Consulting Approach"
-strength_consulting_desc = "Continuous support and a proactive consulting approach driven by our deep internal GRC expertise."
 strength_visibility_title = "Real Visibility for Managers"
 strength_visibility_desc = "Clear insights into cyber protection for management, based on real, auditable data rather than manual questionnaires."
 strength_pmi_title = "Compliance for SMEs & Consortia"
-strength_pmi_desc = "Accessible compliance and certifications for SMEs, enabling them to stay competitive in regulated markets."
+strength_pmi_desc = "Accessible compliance and standards for SMEs, enabling them to stay competitive in regulated markets."
 strength_pmi_badge = "Extra-Key Point"
 strength_incident_title = "Incident Management Automation"
 strength_incident_desc = "Automated incident response workflows for rapid mitigation and minimal business disruption."
@@ -54,7 +57,7 @@ strength_no_questionnaire_desc = "Eliminate endless manual questionnaires, enabl
 # Built For Section
 [[extra.built_for_audiences]]
 icon = '<svg class="w-10 h-10 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" /></svg>'
-text = "SMB IT teams needing a cybersecurity team"
+text = "SMBs without a dedicated IT or security team"
 color = "blue"
 
 [[extra.built_for_audiences]]
@@ -153,4 +156,46 @@ icon = '<svg class="w-8 h-8 text-accent-purple" fill="none" stroke="currentColor
 name = "Marketplace"
 status = "implemented"
 icon = '<svg class="w-8 h-8 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg>'
+
+# Problem / Solution Section (Real-World Scenarios -> How resysto Solves These Problems)
+[[extra.challenges]]
+title = "The SMB Challenge"
+description = "Small and medium businesses face unique cybersecurity challenges:"
+issues = [
+    "Limited Security Expertise: No dedicated CISO or security team",
+    "Resource Constraints: Budget and time limitations for security initiatives",
+    "Ad-hoc Processes: Security work happens reactively without structure",
+    "Compliance Pressure: Growing regulatory requirements without guidance",
+    "Tool Overload: Multiple point solutions that don't work together"
+]
+
+[[extra.challenges]]
+title = "The Enterprise Reality"
+description = "Even large organizations struggle with:"
+issues = [
+    "Fragmented Operations: Security tools and processes in silos",
+    "Evidence Collection: Manual work to gather audit and compliance proof",
+    "Visibility Gaps: Incomplete picture of overall security posture",
+    "Reporting Overhead: Time-consuming executive and board reporting",
+    "Process Standardization: Inconsistent approaches across teams"
+]
+
+[[extra.solutions]]
+title = "For SMBs"
+solutions = [
+    "Turnkey Solution: A turnkey product in two directions: real operations and procedural compliance.",
+    "Affordable Compliance for SMEs: Compliance and certifications at a manageable cost tailored to SME budgets, keeping companies competitive in markets that require security certifications.",
+    "Actionable Governance: We relieve companies of manually compiling questionnaires, making cybersecurity governance practical and action-oriented rather than theoretical.",
+    "Real Visibility for Managers: Clear visibility for managers into the actual state of company cyber protection, built on concrete data instead of questionnaire answers."
+]
+
+[[extra.solutions]]
+title = "For Large Enterprises"
+solutions = [
+    "Unified Platform: Single source of truth for security governance and operations",
+    "Process Standardization: Consistent workflows across all teams",
+    "Real-time Visibility: Always-on security posture monitoring",
+    "Automated Reporting: Board-ready reports in minutes (WIP)",
+    "Integration Ready: Connect existing tools and data sources (WIP)"
+]
 +++

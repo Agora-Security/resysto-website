@@ -5,90 +5,39 @@ template = "about.html"
 
 [extra]
 # Hero Section
-hero_title = "Perché abbiamo creato <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span>"
-hero_subtitle = "Sicurezza programmatica per team reali, dalle PMI alle aziende."
+hero_title = "Perché abbiamo creato res<span class=\"text-accent-green\">y</span>sto"
+hero_subtitle = "Sicurezza programmatica per team reali, dalle PMI alle grandi aziende."
 hero_cta_primary_text = "Scopri chi siamo"
 hero_cta_primary_url = "#company"
 hero_cta_secondary_text = "Contattaci"
 hero_cta_secondary_url = "#contact"
 
 # About resysto Section
-about_title = "Chi è <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span>"
-about_text = "resysto è stato creato per aiutare le organizzazioni a passare da un lavoro di sicurezza ad-hoc a un approccio programmatico. Crediamo che una gestione efficace della cybersecurity non deve richiedere un budget enorme o un team di specialisti: deve essere accessibile, strutturata e misurabile per organizzazioni di tutte le dimensioni."
+about_title = "Chi è res<span class=\"text-accent-green\">y</span>sto"
+about_text = "resysto è stato creato per aiutare le organizzazioni a passare da un lavoro di sicurezza ad-hoc a un approccio programmatico. Crediamo che una gestione efficace della cybersecurity non debba richiedere un budget enorme o un team di specialisti: deve essere accessibile, strutturata e misurabile per organizzazioni di tutte le dimensioni."
 
 # Mission Section
 mission_title = "La Nostra Missione"
 mission_icon = '<svg class="w-8 h-8 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>'
-mission_text = "Rendere la cybersecurity di livello Enterprise accessibile e concreta per organizzazioni di ogni dimensione, grazie a un'automazione intelligente, flussi di lavoro chiari e procedure di sicurezza basate su dati reali."
-
-# Real-World Scenarios
-scenarios_title = "Scenari del Mondo Reale"
-
-# Solutions Section (title must be before arrays)
-solutions_title = "Come <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span> Risolve Questi Problemi"
+mission_text = "Rendere la cybersecurity accessibile e concreta per organizzazioni di ogni dimensione, grazie ad automazioni che assistono il lavoro, flussi di lavoro chiari e procedure di sicurezza basate su dati reali."
 
 # Agora Security Section (all simple values must be before arrays)
 agora_title = "Chi siamo"
 agora_icon = '<svg class="w-8 h-8 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" /></svg>'
-agora_text = "resysto è sviluppato da una start-up italiana di cybersecurity, fondata sul principio che la sicurezza dovrebbe essere misurabile, gestibile e accessibile a tutte le organizzazioni. Combiniamo una profonda competenza tecnica con una comprensione pratica del business per creare strumenti che i team di sicurezza vogliono realmente utilizzare."
+agora_text = "resysto è progettato e realizzato in Europa da un'azienda di cybersecurity certificata ISO/IEC 27001, ISO/IEC 27017 e ISO 9001. La piattaforma resysto e i suoi servizi — dall'applicazione web ai server AI — sono sviluppati e ospitati in Europa. Crediamo che la sicurezza debba essere misurabile, gestibile e accessibile a tutte le organizzazioni, con strumenti pratici a supporto dei team di sicurezza, non in loro sostituzione."
 agora_approach_title = "Il Nostro Approccio"
-agora_learn_more = "Scopri di più su Agora Security su"
-agora_website_text = "agorasecurity.it"
-agora_website_url = "https://www.agorasecurity.it"
 
 # Contact Section
 contact_title = "Contattaci"
 
 # Final CTA
-final_cta_text = "Pronto a trasformare il tuo programma di cybersecurity? Inizia con resysto oggi."
+final_cta_text = "Pronti a trasformare il vostro programma di cybersecurity? Iniziate con resysto oggi."
 
 # Agora Approach Array (must be before table arrays)
 agora_approach = [
     "Persone: Focus sull'abilitazione dei team di sicurezza, non sulla loro sostituzione",
     "Processi: Framework strutturati che si adattano alla tua organizzazione",
-    "Tecnologia: Piattaforma moderna costruita per integrazione e automazione"
-]
-
-[[extra.challenges]]
-title = "La Sfida delle PMI"
-description = "Le piccole e medie imprese affrontano sfide uniche di cybersecurity:"
-issues = [
-    "Competenza di Sicurezza Limitata: Nessun CISO dedicato o team di sicurezza",
-    "Vincoli di Risorse: Limitazioni di budget e tempo per iniziative di sicurezza",
-    "Processi Ad-hoc: Il lavoro di sicurezza avviene in modo reattivo senza struttura",
-    "Pressione di Conformità: Requisiti normativi crescenti senza guida",
-    "Sovraccarico di Strumenti: Soluzioni multiple che non funzionano insieme"
-]
-
-[[extra.challenges]]
-title = "La Realtà Aziendale"
-description = "Anche le grandi organizzazioni lottano con:"
-issues = [
-    "Operazioni Frammentate: Strumenti e processi di sicurezza in silos",
-    "Raccolta di Prove: Lavoro manuale per raccogliere prove di audit e conformità",
-    "Gap di Visibilità: Immagine incompleta della postura di sicurezza complessiva",
-    "Overhead di Reporting: Reportistica per executive e board che richiede molto tempo",
-    "Standardizzazione dei Processi: Approcci incoerenti tra i team"
-]
-
-[[extra.solutions]]
-title = "Per le PMI"
-solutions = [
-    "Soluzione Chiave in Mano: Un prodotto chiave in mano in due direzioni: l'operatività reale e la conformità procedurale.",
-    "Supporto Consulenziale GRC: Accompagnamento e approccio consulenziale d'eccellenza, forte di un'esperienza pluriennale e competenze interne in materia GRC (Governance, Risk and Compliance).",
-    "Costi Convenienti per PMI: Compliance e certificazioni ad un costo gestibile e adeguato al budget delle PMI, permettendo di accedere a mercati e consorzi che esigono elevati standard di sicurezza.",
-    "Governance Concreta e Attuativa: Sgraviamo le aziende dalla compilazione manuale di lunghi questionari, trasformando la governance in azioni reali e non solo teoriche.",
-    "Visibilità Reale per i Manager: Chiara visibilità dello stato dell'arte della protezione cyber aziendale a beneficio dei manager, basata su dati concreti e non su risposte teoriche."
-]
-
-[[extra.solutions]]
-title = "Per le Aziende"
-solutions = [
-    "Piattaforma Unificata: Unica fonte di verità per le operazioni di sicurezza",
-    "Standardizzazione dei Processi: Flussi di lavoro coerenti in tutti i team",
-    "Visibilità Real-time: Monitoraggio della postura di sicurezza sempre attivo",
-    "Reporting Automatizzato: Report pronti per il board in minuti",
-    "Pronto per l'Integrazione: Connetti strumenti e fonti dati esistenti"
+    "Tecnologia: Piattaforma moderna, sviluppata e ospitata in Europa, costruita per integrazione e automazione"
 ]
 
 [[extra.contacts]]

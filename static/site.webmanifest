@@ -4,8 +4,8 @@
   "description": "Central Cyber Resilience and Data Protection platform to govern and manage cybersecurity and privacy.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0A0A0A",
-  "theme_color": "#00D4FF",
+  "background_color": "#11151c",
+  "theme_color": "#00d3bb",
   "icons": [
     {
       "src": "/images/android-chrome-192x192.png",

@@ -1,22 +1,33 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% set p = page | default(value=section) %}
 
 <!-- Hero Section -->
 <section class="container mx-auto px-6 py-20 text-center">
-    {% if page.extra.kicker %}
+    {% if p.extra.kicker %}
     <p class="text-accent-blue text-sm font-semibold tracking-wider uppercase mb-4">
-        {{ page.extra.kicker }}
+        {{ p.extra.kicker }}
     </p>
     {% endif %}
-    
+
     <h1 class="text-5xl md:text-6xl font-heading font-bold mb-6 text-gray-900 dark:text-white">
-        {{ page.extra.hero_title | default(value="resysto <span class='text-accent-blue'>Blog</span>") | safe }}
+        {{ p.extra.hero_title | default(value="resysto <span class='text-accent-blue'>Blog</span>") | safe }}
     </h1>
-    
+
     <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
-        {{ page.extra.hero_subtitle }}
+        {{ p.extra.hero_subtitle }}
     </p>
+
+    <div class="flex justify-center">
+        <a href="{{ config.base_url }}/{% if lang != config.default_language %}{{ lang }}/{% endif %}blog/atom.xml"
+            class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-accent-purple text-accent-purple font-semibold hover:bg-accent-purple hover:text-white transition-all interactive-element">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.18 15.64a2.18 2.18 0 012.18 2.18C8.36 19 7.38 20 6.18 20S4 19 4 17.82a2.18 2.18 0 012.18-2.18zM4 4.44A15.56 15.56 0 0119.56 20h-2.83A12.73 12.73 0 004 7.27V4.44zm0 5.66a9.9 9.9 0 019.9 9.9h-2.83A7.07 7.07 0 004 12.93V10.1z" />
+            </svg>
+            <span>{% if lang == 'it' %}Iscriviti via RSS{% else %}Subscribe via RSS{% endif %}</span>
+        </a>
+    </div>
 </section>
 
 <!-- Coming Soon Section -->
@@ -27,16 +38,16 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
             </svg>
             <h2 class="text-3xl font-heading font-bold mb-6 text-gray-900 dark:text-white">
-                {{ page.extra.coming_soon_title | default(value="Coming Soon") }}
+                {{ p.extra.coming_soon_title | default(value="Coming Soon") }}
             </h2>
             <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
-                {{ page.extra.coming_soon_description | default(value="We're preparing in-depth articles, tutorials, and case studies. Stay tuned for updates from the resysto team.") }}
+                {{ p.extra.coming_soon_description | default(value="We're preparing in-depth articles, tutorials, and case studies. Stay tuned for updates from the resysto team.") }}
             </p>
-            <a href="{{ page.extra.hero_cta_secondary_url }}" class="inline-flex items-center gap-2 px-8 py-3 text-accent-blue hover:text-accent-green transition-colors font-semibold interactive-element">
+            <a href="{{ p.extra.hero_cta_secondary_url }}" class="inline-flex items-center gap-2 px-8 py-3 text-accent-blue hover:text-accent-green transition-colors font-semibold interactive-element">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                 </svg>
-                <span>{{ page.extra.hero_cta_secondary_text | default(value="Back to Home") }}</span>
+                <span>{{ p.extra.hero_cta_secondary_text | default(value="Back to Home") }}</span>
             </a>
         </div>
     </div>

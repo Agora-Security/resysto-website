@@ -6,25 +6,25 @@ template = "access.html"
 [extra]
 # Hero Section
 hero_title = "Unisciti al nostro Programma Beta Privato"
-hero_subtitle = "Siamo attualmente in Beta Privata. Richiedi l'accesso anticipato alla piattaforma resysto completando il nostro modulo di richiesta. I candidati selezionati saranno aggiunti alla nostra lista d'attesa esclusiva."
+hero_subtitle = "Siamo attualmente in Beta Privata. Richiedete l'accesso anticipato alla piattaforma resysto completando il modulo di richiesta. I candidati selezionati saranno aggiunti alla nostra lista d'attesa."
 hero_cta_primary_text = "Richiedi Accesso Beta"
 hero_cta_primary_url = "#request-access"
 hero_cta_secondary_text = ""
 hero_cta_secondary_url = ""
 
 # Console Selection Section
-console_title = "A Cosa Avrai Accesso"
-console_intro = "Una volta accettato nella Beta Privata, avrai accesso alla nostra potente piattaforma di cybersecurity con capacità individuali e multi-tenant."
+console_title = "A Cosa Avrete Accesso"
+console_intro = "Una volta accettati nella Beta Privata, avrete accesso alla piattaforma di cybersecurity resysto, con funzionalità individuali e multi-tenant."
 
 # Security & Support Section (title must be before arrays)
 security_title = "Sicurezza e Supporto"
 
 # Mobile Section
 mobile_title = "Accesso Mobile Prossimamente"
-mobile_text = "Stiamo lavorando su applicazioni mobili native per iOS e Android per darti accesso sicuro alla tua console resysto in movimento."
+mobile_text = "Stiamo lavorando su applicazioni mobili native per iOS e Android per darvi accesso sicuro alla vostra console resysto anche in movimento."
 
 # Final CTA
-final_cta_text = "Hai bisogno di aiuto per accedere alla tua console?"
+final_cta_text = "Avete bisogno di aiuto per accedere alla vostra console?"
 final_cta_link_text = "Contatta il Supporto"
 final_cta_link_url = "mailto:support@resysto.io"
 

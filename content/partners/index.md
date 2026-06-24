@@ -5,7 +5,7 @@ template = "partners.html"
 
 [extra]
 # Hero Section
-hero_title = "<span class=\"text-accent-blue\">Partner</span> with <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span>"
+hero_title = "<span class=\"text-accent-blue\">Partner</span> with res<span class=\"text-accent-green\">y</span>sto"
 hero_subtitle = "Join MSP/MSSP and technology partners building resilient security operations."
 hero_cta_primary_text = "Contact Partner Team"
 hero_cta_primary_url = "mailto:partners@resysto.io"
@@ -33,7 +33,7 @@ success_title = "Partner Success Stories"
 success_text = "Coming soon: Case studies and success stories from our growing partner community."
 
 # Final CTA
-final_cta_text = "Contact us today and we'll help you enhance your cybersecurity services with <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span>."
+final_cta_text = "Contact us today and we'll help you enhance your cybersecurity services with res<span class=\"text-accent-green\">y</span>sto."
 
 mssp_benefits = [
     "Dedicated MSSP Console with multi-tenant management",

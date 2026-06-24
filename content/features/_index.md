@@ -5,7 +5,7 @@ template = "features.html"
 
 [extra]
 # Hero Section
-hero_title = "Explore <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span> <span class=\"text-accent-blue\">Features</span>"
+hero_title = "Explore res<span class=\"text-accent-green\">y</span>sto <span class=\"text-accent-blue\">Features</span>"
 hero_subtitle = "Applications and services designed for resilient, auditable security operations."
 hero_cta_primary = "See capabilities"
 hero_cta_secondary = "Access platform"
@@ -28,7 +28,7 @@ name = "Application: vCISO"
 slug = "vciso"
 status = "implemented"
 status_label = "Online"
-description = "A complete virtual Chief Information Security Officer (vCISO) platform providing governance, risk management (planned), and compliance capabilities without the need for a full-time CISO."
+description = "A complete virtual Chief Information Security Officer (vCISO) platform providing governance, risk management (planned), and compliance capabilities."
 
 [[extra.applications]]
 name = "Application: Incident Management"

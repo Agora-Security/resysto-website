@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "macros.html" as brand %}
 
 {% block content %}
 
@@ -14,7 +15,7 @@
         {{ page.extra.hero_title | safe }}
     </h1>
     
-    <p class="text-xl text-gray-400 max-w-3xl mx-auto mb-8">
+    <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
         {{ page.extra.hero_subtitle }}
     </p>
     
@@ -34,7 +35,7 @@
         <h2 class="text-4xl font-heading font-bold mb-6 text-gray-900 dark:text-white">
             {{ page.extra.about_title | safe }}
         </h2>
-        <p class="text-lg text-gray-400 leading-relaxed mb-12">
+        <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-12">
             {{ page.extra.about_text | safe }}
         </p>
         
@@ -46,86 +47,66 @@
                     {{ page.extra.mission_title }}
                 </h3>
             </div>
-            <p class="text-lg text-gray-300 leading-relaxed">
+            <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
                 {{ page.extra.mission_text }}
             </p>
         </div>
     </div>
 </section>
 
-<!-- Real-World Scenarios Section -->
+<!-- The Name & The Mark Section -->
 <section class="container mx-auto px-6 py-20 relative overflow-hidden">
-    <!-- Decorative background elements for glass effect -->
-    <div class="absolute top-1/4 left-0 w-96 h-96 bg-accent-green/5 dark:bg-accent-green/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
-    <div class="absolute bottom-1/4 right-0 w-96 h-96 bg-accent-blue/5 dark:bg-accent-blue/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
-    <div class="max-w-6xl mx-auto">
-        <div class="flex items-center gap-3 mb-12 justify-center">
-            <svg class="w-10 h-10 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
-            </svg>
-            <h2 class="text-4xl font-heading font-bold text-gray-900 dark:text-white">
-                {{ page.extra.scenarios_title }}
-            </h2>
-        </div>
-        
-        <div class="grid md:grid-cols-2 gap-8">
-            {% for challenge in page.extra.challenges %}
-            <div class="bg-gradient-to-br from-accent-blue/10 via-white/80 to-white/90 dark:from-accent-blue/10 dark:via-dark-surface/90 dark:to-dark-surface backdrop-blur-xl border border-accent-blue/30 dark:border-accent-blue/40 rounded-xl p-8 shadow-lg hover:shadow-neon-blue">
-                <h3 class="text-2xl font-heading font-semibold mb-4 text-gray-900 dark:text-white">
-                    {{ challenge.title }}
-                </h3>
-                <p class="text-gray-400 mb-6">
-                    {{ challenge.description }}
-                </p>
-                <ul class="space-y-3">
-                    {% for issue in challenge.issues %}
-                    <li class="flex items-start gap-3">
-                        <svg class="w-5 h-5 text-accent-blue flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
-                        </svg>
-                        <span class="text-sm text-gray-400"><strong class="text-gray-900 dark:text-white">{{ issue | split(pat=":") | first }}:</strong>{{ issue | split(pat=":") | last }}</span>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
+    <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent-green/5 dark:bg-accent-green/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-accent-purple/5 dark:bg-accent-purple/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-heading font-bold mb-4 text-gray-900 dark:text-white">
+            {% if lang == 'it' %}Il nome e il simbolo{% else %}The name &amp; the mark{% endif %}
+        </h2>
+        <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-10 max-w-3xl">
+            {% if lang == 'it' %}Ogni parte di <span class="font-semibold">res<span class="text-accent-green">y</span>sto</span> ha un significato: il nome e il simbolo raccontano la stessa storia.{% else %}Every part of <span class="font-semibold">res<span class="text-accent-green">y</span>sto</span> means something — the name and the mark tell the same story.{% endif %}
+        </p>
 
-<!-- Solutions Section -->
-<section class="container mx-auto px-6 py-20 relative overflow-hidden">
-    <!-- Decorative background elements for glass effect -->
-    <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent-purple/5 dark:bg-accent-purple/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
-    <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-accent-blue/5 dark:bg-accent-blue/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
-    <div class="max-w-6xl mx-auto">
-        <div class="flex items-center gap-3 mb-12 justify-center">
-            <svg class="w-10 h-10 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
-            </svg>
-            <h2 class="text-4xl font-heading font-bold text-gray-900 dark:text-white">
-                {{ page.extra.solutions_title | safe }}
-            </h2>
-        </div>
-        
-        <div class="grid md:grid-cols-2 gap-8">
-            {% for solution in page.extra.solutions %}
-            <div class="bg-gradient-to-br from-accent-blue/10 via-white/80 to-white/90 dark:from-accent-blue/10 dark:via-dark-surface/90 dark:to-dark-surface backdrop-blur-xl border border-accent-blue/30 dark:border-accent-blue/40 rounded-xl p-8 shadow-lg hover:shadow-neon-blue">
-                <h3 class="text-2xl font-heading font-semibold mb-6 text-gray-900 dark:text-white">
-                    {{ solution.title }}
-                </h3>
-                <ul class="space-y-4">
-                    {% for item in solution.solutions %}
-                    <li class="flex items-start gap-3">
-                        <svg class="w-6 h-6 text-accent-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                        <span class="text-gray-400"><strong class="text-gray-900 dark:text-white">{{ item | split(pat=":") | first }}:</strong>{{ item | split(pat=":") | last }}</span>
-                    </li>
-                    {% endfor %}
-                </ul>
+        <div class="grid md:grid-cols-2 gap-8 items-stretch bg-gradient-to-br from-accent-green/10 via-white/80 to-white/90 dark:from-accent-green/10 dark:via-dark-surface/90 dark:to-dark-surface backdrop-blur-xl border border-accent-green/30 dark:border-accent-green/40 rounded-2xl p-8 md:p-10 shadow-lg">
+            <!-- Mark + wordmark -->
+            <div class="flex flex-col items-center justify-center gap-6 md:border-r border-gray-200/70 dark:border-dark-border/70 md:pr-8">
+                {{ brand::logo_mark(class="h-32 w-32 text-gray-900 dark:text-white") }}
+                <span class="font-heading text-5xl font-bold tracking-tight">{{ brand::wordmark() }}</span>
             </div>
-            {% endfor %}
+            <!-- Etymology -->
+            <div class="flex flex-col justify-center gap-6">
+                <div class="flex items-baseline gap-4">
+                    <span class="font-heading text-2xl font-bold text-gray-900 dark:text-white w-12 flex-shrink-0">res</span>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{% if lang == 'it' %}da <strong class="text-gray-900 dark:text-white">resiliente</strong> — una sicurezza che si piega senza spezzarsi.{% else %}from <strong class="text-gray-900 dark:text-white">resilient</strong> — security that bends without breaking.{% endif %}</p>
+                </div>
+                <div class="flex items-baseline gap-4">
+                    <span class="font-heading text-2xl font-bold text-accent-green w-12 flex-shrink-0">y</span>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{% if lang == 'it' %}per <strong class="text-gray-900 dark:text-white">Cyber</strong> — il dominio digitale che difendiamo.{% else %}for <strong class="text-gray-900 dark:text-white">Cyber</strong> — the digital domain we defend.{% endif %}</p>
+                </div>
+                <div class="flex items-baseline gap-4">
+                    <span class="font-heading text-2xl font-bold text-gray-900 dark:text-white w-12 flex-shrink-0">sto</span>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{% if lang == 'it' %}da <strong class="text-gray-900 dark:text-white">estote parati</strong>, il motto scout «siate preparati» — pronti per definizione.{% else %}from <strong class="text-gray-900 dark:text-white">estote parati</strong>, the Scout motto &ldquo;be prepared&rdquo; — readiness by design.{% endif %}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- What the mark encodes -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+            <div class="bg-white/60 dark:bg-dark-surface/40 backdrop-blur-sm border border-gray-200 dark:border-dark-border/70 rounded-xl p-5">
+                <h4 class="font-heading font-semibold text-gray-900 dark:text-white mb-1.5">{% if lang == 'it' %}Esagono{% else %}Hexagon{% endif %}</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{% if lang == 'it' %}Protezione e struttura: una cella di sicurezza, verificabile per natura.{% else %}Protection &amp; structure: a security cell, auditable by design.{% endif %}</p>
+            </div>
+            <div class="bg-white/60 dark:bg-dark-surface/40 backdrop-blur-sm border border-gray-200 dark:border-dark-border/70 rounded-xl p-5">
+                <h4 class="font-heading font-semibold text-accent-green mb-1.5">{% if lang == 'it' %}La «y» curva{% else %}The curved &ldquo;y&rdquo;{% endif %}</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{% if lang == 'it' %}Cyber — la lettera al centro di res<span class="text-accent-green">y</span>sto.{% else %}Cyber — the letter at the heart of res<span class="text-accent-green">y</span>sto.{% endif %}</p>
+            </div>
+            <div class="bg-white/60 dark:bg-dark-surface/40 backdrop-blur-sm border border-gray-200 dark:border-dark-border/70 rounded-xl p-5">
+                <h4 class="font-heading font-semibold text-gray-900 dark:text-white mb-1.5">{% if lang == 'it' %}Le curve verso l'alto{% else %}Curves reaching up{% endif %}</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{% if lang == 'it' %}Prontezza e resilienza — <em>estote parati</em>, recuperare e risalire.{% else %}Readiness &amp; resilience — <em>estote parati</em>, recover and reach higher.{% endif %}</p>
+            </div>
+            <div class="bg-white/60 dark:bg-dark-surface/40 backdrop-blur-sm border border-gray-200 dark:border-dark-border/70 rounded-xl p-5">
+                <h4 class="font-heading font-semibold text-gray-900 dark:text-white mb-1.5">{% if lang == 'it' %}Rette e curve{% else %}Straight &amp; curved{% endif %}</h4>
+                <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{% if lang == 'it' %}La struttura rigorosa dell'esagono incontra il tratto umano della «y».{% else %}The hexagon&rsquo;s rigour meets the human, organic stroke of the &ldquo;y&rdquo;.{% endif %}</p>
+            </div>
         </div>
     </div>
 </section>
@@ -140,7 +121,7 @@
             </h2>
         </div>
         
-        <p class="text-lg text-gray-400 leading-relaxed mb-12">
+        <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed mb-12">
             {{ page.extra.agora_text | safe }}
         </p>
         
@@ -154,26 +135,11 @@
                     {% for approach in page.extra.agora_approach %}
                     <li class="flex items-start gap-3">
                         <span class="text-accent-blue mt-1">•</span>
-                        <span class="text-gray-400"><strong class="text-gray-900 dark:text-white">{{ approach | split(pat=":") | first }}:</strong>{{ approach | split(pat=":") | last }}</span>
+                        <span class="text-gray-600 dark:text-gray-400"><strong class="text-gray-900 dark:text-white">{{ approach | split(pat=":") | first }}:</strong>{{ approach | split(pat=":") | last }}</span>
                     </li>
                     {% endfor %}
                 </ul>
             </div>
-            
-            <!-- Learn More -->
-            <!--
-            <div>
-                <h3 class="text-xl font-heading font-semibold mb-4 text-gray-900 dark:text-white">
-                    Learn More
-                </h3>
-                <p class="text-gray-400">
-                    {{ page.extra.agora_learn_more }}
-                    <a href="{{ page.extra.agora_website_url }}" target="_blank" class="text-accent-blue hover:text-accent-green transition-colors font-medium">
-                        {{ page.extra.agora_website_text }}
-                    </a>.
-                </p>
-            </div>
-            -->
         </div>
     </div>
 </section>
@@ -207,7 +173,7 @@
                     {{ contact.email }}
                 </a>
                 {% elif contact.text %}
-                <p class="text-gray-400">
+                <p class="text-gray-600 dark:text-gray-400">
                     {{ contact.text }}
                 </p>
                 {% endif %}

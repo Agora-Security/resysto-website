@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{% import "macros.html" as brand %}<!DOCTYPE html>
 <html lang="{{ lang }}" class="dark">
 
 <head>
@@ -18,8 +18,8 @@
         content="cyber resilience, cybersecurity platform, data protection, GDPR, NIS2, vCISO, incident management, security compliance, ISO 27001, NIST CSF, security operations, cyber risk management, MSSP platform{% if lang == 'it' %}, piattaforma cybersecurity, gestione incidenti, conformità sicurezza{% endif %}" />
 
     <!-- SEO: Author and Organization -->
-    <meta name="author" content="Agora Security" />
-    <meta name="publisher" content="Agora Security Srl" />
+    <meta name="author" content="Resysto" />
+    <meta name="publisher" content="Resysto.io" />
 
     <!-- SEO: Canonical URL -->
     <link rel="canonical"
@@ -66,7 +66,7 @@
 
     <!-- SEO: Additional Meta Tags -->
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="theme-color" content="#00D4FF" />
+    <meta name="theme-color" content="#00d3bb" />
     <meta name="format-detection" content="telephone=no" />
 
     <!-- Favicon and App Icons -->
@@ -81,7 +81,6 @@
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Resysto",
-      "legalName": "Agora Security Srl",
       "url": "{{ config.base_url }}",
       "logo": "{{ config.base_url }}/images/resysto-logo.png",
       "foundingDate": "2024",
@@ -94,10 +93,7 @@
         "@type": "ContactPoint",
         "email": "{{ config.extra.contact_email }}",
         "contactType": "Customer Support"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/company/agora-security"
-      ]
+      }
     }
     </script>
 
@@ -134,72 +130,20 @@
     </script>
     {% endif %}
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WBC0XK3R58"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+    <!-- Self-hosted fonts (no third-party font CDN) — preload the most-used latin faces -->
+    <link rel="preload" href="/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/space-grotesk-700-latin.woff2" as="font" type="font/woff2" crossorigin />
 
-        gtag('config', 'G-WBC0XK3R58');
-    </script>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet" />
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Custom CSS -->
+    <!-- Compiled Tailwind v4 build (utilities + custom components + self-hosted @font-face).
+         Design tokens live in static/css/input.css (@theme); no runtime CDN. -->
     <link rel="stylesheet" href="{{ get_url(path='css/main.css') }}" />
 
-    <!-- Tailwind Configuration -->
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        dark: {
-                            bg: '#2a2e38',      /* base-100 */
-                            surface: '#343842', /* base-200 */
-                            border: '#3c404a',  /* base-300 */
-                        },
-                        light: {
-                            bg: '#FFFFFF',
-                            surface: '#F9FAFB',
-                            border: '#E5E7EB',
-                        },
-                        accent: {
-                            blue: '#378dff',   /* primary */
-                            green: '#00d3bb',  /* accent */
-                            purple: '#b071ff', /* secondary */
-                        }
-                    },
-                    fontFamily: {
-                        heading: ['Space Grotesk', 'sans-serif'],
-                        body: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    boxShadow: {
-                        'neon-blue': '0 0 20px rgba(55, 141, 255, 0.5)',
-                        'neon-green': '0 0 20px rgba(0, 211, 187, 0.5)',
-                        'neon-purple': '0 0 20px rgba(176, 113, 255, 0.5)',
-                    }
-                }
-            }
-        }
-    </script>
-
-    <script>
-        if (localStorage.getItem('theme') === 'dark') {
-            document.documentElement.classList.add('dark');
-        } else {
+        // Dark mode is the default; only switch to light if the user explicitly chose it.
+        if (localStorage.getItem('theme') === 'light') {
             document.documentElement.classList.remove('dark');
+        } else {
+            document.documentElement.classList.add('dark');
         }
     </script>
 
@@ -233,11 +177,10 @@
                 <!-- Logo -->
                 <div class="flex items-center">
                     <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}"
-                        class="cyber-logo font-heading text-3xl font-bold tracking-tight cursor-pointer"
+                        class="flex items-center gap-2.5 font-heading text-3xl font-bold tracking-tight cursor-pointer group"
                         aria-label="Resysto - Cyber Resilience Platform">
-                        <span class="text-accent-blue glow-text">re</span><span
-                            class="text-accent-green glow-text">sys</span><span
-                            class="text-accent-purple glow-text">to</span>
+                        {{ brand::logo_mark(class="h-8 w-8 text-gray-900 dark:text-white transition-transform duration-300 group-hover:-translate-y-0.5") }}
+                        <span>{{ brand::wordmark() }}</span>
                     </a>
                 </div>
 
@@ -464,18 +407,13 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
                 <!-- Brand & Company Info -->
                 <div class="space-y-6">
-                    <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}" class="inline-block text-3xl font-heading font-extrabold tracking-tight">
-                        <span class="text-accent-blue glow-text">re</span><span
-                            class="text-accent-green glow-text">sys</span><span
-                            class="text-accent-purple glow-text">to</span>
+                    <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}" class="inline-flex items-center gap-2.5 text-3xl font-heading font-extrabold tracking-tight">
+                        {{ brand::logo_mark(class="h-8 w-8 text-gray-900 dark:text-white") }}
+                        <span>{{ brand::wordmark() }}</span>
                     </a>
                     <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-xs">
                         {% if lang == 'it' %}Piattaforma centrale di Cyber Resilience per governare e gestire processi e strumenti di cybersecurity.{% else %}Central Cyber Resilience platform to govern and manage cybersecurity and data protection processes.{% endif %}
                     </p>
-                    <div class="text-sm text-gray-500 dark:text-gray-500 space-y-1">
-                        <p class="font-semibold text-gray-700 dark:text-gray-300">Agora Security S.r.l.</p>
-                        <p>P.IVA IT04450760246</p>
-                    </div>
                 </div>
 
                 <!-- Solutions -->
@@ -519,12 +457,11 @@
             <!-- Bottom Bar -->
             <div class="pt-8 border-t border-gray-200 dark:border-dark-border flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-gray-500 dark:text-gray-500 text-xs text-center md:text-left">
-                    © 2025 Resysto.io | A proudly developed product by <a href="https://agorasecurity.it" target="_blank" class="hover:text-accent-blue transition-colors underline underline-offset-2">Agora Security Srl</a>
+                    © 2024–2026 Resysto.io | A product developed by Agorà Security S.r.l. — P.IVA 04450760246
                 </p>
-                <div class="flex flex-wrap justify-center gap-4 md:gap-6 text-xs">
-                    <a href="#" class="text-gray-500 hover:text-accent-blue transition-colors">Privacy Policy</a>
-                    <a href="#" class="text-gray-500 hover:text-accent-blue transition-colors">Cookie Policy</a>
-                    <a href="#" class="text-gray-500 hover:text-accent-blue transition-colors">{% if lang == 'it' %}Termini di Servizio{% else %}Terms of Service{% endif %}</a>
+                <div class="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-500">
+                    <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}privacy/" class="hover:text-accent-blue transition-colors">Privacy Policy</a>
+                    <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}cookie/" class="hover:text-accent-blue transition-colors">Cookie Policy</a>
                 </div>
             </div>
         </div>
