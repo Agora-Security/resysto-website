@@ -24,7 +24,7 @@ jobs:
       ZOLA_VERSION: "0.22.1"
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install Zola
         run: |
@@ -32,14 +32,14 @@ jobs:
           sudo mv zola /usr/local/bin/
 
       - name: Configure Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       # CSS (static/css/main.css) is pre-built and committed; we only run Zola.
       - name: Build site
         run: zola build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: public
 
@@ -52,4 +52,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
