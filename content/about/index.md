@@ -5,8 +5,7 @@ template = "about.html"
 
 [extra]
 # Hero Section
-kicker = "OUR STORY"
-hero_title = "Why we built resysto"
+hero_title = "Why we built <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span>"
 hero_subtitle = "Programmatic security for real-world teams, from SMB to enterprise."
 hero_cta_primary_text = "Meet us"
 hero_cta_primary_url = "#company"
@@ -14,8 +13,8 @@ hero_cta_secondary_text = "Get in Touch"
 hero_cta_secondary_url = "#contact"
 
 # About resysto Section
-about_title = "About resysto"
-about_text = "resysto was created to help organizations move from ad-hoc security work to a programmatic approach. We believe that effective cybersecurity management should not require a massive budget or a team of specialists—it should be accessible, structured, and measurable for organizations of all sizes."
+about_title = "About <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span>"
+about_text = "resysto was created to help organizations move from ad-hoc security work to a programmatic approach. We believe that effective cybersecurity management must not require a massive budget or a team of specialists—it must be accessible, structured, and measurable for organizations of all sizes."
 
 # Mission Section
 mission_title = "Our Mission"
@@ -26,7 +25,7 @@ mission_text = "To democratize enterprise-grade cybersecurity management, making
 scenarios_title = "Real-World Scenarios"
 
 # Solutions Section (title must be before arrays)
-solutions_title = "How resysto Solves These Problems"
+solutions_title = "How <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span> Solves These Problems"
 
 # Agora Security Section (all simple values must be before arrays)
 agora_title = "About us"
@@ -75,11 +74,11 @@ issues = [
 [[extra.solutions]]
 title = "For SMBs"
 solutions = [
-    "Virtual CISO: Complete governance framework without a full-time hire",
-    "Guided Implementation: Step-by-step workflows and templates",
-    "Automated Evidence: Collect compliance proof as you work",
-    "Affordable Access: Enterprise capabilities at SMB pricing",
-    "Quick Time-to-Value: Start seeing results in weeks, not months"
+    "Turnkey Solution: A turnkey product in two directions: real operations and procedural compliance.",
+    "GRC Consulting Support: Dedicated support and consulting approach, backed by years of internal expertise in GRC (Governance, Risk, and Compliance).",
+    "Affordable Compliance for SMEs: Compliance and certifications at a manageable cost tailored to SME budgets, keeping companies competitive in markets that require security certifications.",
+    "Actionable Governance: We relieve companies of manually compiling questionnaires, making cybersecurity governance practical and action-oriented rather than theoretical.",
+    "Real Visibility for Managers: Clear visibility for managers into the actual state of company cyber protection, built on concrete data instead of questionnaire answers."
 ]
 
 [[extra.solutions]]

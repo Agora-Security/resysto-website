@@ -30,10 +30,12 @@
 {% block content %}
 
 <!-- Hero Section -->
-<section class="container mx-auto px-6 py-20 text-center">
+<section class="container mx-auto px-6 pt-20 pb-10 text-center">
+    {% if page.extra.kicker %}
     <p class="text-accent-blue text-sm font-semibold tracking-wider uppercase mb-4">
-        {{ page.extra.kicker | default(value="ACCESS") }}
+        {{ page.extra.kicker }}
     </p>
+    {% endif %}
     
     <h1 class="text-5xl md:text-6xl font-heading font-bold mb-6 text-gray-900 dark:text-white">
         {{ page.extra.hero_title }}
@@ -58,7 +60,7 @@
 </section>
 
 <!-- Console Selection Section -->
-<section class="container mx-auto px-6 py-20">
+<section class="container mx-auto px-6 pt-10 pb-20">
     <div class="max-w-6xl mx-auto">
         <h2 class="text-4xl font-heading font-bold text-center mb-4 text-gray-900 dark:text-white">
             {{ page.extra.console_title }}
@@ -69,7 +71,7 @@
         
         <div class="grid md:grid-cols-2 gap-8">
             {% for console in page.extra.consoles %}
-            <div id="{{ console.id }}" class="feature-card bg-dark-surface border border-dark-border rounded-xl p-8 card-hover">
+            <div id="{{ console.id }}" class="feature-card relative bg-gradient-to-br transition-all duration-300 rounded-2xl p-8 card-hover {% if loop.index == 1 %}from-accent-blue/10 via-dark-surface/90 to-dark-surface border border-accent-blue/40 hover:border-accent-blue{% else %}from-accent-green/10 via-dark-surface/90 to-dark-surface border border-accent-green/40 hover:border-accent-green{% endif %}">
                 <div class="flex items-center gap-3 mb-4">
                     <div class="p-3 bg-accent-blue/10 rounded-lg">
                         {{ console.icon | safe }}
@@ -111,7 +113,7 @@
 
 <!-- Security & Support Section -->
 <!--
-<section class="container mx-auto px-6 py-20 bg-dark-surface/30">
+<section class="container mx-auto px-6 py-20 ">
     <div class="max-w-6xl mx-auto">
         <div class="flex items-center gap-3 mb-12 justify-center">
             <svg class="w-10 h-10 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">

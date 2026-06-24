@@ -5,12 +5,11 @@ template = "roadmap.html"
 
 [extra]
 # Hero Section
-kicker = "SHIPPING PLAN"
-hero_title = "Our Product Roadmap"
-hero_subtitle = "See what's built, what's next, and where resysto is going."
+hero_title = "Product <span class=\"text-accent-blue\">Roadmap</span>"
+hero_subtitle = "See what's built and what's next."
 
 # Introduction
-intro_text = "Our development roadmap is organized into the following phases, focusing on core functionality, integrations, and intelligent automation."
+intro_text = "The development roadmap is organized into the following phases, focusing on core functionality, integrations, and intelligent automation."
 
 # Labels
 completed_label = "Completed"
@@ -28,8 +27,8 @@ disclaimer_contact_text = "or contact us at"
 disclaimer_email = "support@resysto.io"
 
 # CTA Section
-cta_title = "Want to Influence Our Roadmap?"
-cta_description = "We value customer feedback. Share your priorities and help shape the future of resysto."
+cta_title = "Your feedback is valuable"
+cta_description = "Share your priorities and help shape the future of resysto."
 cta_primary_text = "Get Started"
 cta_primary_url = "/access"
 cta_secondary_text = "Contact Us"
@@ -37,7 +36,7 @@ cta_secondary_url = "/about#contact"
 
 # Phases
 [[extra.phases]]
-name = "Phase 1 · virtual-CISO (vCISO) App Foundation"
+name = "Phase 1<br>virtual-CISO (vCISO) App Foundation"
 timeline = "Q2–Q3 2025"
 description = "Core launch scope for virtual-CISO application, and foundational app modules."
 status = "completed"
@@ -54,13 +53,13 @@ in_progress = [
 ]
 
 [[extra.phases]]
-name = "Phase 2 · MSSP Integration, Incident Management application, and first AI services integrations"
+name = "Phase 2<br>MSSP Integration, Incident Management application, and first AI services integrations"
 timeline = "Q4 2025"
 description = "Focus on MSSP enablement, automation, AI-assisted workflows."
-status = "in-progress"
-status_label = "In Progress"
-status_icon = "🔄"
-color = "blue"
+status = "completed"
+status_label = "Completed"
+status_icon = "✅"
+color = "green"
 deliverables = [
     { icon = "🌐", title = "MSSP Multi-tenant Access", description = "Dedicated console for managed service providers" },
     { icon = "🚨", title = "Incident Management", description = "Improve the platform with an Incident Management solution, for Incident Response workflows and automation" },
@@ -76,13 +75,13 @@ technical_focus = [
 ]
 
 [[extra.phases]]
-name = "Phase 3 · Tools integrations and advance reporting"
+name = "Phase 3<br>Tools integrations and advance reporting"
 timeline = "Q1–Q2 2026"
 description = "Focus on tech tools integrations, reporting, and enterprise controls."
-status = "planned"
-status_label = "Planned"
-status_icon = "🎯"
-color = "purple"
+status = "in-progress"
+status_label = "In Progress"
+status_icon = "🔄"
+color = "blue"
 deliverables = [
     { icon = "🔗", title = "External Tool Integration", description = "First‑party integrations with popular security tools" },
     { icon = "📊", title = "Enhanced Reporting", description = "Advanced analytics and compliance reporting" },
@@ -95,7 +94,7 @@ technical_focus = [
 ]
 
 [[extra.phases]]
-name = "Future Considerations · Phase 4+"
+name = "Phase 4<br>Future Considerations"
 timeline = "Q3 2026+"
 description = "Ideas we intend to explore and validate with users."
 status = "future"

@@ -2,8 +2,8 @@
   "name": "resysto-website",
   "private": true,
   "scripts": {
-    "dev": "tailwindcss -i ./assets/css/main.css -o ./static/css/main.css --watch",
-    "build:css": "tailwindcss -i ./assets/css/main.css -o ./static/css/main.css --minify",
+    "dev": "tailwindcss -i ./static/css/input.css -o ./static/css/main.css --watch",
+    "build:css": "tailwindcss -i ./static/css/input.css -o ./static/css/main.css --minify",
     "build": "npm run build:css && zola build",
     "serve": "zola serve"
   },

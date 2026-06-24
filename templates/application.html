@@ -1,0 +1,406 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section
+    class="container mx-auto px-6 pt-24 pb-12 md:pt-32 md:pb-16 border-b border-light-border dark:border-dark-border">
+    <div class="max-w-4xl">
+        <div class="flex items-center gap-4 mb-4">
+            <h1 class="text-4xl md:text-5xl font-heading font-bold text-gray-900 dark:text-white">
+                {{ page.extra.name }}
+            </h1>
+        </div>
+        <p class="text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
+            {{ page.extra.description }}
+        </p>
+    </div>
+</section>
+
+<!-- Application Modules Section -->
+<section class="container mx-auto px-6 py-12 md:py-20 flex flex-col md:flex-row gap-12" id="modules">
+
+    <!-- Sidebar -->
+    <aside class="md:w-1/3 lg:w-1/4 flex-shrink-0">
+        <div class="sticky top-24 space-y-2" id="modules-sidebar">
+            {% for module in page.extra.modules %}
+            <button onclick="selectModule('{{ loop.index0 }}')" id="tab-btn-{{ loop.index0 }}"
+                class="module-tab-btn w-full text-left px-5 py-4 rounded-xl transition-all duration-200 border {% if loop.first %}border-accent-blue bg-accent-blue/10 text-accent-blue{% else %}border-transparent hover:border-gray-200 dark:hover:border-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800/50{% endif %} flex items-center justify-between group cursor-pointer">
+                <div class="flex items-center gap-3">
+                    <div
+                        class="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 group-hover:bg-white dark:group-hover:bg-gray-700 transition-colors">
+                        {% if module.icon %}
+                        {{ module.icon | safe }}
+                        {% else %}
+                        <svg class="w-5 h-5 text-current" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        {% endif %}
+                    </div>
+                    <span class="font-semibold">{{ module.name }}</span>
+                </div>
+                {% if module.status == "implemented" %}
+                <span class="w-2 h-2 rounded-full bg-emerald-500" title="{{ module.status_label }}"></span>
+                {% elif module.status == "progress" %}
+                <span class="w-2 h-2 rounded-full bg-accent-purple" title="{{ module.status_label }}"></span>
+                {% elif module.status == "planned" %}
+                <span class="w-2 h-2 rounded-full bg-blue-500" title="{{ module.status_label }}"></span>
+                {% endif %}
+            </button>
+            {% endfor %}
+        </div>
+    </aside>
+
+    <!-- Content Area -->
+    <main class="md:w-2/3 lg:w-3/4 min-h-[60vh]">
+        {% for module in page.extra.modules %}
+        <div id="module-content-{{ loop.index0 }}"
+            class="module-content relative {% if not loop.first %}hidden opacity-0{% else %}opacity-100{% endif %} transition-opacity duration-500 ease-in-out">
+            <!-- Decorative background elements -->
+            <div
+                class="absolute top-1/2 right-1/4 w-64 h-64 bg-accent-blue/5 dark:bg-accent-blue/10 rounded-full blur-[80px] -z-10 pointer-events-none">
+            </div>
+            <div
+                class="absolute bottom-1/4 left-1/4 w-64 h-64 bg-accent-green/5 dark:bg-accent-green/10 rounded-full blur-[80px] -z-10 pointer-events-none">
+            </div>
+
+            <div class="mb-8">
+                <div class="flex flex-col sm:flex-row sm:items-center gap-4 mb-4">
+                    <h2 class="text-3xl md:text-4xl font-heading font-bold text-gray-900 dark:text-white">
+                        {{ module.name }}
+                    </h2>
+                    <div class="flex items-center">
+                        {% if module.status == "implemented" %}
+                        <span class="status-badge status-implemented">{{ module.status_label }}</span>
+                        {% elif module.status == "progress" %}
+                        <span class="status-badge status-progress">{{ module.status_label }}</span>
+                        {% elif module.status == "planned" %}
+                        <span class="status-badge status-planned">{{ module.status_label }}</span>
+                        {% endif %}
+                    </div>
+                </div>
+                <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl">
+                    {{ module.description }}
+                </p>
+            </div>
+
+            <!-- Media Gallery -->
+            {% if module.images %}
+            {% set module_idx = loop.index0 %}
+            <div class="mb-8 relative group" id="carousel-{{ module_idx }}">
+                <div
+                    class="overflow-hidden rounded-2xl shadow-xl border border-accent-purple/30 dark:border-accent-purple/40 relative bg-gradient-to-br from-accent-purple/10 via-white/80 to-white/90 dark:from-accent-purple/10 dark:via-dark-surface/90 dark:to-dark-surface backdrop-blur-xl hover:shadow-neon-purple transition-all duration-300">
+                    <!-- Images -->
+                    <div class="carousel-inner flex items-center transition-transform duration-500 ease-in-out"
+                        style="transform: translateX(0%);">
+                        {% for img in module.images %}
+                        <div class="w-full flex-shrink-0 cursor-pointer relative flex justify-center"
+                            onclick='openLightboxArray({{ module.images | json_encode | safe }}, {{ loop.index0 }})'>
+                            <img src="{{ img }}" alt="Screenshot {{ loop.index }} for {{ module.name }}"
+                                class="w-full h-auto object-contain transform hover:scale-[1.02] transition-transform duration-500 shadow-inner">
+                            <div
+                                class="absolute inset-0 bg-black/0 hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    <!-- Navigation Arrows -->
+                    {% if module.images | length > 1 %}
+                    <button
+                        class="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md text-gray-800 dark:text-gray-200 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white dark:hover:bg-gray-700 hover:scale-110"
+                        onclick="moveCarousel({{ module_idx }}, -1); event.stopPropagation();">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                            </path>
+                        </svg>
+                    </button>
+                    <button
+                        class="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-md text-gray-800 dark:text-gray-200 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 hover:bg-white dark:hover:bg-gray-700 hover:scale-110"
+                        onclick="moveCarousel({{ module_idx }}, 1); event.stopPropagation();">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <!-- Indicators -->
+                    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                        {% for img in module.images %}
+                        <button
+                            class="w-2.5 h-2.5 rounded-full transition-colors duration-300 {% if loop.first %}bg-white dark:bg-white shadow-md{% else %}bg-white/50 dark:bg-white/50{% endif %} carousel-dot-{{ module_idx }}"
+                            onclick="setCarousel({{ module_idx }}, {{ loop.index0 }}); event.stopPropagation();"></button>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            {% elif module.image %}
+            <div class="mb-8 rounded-2xl overflow-hidden shadow-xl border border-accent-blue/30 dark:border-accent-blue/40 relative bg-gradient-to-br from-accent-blue/10 via-white/80 to-white/90 dark:from-accent-blue/10 dark:via-dark-surface/90 dark:to-dark-surface backdrop-blur-xl hover:shadow-neon-blue group cursor-pointer transition-all duration-300"
+                onclick="openLightbox('{{ module.image }}')">
+                <img src="{{ module.image }}" alt="Screenshot for {{ module.name }}"
+                    class="w-full h-auto object-cover transform group-hover:scale-[1.02] transition-transform duration-500">
+                <div
+                    class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+                    <div
+                        class="opacity-0 group-hover:opacity-100 bg-white/90 dark:bg-gray-800/90 rounded-full p-4 shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                        <svg class="w-8 h-8 text-gray-900 dark:text-white" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <!-- Media Gallery Placeholder -->
+            <div
+                class="bg-gradient-to-br from-accent-blue/10 via-white/80 to-white/90 dark:from-accent-blue/10 dark:via-dark-surface/90 dark:to-dark-surface backdrop-blur-xl border border-accent-blue/30 dark:border-accent-blue/40 rounded-2xl p-8 mb-8 flex flex-col items-center justify-center min-h-[400px] text-center shadow-lg hover:shadow-neon-blue relative group transition-all duration-300">
+
+                <div class="relative z-10 flex flex-col items-center">
+                    <div
+                        class="w-20 h-20 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center mb-6 shadow-md transform group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-10 h-10 text-gray-400 dark:text-gray-500" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h4 class="text-2xl font-semibold text-gray-900 dark:text-white mb-3">{% if lang == 'it' %}Media non
+                        ancora disponibile{% else %}Media coming soon{% endif %}</h4>
+                    <p class="text-gray-500 dark:text-gray-400 max-w-md mb-6">
+                        {% if lang == 'it' %}
+                        Qui verranno inseriti screenshot e video dimostrativi interattivi per il modulo <span
+                            class="font-semibold text-gray-700 dark:text-gray-300">{{ module.name }}</span>.
+                        {% else %}
+                        Interactive screenshots and demo videos for the <span
+                            class="font-semibold text-gray-700 dark:text-gray-300">{{ module.name }}</span> module will
+                        be displayed here.
+                        {% endif %}
+                    </p>
+                    <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}access"
+                        class="inline-block px-6 py-2 rounded-full border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 text-sm font-medium hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                        {% if lang == 'it' %}Richiedi una demo{% else %}Request a demo{% endif %}
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+
+        </div>
+        {% endfor %}
+    </main>
+
+</section>
+
+<!-- Lightbox Modal -->
+<div id="image-lightbox"
+    class="fixed inset-0 z-[100] hidden items-center justify-center bg-gray-900/90 backdrop-blur-sm opacity-0 transition-opacity duration-300 cursor-zoom-out"
+    onclick="closeLightbox(event)">
+    <div class="relative max-w-[95vw] max-h-[95vh] flex items-center justify-center group"
+        onclick="event.stopPropagation()">
+        <img id="lightbox-img" src="" alt="Fullscreen screenshot"
+            class="max-w-full max-h-[95vh] object-contain rounded-xl shadow-2xl border border-gray-700">
+
+        <!-- Next/Prev Buttons -->
+        <button id="lightbox-prev"
+            class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/80 hover:scale-110 hidden"
+            onclick="navigateLightbox(-1); event.stopPropagation();">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+        <button id="lightbox-next"
+            class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 backdrop-blur-sm text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-black/80 hover:scale-110 hidden"
+            onclick="navigateLightbox(1); event.stopPropagation();">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </button>
+
+        <button
+            class="absolute -top-4 -right-4 md:-top-6 md:-right-6 bg-white dark:bg-gray-800 text-gray-900 dark:text-white rounded-full p-2 md:p-3 shadow-lg hover:scale-110 transition-transform cursor-pointer border border-gray-200 dark:border-gray-700"
+            onclick="closeLightbox(event)">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
+    </div>
+</div>
+
+<script>
+    function selectModule(index) {
+        // Hide all contents
+        document.querySelectorAll('.module-content').forEach(el => {
+            el.classList.add('hidden');
+            el.classList.remove('opacity-100');
+            el.classList.add('opacity-0');
+        });
+
+        // Reset all tabs
+        document.querySelectorAll('.module-tab-btn').forEach(btn => {
+            btn.classList.remove('border-accent-blue', 'bg-accent-blue/10', 'text-accent-blue');
+            btn.classList.add('border-transparent', 'text-gray-600', 'dark:text-gray-400');
+        });
+
+        // Show selected content and trigger animation
+        const content = document.getElementById('module-content-' + index);
+        if (content) {
+            content.classList.remove('hidden');
+            // Small delay to allow display:block to apply before changing opacity
+            setTimeout(() => {
+                content.classList.remove('opacity-0');
+                content.classList.add('opacity-100');
+            }, 50);
+        }
+
+        // Highlight selected tab
+        const btn = document.getElementById('tab-btn-' + index);
+        if (btn) {
+            btn.classList.remove('border-transparent', 'text-gray-600', 'dark:text-gray-400');
+            btn.classList.add('border-accent-blue', 'bg-accent-blue/10', 'text-accent-blue');
+        }
+
+        // Optionally update hash to allow deep linking
+        history.replaceState(null, null, '#module-' + index);
+
+        // Auto-scroll on mobile devices to the content area
+        if (window.innerWidth < 768) {
+            if (content) {
+                // Small delay to ensure display:block has fully applied
+                setTimeout(() => {
+                    const yOffset = -100; // Adjust for sticky header + some padding
+                    const y = content.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                }, 60);
+            }
+        }
+    }
+
+    // Carousel state
+    const carouselStates = {};
+
+    function initCarousels() {
+        document.querySelectorAll('[id^="carousel-"]').forEach(carousel => {
+            const id = carousel.id.replace('carousel-', '');
+            carouselStates[id] = 0;
+        });
+    }
+
+    function moveCarousel(id, direction) {
+        const carousel = document.getElementById('carousel-' + id);
+        if (!carousel) return;
+        const inner = carousel.querySelector('.carousel-inner');
+        const itemsCount = inner.children.length;
+
+        let currentIndex = carouselStates[id] || 0;
+        currentIndex = (currentIndex + direction + itemsCount) % itemsCount;
+        setCarousel(id, currentIndex);
+    }
+
+    function setCarousel(id, index) {
+        const carousel = document.getElementById('carousel-' + id);
+        if (!carousel) return;
+        const inner = carousel.querySelector('.carousel-inner');
+        const dots = carousel.querySelectorAll('.carousel-dot-' + id);
+
+        carouselStates[id] = index;
+        inner.style.transform = `translateX(-${index * 100}%)`;
+
+        dots.forEach((dot, i) => {
+            if (i === index) {
+                dot.classList.remove('bg-white/50', 'dark:bg-white/50');
+                dot.classList.add('bg-white', 'dark:bg-white', 'shadow-md');
+            } else {
+                dot.classList.add('bg-white/50', 'dark:bg-white/50');
+                dot.classList.remove('bg-white', 'dark:bg-white', 'shadow-md');
+            }
+        });
+    }
+
+    // Check hash on load
+    document.addEventListener('DOMContentLoaded', () => {
+        initCarousels();
+        const hash = window.location.hash;
+        if (hash && hash.startsWith('#module-')) {
+            const index = hash.replace('#module-', '');
+            selectModule(index);
+        }
+    });
+
+    // Lightbox state
+    let currentLightboxImages = [];
+    let currentLightboxIndex = 0;
+
+    // Lightbox functions
+    function openLightbox(imageSrc) {
+        openLightboxArray([imageSrc], 0);
+    }
+
+    function openLightboxArray(images, index) {
+        currentLightboxImages = images;
+        currentLightboxIndex = index;
+
+        const lightbox = document.getElementById('image-lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const prevBtn = document.getElementById('lightbox-prev');
+        const nextBtn = document.getElementById('lightbox-next');
+
+        lightboxImg.src = currentLightboxImages[currentLightboxIndex];
+
+        if (currentLightboxImages.length > 1) {
+            if (prevBtn) prevBtn.classList.remove('hidden');
+            if (nextBtn) nextBtn.classList.remove('hidden');
+        } else {
+            if (prevBtn) prevBtn.classList.add('hidden');
+            if (nextBtn) nextBtn.classList.add('hidden');
+        }
+
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+
+        // Small delay for transition
+        setTimeout(() => {
+            lightbox.classList.remove('opacity-0');
+            lightbox.classList.add('opacity-100');
+        }, 10);
+
+        document.body.style.overflow = 'hidden';
+    }
+
+    function navigateLightbox(direction) {
+        if (currentLightboxImages.length <= 1) return;
+        currentLightboxIndex = (currentLightboxIndex + direction + currentLightboxImages.length) % currentLightboxImages.length;
+        document.getElementById('lightbox-img').src = currentLightboxImages[currentLightboxIndex];
+    }
+
+    function closeLightbox(event) {
+        if (event) event.stopPropagation();
+
+        const lightbox = document.getElementById('image-lightbox');
+        lightbox.classList.remove('opacity-100');
+        lightbox.classList.add('opacity-0');
+
+        setTimeout(() => {
+            lightbox.classList.remove('flex');
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = '';
+        }, 300);
+    }
+
+    document.addEventListener('keydown', function (event) {
+        const lightbox = document.getElementById('image-lightbox');
+        if (!lightbox || lightbox.classList.contains('hidden')) return;
+
+        if (event.key === "Escape") {
+            closeLightbox();
+        } else if (event.key === "ArrowLeft") {
+            navigateLightbox(-1);
+        } else if (event.key === "ArrowRight") {
+            navigateLightbox(1);
+        }
+    });
+</script>
+
+{% endblock content %}

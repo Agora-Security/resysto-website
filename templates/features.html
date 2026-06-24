@@ -1,163 +1,81 @@
 {% extends "base.html" %}
 
 {% block content %}
+{% set extra_data = section.extra | default(value=page.extra) %}
 
 <!-- Hero Section -->
-<section id="hero" class="container mx-auto px-6 py-24 md:py-32">
+<section id="hero" class="container mx-auto px-6 pt-24 pb-20 md:pt-32 md:pb-20">
     <div class="max-w-4xl mx-auto text-center">
+        {% if extra_data.kicker %}
         <p class="text-accent-green text-sm font-semibold uppercase tracking-widest mb-6">
-            {{ page.extra.kicker | default(value="WHAT YOU CAN DO") }}
+            {{ extra_data.kicker }}
         </p>
+        {% endif %}
         
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight">
-            Explore resysto <span class="text-accent-blue glow-blue">Features</span>
+            {{ extra_data.hero_title | default(value="Explore resysto Features") | safe }}
         </h1>
         
         <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-12 leading-relaxed">
-            {{ page.extra.hero_subtitle | default(value="Applications and services designed for resilient, auditable security operations.") }}
+            {{ extra_data.hero_subtitle | default(value="Applications and services designed for resilient, auditable security operations.") }}
         </p>
         
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button type="button" onclick="document.getElementById('capabilities').scrollIntoView({behavior: 'smooth'})" class="interactive-element px-8 py-4 bg-accent-blue text-dark-bg font-semibold rounded-lg glow-blue hover:bg-accent-green transition-all cursor-pointer">
-                See capabilities
+                {{ extra_data.hero_cta_primary | default(value="See capabilities") }}
             </button>
-            <button type="button" onclick="window.location.href='{{config.base_url}}/access/'" class="interactive-element px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple cursor-pointer">
-                Access platform
+            <button type="button" onclick="window.location.href='{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}access/'" class="interactive-element px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple cursor-pointer">
+                {{ extra_data.hero_cta_secondary | default(value="Access platform") }}
             </button>
         </div>
     </div>
 </section>
 
-<!-- Features List Section -->
-<section id="capabilities" class="container mx-auto px-6 py-20">
-    
-    {% for app in page.extra.applications %}
-    <!-- Application Section -->
-    <div class="mb-20">
-        <div class="max-w-5xl mx-auto">
-            <!-- Category Header -->
-            <div class="mb-8 pb-6 border-b border-light-border dark:border-dark-border">
-                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
-                    <h2 class="text-4xl md:text-5xl font-heading font-bold text-gray-900 dark:text-white">
-                        {{ app.name }}
-                    </h2>
-                    {% if app.status == "implemented" %}
-                    <span class="status-badge status-implemented w-fit">{{ app.status_label }}</span>
-                    {% elif app.status == "beta" %}
-                    <span class="status-badge status-beta w-fit">{{ app.status_label }}</span>
-                    {% elif app.status == "progress" %}
-                    <span class="status-badge status-progress w-fit">{{ app.status_label }}</span>
-                    {% elif app.status == "planned" %}
-                    <span class="status-badge status-planned w-fit">{{ app.status_label }}</span>
-                    {% endif %}
-                </div>
-                <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-                    {{ app.description }}
-                </p>
-            </div>
-            
-            <!-- Sub-modules Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                {% for module in app.modules %}
-                <div class="feature-card bg-light-surface dark:bg-dark-surface border border-light-border dark:border-dark-border rounded-xl p-6 hover:border-accent-green transition-all interactive-element card-hover">
-                    <div class="flex items-start justify-between mb-4">
-                        <div class="p-3 bg-accent-green/10 rounded-lg icon-hover">
-                            {% if module.icon %}
-                            {{ module.icon | safe }}
-                            {% else %}
-                            <svg class="w-6 h-6 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                        {% endif %}
-                    </div>
-                        {% if module.status %}
-                            {% if module.status == "implemented" %}
-                            <span class="status-badge status-implemented">{{ module.status_label }}</span>
-                            {% elif module.status == "beta" %}
-                            <span class="status-badge status-beta">{{ module.status_label }}</span>
-                            {% elif module.status == "progress" %}
-                            <span class="status-badge status-progress">{{ module.status_label }}</span>
-                            {% elif module.status == "planned" %}
-                            <span class="status-badge status-planned">{{ module.status_label }}</span>
-                            {% endif %}
-                        {% else %}
-                            {% if app.status == "implemented" %}
-                            <span class="status-badge status-implemented">{{ app.status_label }}</span>
-                            {% elif app.status == "beta" %}
-                            <span class="status-badge status-beta">{{ app.status_label }}</span>
-                            {% elif app.status == "progress" %}
-                            <span class="status-badge status-progress">{{ app.status_label }}</span>
-                            {% elif app.status == "planned" %}
-                            <span class="status-badge status-planned">{{ app.status_label }}</span>
-                            {% endif %}
-                        {% endif %}
-                    </div>
-                    <h3 class="text-xl font-heading font-semibold mb-3 text-gray-900 dark:text-white">
-                        {{ module.name }}
-                    </h3>
-                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                        {{ module.description }}
-                    </p>
-                </div>
-                {% endfor %}
-                
-            </div>
-        </div>
-    </div>
-    {% endfor %}
+<!-- Features Summary Grid Section -->
+<section id="capabilities" class="container mx-auto px-6 py-20 mb-20 relative">
+    <!-- Decorative background elements for glass effect -->
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-blue/10 dark:bg-accent-blue/20 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-purple/10 dark:bg-accent-purple/20 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-accent-green/10 dark:bg-accent-green/20 rounded-full blur-[100px] pointer-events-none -z-10"></div>
 
-</section>
-
-<!-- Platform Services Section -->
-{% if page.extra.platform_services %}
-<section id="platform-services" class="container mx-auto px-6 py-20">
-    <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-12">
-            <h2 class="text-4xl md:text-5xl font-heading font-bold text-gray-900 dark:text-white mb-4">
-                {{ page.extra.platform_services_title | default(value="Platform Services") }}
-            </h2>
-            <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed max-w-3xl mx-auto">
-                {{ page.extra.platform_services_description | default(value="Advanced services that power the Resysto platform") }}
-            </p>
-        </div>
-        
-        <div class="grid md:grid-cols-3 gap-6">
-            {% for service in page.extra.platform_services %}
-            <div class="feature-card bg-light-surface dark:bg-dark-surface border border-light-border dark:border-dark-border rounded-xl p-6 hover:border-accent-purple transition-all interactive-element card-hover">
-                <div class="flex items-start justify-between mb-4">
-                    <div class="p-3 bg-accent-purple/10 rounded-lg icon-hover">
-                        {% if service.icon %}
-                        {{ service.icon | safe }}
-                        {% else %}
-                        <svg class="w-6 h-6 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 011.37.49l1.296 2.247a1.125 1.125 0 01-.26 1.431l-1.003.827c-.293.24-.438.613-.431.992a6.759 6.759 0 010 .255c-.007.378.138.75.43.99l1.005.828c.424.35.534.954.26 1.43l-1.298 2.247a1.125 1.125 0 01-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.57 6.57 0 01-.22.128c-.331.183-.581.495-.644.869l-.213 1.28c-.09.543-.56.941-1.11.941h-2.594c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 01-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 01-1.369-.49l-1.297-2.247a1.125 1.125 0 01.26-1.431l1.004-.827c.292-.24.437-.613.43-.992a6.932 6.932 0 010-.255c.007-.378-.138-.75-.43-.99l-1.004-.828a1.125 1.125 0 01-.26-1.43l1.297-2.247a1.125 1.125 0 011.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.087.22-.128.332-.183.582-.495.644-.869l.214-1.281z" />
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                        </svg>
-                        {% endif %}
-                    </div>
-                    {% if service.status == "implemented" %}
-                    <span class="status-badge status-implemented">{{ service.status_label }}</span>
-                    {% elif service.status == "beta" %}
-                    <span class="status-badge status-beta">{{ service.status_label }}</span>
-                    {% elif service.status == "progress" %}
-                    <span class="status-badge status-progress">{{ service.status_label }}</span>
-                    {% elif service.status == "planned" %}
-                    <span class="status-badge status-planned">{{ service.status_label }}</span>
-                    {% endif %}
-                </div>
-                <h3 class="text-xl font-heading font-semibold mb-3 text-gray-900 dark:text-white">
-                    {{ service.name }}
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 relative z-10">
+        {% for app in extra_data.applications %}
+        {% set color = app.color | default(value="green") %}
+        <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}features/{{ app.slug }}/" class="feature-card bg-gradient-to-br from-accent-{{ color }}/10 via-white/80 to-white/90 dark:from-accent-{{ color }}/20 dark:via-dark-surface/60 dark:to-dark-surface/60 backdrop-blur-xl border border-accent-{{ color }}/30 dark:border-accent-{{ color }}/30 rounded-xl p-8 hover:border-accent-{{ color }} transition-all duration-300 interactive-element shadow-lg hover:shadow-neon-{{ color }} flex flex-col h-full group">
+            <div class="flex items-start justify-between mb-6">
+                <h3 class="text-2xl font-heading font-bold text-gray-900 dark:text-white group-hover:text-accent-{{ color }} transition-colors">
+                    {{ app.name }}
                 </h3>
-                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                    {{ service.description }}
-                </p>
             </div>
-            {% endfor %}
-        </div>
+            <p class="text-gray-600 dark:text-gray-400 text-base leading-relaxed flex-grow mb-6">
+                {{ app.description }}
+            </p>
+            <div class="flex items-center text-accent-{{ color }} font-semibold mt-auto">
+                <span class="mr-2">{% if lang == 'it' %}Esplora moduli{% else %}Explore modules{% endif %}</span>
+                <svg class="w-4 h-4 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </div>
+        </a>
+        {% endfor %}
+
+        <!-- Platform Services Summary Card -->
+        {% if extra_data.platform_services %}
+        {% set ps_item = extra_data.platform_services | first %}
+        <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}features/{{ ps_item.slug }}/" class="feature-card bg-gradient-to-br from-accent-purple/10 via-white/80 to-white/90 dark:from-accent-purple/20 dark:via-dark-surface/60 dark:to-dark-surface/60 backdrop-blur-xl border border-accent-purple/30 dark:border-accent-purple/30 rounded-xl p-8 hover:border-accent-purple transition-all duration-300 interactive-element shadow-lg hover:shadow-neon-purple flex flex-col h-full group">
+            <div class="flex items-start justify-between mb-6">
+                <h3 class="text-2xl font-heading font-bold text-gray-900 dark:text-white group-hover:text-accent-purple transition-colors">
+                    {{ ps_item.name }}
+                </h3>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 text-base leading-relaxed flex-grow mb-6">
+                {{ ps_item.description }}
+            </p>
+            <div class="flex items-center text-accent-purple font-semibold mt-auto">
+                <span class="mr-2">{% if lang == 'it' %}Esplora servizi{% else %}Explore services{% endif %}</span>
+                <svg class="w-4 h-4 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+            </div>
+        </a>
+        {% endif %}
     </div>
 </section>
-{% endif %}
 
 {% endblock content %}

@@ -158,31 +158,41 @@ module.exports = {
       // Enhanced color palette for high contrast
       colors: {
         'primary': {
-          50: '#eff6ff',
-          100: '#dbeafe',
-          200: '#bfdbfe',
-          300: '#93c5fd',
-          400: '#60a5fa',
-          500: '#3b82f6',
-          600: '#2563eb',
-          700: '#1d4ed8',
-          800: '#1e40af',
-          900: '#1e3a8a',
-          950: '#172554',
+          DEFAULT: '#378dff', // primary blue
+          50: '#ecf3fe',
+          100: '#dce8fd',
+          200: '#bed2fc',
+          300: '#90b3fb',
+          400: '#5c8ef7',
+          500: '#378dff',
+          600: '#236ceb',
+          700: '#1b56ce',
+          800: '#1b47a7',
+          900: '#1c3e85',
+          950: '#112351',
+        },
+        'secondary': {
+          DEFAULT: '#b071ff', // secondary purple
         },
         'accent': {
-          50: '#f0fdf4',
-          100: '#dcfce7',
-          200: '#bbf7d0',
-          300: '#86efac',
-          400: '#4ade80',
-          500: '#22c55e',
-          600: '#16a34a',
-          700: '#15803d',
-          800: '#166534',
-          900: '#14532d',
-          950: '#052e16',
+          DEFAULT: '#00d3bb', // accent turquoise
+          50: '#e0fbf7',
+          100: '#bbf4ed',
+          200: '#78ebd9',
+          300: '#00d3bb',
+          400: '#00d3bb',
+          500: '#00d3bb',
+          600: '#00ab96',
+          700: '#008a79',
+          800: '#006d60',
+          900: '#00594f',
+          950: '#00332d',
         },
+        'dark': {
+          'bg': '#2a2e38',      // base-100 slate
+          'surface': '#343842', // base-200 slate
+          'border': '#3c404a',  // base-300 slate
+        }
       },
       
       // Border radius for modern design

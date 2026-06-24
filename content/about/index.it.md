@@ -5,8 +5,7 @@ template = "about.html"
 
 [extra]
 # Hero Section
-kicker = "LA NOSTRA STORIA"
-hero_title = "Perché abbiamo creato resysto"
+hero_title = "Perché abbiamo creato <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span>"
 hero_subtitle = "Sicurezza programmatica per team reali, dalle PMI alle aziende."
 hero_cta_primary_text = "Scopri chi siamo"
 hero_cta_primary_url = "#company"
@@ -14,19 +13,19 @@ hero_cta_secondary_text = "Contattaci"
 hero_cta_secondary_url = "#contact"
 
 # About resysto Section
-about_title = "Chi è resysto"
-about_text = "resysto è stato creato per aiutare le organizzazioni a passare da un lavoro di sicurezza ad-hoc a un approccio programmatico. Crediamo che una gestione efficace della cybersecurity non dovrebbe richiedere un budget enorme o un team di specialisti: dovrebbe essere accessibile, strutturata e misurabile per organizzazioni di tutte le dimensioni."
+about_title = "Chi è <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span>"
+about_text = "resysto è stato creato per aiutare le organizzazioni a passare da un lavoro di sicurezza ad-hoc a un approccio programmatico. Crediamo che una gestione efficace della cybersecurity non deve richiedere un budget enorme o un team di specialisti: deve essere accessibile, strutturata e misurabile per organizzazioni di tutte le dimensioni."
 
 # Mission Section
 mission_title = "La Nostra Missione"
 mission_icon = '<svg class="w-8 h-8 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" /></svg>'
-mission_text = "Democratizzare la gestione della cybersecurity di livello aziendale, rendendola accessibile e attuabile per organizzazioni di tutte le dimensioni attraverso automazione intelligente, flussi di lavoro chiari e pratiche di sicurezza basate su prove."
+mission_text = "Rendere la cybersecurity di livello Enterprise accessibile e concreta per organizzazioni di ogni dimensione, grazie a un'automazione intelligente, flussi di lavoro chiari e procedure di sicurezza basate su dati reali."
 
 # Real-World Scenarios
 scenarios_title = "Scenari del Mondo Reale"
 
 # Solutions Section (title must be before arrays)
-solutions_title = "Come resysto Risolve Questi Problemi"
+solutions_title = "Come <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span> Risolve Questi Problemi"
 
 # Agora Security Section (all simple values must be before arrays)
 agora_title = "Chi siamo"
@@ -75,11 +74,11 @@ issues = [
 [[extra.solutions]]
 title = "Per le PMI"
 solutions = [
-    "CISO Virtuale: Framework di governance completo senza assunzione a tempo pieno",
-    "Implementazione Guidata: Flussi di lavoro e template passo-passo",
-    "Prove Automatizzate: Raccolta prove di conformità mentre lavori",
-    "Accesso Conveniente: Capacità aziendali a prezzi per PMI",
-    "Rapido Time-to-Value: Inizia a vedere risultati in settimane, non mesi"
+    "Soluzione Chiave in Mano: Un prodotto chiave in mano in due direzioni: l'operatività reale e la conformità procedurale.",
+    "Supporto Consulenziale GRC: Accompagnamento e approccio consulenziale d'eccellenza, forte di un'esperienza pluriennale e competenze interne in materia GRC (Governance, Risk and Compliance).",
+    "Costi Convenienti per PMI: Compliance e certificazioni ad un costo gestibile e adeguato al budget delle PMI, permettendo di accedere a mercati e consorzi che esigono elevati standard di sicurezza.",
+    "Governance Concreta e Attuativa: Sgraviamo le aziende dalla compilazione manuale di lunghi questionari, trasformando la governance in azioni reali e non solo teoriche.",
+    "Visibilità Reale per i Manager: Chiara visibilità dello stato dell'arte della protezione cyber aziendale a beneficio dei manager, basata su dati concreti e non su risposte teoriche."
 ]
 
 [[extra.solutions]]

@@ -5,26 +5,25 @@ template = "partners.html"
 
 [extra]
 # Hero Section
-kicker = "ECOSISTEMA"
-hero_title = "Diventa Partner di resysto"
+hero_title = "Diventa <span class=\"text-accent-blue\">Partner</span> di <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span>"
 hero_subtitle = "Unisciti a MSP/MSSP e partner tecnologici che costruiscono operazioni di sicurezza resilienti."
 hero_cta_primary_text = "Contatta il Team Partner"
 hero_cta_primary_url = "mailto:partners@resysto.io"
 hero_cta_secondary_text = "Vedi i Vantaggi"
 hero_cta_secondary_url = "#mssp-partners"
-intro_text = "Unisciti al nostro ecosistema in crescita di partner che stanno trasformando la gestione della cybersecurity con resysto."
+intro_text = "Un ecosistema in crescita di partner che stanno trasformando la gestione della cybersecurity con resysto."
 
 # MSP/MSSP Partners Section (simple values must be before arrays)
-mssp_title = "Partner MSP/MSSP (In Implementazione)"
+mssp_title = "Partner MSP/MSSP"
 mssp_why_title = "Perché Diventare Partner di resysto?"
 mssp_why_text = "Usa resysto per fornire servizi di cybersecurity gestiti su scala. La nostra piattaforma ti consente di standardizzare le operazioni di sicurezza su tutti i tuoi clienti, ridurre il carico operativo e dimostrare valore misurabile."
 mssp_benefits_title = "Vantaggi per i Partner"
 mssp_ideal_title = "Partner Ideali"
 
 # Technical Partners Section
-tech_title = "Partner Tecnici (Pianificato)"
+tech_title = "Partner Tecnici"
 tech_integration_title = "Opportunità di Integrazione"
-tech_integration_text = "Integra i tuoi strumenti IT/Cybersecurity con resysto per creare una piattaforma unificata di operazioni di sicurezza. Stiamo costruendo un ecosistema aperto dove gli strumenti migliori lavorano insieme senza problemi."
+tech_integration_text = "Integra gli strumenti IT/Cybersecurity per creare una piattaforma unificata di operazioni di sicurezza. Un ecosistema aperto dove gli strumenti migliori lavorano insieme senza problemi."
 tech_integration_types_title = "Tipi di Integrazione"
 tech_benefits_title = "Vantaggi per i Partner"
 tech_categories_title = "Categorie di Integrazione"
@@ -34,7 +33,7 @@ success_title = "Storie di Successo dei Partner"
 success_text = "Prossimamente: Casi di studio e storie di successo dalla nostra crescente comunità di partner."
 
 # Final CTA
-final_cta_text = "Pronto a unirti al nostro ecosistema di partner? Contattaci oggi per discutere di come resysto può migliorare i tuoi servizi di cybersecurity."
+final_cta_text = "Contattaci oggi e ti aiuteremo con <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span> a migliorare i tuoi servizi di cybersecurity."
 
 mssp_benefits = [
     "Console MSSP Dedicata con gestione multi-tenant",

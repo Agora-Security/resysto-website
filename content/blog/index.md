@@ -5,8 +5,7 @@ template = "blog.html"
 
 [extra]
 # Hero Section
-kicker = "INSIGHTS"
-hero_title = "resysto Blog"
+hero_title = "<span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span> <span class='text-accent-blue'>Blog</span>"
 hero_subtitle = "Product updates, how-tos, security insights, and case studies."
 hero_cta_secondary_text = "Back to Home"
 hero_cta_secondary_url = "/"

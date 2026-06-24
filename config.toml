@@ -43,6 +43,8 @@ contact = "Contact"
 privacy = "Privacy"
 terms = "Terms"
 language = "Language"
+status_active = "Online"
+status_in_progress = "Developing"
 
 [languages.it.translations]
 # Italian translations
@@ -57,10 +59,24 @@ contact = "Contatto"
 privacy = "Privacy"
 terms = "Termini"
 language = "Lingua"
+status_active = "Online"
+status_in_progress = "In sviluppo"
 
-[markdown]
-highlight_code = true
-highlight_theme = "ayu-dark"
+# ==============================================================================
+# CONFIGURAZIONE MARKDOWN & HIGHLIGHTING (Compatibilità Multi-Versione Zola)
+# ==============================================================================
+
+# --- OPZIONE A: Per Zola v0.22.0 o successive (Es. Asahi Linux compilato da sorgente) ---
+[markdown.highlighting]
+enabled = true
+theme = "ayu-dark"
+
+# --- OPZIONE B: Per Zola v0.19.x o precedenti (Rimuovi il '#' per attivare se usi versioni vecchie) ---
+# [markdown]
+# highlight_code = true
+# highlight_theme = "ayu-dark"
+
+
 
 [extra]
 site_name = "resysto"

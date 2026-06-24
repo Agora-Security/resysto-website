@@ -5,26 +5,25 @@ template = "partners.html"
 
 [extra]
 # Hero Section
-kicker = "ECOSYSTEM"
-hero_title = "Partner with resysto"
+hero_title = "<span class=\"text-accent-blue\">Partner</span> with <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span>"
 hero_subtitle = "Join MSP/MSSP and technology partners building resilient security operations."
 hero_cta_primary_text = "Contact Partner Team"
 hero_cta_primary_url = "mailto:partners@resysto.io"
 hero_cta_secondary_text = "See Benefits"
 hero_cta_secondary_url = "#mssp-partners"
-intro_text = "Join our growing ecosystem of partners who are transforming cybersecurity management with resysto."
+intro_text = "A growing ecosystem of partners who are transforming cybersecurity management with resysto."
 
 # MSP/MSSP Partners Section (simple values must be before arrays)
-mssp_title = "MSP/MSSP Partners (Implementing)"
+mssp_title = "MSP/MSSP Partners"
 mssp_why_title = "Why Partner with resysto?"
 mssp_why_text = "Use resysto to deliver managed cybersecurity services at scale. Our platform enables you to standardize security operations across all your clients, reduce operational overhead, and demonstrate measurable value."
 mssp_benefits_title = "Partner Benefits"
 mssp_ideal_title = "Ideal Partners"
 
 # Technical Partners Section
-tech_title = "Technical Partners (Planned)"
+tech_title = "Technical Partners"
 tech_integration_title = "Integration Opportunities"
-tech_integration_text = "Integrate your IT/Cybersecurity tools with resysto to create a unified security operations platform. We're building an open ecosystem where best-of-breed tools work together seamlessly."
+tech_integration_text = "Integrates IT/Cybersecurity tools to create a unified security operations platform. An open ecosystem where best-of-breed tools work together seamlessly."
 tech_integration_types_title = "Integration Types"
 tech_benefits_title = "Partner Benefits"
 tech_categories_title = "Integration Categories"
@@ -34,7 +33,7 @@ success_title = "Partner Success Stories"
 success_text = "Coming soon: Case studies and success stories from our growing partner community."
 
 # Final CTA
-final_cta_text = "Ready to join our partner ecosystem? Contact us today to discuss how resysto can enhance your cybersecurity services."
+final_cta_text = "Contact us today and we'll help you enhance your cybersecurity services with <span class=\"text-accent-blue\">re</span><span class=\"text-accent-green\">sys</span><span class=\"text-accent-purple\">to</span>."
 
 mssp_benefits = [
     "Dedicated MSSP Console with multi-tenant management",
