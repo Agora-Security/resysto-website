@@ -1,13 +1,14 @@
 +++
 title = "Resysto - Central Cyber Resilience Platform"
-description = "Central Cyber Resilience and Data Protection platform to govern and manage cybersecurity and privacy processes and tools in one place."
+description = "Central Cyber Resilience platform to govern and manage cybersecurity and data protection processes and tools in one place."
 template = "index.html"
 
 [extra]
 # Hero Section
 hero_kicker = "Future-ready security operations"
-hero_title = "Central Cyber Resilience and Data Protection platform"
-hero_subtitle = "Govern and manage cybersecurity and privacy processes and tools in one place."
+hero_title = "Central <span class=\"text-accent-blue\">Cyber Resilience</span> platform"
+hero_subtitle = "Govern and manage cybersecurity and data protection processes and tools in one place."
+hero_plain = "In simple terms: knowing where your company's security stands, what's missing, and what to do next — without having to hire a full-time expert."
 
 # CTAs
 cta_primary_text = "Get Started"
@@ -16,14 +17,20 @@ cta_secondary_text = "Explore Roadmap"
 cta_secondary_url = "/roadmap"
 
 # Section Titles
-problems_title = "Problems we solve"
-built_for_title = "Built for"
+built_for_title = "res<span class=\"text-accent-green\">y</span>sto is built for:"
+why_resysto_kicker = "OUR VALUES"
 use_cases_title = "Main Use Cases"
 use_cases_subtitle = "Real-world scenarios where resysto delivers immediate value"
 capabilities_title = "Capabilities"
 capabilities_subtitle = "Comprehensive tools and services for modern security operations"
 applications_label = "Applications"
 services_label = "Platform Services"
+partner_program_button = "Learn About Our Partner Program"
+explore_features_button = "Explore All Features"
+
+# Problem / Solution Section
+scenarios_title = "Real-World Scenarios"
+solutions_title = "How res<span class=\"text-accent-green\">y</span>sto Solves These Problems"
 
 # Final CTA
 final_cta_title = "Ready to Transform Your Security Operations?"
@@ -32,29 +39,25 @@ final_cta_button = "Request Beta Access"
 final_cta_url = "/access"
 final_cta_note = "Limited spots available for our private beta program"
 
-# Problems Section
-[[extra.problems]]
-title = "Fragmented operations"
-description = "Too many tools and spreadsheets cause lost context and overhead."
-color = "blue"
-svg_path = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>'
-
-[[extra.problems]]
-title = "Evidence burden"
-description = "Collecting audit-ready evidence is slow and manual."
-color = "green"
-svg_path = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>'
-
-[[extra.problems]]
-title = "Lack of security leadership"
-description = "SMBs run ad‑hoc risk management without a dedicated CISO."
-color = "purple"
-svg_path = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>'
+# GRC Strengths Section
+why_resysto_title = "Why Choose res<span class=\"text-accent-green\">y</span>sto"
+why_resysto_subtitle = "Real compliance, based on verifiable actions and not mere checklists — for concrete, measurable, and sustainable cyber security."
+strength_turnkey_title = "Turnkey Product"
+strength_turnkey_desc = "A ready-to-use product that effortlessly integrates real operations with procedural compliance."
+strength_visibility_title = "Real Visibility for Managers"
+strength_visibility_desc = "Clear insights into cyber protection for management, based on real, auditable data rather than manual questionnaires."
+strength_pmi_title = "Compliance for SMEs & Consortia"
+strength_pmi_desc = "Accessible compliance and standards for SMEs, enabling them to stay competitive in regulated markets."
+strength_pmi_badge = "Extra-Key Point"
+strength_incident_title = "Incident Management Automation"
+strength_incident_desc = "Automated incident response workflows for rapid mitigation and minimal business disruption."
+strength_no_questionnaire_title = "Zero Manual Questionnaires"
+strength_no_questionnaire_desc = "Eliminate endless manual questionnaires, enabling practical and action-oriented cybersecurity governance."
 
 # Built For Section
 [[extra.built_for_audiences]]
 icon = '<svg class="w-10 h-10 text-accent-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" /></svg>'
-text = "SMB IT teams needing vCISO structure"
+text = "SMBs without a dedicated IT or security team"
 color = "blue"
 
 [[extra.built_for_audiences]]
@@ -105,7 +108,7 @@ items = [
 ]
 
 [[extra.use_cases]]
-title = "Multi-Client MSSP Operations"
+title = "Multi-Legal Entity MSSP Operations"
 description = "Deliver consistent security services across multiple client environments at scale"
 color = "green"
 icon = '<svg class="w-12 h-12 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z" /></svg>'
@@ -121,7 +124,7 @@ items = [
 [[extra.applications]]
 name = "vCISO"
 icon = '<svg class="w-8 h-8 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>'
-modules = ["People", "Documents", "Tools", "Assets", "Cyber Posture", "Roadmap", "Supply Chain Risk"]
+modules = ["People", "Documents", "Tools", "Assets", "Cyber Posture", "Roadmap", "Third-Party Risk", "Compliance"]
 
 [[extra.applications]]
 name = "Incident Management"
@@ -131,17 +134,68 @@ modules = ["Incident Tracker", "Incident Orchestrator", "Incident Notification",
 # Platform Services
 [[extra.platform_services]]
 name = "Documents Manager"
+status = "implemented"
 icon = '<svg class="w-8 h-8 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 9.776c.112-.017.227-.026.344-.026h15.812c.117 0 .232.009.344.026m-16.5 0a2.25 2.25 0 00-1.883 2.542l.857 6a2.25 2.25 0 002.227 1.932H19.05a2.25 2.25 0 002.227-1.932l.857-6a2.25 2.25 0 00-1.883-2.542m-16.5 0V6A2.25 2.25 0 016 3.75h3.879a1.5 1.5 0 011.06.44l2.122 2.12a1.5 1.5 0 001.06.44H18A2.25 2.25 0 0120.25 9v.776" /></svg>'
 
 [[extra.platform_services]]
 name = "GraphRAG Knowledge"
+status = "implemented"
 icon = '<svg class="w-8 h-8 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" /></svg>'
 
 [[extra.platform_services]]
 name = "AI Assistant"
+status = "implemented"
 icon = '<svg class="w-8 h-8 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" /></svg>'
 
 [[extra.platform_services]]
 name = "MCP Server"
+status = "progress"
 icon = '<svg class="w-8 h-8 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5.25 14.25h13.5m-13.5 0a3 3 0 01-3-3m3 3a3 3 0 100 6h13.5a3 3 0 100-6m-16.5-3a3 3 0 013-3h13.5a3 3 0 013 3m-19.5 0a4.5 4.5 0 01.9-2.7L5.737 5.1a3.375 3.375 0 012.7-1.35h7.126c1.062 0 2.062.5 2.7 1.35l2.587 3.45a4.5 4.5 0 01.9 2.7m0 0a3 3 0 01-3 3m0 3h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008zm-3 6h.008v.008h-.008v-.008zm0-6h.008v.008h-.008v-.008z" /></svg>'
+
+[[extra.platform_services]]
+name = "Marketplace"
+status = "implemented"
+icon = '<svg class="w-8 h-8 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg>'
+
+# Problem / Solution Section (Real-World Scenarios -> How resysto Solves These Problems)
+[[extra.challenges]]
+title = "The SMB Challenge"
+description = "Small and medium businesses face unique cybersecurity challenges:"
+issues = [
+    "Limited Security Expertise: No dedicated CISO or security team",
+    "Resource Constraints: Budget and time limitations for security initiatives",
+    "Ad-hoc Processes: Security work happens reactively without structure",
+    "Compliance Pressure: Growing regulatory requirements without guidance",
+    "Tool Overload: Multiple point solutions that don't work together"
+]
+
+[[extra.challenges]]
+title = "The Enterprise Reality"
+description = "Even large organizations struggle with:"
+issues = [
+    "Fragmented Operations: Security tools and processes in silos",
+    "Evidence Collection: Manual work to gather audit and compliance proof",
+    "Visibility Gaps: Incomplete picture of overall security posture",
+    "Reporting Overhead: Time-consuming executive and board reporting",
+    "Process Standardization: Inconsistent approaches across teams"
+]
+
+[[extra.solutions]]
+title = "For SMBs"
+solutions = [
+    "Turnkey Solution: A turnkey product in two directions: real operations and procedural compliance.",
+    "Affordable Compliance for SMEs: Compliance and certifications at a manageable cost tailored to SME budgets, keeping companies competitive in markets that require security certifications.",
+    "Actionable Governance: We relieve companies of manually compiling questionnaires, making cybersecurity governance practical and action-oriented rather than theoretical.",
+    "Real Visibility for Managers: Clear visibility for managers into the actual state of company cyber protection, built on concrete data instead of questionnaire answers."
+]
+
+[[extra.solutions]]
+title = "For Large Enterprises"
+solutions = [
+    "Unified Platform: Single source of truth for security governance and operations",
+    "Process Standardization: Consistent workflows across all teams",
+    "Real-time Visibility: Always-on security posture monitoring",
+    "Automated Reporting: Board-ready reports in minutes (WIP)",
+    "Integration Ready: Connect existing tools and data sources (WIP)"
+]
 +++

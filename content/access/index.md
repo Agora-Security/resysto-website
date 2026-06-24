@@ -5,7 +5,6 @@ template = "access.html"
 
 [extra]
 # Hero Section
-kicker = "JOIN THE FUTURE OF CYBERSECURITY"
 hero_title = "Join our Private Beta Program"
 hero_subtitle = "We're currently in Private Beta. Request early access to the resysto platform by completing our application form. Selected applicants will be added to our exclusive waitlist."
 hero_cta_primary_text = "Request Beta Access"
@@ -43,7 +42,9 @@ features = [
     "Assets Tracking and Classification",
     "Cyber Posture Monitoring",
     "Security Roadmap Planning",
-    "Supply Chain Risk Management (SCRM)"
+    "Third-Party Risk Management (TPRM)",
+    "Compliance and Standards Alignment View",
+    "Services Sourcing and Quotation Marketplace"
 ]
 cta_text = "Access Main Console"
 cta_url = "https://app.resysto.com"

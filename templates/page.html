@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+<style>
+    .legal-prose { line-height: 1.7; }
+    .legal-prose h2 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-top: 2.75rem;
+        margin-bottom: 1rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+        color: #111827;
+    }
+    .legal-prose h3 {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-top: 1.75rem;
+        margin-bottom: 0.75rem;
+        color: #111827;
+    }
+    .legal-prose p { margin-bottom: 1rem; }
+    .legal-prose ul, .legal-prose ol { margin: 0 0 1.25rem 1.25rem; }
+    .legal-prose ul { list-style: disc; }
+    .legal-prose ol { list-style: decimal; }
+    .legal-prose li { margin-bottom: 0.4rem; padding-left: 0.25rem; }
+    .legal-prose a { color: #378dff; text-decoration: underline; text-underline-offset: 2px; transition: color .2s; }
+    .legal-prose a:hover { color: #00d3bb; }
+    .legal-prose strong { font-weight: 600; color: #111827; }
+    .legal-prose code {
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 0.85em;
+        background: rgba(0, 0, 0, 0.06);
+        padding: 0.1rem 0.35rem;
+        border-radius: 0.3rem;
+    }
+    .legal-prose table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1.5rem 0;
+        font-size: 0.9rem;
+    }
+    .legal-prose th, .legal-prose td {
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        padding: 0.6rem 0.75rem;
+        text-align: left;
+        vertical-align: top;
+    }
+    .legal-prose th { background: rgba(0, 0, 0, 0.04); font-weight: 600; color: #111827; }
+
+    /* Dark mode */
+    html.dark .legal-prose h2 { color: #f0f4f8; border-top-color: rgba(255, 255, 255, 0.1); }
+    html.dark .legal-prose h3 { color: #f0f4f8; }
+    html.dark .legal-prose strong { color: #ffffff; }
+    html.dark .legal-prose code { background: rgba(255, 255, 255, 0.08); }
+    html.dark .legal-prose th, html.dark .legal-prose td { border-color: rgba(255, 255, 255, 0.12); }
+    html.dark .legal-prose th { background: rgba(255, 255, 255, 0.05); color: #f0f4f8; }
+</style>
+{% endblock extra_head %}
+
+{% block content %}
+{% set p = page | default(value=section) %}
+<section class="container mx-auto px-6 pt-12 pb-6">
+    <div class="max-w-3xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold mb-4 text-gray-900 dark:text-white">
+            {{ p.title }}
+        </h1>
+        {% if p.description %}
+        <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+            {{ p.description }}
+        </p>
+        {% endif %}
+    </div>
+</section>
+
+<section class="container mx-auto px-6 pb-24">
+    <div class="max-w-3xl mx-auto legal-prose text-gray-700 dark:text-gray-300">
+        {{ p.content | safe }}
+    </div>
+</section>
+{% endblock content %}

@@ -1,73 +1,87 @@
-<!DOCTYPE html>
+{% import "macros.html" as brand %}<!DOCTYPE html>
 <html lang="{{ lang }}" class="dark">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+
     <!-- SEO: Title Tag -->
-    <title>{% if page.title %}{{ page.title }} | Resysto{% elif section.title %}{{ section.title }} | Resysto{% else %}Resysto - Central Cyber Resilience and Data Protection Platform{% endif %}</title>
-    
+    <title>{% if page.title %}{{ page.title }} | Resysto{% elif section.title %}{{ section.title }} | Resysto{% else
+        %}Resysto - Central Cyber Resilience and Data Protection Platform{% endif %}</title>
+
     <!-- SEO: Meta Description -->
-    <meta name="description" content="{% if page.description %}{{ page.description }}{% elif section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}" />
-    
+    <meta name="description"
+        content="{% if page.description %}{{ page.description }}{% elif section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}" />
+
     <!-- SEO: Keywords -->
-    <meta name="keywords" content="cyber resilience, cybersecurity platform, data protection, GDPR, NIS2, vCISO, incident management, security compliance, ISO 27001, NIST CSF, security operations, cyber risk management, MSSP platform{% if lang == 'it' %}, piattaforma cybersecurity, gestione incidenti, conformità sicurezza{% endif %}" />
-    
+    <meta name="keywords"
+        content="cyber resilience, cybersecurity platform, data protection, GDPR, NIS2, vCISO, incident management, security compliance, ISO 27001, NIST CSF, security operations, cyber risk management, MSSP platform{% if lang == 'it' %}, piattaforma cybersecurity, gestione incidenti, conformità sicurezza{% endif %}" />
+
     <!-- SEO: Author and Organization -->
-    <meta name="author" content="Agora Security" />
-    <meta name="publisher" content="Agora Security Srl" />
-    
+    <meta name="author" content="Resysto" />
+    <meta name="publisher" content="Resysto.io" />
+
     <!-- SEO: Canonical URL -->
-    <link rel="canonical" href="{{ config.base_url }}{% if lang != config.default_language %}/{{ lang }}{% endif %}{{ current_path | default(value='/') }}" />
-    
+    <link rel="canonical"
+        href="{{ config.base_url }}{% if lang != config.default_language %}/{{ lang }}{% endif %}{{ current_path | default(value='/') }}" />
+
     <!-- SEO: Hreflang Tags for Multi-language Support -->
     <link rel="alternate" hreflang="en" href="{{ config.base_url }}{{ current_path | default(value='/') | replace(from='/it', to='') | replace(from='/it/', to='/') }}" />
     <link rel="alternate" hreflang="it" href="{{ config.base_url }}/it{{ current_path | default(value='/') | replace(from='/it', to='') | replace(from='/it/', to='') }}" />
     <link rel="alternate" hreflang="x-default" href="{{ config.base_url }}{{ current_path | default(value='/') | replace(from='/it', to='') | replace(from='/it/', to='/') }}" />
-    
+
     <!-- RSS Feed Auto-Discovery -->
     <link rel="alternate" type="application/atom+xml" title="Resysto Blog Feed" href="{{ config.base_url }}/blog/atom.xml" />
     {% if lang == 'it' %}<link rel="alternate" type="application/atom+xml" title="Resysto Blog Feed (Italiano)" href="{{ config.base_url }}/it/blog/atom.xml" />{% endif %}
-    
+
     <!-- SEO: Open Graph Meta Tags (Facebook, LinkedIn) -->
-    <meta property="og:type" content="{% if page.extra.og_type %}{{ page.extra.og_type }}{% else %}{{ config.extra.og_type }}{% endif %}" />
+    <meta property="og:type"
+        content="{% if page.extra.og_type %}{{ page.extra.og_type }}{% else %}{{ config.extra.og_type }}{% endif %}" />
     <meta property="og:site_name" content="{{ config.extra.site_name }}" />
-    <meta property="og:title" content="{% if page.title %}{{ page.title }}{% elif section.title %}{{ section.title }}{% else %}Resysto - Central Cyber Resilience and Data Protection Platform{% endif %}" />
-    <meta property="og:description" content="{% if page.description %}{{ page.description }}{% elif section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}" />
-    <meta property="og:url" content="{{ config.base_url }}{% if lang != config.default_language %}/{{ lang }}{% endif %}{{ current_path | default(value='/') }}" />
-    <meta property="og:image" content="{% if page.extra.image %}{{ config.base_url }}{{ page.extra.image }}{% elif section.extra.image %}{{ config.base_url }}{{ section.extra.image }}{% else %}{{ config.base_url }}{{ config.extra.default_image }}{% endif %}" />
+    <meta property="og:title"
+        content="{% if page.title %}{{ page.title }}{% elif section.title %}{{ section.title }}{% else %}Resysto - Central Cyber Resilience and Data Protection Platform{% endif %}" />
+    <meta property="og:description"
+        content="{% if page.description %}{{ page.description }}{% elif section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}" />
+    <meta property="og:url"
+        content="{{ config.base_url }}{% if lang != config.default_language %}/{{ lang }}{% endif %}{{ current_path | default(value='/') }}" />
+    <meta property="og:image"
+        content="{% if page.extra.image %}{{ config.base_url }}{{ page.extra.image }}{% elif section.extra.image %}{{ config.base_url }}{{ section.extra.image }}{% else %}{{ config.base_url }}{{ config.extra.default_image }}{% endif %}" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="{% if lang == 'it' %}it_IT{% else %}en_US{% endif %}" />
-    {% if lang == 'en' %}<meta property="og:locale:alternate" content="it_IT" />{% endif %}
-    {% if lang == 'it' %}<meta property="og:locale:alternate" content="en_US" />{% endif %}
-    
+    {% if lang == 'en' %}
+    <meta property="og:locale:alternate" content="it_IT" />{% endif %}
+    {% if lang == 'it' %}
+    <meta property="og:locale:alternate" content="en_US" />{% endif %}
+
     <!-- SEO: Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% elif section.title %}{{ section.title }}{% else %}Resysto - Central Cyber Resilience and Data Protection Platform{% endif %}" />
-    <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% elif section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}" />
-    <meta name="twitter:image" content="{% if page.extra.image %}{{ config.base_url }}{{ page.extra.image }}{% elif section.extra.image %}{{ config.base_url }}{{ section.extra.image }}{% else %}{{ config.base_url }}{{ config.extra.default_image }}{% endif %}" />
+    <meta name="twitter:title"
+        content="{% if page.title %}{{ page.title }}{% elif section.title %}{{ section.title }}{% else %}Resysto - Central Cyber Resilience and Data Protection Platform{% endif %}" />
+    <meta name="twitter:description"
+        content="{% if page.description %}{{ page.description }}{% elif section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}" />
+    <meta name="twitter:image"
+        content="{% if page.extra.image %}{{ config.base_url }}{{ page.extra.image }}{% elif section.extra.image %}{{ config.base_url }}{{ section.extra.image }}{% else %}{{ config.base_url }}{{ config.extra.default_image }}{% endif %}" />
     <meta name="twitter:site" content="@resysto" />
     <meta name="twitter:creator" content="@resysto" />
-    
+
     <!-- SEO: Additional Meta Tags -->
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-    <meta name="theme-color" content="#00D4FF" />
+    <meta name="theme-color" content="#00d3bb" />
     <meta name="format-detection" content="telephone=no" />
-    
+
     <!-- Favicon and App Icons -->
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
-    
+
     <!-- SEO: Structured Data (JSON-LD) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Organization",
       "name": "Resysto",
-      "legalName": "Agora Security Srl",
       "url": "{{ config.base_url }}",
       "logo": "{{ config.base_url }}/images/resysto-logo.png",
       "foundingDate": "2024",
@@ -80,13 +94,10 @@
         "@type": "ContactPoint",
         "email": "{{ config.extra.contact_email }}",
         "contactType": "Customer Support"
-      },
-      "sameAs": [
-        "https://www.linkedin.com/company/agora-security"
-      ]
+      }
     }
     </script>
-    
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -102,7 +113,7 @@
       }
     }
     </script>
-    
+
     {% if page or section %}
     <script type="application/ld+json">
     {
@@ -119,118 +130,152 @@
     }
     </script>
     {% endif %}
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WBC0XK3R58"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
 
-      gtag('config', 'G-WBC0XK3R58');
-    </script>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Custom CSS -->
+    <!-- Self-hosted fonts (no third-party font CDN) — preload the most-used latin faces -->
+    <link rel="preload" href="/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/space-grotesk-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Compiled Tailwind v4 build (utilities + custom components + self-hosted @font-face).
+         Design tokens live in static/css/input.css (@theme); no runtime CDN. -->
     <link rel="stylesheet" href="{{ get_url(path='css/main.css') }}" />
-    
-    <!-- Tailwind Configuration -->
+
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        dark: {
-                            bg: '#0A0A0A',
-                            surface: '#151515',
-                            border: '#252525',
-                        },
-                        light: {
-                            bg: '#FFFFFF',
-                            surface: '#F9FAFB',
-                            border: '#E5E7EB',
-                        },
-                        accent: {
-                            blue: '#00D4FF',
-                            green: '#39FF14',
-                            purple: '#B026FF',
-                        }
-                    },
-                    fontFamily: {
-                        heading: ['Space Grotesk', 'sans-serif'],
-                        body: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                    },
-                    boxShadow: {
-                        'neon-blue': '0 0 20px rgba(0, 212, 255, 0.5)',
-                        'neon-green': '0 0 20px rgba(57, 255, 20, 0.5)',
-                        'neon-purple': '0 0 20px rgba(176, 38, 255, 0.5)',
-                    }
-                }
-            }
+        // Dark mode is the default; only switch to light if the user explicitly chose it.
+        if (localStorage.getItem('theme') === 'light') {
+            document.documentElement.classList.remove('dark');
+        } else {
+            document.documentElement.classList.add('dark');
         }
     </script>
-    
+
     {% block extra_head %}
     {% endblock extra_head %}
 </head>
-<body class="bg-white dark:bg-dark-bg text-gray-900 dark:text-gray-100 font-body">
-    
+
+<body class="bg-white dark:bg-dark-bg text-gray-900 dark:text-[#f0f4f8] font-body flex flex-col min-h-screen">
+
+    <!-- Animated Blur Blobs for UI/UX Pro Max Background -->
+    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+        <!-- Glow Blob 1: Blue (Primary) -->
+        <div
+            class="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-accent-blue/20 dark:bg-accent-blue/15 blur-[120px] animate-blob">
+        </div>
+        <!-- Glow Blob 2: Purple (Secondary) -->
+        <div
+            class="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-accent-purple/20 dark:bg-accent-purple/15 blur-[120px] animate-blob animation-delay-2000">
+        </div>
+        <!-- Glow Blob 3: Turquoise/Teal (Accent) -->
+        <div
+            class="absolute top-[30%] right-[20%] w-[40vw] h-[40vw] rounded-full bg-accent-green/20 dark:bg-accent-green/15 blur-[120px] animate-blob animation-delay-4000">
+        </div>
+    </div>
+
     <!-- Header (Sticky Navigation) -->
-    <header class="sticky top-0 z-50 backdrop-blur-md bg-white/80 dark:bg-dark-bg/80 border-b border-gray-200 dark:border-dark-border">
+    <header
+        class="sticky top-0 z-50 backdrop-blur-xl bg-gray-50/80 dark:bg-dark-surface/80 border-b border-gray-200 dark:border-dark-border/80 shadow-sm shadow-dark-bg/5">
         <nav class="container mx-auto px-6 py-4">
             <div class="flex items-center justify-between">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}" class="cyber-logo font-heading text-3xl font-bold tracking-tight cursor-pointer" aria-label="Resysto - Cyber Resilience Platform">
-                        <span class="text-accent-blue glow-text">re</span><span class="text-accent-green glow-text">sys</span><span class="text-accent-purple glow-text">to</span>
-                    </a>                    
+                    <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}"
+                        class="flex items-center gap-2.5 font-heading text-3xl font-bold tracking-tight cursor-pointer group"
+                        aria-label="Resysto - Cyber Resilience Platform">
+                        {{ brand::logo_mark(class="h-8 w-8 text-gray-900 dark:text-white transition-transform duration-300 group-hover:-translate-y-0.5") }}
+                        <span>{{ brand::wordmark() }}</span>
+                    </a>
                 </div>
-                
+
                 <!-- Desktop Navigation Menu -->
-                <ul class="hidden md:flex items-center space-x-8 font-medium">
-                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if current_path == '/' %}active-nav text-accent-blue{% endif %}" data-page="/">{{ trans(key="home", lang=lang) }}</a></li>
-                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}features" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/features' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/features">{{ trans(key="features", lang=lang) }}</a></li>
-                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}roadmap" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/roadmap' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/roadmap">{{ trans(key="roadmap", lang=lang) }}</a></li>
-                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}partners" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/partners' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/partners">{{ trans(key="partners", lang=lang) }}</a></li>
-                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}blog" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/blog' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/blog">{{ trans(key="blog", lang=lang) }}</a></li>
-                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}about" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/about' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/about">{{ trans(key="about", lang=lang) }}</a></li>
-                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}access" class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/access' in current_path %}active-nav text-accent-blue{% endif %}" data-page="/access">{{ trans(key="access", lang=lang) }}</a></li>
+                <ul class="hidden lg:flex items-center space-x-8 font-medium text-lg">
+                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}"
+                            class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if current_path == '/' %}active-nav text-accent-blue{% endif %}"
+                            data-page="/">{{ trans(key="home", lang=lang) }}</a></li>
+                    <li class="relative group">
+                        <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}features/"
+                            class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/features' in current_path %}active-nav text-accent-blue{% endif %}"
+                            data-page="/features">
+                            {{ trans(key="features", lang=lang) }}
+                            <svg class="inline-block w-4 h-4 ml-1 -mr-3 align-text-bottom transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </a>
+                        <!-- Dropdown -->
+                        <div class="absolute top-[calc(100%+0.5rem)] left-0 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top-left scale-95 group-hover:scale-100 z-50">
+                            <!-- Invisible bridge to prevent hover loss -->
+                            <div class="absolute -top-3 left-0 w-full h-4"></div>
+                            <div class="bg-white dark:bg-dark-surface border border-gray-200 dark:border-dark-border rounded-xl shadow-xl overflow-hidden py-2">
+                                <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}features/vciso/" class="block px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-accent-blue/10 hover:text-accent-blue transition-colors">vCISO</a>
+                                <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}features/incident-management/" class="block px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-accent-blue/10 hover:text-accent-blue transition-colors">{% if lang == 'it' %}Gestione Incidenti{% else %}Incident Management{% endif %}</a>
+                                <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}features/platform-services/" class="block px-4 py-2.5 text-sm text-gray-700 dark:text-gray-300 hover:bg-accent-blue/10 hover:text-accent-blue transition-colors">{% if lang == 'it' %}Servizi Piattaforma{% else %}Platform Services{% endif %}</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}roadmap"
+                            class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/roadmap' in current_path %}active-nav text-accent-blue{% endif %}"
+                            data-page="/roadmap">{{ trans(key="roadmap", lang=lang) }}</a></li>
+                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}partners"
+                            class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/partners' in current_path %}active-nav text-accent-blue{% endif %}"
+                            data-page="/partners">{{ trans(key="partners", lang=lang) }}</a></li>
+                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}blog"
+                            class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/blog' in current_path %}active-nav text-accent-blue{% endif %}"
+                            data-page="/blog">{{ trans(key="blog", lang=lang) }}</a></li>
+                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}about"
+                            class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/about' in current_path %}active-nav text-accent-blue{% endif %}"
+                            data-page="/about">{{ trans(key="about", lang=lang) }}</a></li>
+                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}access"
+                            class="nav-link text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-all duration-300 relative pb-1 {% if '/access' in current_path %}active-nav text-accent-blue{% endif %}"
+                            data-page="/access">{{ trans(key="access", lang=lang) }}</a></li>
                 </ul>
-                
+
                 <!-- Mobile Menu Toggle and Controls -->
                 <div class="flex items-center gap-3">
                     <!-- Mobile Menu Button (visible only on mobile) -->
-                    <button id="mobile-menu-toggle" class="md:hidden p-2 rounded-lg border border-gray-200 dark:border-dark-border hover:border-accent-blue transition-all interactive-element" aria-label="Toggle mobile menu">
-                        <svg id="mobile-menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    <button id="mobile-menu-toggle"
+                        class="lg:hidden p-2 rounded-lg border border-gray-200 dark:border-dark-border hover:border-accent-blue transition-all interactive-element"
+                        aria-label="Toggle mobile menu">
+                        <svg id="mobile-menu-open-icon" class="w-6 h-6" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
-                        <svg id="mobile-menu-close-icon" class="hidden w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        <svg id="mobile-menu-close-icon" class="hidden w-6 h-6" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12"></path>
                         </svg>
                     </button>
-                    
+
+                    <!-- Theme Switcher -->
+                    <button id="theme-toggle" type="button" 
+                        class="p-2.5 rounded-lg border border-gray-200 dark:border-dark-border hover:border-accent-blue transition-all interactive-element bg-white/50 dark:bg-dark-surface/50 backdrop-blur-md text-gray-700 dark:text-gray-300 hover:text-accent-blue dark:hover:text-accent-blue focus:outline-none focus:ring-2 focus:ring-accent-blue"
+                        aria-label="Toggle Dark Mode">
+                        <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                        <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+
                     <!-- Language Switcher -->
                     <div class="relative">
-                        <button id="language-toggle" class="flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-200 dark:border-dark-border hover:border-accent-blue transition-all interactive-element" aria-label="Change language">
+                        <button id="language-toggle"
+                            class="flex items-center gap-2 px-3 py-2 rounded-lg border border-gray-200 dark:border-dark-border hover:border-accent-blue transition-all interactive-element bg-white/50 dark:bg-dark-surface/50 backdrop-blur-md"
+                            aria-label="Change language">
                             <span class="text-sm font-medium">{{ lang | upper }}</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
-                        <div id="language-menu" class="hidden absolute right-0 mt-2 w-32 rounded-lg bg-gray-50 dark:bg-dark-surface border border-gray-200 dark:border-dark-border shadow-lg">
-                            <a href="#" id="lang-en" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-dark-border transition-colors {% if lang == 'en' %}text-accent-blue{% endif %}" data-lang="en">
+                        <div id="language-menu"
+                            class="hidden absolute right-0 mt-2 w-32 rounded-xl bg-white/95 dark:bg-dark-surface/95 backdrop-blur-md border border-gray-200 dark:border-dark-border/80 shadow-xl">
+                            <a href="#" id="lang-en"
+                                class="block px-4 py-2.5 text-sm hover:bg-gray-100 dark:hover:bg-dark-border transition-colors rounded-t-xl {% if lang == 'en' %}text-accent-blue font-semibold{% endif %}"
+                                data-lang="en">
                                 English
                             </a>
-                            <a href="#" id="lang-it" class="block px-4 py-2 text-sm hover:bg-gray-100 dark:hover:bg-dark-border transition-colors {% if lang == 'it' %}text-accent-blue{% endif %}" data-lang="it">
+                            <a href="#" id="lang-it"
+                                class="block px-4 py-2.5 text-sm hover:bg-gray-100 dark:hover:bg-dark-border transition-colors rounded-b-xl {% if lang == 'it' %}text-accent-blue font-semibold{% endif %}"
+                                data-lang="it">
                                 Italiano
                             </a>
                         </div>
@@ -238,42 +283,199 @@
                 </div>
             </div>
         </nav>
-        
+
         <!-- Mobile Navigation Menu (hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-gray-200 dark:border-dark-border">
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-200 dark:border-dark-border">
             <nav class="container mx-auto px-6 py-4">
-                <ul class="flex flex-col space-y-4 font-medium">
-                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}" class="mobile-nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors {% if current_path == '/' %}text-accent-blue{% endif %}" data-page="/">{{ trans(key="home", lang=lang) }}</a></li>
-                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}features" class="mobile-nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors {% if '/features' in current_path %}text-accent-blue{% endif %}" data-page="/features">{{ trans(key="features", lang=lang) }}</a></li>
-                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}roadmap" class="mobile-nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors {% if '/roadmap' in current_path %}text-accent-blue{% endif %}" data-page="/roadmap">{{ trans(key="roadmap", lang=lang) }}</a></li>
-                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}partners" class="mobile-nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors {% if '/partners' in current_path %}text-accent-blue{% endif %}" data-page="/partners">{{ trans(key="partners", lang=lang) }}</a></li>
-                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}blog" class="mobile-nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors {% if '/blog' in current_path %}text-accent-blue{% endif %}" data-page="/blog">{{ trans(key="blog", lang=lang) }}</a></li>
-                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}about" class="mobile-nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors {% if '/about' in current_path %}text-accent-blue{% endif %}" data-page="/about">{{ trans(key="about", lang=lang) }}</a></li>
-                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}access" class="mobile-nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors {% if '/access' in current_path %}text-accent-blue{% endif %}" data-page="/access">{{ trans(key="access", lang=lang) }}</a></li>
+                <ul class="flex flex-col space-y-4 font-medium text-lg">
+                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}"
+                            class="mobile-nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors {% if current_path == '/' %}text-accent-blue{% endif %}"
+                            data-page="/">{{ trans(key="home", lang=lang) }}</a></li>
+                    <li>
+                        <div class="flex flex-col">
+                            <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}features/"
+                                class="mobile-nav-link py-2 text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors {% if current_path == '/features/' or current_path == '/it/features/' %}text-accent-blue font-bold{% endif %}"
+                                data-page="/features/">
+                                {{ trans(key="features", lang=lang) }}
+                            </a>
+                            <div class="pl-4 border-l-2 border-gray-100 dark:border-dark-border mt-1 space-y-1">
+                                <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}features/vciso/"
+                                    class="mobile-nav-link block py-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-accent-blue transition-colors {% if '/features/vciso' in current_path %}text-accent-blue font-medium{% endif %}">
+                                    vCISO
+                                </a>
+                                <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}features/incident-management/"
+                                    class="mobile-nav-link block py-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-accent-blue transition-colors {% if '/features/incident-management' in current_path %}text-accent-blue font-medium{% endif %}">
+                                    {% if lang == 'it' %}Gestione Incidenti{% else %}Incident Management{% endif %}
+                                </a>
+                                <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}features/platform-services/"
+                                    class="mobile-nav-link block py-1.5 text-sm text-gray-600 dark:text-gray-400 hover:text-accent-blue transition-colors {% if '/features/platform-services' in current_path %}text-accent-blue font-medium{% endif %}">
+                                    {% if lang == 'it' %}Servizi Piattaforma{% else %}Platform Services{% endif %}
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}roadmap"
+                            class="mobile-nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors {% if '/roadmap' in current_path %}text-accent-blue{% endif %}"
+                            data-page="/roadmap">{{ trans(key="roadmap", lang=lang) }}</a></li>
+                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}partners"
+                            class="mobile-nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors {% if '/partners' in current_path %}text-accent-blue{% endif %}"
+                            data-page="/partners">{{ trans(key="partners", lang=lang) }}</a></li>
+                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}blog"
+                            class="mobile-nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors {% if '/blog' in current_path %}text-accent-blue{% endif %}"
+                            data-page="/blog">{{ trans(key="blog", lang=lang) }}</a></li>
+                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}about"
+                            class="mobile-nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors {% if '/about' in current_path %}text-accent-blue{% endif %}"
+                            data-page="/about">{{ trans(key="about", lang=lang) }}</a></li>
+                    <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}access"
+                            class="mobile-nav-link block py-2 text-gray-700 dark:text-gray-300 hover:text-accent-blue transition-colors {% if '/access' in current_path %}text-accent-blue{% endif %}"
+                            data-page="/access">{{ trans(key="access", lang=lang) }}</a></li>
                 </ul>
             </nav>
         </div>
+
+        <!-- Scroll Progress Bar -->
+        <div id="scroll-progress-container" class="absolute bottom-0 left-0 w-full h-[3px] bg-transparent pointer-events-none overflow-hidden opacity-0 transition-opacity duration-500">
+            <div id="scroll-progress" class="relative h-full w-32 bg-gradient-to-r from-accent-blue via-accent-green to-accent-purple transition-all duration-75 ease-out rounded-full" style="left: 0%;"></div>
+        </div>
     </header>
-    
-    <main>
+
+    <main class="flex-grow">
+        {% if current_path and current_path != "/" and current_path != "/it/" %}
+        <div class="container mx-auto px-6 pt-8 pb-2">
+            <nav class="flex text-sm text-gray-500 dark:text-gray-400 font-medium" aria-label="Breadcrumb">
+                <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                    <li class="inline-flex items-center">
+                        <a href="{{ config.base_url }}{% if lang == 'it' %}/it/{% else %}/{% endif %}" class="inline-flex items-center hover:text-accent-blue transition-colors">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+                            {{ trans(key="home", lang=lang) }}
+                        </a>
+                    </li>
+                    {% set path_parts = current_path | split(pat="/") %}
+                    {% set_global current_build_path = "" %}
+                    {% for part in path_parts %}
+                        {% if part != "" and part != "it" %}
+                            {% set_global current_build_path = current_build_path ~ "/" ~ part %}
+                            
+                            {% set is_last = false %}
+                            {% set path_len = path_parts | length %}
+                            {% set last_idx = path_len - 1 %}
+                            {% if loop.last %}
+                                {% set is_last = true %}
+                            {% elif loop.index == last_idx %}
+                                {% set next_part = path_parts[loop.index] %}
+                                {% if next_part == "" %}
+                                    {% set is_last = true %}
+                                {% endif %}
+                            {% endif %}
+                            
+                            {% set clean_part = part | replace(from="-", to=" ") | capitalize %}
+                            {% if part == "vciso" %}{% set clean_part = "vCISO" %}
+                            {% elif part == "features" %}{% set clean_part = trans(key="features", lang=lang) %}
+                            {% elif part == "roadmap" %}{% set clean_part = trans(key="roadmap", lang=lang) %}
+                            {% elif part == "partners" %}{% set clean_part = trans(key="partners", lang=lang) %}
+                            {% elif part == "blog" %}{% set clean_part = trans(key="blog", lang=lang) %}
+                            {% elif part == "about" %}{% set clean_part = trans(key="about", lang=lang) %}
+                            {% elif part == "access" %}{% set clean_part = trans(key="access", lang=lang) %}
+                            {% elif part == "platform-services" %}{% if lang == 'it' %}{% set clean_part = "Servizi Piattaforma" %}{% else %}{% set clean_part = "Platform Services" %}{% endif %}
+                            {% elif part == "incident-management" %}{% if lang == 'it' %}{% set clean_part = "Gestione Incidenti" %}{% else %}{% set clean_part = "Incident Management" %}{% endif %}
+                            {% endif %}
+                            
+                            <li>
+                                <div class="flex items-center">
+                                    <svg class="w-4 h-4 text-gray-400 mx-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                                    {% if is_last %}
+                                        <span class="ml-1 md:ml-2 text-gray-800 dark:text-gray-200">{{ clean_part }}</span>
+                                    {% else %}
+                                        <a href="{{ config.base_url }}{% if lang == 'it' %}/it{% endif %}{{ current_build_path }}/" class="ml-1 md:ml-2 hover:text-accent-blue transition-colors">{{ clean_part }}</a>
+                                    {% endif %}
+                                </div>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ol>
+            </nav>
+        </div>
+        {% endif %}
+
         {% block content %}
         <!-- Contenuto inserito dai singoli template -->
         {% endblock content %}
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-gray-200 dark:border-dark-border mt-20">
-        <div class="container mx-auto px-6 py-8">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-600 dark:text-gray-500 text-sm">
-                    © 2025 Resysto.io | proudly a product of Agora Security Srl, Italian VAT Number IT04450760246. All rights reserved.
+    <footer class="border-t border-gray-200 dark:border-dark-border mt-20 bg-white dark:bg-dark-surface/15 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
+                <!-- Brand & Company Info -->
+                <div class="space-y-6">
+                    <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}" class="inline-flex items-center gap-2.5 text-3xl font-heading font-extrabold tracking-tight">
+                        {{ brand::logo_mark(class="h-8 w-8 text-gray-900 dark:text-white") }}
+                        <span>{{ brand::wordmark() }}</span>
+                    </a>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed max-w-xs">
+                        {% if lang == 'it' %}Piattaforma centrale di Cyber Resilience per governare e gestire processi e strumenti di cybersecurity.{% else %}Central Cyber Resilience platform to govern and manage cybersecurity and data protection processes.{% endif %}
+                    </p>
+                </div>
+
+                <!-- Solutions -->
+                <div>
+                    <h4 class="text-gray-900 dark:text-white font-semibold mb-6 uppercase tracking-wider text-sm">{% if lang == 'it' %}Soluzioni{% else %}Solutions{% endif %}</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}features/vciso/" class="text-gray-600 dark:text-gray-400 hover:text-accent-blue transition-colors">vCISO</a></li>
+                        <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}features/incident-management/" class="text-gray-600 dark:text-gray-400 hover:text-accent-blue transition-colors">{% if lang == 'it' %}Gestione Incidenti{% else %}Incident Management{% endif %}</a></li>
+                        <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}features/platform-services/" class="text-gray-600 dark:text-gray-400 hover:text-accent-blue transition-colors">{% if lang == 'it' %}Servizi di Piattaforma{% else %}Platform Services{% endif %}</a></li>
+                        <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}features/" class="text-gray-600 dark:text-gray-400 hover:text-accent-blue transition-colors">{% if lang == 'it' %}Tutte le funzionalità{% else %}All features{% endif %}</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="text-gray-900 dark:text-white font-semibold mb-6 uppercase tracking-wider text-sm">{% if lang == 'it' %}Azienda{% else %}Company{% endif %}</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}about" class="text-gray-600 dark:text-gray-400 hover:text-accent-blue transition-colors">{{ trans(key="about", lang=lang) }}</a></li>
+                        <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}partners" class="text-gray-600 dark:text-gray-400 hover:text-accent-blue transition-colors">{{ trans(key="partners", lang=lang) }}</a></li>
+                        <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}roadmap" class="text-gray-600 dark:text-gray-400 hover:text-accent-blue transition-colors">{{ trans(key="roadmap", lang=lang) }}</a></li>
+                        <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}blog" class="text-gray-600 dark:text-gray-400 hover:text-accent-blue transition-colors">{{ trans(key="blog", lang=lang) }}</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact & Resources -->
+                <div>
+                    <h4 class="text-gray-900 dark:text-white font-semibold mb-6 uppercase tracking-wider text-sm">{% if lang == 'it' %}Risorse e Contatti{% else %}Resources & Contact{% endif %}</h4>
+                    <ul class="space-y-4 text-sm">
+                        <li><a href="mailto:support@resysto.io" class="text-gray-600 dark:text-gray-400 hover:text-accent-blue transition-colors flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            support@resysto.io
+                        </a></li>
+                        <li><a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}access" class="text-gray-600 dark:text-gray-400 hover:text-accent-blue transition-colors flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path></svg>
+                            {% if lang == 'it' %}Richiedi Accesso{% else %}Request Access{% endif %}
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="pt-8 border-t border-gray-200 dark:border-dark-border flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 dark:text-gray-500 text-xs text-center md:text-left">
+                    © 2024–2026 Resysto.io | A product developed by Agorà Security S.r.l. — P.IVA 04450760246
                 </p>
-                <p class="text-gray-600 dark:text-gray-500 text-sm">
-                    Contact: <a href="mailto:support@resysto.io" target="_blank" class="text-accent-blue hover:text-accent-green transition-colors">support@resysto.io</a>
-                </p>
+                <div class="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-500">
+                    <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}privacy/" class="hover:text-accent-blue transition-colors">Privacy Policy</a>
+                    <a href="{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}cookie/" class="hover:text-accent-blue transition-colors">Cookie Policy</a>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top"
+        class="fixed bottom-6 right-6 md:bottom-10 md:right-10 lg:bottom-12 lg:right-12 z-50 flex items-center justify-center w-12 h-12 rounded-full bg-white/80 dark:bg-dark-surface/80 backdrop-blur-md border border-gray-200 dark:border-dark-border text-accent-blue opacity-0 pointer-events-none translate-y-4 transition-all duration-300 shadow-lg hover:shadow-neon-blue hover:scale-110 active:scale-95 cursor-pointer"
+        aria-label="Back to top">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+        </svg>
+    </button>
 
     <script>
         // Mobile Menu Toggle
@@ -281,35 +483,35 @@
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileMenuOpenIcon = document.getElementById('mobile-menu-open-icon');
         const mobileMenuCloseIcon = document.getElementById('mobile-menu-close-icon');
-        
+
         if (mobileMenuToggle && mobileMenu) {
-            mobileMenuToggle.addEventListener('click', function() {
+            mobileMenuToggle.addEventListener('click', function () {
                 mobileMenu.classList.toggle('hidden');
                 mobileMenuOpenIcon.classList.toggle('hidden');
                 mobileMenuCloseIcon.classList.toggle('hidden');
             });
-            
+
             // Close mobile menu when clicking on a link
             const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
             mobileNavLinks.forEach(link => {
-                link.addEventListener('click', function() {
+                link.addEventListener('click', function () {
                     mobileMenu.classList.add('hidden');
                     mobileMenuOpenIcon.classList.remove('hidden');
                     mobileMenuCloseIcon.classList.add('hidden');
                 });
             });
         }
-        
+
         // Active Navigation Highlighting
-        (function() {
+        (function () {
             const currentPath = window.location.pathname;
             const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
-            
+
             navLinks.forEach(link => {
                 const linkPath = link.getAttribute('data-page');
                 // Remove active class from all
                 link.classList.remove('active-nav', 'text-accent-blue');
-                
+
                 // Check if current path matches
                 if (linkPath === '/') {
                     // Home page exact match
@@ -324,21 +526,21 @@
                 }
             });
         })();
-        
+
         // Browser Language Detection and Redirect
-        (function() {
+        (function () {
             // Only run on the root/home page to avoid constant redirects
             const currentLang = '{{ lang }}';
             const currentPath = window.location.pathname;
-            
+
             // Check if user has manually selected a language (stored in localStorage)
             const userSelectedLang = localStorage.getItem('userSelectedLanguage');
-            
+
             if (!userSelectedLang) {
                 // Get browser language
                 const browserLang = navigator.language || navigator.userLanguage;
                 const primaryLang = browserLang.split('-')[0].toLowerCase();
-                
+
                 // If browser is Italian and we're not already on Italian version
                 if (primaryLang === 'it' && currentLang !== 'it') {
                     // Check if we're on a page that has an Italian version
@@ -352,18 +554,18 @@
                 // For all other languages, stay on English (default)
             }
         })();
-        
+
         // Language Switcher Script
         const languageToggle = document.getElementById('language-toggle');
         const languageMenu = document.getElementById('language-menu');
         const currentLang = '{{ lang }}';
-        
+
         if (languageToggle && languageMenu) {
             // Set up correct language URLs based on current page
             const currentPath = window.location.pathname;
             const langEnLink = document.getElementById('lang-en');
             const langItLink = document.getElementById('lang-it');
-            
+
             if (langEnLink && langItLink) {
                 // Calculate the correct URLs for language switching
                 if (currentLang === 'it') {
@@ -377,25 +579,25 @@
                     langItLink.href = '/it' + currentPath;
                 }
             }
-            
-            languageToggle.addEventListener('click', function(e) {
+
+            languageToggle.addEventListener('click', function (e) {
                 e.stopPropagation();
                 languageMenu.classList.toggle('hidden');
             });
-            
+
             // Close menu when clicking outside
-            document.addEventListener('click', function() {
+            document.addEventListener('click', function () {
                 languageMenu.classList.add('hidden');
             });
-            
-            languageMenu.addEventListener('click', function(e) {
+
+            languageMenu.addEventListener('click', function (e) {
                 e.stopPropagation();
             });
-            
+
             // Track manual language selection
             const languageLinks = languageMenu.querySelectorAll('a');
             languageLinks.forEach(link => {
-                link.addEventListener('click', function(e) {
+                link.addEventListener('click', function (e) {
                     // Store user's manual language selection
                     const selectedLang = this.getAttribute('data-lang');
                     if (selectedLang) {
@@ -404,10 +606,33 @@
                 });
             });
         }
-        
-        // Set dark mode permanently
-        document.documentElement.classList.add('dark');
-        
+
+        // Theme Toggle Logic
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const darkIcon = document.getElementById('theme-toggle-dark-icon');
+        const lightIcon = document.getElementById('theme-toggle-light-icon');
+
+        if (document.documentElement.classList.contains('dark')) {
+            lightIcon.classList.remove('hidden');
+        } else {
+            darkIcon.classList.remove('hidden');
+        }
+
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', function() {
+                darkIcon.classList.toggle('hidden');
+                lightIcon.classList.toggle('hidden');
+
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('theme', 'dark');
+                }
+            });
+        }
+
         // Smooth scroll for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -421,6 +646,59 @@
                 }
             });
         });
+
+        // Back to Top Button Logic
+        const backToTopButton = document.getElementById('back-to-top');
+        if (backToTopButton) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4');
+                    backToTopButton.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                } else {
+                    backToTopButton.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4');
+                    backToTopButton.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+                }
+            });
+
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        // Scroll Progress Bar Logic
+        const scrollProgress = document.getElementById('scroll-progress');
+        const scrollProgressContainer = document.getElementById('scroll-progress-container');
+        let scrollTimeout;
+
+        if (scrollProgress && scrollProgressContainer) {
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
+                const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                
+                if (scrollHeight > 0) {
+                    const scrollPercentage = scrollTop / scrollHeight; // 0 to 1
+                    // 128px is the width of the w-32 class
+                    scrollProgress.style.left = `calc(${scrollPercentage * 100}% - ${scrollPercentage * 128}px)`;
+                } else {
+                    scrollProgress.style.left = '0%';
+                }
+
+                // Show the container
+                scrollProgressContainer.classList.remove('opacity-0');
+                scrollProgressContainer.classList.add('opacity-100');
+
+                // Clear previous timeout and set a new one to hide after 800ms
+                clearTimeout(scrollTimeout);
+                scrollTimeout = setTimeout(() => {
+                    scrollProgressContainer.classList.remove('opacity-100');
+                    scrollProgressContainer.classList.add('opacity-0');
+                }, 800);
+            }, { passive: true });
+        }
     </script>
 </body>
+
 </html>

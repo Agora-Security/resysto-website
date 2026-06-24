@@ -4,12 +4,14 @@
 
 <!-- Hero Section -->
 <section class="container mx-auto px-6 py-20 text-center">
+    {% if page.extra.kicker %}
     <p class="text-accent-blue text-sm font-semibold tracking-wider uppercase mb-4">
-        {{ page.extra.kicker | default(value="ROADMAP") }}
+        {{ page.extra.kicker }}
     </p>
+    {% endif %}
     
     <h1 class="text-5xl md:text-6xl font-heading font-bold mb-6 text-gray-900 dark:text-white">
-        {{ page.extra.hero_title | default(value="Our Product Roadmap") }}
+        {{ page.extra.hero_title | default(value="Our Product Roadmap") | safe }}
     </h1>
     
     <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
@@ -26,18 +28,21 @@
 <!-- Timeline Section -->
 <section class="container mx-auto px-6 py-12 mb-20">
     <div class="max-w-6xl mx-auto relative">
+        <!-- Decorative background elements for glass effect -->
+        <div class="absolute top-1/4 left-1/4 w-[30rem] h-[30rem] bg-accent-blue/5 dark:bg-accent-blue/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+        <div class="absolute bottom-1/4 right-1/4 w-[30rem] h-[30rem] bg-accent-purple/5 dark:bg-accent-purple/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
         <!-- Central vertical line -->
-        <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-accent-green via-accent-blue to-accent-purple hidden md:block"></div>
+        <div class="absolute left-1/2 -ml-0.5 h-full w-1 bg-gradient-to-b from-accent-blue via-accent-green to-accent-purple hidden md:block"></div>
         
         <!-- Mobile left line -->
-        <div class="absolute left-8 top-0 h-full w-1 bg-gradient-to-b from-accent-green via-accent-blue to-accent-purple md:hidden"></div>
+        <div class="absolute left-8 -ml-0.5 top-0 h-full w-1 bg-gradient-to-b from-accent-blue via-accent-green to-accent-purple md:hidden"></div>
         
         <div class="space-y-24">
             {% for phase in page.extra.phases %}
             <!-- Phase {{ loop.index }} - {% if loop.index is odd %}Left{% else %}Right{% endif %} -->
             <div class="relative">
                 <!-- Timeline dot (center) - Simple aesthetic circle -->
-                <div class="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden md:block w-7 h-7 rounded-full z-10
+                <div class="absolute left-1/2 -ml-3.5 -translate-y-1/2 hidden md:block w-7 h-7 rounded-full z-10
                     {% if phase.status == 'completed' %}bg-accent-green shadow-[0_0_20px_rgba(57,255,20,0.6)]{% endif %}
                     {% if phase.status == 'in-progress' %}bg-accent-blue shadow-[0_0_20px_rgba(0,212,255,0.6)]{% endif %}
                     {% if phase.status == 'planned' %}bg-accent-purple shadow-[0_0_20px_rgba(176,38,255,0.6)]{% endif %}
@@ -46,7 +51,7 @@
                 </div>
                 
                 <!-- Mobile dot (left) - Simple aesthetic circle -->
-                <div class="absolute left-8 transform -translate-x-1/2 -translate-y-1/2 flex md:hidden w-4 h-4 rounded-full z-10
+                <div class="absolute left-8 -ml-2 -translate-y-1/2 flex md:hidden w-4 h-4 rounded-full z-10
                     {% if phase.status == 'completed' %}bg-accent-green{% endif %}
                     {% if phase.status == 'in-progress' %}bg-accent-blue{% endif %}
                     {% if phase.status == 'planned' %}bg-accent-purple{% endif %}
@@ -62,7 +67,7 @@
                     {% endif %}
                     
                     <!-- Card content -->
-                    <div class="feature-card bg-light-surface dark:bg-dark-surface border border-light-border dark:border-dark-border rounded-xl p-8 card-hover ml-16 md:ml-0">
+                    <div class="feature-card bg-gradient-to-br from-accent-blue/10 via-white/80 to-white/90 dark:from-accent-blue/10 dark:via-dark-surface/90 dark:to-dark-surface backdrop-blur-xl border border-accent-blue/30 dark:border-accent-blue/40 rounded-xl p-8 card-hover ml-16 md:ml-0 shadow-lg hover:shadow-neon-blue">
                         
                         <!-- Status badge -->
                         <div class="mb-4">
@@ -83,7 +88,7 @@
                         
                         <!-- Title -->
                         <h3 class="text-2xl md:text-3xl font-heading font-bold mb-4 text-gray-900 dark:text-white">
-                            {{ phase.name }}
+                            {{ phase.name | safe }}
                         </h3>
                         
                         <!-- Description -->
@@ -113,13 +118,13 @@
                         <!-- In progress items -->
                         {% if phase.in_progress %}
                         <div class="mb-6">
-                            <h4 class="text-sm font-semibold text-accent-blue uppercase tracking-wider mb-3">
+                            <h4 class="text-sm font-semibold text-orange-500 dark:text-orange-400 uppercase tracking-wider mb-3">
                                 {{ page.extra.in_progress_label | default(value="In Progress") }}
                             </h4>
                             <ul class="space-y-2">
                                 {% for item in phase.in_progress %}
                                 <li class="flex items-start gap-2 text-sm text-gray-400">
-                                    <svg class="w-5 h-5 text-accent-blue flex-shrink-0 mt-0.5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                    <svg class="w-5 h-5 text-orange-500 dark:text-orange-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
                                     </svg>
                                     <span>{{ item }}</span>
@@ -203,26 +208,9 @@
     </div>
 </section>
 
-<!-- Disclaimer Section -->
-{% if page.extra.disclaimer_text %}
-<section class="container mx-auto px-6 py-12 mb-12">
-    <div class="max-w-3xl mx-auto text-center">
-        <p class="text-sm text-gray-600 dark:text-gray-500">
-            {{ page.extra.disclaimer_text }}
-            {% if page.extra.disclaimer_updates_text %}
-            {{ page.extra.disclaimer_updates_text }}
-            <a href="{{config.base_url}}{{ page.extra.disclaimer_blog_url }}" class="text-accent-blue hover:text-accent-green transition-colors">{{ page.extra.disclaimer_blog_link }}</a>
-            {{ page.extra.disclaimer_contact_text }}
-            <a href="mailto:{{ page.extra.disclaimer_email }}" class="text-accent-blue hover:text-accent-green transition-colors">{{ page.extra.disclaimer_email }}</a>.
-            {% endif %}
-        </p>
-    </div>
-</section>
-{% endif %}
-
 <!-- CTA Section -->
 {% if page.extra.cta_title %}
-<section class="container mx-auto px-6 py-20 mb-20">
+<section class="container mx-auto px-6 py-20 mb-12">
     <div class="max-w-4xl mx-auto bg-gradient-to-br from-accent-blue/10 via-accent-purple/10 to-accent-green/10 border border-accent-blue/30 rounded-2xl p-12 text-center">
         <h2 class="text-3xl md:text-4xl font-heading font-bold mb-4 text-gray-900 dark:text-white">
             {{ page.extra.cta_title }}
@@ -238,6 +226,23 @@
                 {{ page.extra.cta_secondary_text }}
             </button>
         </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Disclaimer Section -->
+{% if page.extra.disclaimer_text %}
+<section class="container mx-auto px-6 py-12 mb-20">
+    <div class="max-w-3xl mx-auto text-center">
+        <p class="text-sm text-gray-600 dark:text-gray-500">
+            {{ page.extra.disclaimer_text }}
+            {% if page.extra.disclaimer_updates_text %}
+            {{ page.extra.disclaimer_updates_text }}
+            <a href="{{config.base_url}}{{ page.extra.disclaimer_blog_url }}" class="text-accent-blue hover:text-accent-green transition-colors">{{ page.extra.disclaimer_blog_link }}</a>
+            {{ page.extra.disclaimer_contact_text }}
+            <a href="mailto:{{ page.extra.disclaimer_email }}" class="text-accent-blue hover:text-accent-green transition-colors">{{ page.extra.disclaimer_email }}</a>.
+            {% endif %}
+        </p>
     </div>
 </section>
 {% endif %}

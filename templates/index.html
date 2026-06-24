@@ -3,113 +3,188 @@
 {% block content %}
 
 <!-- Hero Section -->
-<section id="home" class="container mx-auto px-6 py-24 md:py-32">
+<section id="home" class="container mx-auto px-6 pt-24 pb-20 md:pt-32 md:pb-20">
     <div class="max-w-4xl mx-auto text-center">
-        <p class="text-accent-green text-sm font-mono font-medium uppercase tracking-wider mb-6">
+        <p class="text-accent-green text-base font-mono font-bold uppercase tracking-widest mb-6">
             {{ section.extra.hero_kicker }}
         </p>
-        
+
         <h1 class="text-5xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 leading-tight">
-            Central <span class="text-accent-blue glow-blue">Cyber Resilience</span> and <span class="text-accent-blue glow-blue">Data Protection</span> platform
+            {{ section.extra.hero_title | safe }}
         </h1>
-        
-        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-12 leading-relaxed">
+
+        <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
             {{ section.extra.hero_subtitle }}
         </p>
-        
+
+        {% if section.extra.hero_plain %}
+        <p class="text-base md:text-lg text-gray-500 dark:text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+            {{ section.extra.hero_plain }}
+        </p>
+        {% endif %}
+
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button type="button" onclick="window.location.href='{{config.base_url}}{{ section.extra.cta_secondary_url }}'" class="interactive-element px-8 py-4 bg-accent-blue text-dark-bg font-semibold rounded-lg glow-blue hover:bg-accent-green transition-all cursor-pointer">
+            <button type="button"
+                onclick="window.location.href='{{config.base_url}}{{ section.extra.cta_secondary_url }}'"
+                class="interactive-element px-8 py-4 bg-accent-blue text-dark-bg font-semibold rounded-lg glow-blue hover:bg-accent-green transition-all cursor-pointer">
                 {{ section.extra.cta_secondary_text }}
             </button>
-            <button type="button" onclick="window.location.href='{{config.base_url}}{{ section.extra.cta_primary_url }}'" class="interactive-element px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple cursor-pointer">
+            <button type="button"
+                onclick="window.location.href='{{config.base_url}}{{ section.extra.cta_primary_url }}'"
+                class="interactive-element px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple cursor-pointer">
                 {{ section.extra.cta_primary_text }}
             </button>
         </div>
     </div>
 </section>
 
-<!-- Problems We Solve Section -->
-<section id="problems" class="container mx-auto px-6 py-20">
-    <h2 class="text-4xl md:text-5xl font-heading font-bold mb-12 text-center">
-        {{ section.extra.problems_title }}
-    </h2>
-    
-    <div class="grid md:grid-cols-3 gap-8">
-        {% for problem in section.extra.problems %}
-        <div class="bg-gray-50 dark:bg-dark-surface border border-gray-200 dark:border-dark-border rounded-xl p-8 hover:border-accent-{{ problem.color }} transition-all interactive-element">
-            <div class="mb-4">
-                <svg class="w-12 h-12 text-accent-{{ problem.color }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    {{ problem.svg_path | safe }}
-                </svg>
-            </div>
-            <h3 class="text-2xl font-heading font-semibold mb-4 text-gray-900 dark:text-white">
-                {{ problem.title }}
-            </h3>
-            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">
-                {{ problem.description }}
-            </p>
-        </div>
-        {% endfor %}
-    </div>
-</section>
+<!-- Section Divider -->
+<div class="w-full max-w-5xl mx-auto my-6 px-6">
+    <div class="h-[1px] bg-gradient-to-r from-transparent via-accent-blue/20 via-accent-purple/20 to-transparent"></div>
+</div>
 
-<!-- Built For Section -->
-<section id="built-for" class="container mx-auto px-6 py-20">
-    <h2 class="text-4xl md:text-5xl font-heading font-bold mb-12 text-center">
-        {{ section.extra.built_for_title }}
-    </h2>
-    
-    <div class="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
-        {% for audience in section.extra.built_for_audiences %}
-        <div class="text-center">
-            <div class="mb-6 flex justify-center">
-                <div class="p-6 bg-gray-50 dark:bg-dark-surface border border-accent-{{ audience.color }} rounded-full glow-{{ audience.color }} icon-hover">
-                    {{ audience.icon | safe }}
-                </div>
-            </div>
-            <p class="text-lg text-gray-700 dark:text-gray-300">
-                {{ audience.text }}
-            </p>
-        </div>
-        {% endfor %}
+<!-- Why Resysto (GRC Strengths) Section -->
+<section id="why-resysto" class="container mx-auto px-6 py-20">
+    <div class="text-center mb-16">
+        {% if section.extra.why_resysto_kicker %}
+        <p class="text-accent-green text-base font-mono font-bold uppercase tracking-widest mb-4">
+            {{ section.extra.why_resysto_kicker }}
+        </p>
+        {% endif %}
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-4">
+            {{ section.extra.why_resysto_title | safe }}
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            {{ section.extra.why_resysto_subtitle }}
+        </p>
     </div>
-    
-    <div class="text-center mt-12">
-        <button type="button" onclick="window.location.href='{{config.base_url}}/partners/'" class="interactive-element inline-block px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple cursor-pointer">
-            Learn About Our Partner Program
+
+    <!-- UI/UX Pro Max Asymmetric Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+        <!-- Turnkey Solution (1 col) -->
+        <div
+            class="relative bg-gradient-to-br from-accent-blue/10 via-white/80 to-white/90 dark:from-accent-blue/10 dark:via-dark-surface/90 dark:to-dark-surface backdrop-blur-xl border border-accent-blue/30 dark:border-accent-blue/40 shadow-lg hover:shadow-neon-blue rounded-2xl p-8 hover:border-accent-blue transition-all duration-300 card-hover flex flex-col justify-between">
+            <div>
+
+                <h3 class="text-2xl font-heading font-bold mb-4 text-gray-900 dark:text-white">
+                    {{ section.extra.strength_turnkey_title }}
+                </h3>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {{ section.extra.strength_turnkey_desc }}
+                </p>
+            </div>
+        </div>
+
+        <!-- Visibilità Reale (1 col - Highlighted with Blue Glow and Pulse) -->
+        <div
+            class="relative bg-gradient-to-br from-accent-blue/10 via-white/80 to-white/90 dark:from-accent-blue/10 dark:via-dark-surface/90 dark:to-dark-surface backdrop-blur-xl border border-accent-blue/30 dark:border-accent-blue/40 rounded-2xl p-8 hover:border-accent-blue transition-all duration-300 card-hover shadow-lg hover:shadow-neon-blue flex flex-col justify-between">
+            <div>
+
+                <h3 class="text-2xl font-heading font-bold mb-4 text-gray-900 dark:text-white">
+                    {{ section.extra.strength_visibility_title }}
+                </h3>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {{ section.extra.strength_visibility_desc }}
+                </p>
+            </div>
+        </div>
+
+        <!-- Compliance PMI e Consorzi (Featured - styled with Purple Neon Glow) -->
+        <div
+            class="relative overflow-hidden bg-gradient-to-br from-accent-purple/10 via-white/80 to-white/90 dark:from-accent-purple/10 dark:via-dark-surface/90 dark:to-dark-surface backdrop-blur-xl border border-accent-purple/30 dark:border-accent-purple/40 rounded-2xl p-8 hover:border-accent-purple transition-all duration-300 card-hover shadow-lg hover:shadow-neon-purple flex flex-col justify-between">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-accent-purple/10 rounded-full blur-3xl pointer-events-none">
+            </div>
+            <div>
+                <div class="mb-6">
+                    <span
+                        class="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-purple bg-accent-purple/10 rounded-full">
+                        {{ section.extra.strength_pmi_badge }}
+                    </span>
+                </div>
+                <h3 class="text-3xl font-heading font-bold mb-4 text-gray-900 dark:text-white">
+                    {{ section.extra.strength_pmi_title }}
+                </h3>
+                <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
+                    {{ section.extra.strength_pmi_desc }}
+                </p>
+            </div>
+        </div>
+
+        <!-- Incident Management Automation (Highlighted with Blue Glow) -->
+        <div
+            class="relative bg-gradient-to-br from-accent-blue/10 via-white/80 to-white/90 dark:from-accent-blue/10 dark:via-dark-surface/90 dark:to-dark-surface backdrop-blur-xl border border-accent-blue/30 dark:border-accent-blue/40 rounded-2xl p-8 hover:border-accent-blue transition-all duration-300 card-hover shadow-lg hover:shadow-neon-blue flex flex-col justify-between">
+            <div>
+
+                <h3 class="text-2xl font-heading font-bold mb-4 text-gray-900 dark:text-white">
+                    {{ section.extra.strength_incident_title }}
+                </h3>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {{ section.extra.strength_incident_desc }}
+                </p>
+            </div>
+        </div>
+
+        <!-- Zero Questionari (Highlighted with Green Neon Glow) -->
+        <div
+            class="relative bg-gradient-to-br from-accent-green/10 via-white/80 to-white/90 dark:from-accent-green/10 dark:via-dark-surface/90 dark:to-dark-surface backdrop-blur-xl border border-accent-green/30 dark:border-accent-green/40 rounded-2xl p-8 hover:border-accent-green transition-all duration-300 card-hover shadow-lg hover:shadow-neon-green flex flex-col justify-between">
+            <div>
+
+                <h3 class="text-2xl font-heading font-bold mb-4 text-gray-900 dark:text-white">
+                    {{ section.extra.strength_no_questionnaire_title }}
+                </h3>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {{ section.extra.strength_no_questionnaire_desc }}
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="text-center mt-12 mb-4">
+        <button type="button" onclick="window.location.href='{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}about/'"
+            class="interactive-element inline-block px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple cursor-pointer">
+            {% if lang == 'it' %}Scopri la nostra missione{% else %}Discover our mission{% endif %}
         </button>
     </div>
 </section>
 
-<!-- Use Cases Section -->
-<section id="use-cases" class="bg-gray-50 dark:bg-dark-surface py-20">
-    <div class="container mx-auto px-6">
-        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-4 text-center">
-            {{ section.extra.use_cases_title }}
-        </h2>
-        <p class="text-xl text-gray-600 dark:text-gray-400 mb-12 text-center max-w-3xl mx-auto">
-            {{ section.extra.use_cases_subtitle }}
-        </p>
-        
-        <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {% for use_case in section.extra.use_cases %}
-            <div class="bg-white dark:bg-dark-bg border border-gray-200 dark:border-dark-border rounded-xl p-8 hover:border-accent-{{ use_case.color }} transition-all interactive-element">
-                <div class="mb-4">
-                    {{ use_case.icon | safe }}
-                </div>
-                <h3 class="text-2xl font-heading font-semibold mb-3 text-gray-900 dark:text-white">
-                    {{ use_case.title }}
+<!-- Section Divider -->
+<div class="w-full max-w-5xl mx-auto my-6 px-6">
+    <div class="h-[1px] bg-gradient-to-r from-transparent via-accent-purple/20 via-accent-green/20 to-transparent">
+    </div>
+</div>
+
+<!-- Real-World Scenarios Section -->
+<section class="container mx-auto px-6 py-20 relative overflow-hidden">
+    <div class="absolute top-1/4 left-0 w-96 h-96 bg-accent-green/5 dark:bg-accent-green/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    <div class="absolute bottom-1/4 right-0 w-96 h-96 bg-accent-blue/5 dark:bg-accent-blue/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    <div class="max-w-6xl mx-auto">
+        <div class="flex items-center gap-3 mb-12 justify-center">
+            <svg class="w-10 h-10 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+            </svg>
+            <h2 class="text-4xl font-heading font-bold text-gray-900 dark:text-white">
+                {{ section.extra.scenarios_title }}
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            {% for challenge in section.extra.challenges %}
+            <div class="bg-gradient-to-br from-accent-blue/10 via-white/80 to-white/90 dark:from-accent-blue/10 dark:via-dark-surface/90 dark:to-dark-surface backdrop-blur-xl border border-accent-blue/30 dark:border-accent-blue/40 rounded-xl p-8 shadow-lg hover:shadow-neon-blue">
+                <h3 class="text-2xl font-heading font-semibold mb-4 text-gray-900 dark:text-white">
+                    {{ challenge.title }}
                 </h3>
-                <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
-                    {{ use_case.description }}
+                <p class="text-gray-600 dark:text-gray-400 mb-6">
+                    {{ challenge.description }}
                 </p>
-                <ul class="space-y-2">
-                    {% for item in use_case.items %}
-                    <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
-                        <svg class="w-5 h-5 text-accent-{{ use_case.color }} flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                <ul class="space-y-3">
+                    {% for issue in challenge.issues %}
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-accent-blue flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
                         </svg>
-                        {{ item }}
+                        <span class="text-sm text-gray-600 dark:text-gray-400"><strong class="text-gray-900 dark:text-white">{{ issue | split(pat=":") | first }}:</strong>{{ issue | split(pat=":") | last }}</span>
                     </li>
                     {% endfor %}
                 </ul>
@@ -119,25 +194,168 @@
     </div>
 </section>
 
-<!-- Capabilities Section -->
-<section id="features" class="container mx-auto px-6 py-20">
-    <h2 class="text-4xl md:text-5xl font-heading font-bold mb-4 text-center">
-        {{ section.extra.capabilities_title }}
-    </h2>
-    <p class="text-xl text-gray-600 dark:text-gray-400 mb-12 text-center max-w-3xl mx-auto">
-        {{ section.extra.capabilities_subtitle }}
-    </p>
+<!-- Solutions Section -->
+<section class="container mx-auto px-6 py-20 relative overflow-hidden">
+    <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent-purple/5 dark:bg-accent-purple/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-accent-blue/5 dark:bg-accent-blue/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    <div class="max-w-6xl mx-auto">
+        <div class="flex items-center gap-3 mb-12 justify-center">
+            <svg class="w-10 h-10 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+            </svg>
+            <h2 class="text-4xl font-heading font-bold text-gray-900 dark:text-white">
+                {{ section.extra.solutions_title | safe }}
+            </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            {% for solution in section.extra.solutions %}
+            <div class="bg-gradient-to-br from-accent-blue/10 via-white/80 to-white/90 dark:from-accent-blue/10 dark:via-dark-surface/90 dark:to-dark-surface backdrop-blur-xl border border-accent-blue/30 dark:border-accent-blue/40 rounded-xl p-8 shadow-lg hover:shadow-neon-blue">
+                <h3 class="text-2xl font-heading font-semibold mb-6 text-gray-900 dark:text-white">
+                    {{ solution.title }}
+                </h3>
+                <ul class="space-y-4">
+                    {% for item in solution.solutions %}
+                    <li class="flex items-start gap-3">
+                        <svg class="w-6 h-6 text-accent-green flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <span class="text-gray-600 dark:text-gray-400"><strong class="text-gray-900 dark:text-white">{{ item | split(pat=":") | first }}:</strong>{{ item | split(pat=":") | last }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Section Divider -->
+<div class="w-full max-w-5xl mx-auto my-6 px-6">
+    <div class="h-[1px] bg-gradient-to-r from-transparent via-accent-blue/20 via-accent-purple/20 to-transparent">
+    </div>
+</div>
+
+<!-- Built For Section -->
+<section id="built-for" class="container mx-auto px-6 py-20">
+    <div class="text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold">
+            {{ section.extra.built_for_title | safe }}
+        </h2>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-12 max-w-5xl mx-auto">
+        {% for audience in section.extra.built_for_audiences %}
+        <div class="text-center">
+            <div class="mb-6 flex justify-center">
+                <div
+                    class="p-6 bg-white dark:bg-dark-surface shadow-sm border border-accent-{{ audience.color }} rounded-full glow-{{ audience.color }} icon-hover">
+                    {{ audience.icon | safe }}
+                </div>
+            </div>
+            <p class="text-lg text-gray-700 dark:text-gray-300">
+                {{ audience.text }}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="text-center mt-12">
+        <button type="button"
+            onclick="window.location.href='{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}partners/'"
+            class="interactive-element inline-block px-8 py-4 border-2 border-accent-purple text-accent-purple font-semibold rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple cursor-pointer">
+            {{ section.extra.partner_program_button }}
+        </button>
+    </div>
+</section>
+
+<!-- Section Divider -->
+<div class="w-full max-w-5xl mx-auto my-6 px-6">
+    <div class="h-[1px] bg-gradient-to-r from-transparent via-accent-green/20 via-accent-blue/20 to-transparent"></div>
+</div>
+
+<!-- Use Cases Section -->
+<section id="use-cases" class="container mx-auto px-6 py-20 rounded-2xl relative overflow-hidden">
+    <!-- Decorative background elements for glass effect -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-accent-blue/5 dark:bg-accent-blue/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    <div class="absolute bottom-0 left-0 w-96 h-96 bg-accent-purple/5 dark:bg-accent-purple/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
     
+    <div class="text-center mb-12 relative z-10">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-4">
+            {{ section.extra.use_cases_title }}
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            {{ section.extra.use_cases_subtitle }}
+        </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {% for use_case in section.extra.use_cases %}
+        <div
+            class="bg-gradient-to-br from-accent-{{ use_case.color }}/10 via-white/80 to-white/90 dark:from-accent-{{ use_case.color }}/20 dark:via-dark-surface/60 dark:to-dark-surface/60 backdrop-blur-xl border border-accent-{{ use_case.color }}/20 dark:border-accent-{{ use_case.color }}/20 rounded-xl p-8 hover:border-accent-{{ use_case.color }} transition-all duration-300 interactive-element shadow-lg hover:shadow-neon-{{ use_case.color }} flex flex-col h-full">
+            <div class="mb-4">
+                {{ use_case.icon | safe }}
+            </div>
+            <h3 class="text-2xl font-heading font-semibold mb-3 text-gray-900 dark:text-white">
+                {{ use_case.title }}
+            </h3>
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+                {{ use_case.description }}
+            </p>
+            <ul class="space-y-2">
+                {% for item in use_case.items %}
+                <li class="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-400">
+                    <svg class="w-5 h-5 text-accent-{{ use_case.color }} flex-shrink-0 mt-0.5" fill="none"
+                        stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    {{ item }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="text-center mt-12 mb-4 relative z-10">
+        <button type="button" onclick="window.location.href='{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}roadmap/'"
+            class="interactive-element inline-block px-8 py-4 border-2 border-accent-green text-accent-green font-semibold rounded-lg hover:bg-accent-green hover:text-dark-bg transition-all glow-green cursor-pointer">
+            {% if lang == 'it' %}Scopri la nostra Roadmap{% else %}Discover our Roadmap{% endif %}
+        </button>
+    </div>
+</section>
+
+<!-- Section Divider -->
+<div class="w-full max-w-5xl mx-auto my-6 px-6">
+    <div class="h-[1px] bg-gradient-to-r from-transparent via-accent-blue/20 via-accent-purple/20 to-transparent"></div>
+</div>
+
+<!-- Capabilities Section -->
+<section id="features" class="container mx-auto px-6 py-20 relative overflow-hidden">
+    <!-- Decorative background elements for glass effect -->
+    <div class="absolute top-1/4 right-0 w-96 h-96 bg-accent-green/5 dark:bg-accent-green/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    <div class="absolute bottom-1/4 left-0 w-96 h-96 bg-accent-purple/5 dark:bg-accent-purple/10 rounded-full blur-[100px] pointer-events-none -z-10"></div>
+    
+    <div class="text-center mb-12 relative z-10">
+        <h2 class="text-4xl md:text-5xl font-heading font-bold mb-4">
+            {{ section.extra.capabilities_title }}
+        </h2>
+        <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+            {{ section.extra.capabilities_subtitle }}
+        </p>
+    </div>
+
     <div class="max-w-4xl mx-auto space-y-8">
         <!-- Applications Group -->
-        <div class="bg-gray-50 dark:bg-dark-surface border border-gray-200 dark:border-dark-border rounded-xl p-8">
+        <div class="bg-gradient-to-br from-accent-green/10 via-white/80 to-white/90 dark:from-accent-green/20 dark:via-dark-surface/60 dark:to-dark-surface/60 backdrop-blur-xl border border-accent-green/30 dark:border-accent-green/30 rounded-xl p-8 shadow-lg">
             <h3 class="text-2xl font-heading font-semibold mb-6 text-accent-blue">
                 {{ section.extra.applications_label }}
             </h3>
-            
+
             <div class="space-y-4">
                 {% for app in section.extra.applications %}
-                <div class="flex items-start justify-between gap-4 {% if not loop.last %}border-b border-gray-200 dark:border-dark-border pb-4{% endif %}">
+                <div
+                    class="flex items-start justify-between gap-4 {% if not loop.last %}border-b border-gray-200 dark:border-dark-border pb-4{% endif %}">
                     <div class="flex items-start gap-4 flex-1">
                         <div class="p-2 bg-accent-green/10 rounded-lg icon-hover flex-shrink-0">
                             {{ app.icon | safe }}
@@ -154,22 +372,23 @@
                         </div>
                     </div>
                     <span class="status-badge status-implemented text-xs px-2 py-0.5 rounded-full flex-shrink-0">
-                        Active
+                        {{ trans(key="status_active", lang=lang) }}
                     </span>
                 </div>
                 {% endfor %}
             </div>
         </div>
-        
+
         <!-- Platform Services Group -->
-        <div class="bg-gray-50 dark:bg-dark-surface border border-gray-200 dark:border-dark-border rounded-xl p-8">
+        <div class="bg-gradient-to-br from-accent-purple/10 via-white/80 to-white/90 dark:from-accent-purple/20 dark:via-dark-surface/60 dark:to-dark-surface/60 backdrop-blur-xl border border-accent-purple/30 dark:border-accent-purple/30 rounded-xl p-8 shadow-lg">
             <h3 class="text-2xl font-heading font-semibold mb-6 text-accent-purple">
                 {{ section.extra.services_label }}
             </h3>
-            
+
             <div class="space-y-4">
                 {% for service in section.extra.platform_services %}
-                <div class="flex items-start justify-between gap-4 {% if not loop.last %}border-b border-gray-200 dark:border-dark-border pb-4{% endif %}">
+                <div
+                    class="flex items-start justify-between gap-4 {% if not loop.last %}border-b border-gray-200 dark:border-dark-border pb-4{% endif %}">
                     <div class="flex items-start gap-4 flex-1">
                         <div class="p-2 bg-accent-purple/10 rounded-lg icon-hover flex-shrink-0">
                             {{ service.icon | safe }}
@@ -180,24 +399,36 @@
                             </h4>
                         </div>
                     </div>
-                    <span class="status-badge status-progress text-xs px-2 py-0.5 rounded-full flex-shrink-0">
-                        In Progress
+                    {% set is_active = false %}
+                    {% if service.status and service.status == "implemented" %}
+                    {% set is_active = true %}
+                    {% endif %}
+                    <span
+                        class="status-badge {% if is_active %}status-implemented{% else %}status-progress{% endif %} text-xs px-2 py-0.5 rounded-full flex-shrink-0">
+                        {% if is_active %}
+                        {{ trans(key="status_active", lang=lang) }}
+                        {% else %}
+                        {{ trans(key="status_in_progress", lang=lang) }}
+                        {% endif %}
                     </span>
                 </div>
                 {% endfor %}
             </div>
         </div>
     </div>
-    
+
     <div class="text-center mt-12">
-        <button type="button" onclick="window.location.href='{{config.base_url}}/features/'" class="interactive-element inline-block px-8 py-4 border-2 border-accent-blue text-accent-blue font-semibold rounded-lg hover:bg-accent-blue hover:text-dark-bg transition-all glow-blue cursor-pointer">
-            Explore All Features
+        <button type="button"
+            onclick="window.location.href='{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}features/'"
+            class="interactive-element inline-block px-8 py-4 border-2 border-accent-blue text-accent-blue font-semibold rounded-lg hover:bg-accent-blue hover:text-dark-bg transition-all glow-blue cursor-pointer">
+            {{ section.extra.explore_features_button }}
         </button>
     </div>
 </section>
 
 <!-- Final CTA Section -->
-<section id="beta-access" class="bg-gradient-to-br from-accent-blue/10 via-accent-purple/10 to-accent-green/10 dark:from-accent-blue/5 dark:via-accent-purple/5 dark:to-accent-green/5 py-20">
+<section id="beta-access"
+    class="bg-gradient-to-br from-accent-blue/10 via-accent-purple/10 to-accent-green/10 dark:from-accent-blue/5 dark:via-accent-purple/5 dark:to-accent-green/5 py-20">
     <div class="container mx-auto px-6">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-4xl md:text-5xl font-heading font-bold mb-6">
@@ -206,9 +437,16 @@
             <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
                 {{ section.extra.final_cta_description }}
             </p>
-            <button type="button" onclick="window.location.href='{{config.base_url}}{{ section.extra.final_cta_url }}'" class="interactive-element inline-block px-10 py-5 bg-accent-blue text-dark-bg font-semibold text-lg rounded-lg glow-blue hover:bg-accent-green transition-all cursor-pointer">
-                {{ section.extra.final_cta_button }}
-            </button>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button type="button" onclick="window.location.href='{{config.base_url}}{{ section.extra.final_cta_url }}'"
+                    class="interactive-element px-10 py-5 bg-accent-blue text-dark-bg font-semibold text-lg rounded-lg glow-blue hover:bg-accent-green transition-all cursor-pointer">
+                    {{ section.extra.final_cta_button }}
+                </button>
+                <button type="button" onclick="window.location.href='{{config.base_url}}/{% if lang != config.default_language %}{{ lang }}/{% endif %}blog/'"
+                    class="interactive-element px-10 py-5 border-2 border-accent-purple text-accent-purple font-semibold text-lg rounded-lg hover:bg-accent-purple hover:text-dark-bg transition-all glow-purple cursor-pointer">
+                    {% if lang == 'it' %}Leggi gli Insights{% else %}Read our Insights{% endif %}
+                </button>
+            </div>
             <p class="text-sm text-gray-500 dark:text-gray-500 mt-6">
                 {{ section.extra.final_cta_note }}
             </p>

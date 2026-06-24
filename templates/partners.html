@@ -4,12 +4,14 @@
 
 <!-- Hero Section -->
 <section class="container mx-auto px-6 py-20 text-center">
+    {% if page.extra.kicker %}
     <p class="text-accent-blue text-sm font-semibold tracking-wider uppercase mb-4">
-        {{ page.extra.kicker | default(value="ECOSYSTEM") }}
+        {{ page.extra.kicker }}
     </p>
+    {% endif %}
     
     <h1 class="text-5xl md:text-6xl font-heading font-bold mb-6 text-gray-900 dark:text-white">
-        {{ page.extra.hero_title | default(value="Partner with resysto") }}
+        {{ page.extra.hero_title | default(value="Partner with <span class='text-accent-blue'>resysto</span>") | safe }}
     </h1>
     
     <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-8">
@@ -75,14 +77,24 @@
         </div>
         
         <!-- Full Width: Ideal Partners -->
-        <div class="bg-light-surface dark:bg-dark-surface border border-light-border dark:border-dark-border rounded-xl p-8">
+        <div class="bg-gradient-to-br from-accent-blue/5 via-white/80 to-white/90 dark:from-accent-blue/5 dark:via-dark-surface/50 dark:to-dark-surface/60 backdrop-blur-xl border border-gray-200/50 dark:border-dark-border/50 rounded-xl p-8 shadow-md transition-all duration-300">
             <h3 class="text-xl font-heading font-semibold mb-6 text-gray-900 dark:text-white">
                 {{ page.extra.mssp_ideal_title }}
             </h3>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
                 {% for partner in page.extra.mssp_ideal_partners %}
-                <div class="flex items-center gap-2 p-4 bg-accent-green/5 border border-accent-green/20 rounded-lg">
-                    <svg class="w-5 h-5 text-accent-green flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <div class="flex items-center gap-3 p-4 bg-white/40 dark:bg-dark-bg/30 backdrop-blur-md border hover:scale-[1.02] transition-all duration-300 rounded-lg shadow-sm
+                    {% if loop.index == 1 %}border-accent-blue/30 hover:border-accent-blue/50 hover:shadow-neon-blue/5
+                    {% elif loop.index == 2 %}border-accent-purple/30 hover:border-accent-purple/50 hover:shadow-neon-purple/5
+                    {% elif loop.index == 3 %}border-accent-green/30 hover:border-accent-green/50 hover:shadow-neon-green/5
+                    {% else %}border-accent-purple/30 hover:border-accent-purple/50 hover:shadow-neon-purple/5
+                    {% endif %}">
+                    <svg class="w-5 h-5 flex-shrink-0
+                        {% if loop.index == 1 %}text-accent-blue
+                        {% elif loop.index == 2 %}text-accent-purple
+                        {% elif loop.index == 3 %}text-accent-green
+                        {% else %}text-accent-purple
+                        {% endif %}" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>
                     <span class="text-sm text-gray-700 dark:text-gray-300">{{ partner }}</span>
@@ -94,7 +106,7 @@
 </section>
 
 <!-- Technical Partners Section -->
-<section id="technical-partners" class="container mx-auto px-6 py-20 bg-dark-surface/30">
+<section id="technical-partners" class="container mx-auto px-6 py-20 ">
     <div class="max-w-6xl mx-auto">
         <!-- Section Title with Icon -->
         <div class="flex items-center gap-3 mb-12">
@@ -181,7 +193,7 @@
             
             <!-- Final CTA -->
             <p class="text-xl text-gray-900 dark:text-white font-semibold">
-                {{ page.extra.final_cta_text }}
+                {{ page.extra.final_cta_text | safe }}
             </p>
         </div>
     </div>

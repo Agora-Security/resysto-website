@@ -43,6 +43,8 @@ contact = "Contact"
 privacy = "Privacy"
 terms = "Terms"
 language = "Language"
+status_active = "Online"
+status_in_progress = "Developing"
 
 [languages.it.translations]
 # Italian translations
@@ -57,6 +59,8 @@ contact = "Contatto"
 privacy = "Privacy"
 terms = "Termini"
 language = "Lingua"
+status_active = "Online"
+status_in_progress = "In sviluppo"
 
 [markdown.highlighting]
 enabled = true
