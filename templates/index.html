@@ -96,18 +96,18 @@
             <div class="absolute top-0 right-0 w-32 h-32 bg-accent-purple/10 rounded-full blur-3xl pointer-events-none">
             </div>
             <div>
-                <div class="mb-6">
-                    <span
-                        class="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-purple bg-accent-purple/10 rounded-full">
-                        {{ section.extra.strength_pmi_badge }}
-                    </span>
-                </div>
                 <h3 class="text-3xl font-heading font-bold mb-4 text-gray-900 dark:text-white">
                     {{ section.extra.strength_pmi_title }}
                 </h3>
                 <p class="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
                     {{ section.extra.strength_pmi_desc }}
                 </p>
+            </div>
+            <div class="mt-6">
+                <span
+                    class="px-3 py-1 text-xs font-semibold uppercase tracking-wider text-accent-purple bg-accent-purple/10 rounded-full">
+                    {{ section.extra.strength_pmi_badge }}
+                </span>
             </div>
         </div>
 
@@ -135,6 +135,20 @@
                 </h3>
                 <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
                     {{ section.extra.strength_no_questionnaire_desc }}
+                </p>
+            </div>
+        </div>
+
+        <!-- AI-Powered Guidance (Highlighted with Blue Glow) -->
+        <div
+            class="relative bg-gradient-to-br from-accent-blue/10 via-white/80 to-white/90 dark:from-accent-blue/10 dark:via-dark-surface/90 dark:to-dark-surface backdrop-blur-xl border border-accent-blue/30 dark:border-accent-blue/40 rounded-2xl p-8 hover:border-accent-blue transition-all duration-300 card-hover shadow-lg hover:shadow-neon-blue flex flex-col justify-between">
+            <div>
+
+                <h3 class="text-2xl font-heading font-bold mb-4 text-gray-900 dark:text-white">
+                    {{ section.extra.strength_ai_title }}
+                </h3>
+                <p class="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    {{ section.extra.strength_ai_desc }}
                 </p>
             </div>
         </div>

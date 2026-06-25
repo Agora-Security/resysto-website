@@ -53,6 +53,8 @@ strength_incident_title = "Automazione della Gestione Incidenti"
 strength_incident_desc = "Automazione delle attività ripetitive nella risposta agli incidenti, per una mitigazione più rapida: le decisioni che contano restano sempre a una persona."
 strength_no_questionnaire_title = "Zero Questionari Manuali"
 strength_no_questionnaire_desc = "Elimina la compilazione manuale di infiniti questionari, rendendo la governance basata su azioni reali e verificabili."
+strength_ai_title = "Guida basata sull'AI"
+strength_ai_desc = "Sicurezza pratica, automatizzata e continua — trasforma i dati reali sul campo in azioni concrete, dalle operazioni quotidiane fino all'implementazione della compliance."
 
 # Built For Section
 [[extra.built_for_audiences]]
