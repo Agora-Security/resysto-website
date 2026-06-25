@@ -53,6 +53,8 @@ strength_incident_title = "Incident Management Automation"
 strength_incident_desc = "Automated incident response workflows for rapid mitigation and minimal business disruption."
 strength_no_questionnaire_title = "Zero Manual Questionnaires"
 strength_no_questionnaire_desc = "Eliminate endless manual questionnaires, enabling practical and action-oriented cybersecurity governance."
+strength_ai_title = "AI-Powered Guidance"
+strength_ai_desc = "Automated, continuous practical security — turning real on-field data into concrete actions, from day-to-day operations all the way to compliance implementation."
 
 # Built For Section
 [[extra.built_for_audiences]]
