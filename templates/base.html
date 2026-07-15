@@ -7,7 +7,7 @@
 
     <!-- SEO: Title Tag -->
     <title>{% if page.title %}{{ page.title }} | Resysto{% elif section.title %}{{ section.title }} | Resysto{% else
-        %}Resysto - Central Cyber Resilience and Data Protection Platform{% endif %}</title>
+        %}Resysto - Central Cyber Resilience Platform{% endif %}</title>
 
     <!-- SEO: Meta Description -->
     <meta name="description"
@@ -39,7 +39,7 @@
         content="{% if page.extra.og_type %}{{ page.extra.og_type }}{% else %}{{ config.extra.og_type }}{% endif %}" />
     <meta property="og:site_name" content="{{ config.extra.site_name }}" />
     <meta property="og:title"
-        content="{% if page.title %}{{ page.title }}{% elif section.title %}{{ section.title }}{% else %}Resysto - Central Cyber Resilience and Data Protection Platform{% endif %}" />
+        content="{% if page.title %}{{ page.title }}{% elif section.title %}{{ section.title }}{% else %}Resysto - Central Cyber Resilience Platform{% endif %}" />
     <meta property="og:description"
         content="{% if page.description %}{{ page.description }}{% elif section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}" />
     <meta property="og:url"
@@ -57,7 +57,7 @@
     <!-- SEO: Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title"
-        content="{% if page.title %}{{ page.title }}{% elif section.title %}{{ section.title }}{% else %}Resysto - Central Cyber Resilience and Data Protection Platform{% endif %}" />
+        content="{% if page.title %}{{ page.title }}{% elif section.title %}{{ section.title }}{% else %}Resysto - Central Cyber Resilience Platform{% endif %}" />
     <meta name="twitter:description"
         content="{% if page.description %}{{ page.description }}{% elif section.description %}{{ section.description }}{% else %}{{ config.description }}{% endif %}" />
     <meta name="twitter:image"

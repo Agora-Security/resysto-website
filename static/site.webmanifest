@@ -1,7 +1,7 @@
 {
-  "name": "Resysto - Cyber Resilience & Data Protection Platform",
+  "name": "Resysto - Cyber Resilience Platform",
   "short_name": "Resysto",
-  "description": "Central Cyber Resilience and Data Protection platform to govern and manage cybersecurity and privacy.",
+  "description": "Central Cyber Resilience platform to govern and manage cybersecurity and privacy.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#11151c",
