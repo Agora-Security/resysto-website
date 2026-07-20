@@ -21,8 +21,9 @@ The Service processes limited personal data: **first name, surname, email addres
 |---|---|---|---|
 | **Contabo GmbH** (Munich, Germany) | Cloud compute and application hosting (virtual private servers) | Germany (EU) | Processing within the EU; Art. 28 data-processing agreement |
 | **Wasabi Technologies, Inc.** (USA, with EU storage regions) | S3-compatible object storage and backups of Customer Data | Italy (Milan), Germany and France (EU) | Data stored in EU regions; Standard Contractual Clauses / transfer-impact assessment for the US parent; Art. 28 data-processing agreement |
+| **Cloudflare, Inc.** (USA) | Authoritative DNS, CDN and reverse-proxy / edge security (WAF, bot management) for the Resysto tenant domains (`*.resysto.io`) | Global edge network (US company) | Cloudflare GDPR data-processing terms; EU-US Data Privacy Framework; Standard Contractual Clauses |
 
-All Customer Data is hosted and processed **within the European Union / European Economic Area**.
+Customer Data is **stored and processed at rest within the EU/EEA** (Contabo — Germany; Wasabi — Italy/Germany/France; on-premises AI — Italy). Inbound traffic to the tenant domains is routed through **Cloudflare's global CDN / reverse-proxy** (Cloudflare, Inc., USA) under its GDPR data-processing terms, the EU-US Data Privacy Framework and Standard Contractual Clauses.
 
 ## Agorà Security processing locations (not subprocessors)
 

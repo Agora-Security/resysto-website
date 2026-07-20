@@ -21,8 +21,9 @@ Il Servizio tratta dati personali limitati: **nome, cognome, indirizzo email e n
 |---|---|---|---|
 | **Contabo GmbH** (Monaco di Baviera, Germania) | Calcolo cloud e hosting applicativo (server virtuali) | Germania (UE) | Trattamento nell'UE; accordo di trattamento ex art. 28 |
 | **Wasabi Technologies, Inc.** (USA, con regioni di storage nell'UE) | Object storage compatibile S3 e backup dei Dati del Cliente | Italia (Milano), Germania e Francia (UE) | Dati archiviati in regioni UE; Clausole Contrattuali Tipo / valutazione d'impatto sul trasferimento per la capogruppo statunitense; accordo di trattamento ex art. 28 |
+| **Cloudflare, Inc.** (USA) | DNS autoritativo, CDN e reverse-proxy / edge security (WAF, bot management) per i domini dei tenant Resysto (`*.resysto.io`) | Rete edge globale (società USA) | Termini di trattamento dati conformi al GDPR di Cloudflare; Data Privacy Framework UE-USA; Clausole Contrattuali Tipo |
 
-Tutti i Dati del Cliente sono ospitati e trattati **all'interno dell'Unione Europea / Spazio Economico Europeo**.
+I Dati del Cliente sono **archiviati e trattati a riposo all'interno dell'UE/SEE** (Contabo — Germania; Wasabi — Italia/Germania/Francia; AI on-premise — Italia). Il traffico in ingresso verso i domini dei tenant è instradato attraverso la **rete CDN / reverse-proxy globale di Cloudflare** (Cloudflare, Inc., USA) ai sensi dei suoi termini di trattamento dati conformi al GDPR, del Data Privacy Framework UE-USA e delle Clausole Contrattuali Tipo.
 
 ## Luoghi di trattamento di Agorà Security (non sub-responsabili)
 
