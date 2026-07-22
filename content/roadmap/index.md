@@ -54,39 +54,36 @@ technical_focus = [
 ]
 
 [[extra.phases]]
-name = "Phase 2<br>MSSP Integration, Incident Management application, and first AI services integrations"
+name = "Phase 2<br>MSSP Integration & Incident Management application"
 timeline = "Q4 2025"
-description = "Focus on MSSP enablement, automation, AI-assisted workflows."
+description = "Focus on MSSP enablement and Incident Response automation."
 status = "completed"
 status_label = "Completed"
 status_icon = "✅"
 color = "green"
 deliverables = [
     { icon = "🌐", title = "MSSP Multi-tenant Access", description = "Dedicated console for managed service providers" },
-    { icon = "🚨", title = "Incident Management", description = "Improve the platform with an Incident Management solution, for Incident Response workflows and automation" },
-    { icon = "🧠", title = "GraphRAG Knowledge System", description = "Design and implement a GraphRAG for contextual and automated security assistance" },
-    { icon = "🤖", title = "AI Assistant", description = "Design and implement an intelligent AI agent for security recommendations and automations (e.g. security assessment auto-completion, or third party surveys auto-completion)" }
+    { icon = "🚨", title = "Incident Management", description = "Improve the platform with an Incident Management solution, for Incident Response workflows and automation" }
 ]
 technical_focus = [
     "Multi‑tenant architecture implementation",
-    "Marketplace for third‑party extensions",
-    "Knowledge base and search capabilities",
-    "GenAI integration",
+    "Incident Response workflows and automation",
     "Advanced workflow automation"
 ]
 
 [[extra.phases]]
-name = "Phase 3<br>Tools integrations and advance reporting"
+name = "Phase 3<br>Tools integrations, AI services and advanced reporting"
 timeline = "Q1–Q2 2026"
-description = "Focus on tech tools integrations, reporting, and enterprise controls."
+description = "Focus on tech tools integrations, AI services, reporting, and enterprise controls."
 status = "in-progress"
 status_label = "In Progress"
 status_icon = "🔄"
 color = "blue"
 deliverables = [
+    { icon = "🧠", title = "GraphRAG Knowledge System", description = "Design and implement a GraphRAG for contextual and automated security assistance" },
+    { icon = "🤖", title = "AI Assistant", description = "Design and implement an intelligent AI agent for security recommendations and automations (e.g. security assessment auto-completion, or third party surveys auto-completion)" },
     { icon = "🔗", title = "External Tool Integration", description = "First‑party integrations with popular security tools" },
     { icon = "📊", title = "Enhanced Reporting", description = "Advanced analytics and compliance reporting" },
-    { icon = "📈", title = "Advanced Analytics", description = "Predictive security posture and risk assessment" },
     { icon = "🔐", title = "Enterprise Features", description = "Advanced role management and audit capabilities" }
 ]
 technical_focus = [
@@ -96,15 +93,33 @@ technical_focus = [
 
 [[extra.phases]]
 name = "Phase 4<br>Future Considerations"
-timeline = "Q3 2026+"
+timeline = "Q3 2026"
 description = "Ideas we intend to explore and validate with users."
 status = "future"
 status_label = "Future"
 status_icon = "👀"
 color = "blue"
 looking_ahead = [
-    "Integration of GenAI capabilities to streamline and automate incident management",
-    "Threat Intelligence lead Cybersecurity Roadmap and Governance definition",
+    "Agentic AI framework integration",
+    "Multi-agent architecture",
+    "External communication channels integrations (e.g. MS Teams, Slack, Matrix, etc.)",
+    "MCP server",
+    "Enterprise SSO integration",
     "Industry‑specific compliance modules"
+]
+
+[[extra.phases]]
+name = "Phase 5<br>Future Considerations"
+timeline = "Q4 2026"
+description = "Ideas we intend to explore and validate with users."
+status = "future"
+status_label = "Future"
+status_icon = "👀"
+color = "blue"
+looking_ahead = [
+    "Threat-intelligence-led GRC and governance",
+    "GenAI-driven incident management",
+    "More external tools integrations",
+    "Agentic AI skills and workflows"
 ]
 +++

@@ -54,39 +54,36 @@ technical_focus = [
 ]
 
 [[extra.phases]]
-name = "Fase 2<br>Integrazione MSSP, applicazione Incident Management e prime integrazioni servizi AI"
+name = "Fase 2<br>Integrazione MSSP e applicazione Incident Management"
 timeline = "Q4 2025"
-description = "Focus su abilitazione MSSP, automazione e workflow assistiti da AI."
+description = "Focus su abilitazione MSSP e automazione dell'Incident Response."
 status = "completed"
 status_label = "Completato"
 status_icon = "✅"
 color = "green"
 deliverables = [
     { icon = "🌐", title = "Accesso Multi-tenant MSSP", description = "Console dedicata per i fornitori di servizi gestiti" },
-    { icon = "🚨", title = "Gestione Incidenti", description = "Migliora la piattaforma con una soluzione di Gestione Incidenti, per workflow di Incident Response e automazione" },
-    { icon = "🧠", title = "Conoscenza GraphRAG", description = "Progetta e implementa un sistema GraphRAG per assistenza di sicurezza contestuale e automatizzata" },
-    { icon = "🤖", title = "Assistente AI", description = "Progetta e implementa un assistente AI per raccomandazioni e bozze di automazione di sicurezza (es. precompilazione di valutazioni di sicurezza o questionari di terze parti)" }
+    { icon = "🚨", title = "Gestione Incidenti", description = "Migliora la piattaforma con una soluzione di Gestione Incidenti, per workflow di Incident Response e automazione" }
 ]
 technical_focus = [
     "Implementazione architettura multi-tenant",
-    "Marketplace per estensioni di terze parti",
-    "Base di conoscenza e capacità di ricerca",
-    "Integrazione GenAI",
+    "Workflow e automazione di Incident Response",
     "Automazione avanzata dei workflow"
 ]
 
 [[extra.phases]]
-name = "Fase 3<br>Integrazioni strumenti e reporting avanzato"
+name = "Fase 3<br>Integrazioni strumenti, servizi AI e reporting avanzato"
 timeline = "Q1–Q2 2026"
-description = "Focus su integrazioni strumenti tech, reporting e controlli enterprise."
+description = "Focus su integrazioni strumenti tech, servizi AI, reporting e controlli enterprise."
 status = "in-progress"
 status_label = "In Corso"
 status_icon = "🔄"
 color = "blue"
 deliverables = [
+    { icon = "🧠", title = "Conoscenza GraphRAG", description = "Progetta e implementa un sistema GraphRAG per assistenza di sicurezza contestuale e automatizzata" },
+    { icon = "🤖", title = "Assistente AI", description = "Progetta e implementa un assistente AI per raccomandazioni e bozze di automazione di sicurezza (es. precompilazione di valutazioni di sicurezza o questionari di terze parti)" },
     { icon = "🔗", title = "Integrazione Strumenti Esterni", description = "Integrazioni first-party con strumenti di sicurezza popolari" },
     { icon = "📊", title = "Reportistica Avanzata", description = "Analisi avanzate e reportistica di conformità" },
-    { icon = "📈", title = "Analisi Avanzate", description = "Postura di sicurezza predittiva e valutazione del rischio" },
     { icon = "🔐", title = "Funzionalità Enterprise", description = "Gestione avanzata dei ruoli e capacità di audit" }
 ]
 technical_focus = [
@@ -96,15 +93,33 @@ technical_focus = [
 
 [[extra.phases]]
 name = "Fase 4<br>Considerazioni Future"
-timeline = "Q3 2026+"
+timeline = "Q3 2026"
 description = "Idee che intendiamo esplorare e validare con gli utenti."
 status = "future"
 status_label = "Futuro"
 status_icon = "👀"
 color = "blue"
 looking_ahead = [
-    "Integrazione delle funzionalità GenAI per l'efficientamento e l'automazione della gestione degli incidenti",
-    "Roadmap di Cybersecurity guidata da Threat Intelligence e definizione della Governance",
+    "Integrazione di un framework di AI agentica",
+    "Architettura multi-agente",
+    "Integrazioni con canali di comunicazione esterni (es. MS Teams, Slack, Matrix, ecc.)",
+    "MCP server",
+    "Integrazione SSO enterprise",
     "Moduli di conformità specifici per settore"
+]
+
+[[extra.phases]]
+name = "Fase 5<br>Considerazioni Future"
+timeline = "Q4 2026"
+description = "Idee che intendiamo esplorare e validare con gli utenti."
+status = "future"
+status_label = "Futuro"
+status_icon = "👀"
+color = "blue"
+looking_ahead = [
+    "GRC e governance guidate dalla threat intelligence",
+    "Gestione degli incidenti guidata dalla GenAI",
+    "Ulteriori integrazioni con strumenti esterni",
+    "Skill e workflow di AI agentica"
 ]
 +++
