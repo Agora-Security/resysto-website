@@ -49,8 +49,8 @@
 /* Global resets and base styles.
    MUST live in @layer base: unlayered rules outrank Tailwind's @layer utilities
    regardless of specificity, so an unlayered `* { margin:0; padding:0 }` would
-   silently kill every px-*/py-*/mx-*/space-x-* utility. Layering keeps the resets
-   as defaults that utilities can override. */
+   silently kill every spacing utility (px, py, mx, space-x). Layering keeps the
+   resets as defaults that utilities can override. */
 @layer base {
     * {
         margin: 0;
