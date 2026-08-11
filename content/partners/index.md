@@ -38,7 +38,6 @@ final_cta_text = "Contact us today and we'll help you enhance your cybersecurity
 mssp_benefits = [
     "Dedicated MSSP Console with multi-tenant management",
     "Standardized Workflows across all client environments",
-    "White-label Options for your brand",
     "Centralized Reporting and analytics dashboard",
     "Partner Training and certification programs",
     "Co-marketing Opportunities and lead sharing"

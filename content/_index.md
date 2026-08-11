@@ -5,7 +5,7 @@ template = "index.html"
 
 [extra]
 # Hero Section
-hero_kicker = "Future-ready security operations"
+hero_kicker = "AI-Native · Future-ready security operations"
 hero_title = "Central <span class=\"text-accent-blue\">Cyber Resilience</span> platform"
 hero_subtitle = "Govern and manage cybersecurity and data protection processes and tools in one place."
 hero_plain = "In simple terms: knowing where your company's security stands, what's missing, and what to do next — without having to hire a full-time expert."
@@ -48,13 +48,12 @@ strength_visibility_title = "Real Visibility for Managers"
 strength_visibility_desc = "Clear insights into cyber protection for management, based on real, auditable data rather than manual questionnaires."
 strength_pmi_title = "Compliance for SMEs & Consortia"
 strength_pmi_desc = "Accessible compliance and standards for SMEs, enabling them to stay competitive in regulated markets."
-strength_pmi_badge = "Extra-Key Point"
 strength_incident_title = "Incident Management Automation"
 strength_incident_desc = "Automated incident response workflows for rapid mitigation and minimal business disruption."
 strength_no_questionnaire_title = "Zero Manual Questionnaires"
 strength_no_questionnaire_desc = "Eliminate endless manual questionnaires, enabling practical and action-oriented cybersecurity governance."
-strength_ai_title = "AI-Powered Guidance"
-strength_ai_desc = "Automated, continuous practical security — turning real on-field data into concrete actions, from day-to-day operations all the way to compliance implementation."
+strength_ai_title = "AI-Native by Design"
+strength_ai_desc = "Built AI-native from the ground up: automated, continuous practical security — turning real on-field data into concrete actions, from day-to-day operations all the way to compliance implementation."
 
 # Built For Section
 [[extra.built_for_audiences]]
@@ -158,6 +157,11 @@ icon = '<svg class="w-8 h-8 text-accent-purple" fill="none" stroke="currentColor
 name = "Marketplace"
 status = "implemented"
 icon = '<svg class="w-8 h-8 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg>'
+
+[[extra.platform_services]]
+name = "Connectors"
+status = "implemented"
+icon = '<svg class="w-8 h-8 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>'
 
 # Problem / Solution Section (Real-World Scenarios -> How resysto Solves These Problems)
 [[extra.challenges]]
