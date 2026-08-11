@@ -38,19 +38,19 @@ cta_secondary_url = "/about#contact"
 [[extra.phases]]
 name = "Phase 1<br>virtual-CISO (vCISO) App Foundation"
 timeline = "Q2–Q3 2025"
-description = "Core launch scope for virtual-CISO application, and foundational app modules."
+description = "Core launch scope for the virtual-CISO application and foundational app modules."
 status = "completed"
 status_label = "Completed"
 status_icon = "✅"
 color = "green"
 deliverables = [
-    { icon = "🛡️", title = "vCISO Application", description = "Virtual-CISO application with the core modules for governance, assets, tools, and security posture" },
-    { icon = "📄", title = "Documents Manager", description = "Document management service, from basic to advanced features, with version control and approval workflows" },
+    { icon = "🛡️", title = "vCISO Application", description = "Virtual-CISO application with core modules for governance, assets, tools and security posture" },
+    { icon = "📄", title = "Documents Manager", description = "Document repository with MSSP hub template adoption, semantic indexing of content, and documents linkable as control evidence" },
     { icon = "🚀", title = "Onboarding & Documentation", description = "User onboarding journey and complete platform documentation" }
 ]
 technical_focus = [
-    "Core module architecture for the vCISO application",
-    "Document management service with versioning and approvals"
+    "Core module architecture of the vCISO application",
+    "Document management service with storage and semantic search"
 ]
 
 [[extra.phases]]
@@ -63,10 +63,10 @@ status_icon = "✅"
 color = "green"
 deliverables = [
     { icon = "🌐", title = "MSSP Multi-tenant Access", description = "Dedicated console for managed service providers" },
-    { icon = "🚨", title = "Incident Management", description = "Improve the platform with an Incident Management solution, for Incident Response workflows and automation" }
+    { icon = "🚨", title = "Incident Management", description = "Enhance the platform with an Incident Management solution, for Incident Response workflows and automation" }
 ]
 technical_focus = [
-    "Multi‑tenant architecture implementation",
+    "Multi-tenant architecture implementation",
     "Incident Response workflows and automation",
     "Advanced workflow automation"
 ]
@@ -75,15 +75,15 @@ technical_focus = [
 name = "Phase 3<br>Tools integrations, AI services and advanced reporting"
 timeline = "Q1–Q2 2026"
 description = "Focus on tech tools integrations, AI services, reporting, and enterprise controls."
-status = "in-progress"
-status_label = "In Progress"
-status_icon = "🔄"
-color = "blue"
+status = "completed"
+status_label = "Completed"
+status_icon = "✅"
+color = "green"
 deliverables = [
-    { icon = "🧠", title = "GraphRAG Knowledge System", description = "Design and implement a GraphRAG for contextual and automated security assistance" },
-    { icon = "🤖", title = "AI Assistant", description = "Design and implement an intelligent AI agent for security recommendations and automations (e.g. security assessment auto-completion, or third party surveys auto-completion)" },
-    { icon = "🔗", title = "External Tool Integration", description = "First‑party integrations with popular security tools" },
-    { icon = "📊", title = "Enhanced Reporting", description = "Advanced analytics and compliance reporting" },
+    { icon = "🧠", title = "GraphRAG Knowledge System", description = "A GraphRAG for contextual and automated security assistance" },
+    { icon = "🤖", title = "AI Assistant", description = "An intelligent AI agent for security recommendations and automations (e.g. security assessment auto-completion, or third party surveys auto-completion)" },
+    { icon = "🔗", title = "External Tool Integration", description = "Ten first-party connectors live across security tools and CMDBs" },
+    { icon = "📊", title = "Enhanced Reporting", description = "Posture, gap and remediation-plan analytics, with per-tenant exports" },
     { icon = "🔐", title = "Enterprise Features", description = "Advanced role management and audit capabilities" }
 ]
 technical_focus = [
@@ -92,8 +92,31 @@ technical_focus = [
 ]
 
 [[extra.phases]]
-name = "Phase 4<br>Future Considerations"
-timeline = "Q3 2026"
+name = "Phase 4<br>Regulatory coverage and operational capabilities"
+timeline = "Q3–Q4 2026"
+description = "Focus on European regulatory coverage, identity governance and new operational capabilities."
+status = "in-progress"
+status_label = "In Progress"
+status_icon = "🔄"
+color = "purple"
+deliverables = [
+    { icon = "🪪", title = "Identity and access", description = "Identity and access governance, integrated with the systems already in use across the organisation" },
+    { icon = "🎯", title = "Risk management", description = "Asset and service criticality, risk assessment and treatment in a single path" },
+    { icon = "✍️", title = "Document lifecycle", description = "Approval, versions and visibility, to show who approved what and when" },
+    { icon = "🗓️", title = "Compliance calendar", description = "Deadlines, periodic reviews and reminders in a single view" },
+    { icon = "🔗", title = "More evidence from the tools in use", description = "Broader integrations to collect configuration, continuity and recovery evidence automatically" },
+    { icon = "⚙️", title = "CyberOps application", description = "A new application for security operations, alongside vCISO and Incident Handler" },
+    { icon = "🚨", title = "Incident management", description = "Incident qualification and exercises, within the Incident Handler application" },
+    { icon = "🛡️", title = "Cyber Resilience Act", description = "The reporting obligations the regulation introduces from September 2026" }
+]
+technical_focus = [
+    "Domain models reusable across multiple regulatory frameworks",
+    "A wider connector family"
+]
+
+[[extra.phases]]
+name = "Phase 5<br>Future Considerations"
+timeline = "Q4 2026 – Q1 2027"
 description = "Ideas we intend to explore and validate with users."
 status = "future"
 status_label = "Future"
@@ -104,13 +127,15 @@ looking_ahead = [
     "Multi-agent architecture",
     "External communication channels integrations (e.g. MS Teams, Slack, Matrix, etc.)",
     "MCP server",
-    "Enterprise SSO integration",
-    "Industry‑specific compliance modules"
+    "Enterprise SSO integration against the customer's identity systems",
+    "Industry‑specific compliance modules",
+    "CRA — secure development and SBOM, ahead of full application on 11 December 2027",
+    "Further regimes: GDPR, DORA, AI Act, Data Act and others"
 ]
 
 [[extra.phases]]
-name = "Phase 5<br>Future Considerations"
-timeline = "Q4 2026"
+name = "Phase 6<br>Future Considerations"
+timeline = "Q2 2027 onwards"
 description = "Ideas we intend to explore and validate with users."
 status = "future"
 status_label = "Future"
@@ -119,6 +144,7 @@ color = "blue"
 looking_ahead = [
     "Threat-intelligence-led GRC and governance",
     "GenAI-driven incident management",
+    "Continuous attack surface analysis",
     "More external tools integrations",
     "Agentic AI skills and workflows"
 ]
