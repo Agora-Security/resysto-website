@@ -5,7 +5,7 @@ template = "index.html"
 
 [extra]
 # Hero Section
-hero_kicker = "Operazioni di sicurezza pronte per il futuro"
+hero_kicker = "AI-Native · Operazioni di sicurezza pronte per il futuro"
 hero_title = "Piattaforma Centrale di <span class=\"text-accent-blue\">Cyber Resilience</span>"
 hero_subtitle = "Governate e gestite processi e strumenti di cybersecurity e data protection in un unico luogo."
 hero_plain = "In parole semplici: sapere a che punto è la sicurezza della vostra azienda, cosa manca e cosa fare dopo — senza dover assumere un esperto a tempo pieno."
@@ -48,13 +48,12 @@ strength_visibility_title = "Visibilità Reale per i Manager"
 strength_visibility_desc = "Visione chiara dello stato di protezione per il management, basata su dati reali e verificabili invece che su questionari."
 strength_pmi_title = "Compliance per PMI e Consorzi"
 strength_pmi_desc = "Compliance e standard accessibili per PMI, per rimanere competitivi ed evitare l'esclusione dai mercati regolamentati."
-strength_pmi_badge = "Particolarmente Importante"
 strength_incident_title = "Automazione della Gestione Incidenti"
 strength_incident_desc = "Automazione delle attività ripetitive nella risposta agli incidenti, per una mitigazione più rapida: le decisioni che contano restano sempre a una persona."
 strength_no_questionnaire_title = "Zero Questionari Manuali"
 strength_no_questionnaire_desc = "Elimina la compilazione manuale di infiniti questionari, rendendo la governance basata su azioni reali e verificabili."
-strength_ai_title = "Guida basata sull'AI"
-strength_ai_desc = "Sicurezza pratica, automatizzata e continua — trasforma i dati reali sul campo in azioni concrete, dalle operazioni quotidiane fino all'implementazione della compliance."
+strength_ai_title = "AI-Native by Design"
+strength_ai_desc = "Costruita AI-native fin dalle fondamenta: sicurezza pratica, automatizzata e continua — trasforma i dati reali sul campo in azioni concrete, dalle operazioni quotidiane fino all'implementazione della compliance."
 
 # Built For Section
 [[extra.built_for_audiences]]
@@ -158,6 +157,11 @@ icon = '<svg class="w-8 h-8 text-accent-purple" fill="none" stroke="currentColor
 name = "Marketplace"
 status = "implemented"
 icon = '<svg class="w-8 h-8 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg>'
+
+[[extra.platform_services]]
+name = "Connettori"
+status = "implemented"
+icon = '<svg class="w-8 h-8 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>'
 
 # Problem / Solution Section (Scenari del Mondo Reale -> Come resysto Risolve Questi Problemi)
 [[extra.challenges]]
