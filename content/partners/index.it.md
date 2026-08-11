@@ -38,7 +38,6 @@ final_cta_text = "Contattateci oggi e vi aiuteremo, con res<span class=\"text-ac
 mssp_benefits = [
     "Console MSSP Dedicata con gestione multi-tenant",
     "Workflow Standardizzati su tutti gli ambienti cliente",
-    "Opzioni White-label per il tuo brand",
     "Reporting Centralizzato e dashboard di analytics",
     "Programmi di Training e certificazione per Partner",
     "Opportunità di Co-marketing e condivisione di lead"
